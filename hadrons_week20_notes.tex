@@ -1,0 +1,363 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{physics}
+\usepackage{braket}
+
+% Colors
+\definecolor{navyblue}{HTML}{1a1a6e}
+\definecolor{midblue}{HTML}{2e4a8e}
+\definecolor{alertred}{HTML}{aa0000}
+\definecolor{notegray}{HTML}{333333}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{navyblue}}{{\color{navyblue}\thesection.}}{0.5em}{}[\vspace{-0.3em}\textcolor{midblue}{\rule{\linewidth}{0.4pt}}]
+\titleformat{\subsection}{\normalsize\bfseries\color{midblue}}{\thesubsection}{0.5em}{}
+
+\titlespacing{\section}{0pt}{14pt}{6pt}
+\titlespacing{\subsection}{0pt}{10pt}{4pt}
+
+% Hyperref setup
+\hypersetup{colorlinks=true, linkcolor=midblue, urlcolor=midblue}
+
+% Custom environments
+\newenvironment{notebox}{%
+  \par\vspace{4pt}
+  \noindent\small\color{notegray}%
+}{\par\vspace{4pt}}
+
+\newcommand{\important}[1]{{\color{alertred}\textbf{#1}}}
+\newcommand{\keyword}[1]{\textbf{#1}}
+
+% Table column types
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+%──────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{navyblue} Physics of Hadrons -- Week 20, VL1}\\[6pt]
+  {\large\color{midblue} Color Charge \& Heavy Mesons}\\[4pt]
+  {\small\color{notegray} Lecture notes compiled from slides}
+\end{center}
+\vspace{-4pt}
+{\color{navyblue}\rule{\linewidth}{1pt}}
+\vspace{8pt}
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{The Symmetry Problem in Baryons (Recap)}
+
+The baryon wave function must be \keyword{totally antisymmetric} (Pauli exclusion principle):
+\[
+  \Psi = \Phi^{\mathrm{flavour}}\, \chi^{\mathrm{spin}}\, R(\mathbf{x})
+\]
+
+For the \keyword{"56"-plet} ($L=0$ ground states), the combined flavour$\times$spin wave function
+is \emph{symmetric} --- a direct contradiction for fermions.
+
+The problem is most obvious in the \keyword{decuplet corner states}:
+\begin{itemize}
+  \item $\Delta^{++} = (u{\uparrow}\, u{\uparrow}\, u{\uparrow})$ --- three identical quarks in the
+        same spin state $\to$ completely symmetric
+  \item $\Omega^{-} = (s{\uparrow}\, s{\uparrow}\, s{\uparrow})$ --- same issue with strange quarks
+\end{itemize}
+
+\important{$\Rightarrow$ The quark model was in serious trouble.}
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{Solution: Color as a New Degree of Freedom}
+
+Proposed by \keyword{Greenberg, Nambu, and Gell-Mann}: each quark flavor carries an additional
+\keyword{color charge} (red $r$, green $g$, blue $b$):
+\[
+  u \;\to\; u_r,\, u_g,\, u_b \qquad
+  d \;\to\; d_r,\, d_g,\, d_b \qquad
+  s \;\to\; s_r,\, s_g,\, s_b
+\]
+
+\subsection{Color symmetry group: SU(3)$^{\mathrm{color}}$}
+
+\begin{itemize}
+  \item Color charges form the \textbf{fundamental triplet} of $\mathrm{SU}(3)^{\mathrm{color}}$
+  \item $\mathrm{SU}(3)^{\mathrm{color}}$ is \textbf{not broken} (unlike flavour SU(3))
+  \item \keyword{Confinement}: all observed states are \textbf{color singlets}
+        --- color charge is never directly observed
+\end{itemize}
+
+\subsection{Color decomposition for baryons}
+
+\[
+  3 \otimes 3 \otimes 3 = 10_S \oplus 8_{M_S} \oplus 8_{M_A} \oplus 1_A
+\]
+
+The color part $\lambda^{\mathrm{color}}$ is taken from the \textbf{antisymmetric singlet
+$1_A$}, making the full wave function antisymmetric:
+\[
+  \Psi
+  = \underbrace{\Phi^{\mathrm{flavour}}\, \chi^{\mathrm{spin}}\, R(\mathbf{x})}_{\text{symmetric}}
+    \times
+    \underbrace{\lambda^{\mathrm{color}}}_{\text{antisymmetric}}
+  \;=\; \text{antisymmetric} \quad \checkmark
+\]
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{Gluons and Color}
+
+Gluons carry \keyword{color and anti-color}. The product representation:
+\[
+  3 \otimes \bar{3} = 1 \oplus 8
+\]
+
+\textbf{8 color-octet states} $\to$ the physical gluons:
+\[
+  r\bar{g},\; r\bar{b},\; g\bar{r},\; g\bar{b},\; b\bar{r},\; b\bar{g},\;
+  \tfrac{1}{\sqrt{2}}(r\bar{r}-g\bar{g}),\;
+  \tfrac{1}{\sqrt{6}}(r\bar{r}+g\bar{g}-2b\bar{b})
+\]
+
+\textbf{1 color-singlet state}:
+\[
+  \tfrac{1}{\sqrt{3}}(r\bar{r}+g\bar{g}+b\bar{b})
+\]
+
+\begin{notebox}
+  \textbf{Important:} If a color-singlet gluon existed it would be a free particle and
+  mediate a long-range strong force --- not observed. QCD uses only the octet.
+  Color charge is the basis of QCD.
+\end{notebox}
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{Experimental Evidence for Color}
+
+\subsection{The \texorpdfstring{$R$}{R}-ratio}
+
+Define the ratio of hadronic to muonic cross sections:
+\[
+  R
+  = \frac{\sigma_{\mathrm{tot}}(e^+e^- \to q\bar{q})}
+         {\sigma_{\mathrm{tot}}(e^+e^- \to \mu^+\mu^-)}
+  = \sum_q e_q^2\, N_c
+\]
+
+Each new quark flavour threshold increases $R$ by $e_q^2 N_c$:
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{C{3.5cm} C{2.5cm} C{3.5cm}}
+  \toprule
+  \rowcolor{navyblue}
+  \color{white}\textbf{Active quarks} &
+  \color{white}$\boldsymbol{\sum e_q^2}$ &
+  \color{white}\textbf{Predicted $R$} \\
+  \midrule
+  $u,\, d$           & $5/9$  & $(5/9)\, N_c$  \\
+  \rowcolor{blue!8}
+  $u,\, d,\, s$      & $6/9$  & $(6/9)\, N_c$  \\
+  $u,\, d,\, s,\, c$ & $10/9$ & $(10/9)\, N_c$ \\
+  \rowcolor{blue!8}
+  $u,\, d,\, s,\, c,\, b$ & $11/9$ & $(11/9)\, N_c$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\vspace{6pt}
+
+Experimental data confirm $\boxed{N_c = 3}$ $\Rightarrow$ \textbf{QCD}.
+
+\subsection{Features of the \texorpdfstring{$e^+e^-$}{e+e-} cross section}
+
+\begin{itemize}
+  \item Low energy: dominated by $\rho,\,\omega,\,\Phi$ resonances
+  \item Two narrow $c\bar{c}$ states ($J/\psi$ family), three narrow $b\bar{b}$ states ($\Upsilon$ family)
+  \item Cross section \textbf{steps up} at each new flavour threshold by $e_q^2 N_c$
+\end{itemize}
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{Heavy Mesons: Discovery of the \texorpdfstring{$J/\psi$}{J/psi}}
+
+\textbf{1974 --- ``November Revolution of Particle Physics''} --- discovered simultaneously
+in two independent experiments:
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{L{3.2cm} L{5cm} L{4cm}}
+  \toprule
+  \rowcolor{midblue}
+  \color{white}\textbf{Experiment} &
+  \color{white}\textbf{Reaction} &
+  \color{white}\textbf{Group / Name} \\
+  \midrule
+  BNL (New York)      & $p + \mathrm{Be} \to e^+e^- + X$   & Aubert et al.\ $\to$ \textbf{J} \\
+  \rowcolor{blue!8}
+  SPEAR (Stanford)    & $e^+e^- \to \mathrm{hadrons}$       & Augustin et al.\ $\to$ \textbf{$\psi$} \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\vspace{6pt}
+
+\subsection{Properties of the \texorpdfstring{$J/\psi$}{J/psi}}
+
+\begin{itemize}
+  \item Mass: $m(J/\psi) = (3096.87 \pm 0.04)\;\mathrm{MeV}$
+  \item Quark content: $c\bar{c}$
+  \item Quantum numbers: $J^{PC} = 1^{--}$ (same as the $\rho$)
+  \item \textbf{Extremely narrow} width
+        (contrast: $m_\rho = 770\;\mathrm{MeV}$, $\Gamma_\rho = 150\;\mathrm{MeV}$)
+\end{itemize}
+
+\begin{notebox}
+  The narrow width is explained by the OZI rule (see Section~\ref{sec:ozi}).
+\end{notebox}
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{The OZI Rule}
+\label{sec:ozi}
+
+$J/\psi$ decay to $3\pi$ requires \keyword{disconnected quark lines}
+(the $c\bar{c}$ pair must fully annihilate). This is suppressed because:
+
+\begin{enumerate}
+  \item No color can flow from the color-singlet $\psi$ to the color-singlet $3\pi$ state.
+  \item C-parity: $C = (-1)^n \;\Rightarrow\; n \geq 3$ gluons required.
+  \item The gluons must be \textbf{hard} ($q^2 \sim m_\psi^2$), so the amplitude
+        $\propto \alpha_s^6$ $\Rightarrow$ \textbf{strongly suppressed}.
+\end{enumerate}
+
+In contrast, decay to $D^+D^-$ (connected quark lines) needs only \textbf{one soft gluon}
+$\to$ dominant once kinematically allowed.
+
+\[
+  m(J/\psi) = 3096.9\;\mathrm{MeV}
+  \quad < \quad
+  2\,m(D^\pm) = 2 \times 1869\;\mathrm{MeV} = 3738\;\mathrm{MeV}
+\]
+
+$J/\psi$ is \textbf{below the $D\bar{D}$ threshold} $\to$ only OZI-suppressed decays
+available $\to$ \textbf{narrow width}.
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{The Breit-Wigner Resonance}
+
+\subsection{Derivation from a decaying state}
+
+The transition rate for particle decays is given by Fermi's golden rule:
+\[
+  T_{if} = 2\pi\,|\mathcal{M}|^2\,\rho(E_f)
+\]
+
+A decaying state with energy $E_0 = \hbar\omega$ has a damped wave function:
+\[
+  \psi(t) = \psi(0)\,e^{-iE_0 t}\,e^{-t/2\tau}
+\]
+
+The probability density decays exponentially ($\psi^*\psi \propto e^{-t/\tau}$), with
+lifetime $\tau = 1/\Gamma$ (setting $\hbar = 1$).
+
+Fourier-transforming to find the energy distribution:
+\[
+  f(E) \;\sim\; \int_0^\infty \psi(0)\,e^{-i(E_0 - E)t - t/2\tau}\,dt
+  \;=\; \frac{\psi(0)}{(E_0 - E) - i/(2\tau)}
+\]
+
+The probability distribution is the \keyword{Breit-Wigner (Lorentzian)}:
+\[
+  |f(E)|^2 \propto \frac{(\Gamma/2)^2}{(E_0 - E)^2 + (\Gamma/2)^2}
+\]
+Peaked at $E_0$, with FWHM $= \Gamma$.
+
+\subsection{Breit-Wigner amplitude and phase shift}
+
+The non-relativistic Breit-Wigner amplitude is:
+\[
+  BW(E) = \frac{\Gamma/2}{(E_0 - E) - i\Gamma/2}
+\]
+
+Writing $\cot\delta = 2(E_0 - E)/\Gamma$, this becomes:
+\[
+  f(E) = e^{i\delta}\sin\delta \qquad (\delta\text{: phase shift})
+\]
+The \keyword{Argand diagram} ($\mathrm{Im}\,T$ vs.\ $\mathrm{Re}\,T$) traces a circle as
+energy varies through the resonance.
+
+\subsection{Full cross-section formula}
+
+\[
+  \sigma(E) = 4\pi\bar{\lambda}^2
+  \;\frac{\Gamma^2/4}{\left(E - E_R\right)^2 + \Gamma^2/4}
+  \;\frac{2J+1}{(2s_1+1)(2s_2+1)}
+\]
+
+where $\bar{\lambda} = \hbar/p$ is the de Broglie wavelength of the beam particles in
+the CMS, $E$ is the CMS energy, and $\Gamma$ is the total width.
+
+\begin{notebox}
+  \important{Key point:} The \emph{observed} peak width is dominated by beam energy
+  resolution. The \textbf{true width} is much smaller and must be extracted from the
+  integrated cross section and the leptonic branching ratio.
+\end{notebox}
+
+%──────────────────────────────────────────────────────────────────────────────
+\section{Higher \texorpdfstring{$c\bar{c}$}{ccbar} States (Charmonium Spectrum)}
+
+Above the $J/\psi$, additional peaks appear in $R$:
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{C{2.8cm} C{2.8cm} L{6cm}}
+  \toprule
+  \rowcolor{navyblue}
+  \color{white}\textbf{State} &
+  \color{white}\textbf{Mass (MeV)} &
+  \color{white}\textbf{Notes} \\
+  \midrule
+  $J/\psi\;(1S)$ & $3096.9$ & Below $D\bar{D}$ threshold --- narrow \\
+  \rowcolor{blue!8}
+  $\psi(2S)$     & $\sim 3686$ & Still below $D\bar{D}$ --- narrow \\
+  $\psi(3770)$   & $\sim 3770$ & Just above $D\bar{D}$ threshold --- first broad state \\
+  \rowcolor{blue!8}
+  $\psi(4040)$   & $\sim 4040$ & Open charm dominant \\
+  $\psi(4160)$   & $\sim 4160$ & Open charm dominant \\
+  \rowcolor{blue!8}
+  $\psi(4415)$   & $\sim 4415$ & Open charm dominant \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\vspace{6pt}
+
+\subsection{Open charm mesons}
+
+\vspace{4pt}
+\begin{center}
+\begin{tabular}{C{2cm} C{3cm} C{5cm}}
+  \toprule
+  \rowcolor{midblue}
+  \color{white}\textbf{Meson} &
+  \color{white}\textbf{Mass} &
+  \color{white}\textbf{Quark content} \\
+  \midrule
+  $D^\pm$ & $1869\;\mathrm{MeV}$ & $c\bar{d}$ and $d\bar{c}$ \\
+  \rowcolor{blue!8}
+  $D^0$   & $1865\;\mathrm{MeV}$ & $c\bar{u}$ and $u\bar{c}$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\vspace{6pt}
+
+States above $\psi(3770)$ are above the $D\bar{D}$ threshold and can decay via
+\keyword{open charm} (connected quark lines) $\to$ \textbf{broader widths}.
+
+\begin{notebox}
+  \textbf{Next lecture:} Understanding the full $c\bar{c}$ spectrum as a QCD laboratory
+  --- what can charmonium states teach us about the strong force potential?
+\end{notebox}
+
+\end{document}
