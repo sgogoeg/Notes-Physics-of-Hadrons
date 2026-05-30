@@ -1,14 +1,53 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\documentclass[11pt,a4paper]{article}
 
-\title{NotesHadrons}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{physics}
+\usepackage{braket}
+
+% Colors
+\definecolor{navyblue}{HTML}{1a1a6e}
+\definecolor{midblue}{HTML}{2e4a8e}
+\definecolor{alertred}{HTML}{aa0000}
+\definecolor{notegray}{HTML}{333333}
+
+% Hyperref setup
+\hypersetup{colorlinks=true, linkcolor=midblue, urlcolor=midblue}
+
+% Custom environments
+\newenvironment{notebox}{%
+  \par\vspace{4pt}
+  \noindent\small\color{notegray}%
+}{\par\vspace{4pt}}
+
+\newcommand{\important}[1]{{\color{alertred}\textbf{#1}}}
+\newcommand{\keyword}[1]{\textbf{#1}}
+
+% Table column types
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+
+\title{Notes Hadrons}
 \author{Simón González Gómez}
-\date{May 2026}
+\date{\today}
 
 \begin{document}
 
 \maketitle
 
-\section{Introduction}
+\tableofcontents
+
+\include{Chapters/hadrons_week20_notes}
 
 \end{document}
+
+
