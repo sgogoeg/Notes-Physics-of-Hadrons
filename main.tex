@@ -20,7 +20,7 @@
 \definecolor{notegray}{HTML}{333333}
 
 % Hyperref setup
-\hypersetup{colorlinks=true, linkcolor=midblue, urlcolor=midblue}
+\hypersetup{colorlinks=true, linkcolor=midblue, urlcolor=midblue, citecolor=blue}
 
 % Custom environments
 \newenvironment{notebox}{%
@@ -47,13 +47,17 @@
 \tableofcontents
 
 \include{Chapters/preface}
-\include{Chapters/Chapter 1}
-\include{Chapters/Chapter 2}
-\include{Chapters/Chapter 3}
-\include{Chapters/Chapter 4}
-\include{Chapters/Chapter 5}
-\include{Chapters/Chapter 6}
-\include{Chapters/hadrons_week20_notes}
+\include{Chapters/Chapter_1}
+\include{Chapters/Chapter_2}
+\include{Chapters/Chapter_3}
+\include{Chapters/Chapter_4}
+\include{Chapters/Chapter_5}
+\include{Chapters/Chapter_6}
+
+% Bibliography (BibTeX)
+\bibliographystyle{unsrt}
+\bibliography{references}
+
 
 \end{document}
 
