@@ -93,6 +93,24 @@ $3_c \otimes 3_c \otimes 3_c \supset 1_c$ can form a singlet baryon. More exotic
 colour-neutral arrangements --- tetraquarks, pentaquarks, and glueballs --- are
 equally permitted by QCD, though their unambiguous experimental identification
 remains an open challenge \cite[Ch.~10]{Amsler2018}.
+
+The number of colour charges $N_c = 3$ is not a free parameter but is independently
+confirmed by three experimental observations \cite[Ch.~10]{Amsler2018}. First, the
+measured two-photon decay rate $\Gamma(\pi^0 \to \gamma\gamma) = 7.7 \pm 0.2$~eV
+is reproduced by the anomalous triangle diagram only when $N_c = 3$ colour species
+run in the internal quark loop. Second, the ratio of hadronic to leptonic cross
+sections in $e^+e^-$ annihilation,
+\begin{equation}
+    R \;=\; \frac{\sigma(e^+e^- \to \mathrm{hadrons})}{\sigma(e^+e^- \to \mu^+\mu^-)}
+      \;=\; N_c \sum_q Q_q^2,
+    \label{eq:R-ratio}
+\end{equation}
+rises in a step-like pattern at each new quark threshold; above the
+$b\bar{b}$ threshold one finds $R = \tfrac{11}{9}N_c$, in agreement with data only
+for $N_c = 3$. Third, the branching ratio of the $W^+$ boson into hadronic final
+states, $\Gamma(W^+ \to \mathrm{hadrons})/\Gamma_\mathrm{tot} \approx 2/3$,
+reflects the three colour states available to each quark-antiquark pair and is
+inconsistent with $N_c \neq 3$.
  
 The quark-antiquark interaction potential at intermediate distances is well described
 by the \emph{Cornell potential}
@@ -107,10 +125,15 @@ QCD takes over; at distances approaching $\sim$1~fm, the linear potential stores
 sufficient energy to create new quark-antiquark pairs from the vacuum, a process
 that leads to hadronisation and the production of jets of hadrons observed at high
 energy colliders.
- 
-%% FIGURE SUGGESTION: Cornell potential V(r) = -a/r + br as a function of interquark
-%% distance r, as in Amsler (2018) Fig.~9.13. The Coulomb and linear regimes should
-%% be clearly labelled, along with the quark-pair creation threshold.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/Cornell_potential.pdf}
+    \caption{Cornell potential V(r) = -a/r + br as a function of interquark distance r, as in Amsler (2018) Fig.~9.13. The Coulomb and linear regimes should be clearly labelled, along with the quark-pair creation threshold.}
+    \label{fig:CornellCharmonium}
+\end{figure}
+
+
  
 \subsection{Screening and anti-screening}
  
@@ -159,73 +182,96 @@ where $n_c$ is the number of colors and $n_f$ is the number of quark flavours be
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/RunningStrongForce.png}
-    \caption{}
+    \caption{$\alpha_s$ as a function of energy}
     \label{fig:runningstrong}
 \end{figure}
  
 \subsection{Reminder: scattering}
 
-incoming flux
-
+The observables measured in scattering and collider experiments are event rates and
+cross sections. These quantities provide the operational link between the theoretical
+transition amplitudes computed in QCD and the particle counts registered by a
+detector. The definitions below fix the conventions used throughout these notes.
+ 
+Consider a collimated beam of $n_a$ particles per unit volume moving with velocity
+$v$ relative to a stationary target. The \emph{incoming flux} $\phi$, i.e.\ the
+number of beam particles crossing unit area per second, is
 \begin{equation}
     \phi = n_a v = \frac{\text{number of incoming particles}}{\text{unit area} \cdot \text{second}}
 \end{equation}
-
+For a beam of cross-sectional area $A$, the total rate of particles delivered to
+the interaction region is
 \begin{equation}
     \phi \cdot A = \dot{N}_{in} = \frac{\text{number of incoming particles}}{\text{second}}
 \end{equation}
-
-to get the scattered particles
-
+ 
+When $N_t$ target particles are present within the beam, the rate at which
+interactions occur is
 \begin{equation}
     \phi \cdot N_t \cdot \sigma = \dot{N}_{s} = \frac{\text{number of scattered particles}}{\text{second}}
 \end{equation}
-
-with $N_t$ the number of scattering centers (or targets) in the region where scattering is occurring and $\sigma$ is the scattering cross section and gives a notion of how likely a given incoming particle will be scattered.
-
-The luminosity $L$ is defined as
-
+where $N_t$ is the number of scattering centres in the target and $\sigma$ is the
+\emph{cross section}, which gives a measure of how likely a given incoming
+particle is to be scattered. The product of the flux and the number of target
+particles defines the \emph{luminosity} $L$,
 \begin{equation*}
     L = \phi \cdot N_t
 \end{equation*}
-
+a quantity that depends only on the accelerator and target conditions, not on the
+physics process under study.
+ 
+The physical content of $\sigma$ becomes transparent when one forms the ratio of
+the scattered rate to the incoming rate,
 \begin{equation}
     \frac{\dot{N}_s}{\dot{N}_{in}} = \frac{N_t \cdot \sigma}{A} = \text{probability that scattering occurs}
 \end{equation}
-
+Rearranging, the cross section is the ratio of scattered particles per target particle
+to the incident flux:
 \begin{equation}
     \sigma = \frac{\dot{N}_s/N_t}{\dot{N}_{in}/A} = \frac{\text{number of scattered particles per second times target particles}}{\text{ number of incoming particles per second times area}}
 \end{equation}
-
+or equivalently, in terms of accumulated event counts over an experimental run,
 \begin{equation}
     \sigma = \frac{N_s}{N_{in} \cdot \text{target particles}/cm^2}
 \end{equation}
-
-meaning the cross section has units of area, typically denoted in barns
-
+The cross section therefore has dimensions of area, typically measured in
+\emph{barns} (1~b $= 10^{-24}$~cm$^2$), with sub-processes in modern
+collider experiments falling in the picobarn ($10^{-36}$~cm$^2$) to femtobarn
+($10^{-39}$~cm$^2$) range.
+ 
+Expressing the beam flux in terms of the number of beam particles $N_{in}$
+delivered per second over an area $A$, the luminosity may be written more
+explicitly as
 \begin{equation}
     L = \phi \cdot N_t = \frac{N_{in}}{A \cdot s} N_t = \frac{N_{in}}{s} \cdot \frac{N_t}{A}
 \end{equation}
- 
-The integrated lominosity:
-
+with units cm$^{-2}$s$^{-1}$. The time-integrated luminosity
 \begin{equation}
     \int L \, dt \Rightarrow \text{Amount of reaction so far in an experiment}
 \end{equation}
-
-the reaction rate is:
-
+measures the total exposure accumulated by the detector and directly sets the
+statistical precision available for any given channel: doubling the integrated
+luminosity halves the relative statistical uncertainty on a cross section measurement.
+The reaction rate is then simply
 \begin{equation}
-    \dot{N}_s = \sigma \cdot L 
+    \dot{N}_s = \sigma \cdot L
 \end{equation}
-
-the differential cross section consider the reaction rate for a certain energy or region of solid angle that may house a detector:
-
+so that a rarer process (smaller $\sigma$) requires a proportionally higher
+luminosity to accumulate sufficient statistics.
+ 
+For angle- and energy-sensitive measurements, one considers the rate falling
+into the acceptance of a detector element subtending a solid angle $\Delta\Omega$
+at polar and azimuthal angles $(\theta, \varphi)$ relative to the beam axis. The
+relevant observable is then the \emph{differential cross section}
+$d\sigma/d\Omega$, and the detector counting rate is
 \begin{equation}
-    \dot{N}_s^{det} = L \cdot \frac{d \sigma (E, \theta, \varphi)}{d \Omega} \cdot \Omega
+    \dot{N}_s^{det} = L \cdot \frac{d \sigma (E, \theta, \varphi)}{d \Omega} \cdot \Delta\Omega
 \end{equation}
-
-distributions of particles over angles might contain information on the spin and parity of whatever is produced in the reaction...
+The angular dependence of $d\sigma/d\Omega$ is not merely a geometric effect: it
+encodes dynamical information about the reaction. In particular, the angular
+distribution of the products of a two-body decay is sensitive to the spin and parity
+of any intermediate resonance produced in the collision, forming the experimental
+basis for $J^{PC}$ assignments in hadron spectroscopy \cite[Ch.~2]{Amsler2018}.
  
 \subsection{Yukawa potential and massive carriers: the remanent nuclear forces}
  
@@ -250,7 +296,15 @@ at separation $r$ is the Yukawa potential,
 \end{equation}
 with $g$ the effective pion-nucleon coupling constant. This contrasts with the
 Coulomb potential $V(r) = -\alpha/r$ generated by the massless photon, which
-has infinite range. The charged pion, with mass $m_{\pi^\pm} = 139.6\;\mathrm{MeV}$,
+has infinite range. This potential now solves the differential equation:
+
+\begin{equation}
+    \left(\nabla^2- \frac{1}{R^2} \right) V(r) = 0.
+    \label{eq:eqdiffyukawa}
+\end{equation}
+
+
+The charged pion, with mass $m_{\pi^\pm} = 139.6\;\mathrm{MeV}$,
 was experimentally identified in cosmic-ray photographic emulsions in 1947 by
 Lattes, Occhialini, and Powell at the Pic du Midi, confirming Yukawa's prediction
 to within a factor of two \cite[Ch.~2]{Amsler2018}.
@@ -284,8 +338,8 @@ positive intrinsic parity, $P(q) = +1$, while antiquarks carry negative intrinsi
 parity, $P(\bar{q}) = -1$ \cite[Ch.~2]{Amsler2018}. This assignment is consistent
 with the requirement of the Dirac equation that a fermion and its antiparticle have
 opposite intrinsic parities, and it is confirmed experimentally by the decay of
-parapositronium ($^1S_0$, $e^+e^-$) into two photons, which establishes $C(e^+e^-) = +1$
-and thus $P(e^+e^-) = -1$.
+parapositronium ($^1S_0$, $e^+e^-$) into two photons, which establishes
+$C(e^+e^-) = +1$ and thus $P(e^+e^-) = -1$.
  
 For a $q\bar{q}$ meson in a state of orbital angular momentum $\ell$, the
 intrinsic parities of the quark and antiquark combine with the spatial wavefunction
@@ -330,12 +384,26 @@ $0^{+-}$, $1^{-+}$, and $2^{+-}$ --- and their experimental observation would
 constitute unambiguous evidence for configurations beyond the conventional quark
 model \cite[Ch.~4]{Amsler2018}.
  
+% --- NEW PARAGRAPH ---
+In practice, the parity of a hadron is not measured by performing the spatial
+inversion directly, but is inferred from the angular distribution of its decay
+products. For a two-body decay $R \to 1 + 2$, the intensity distribution over the
+decay angle $\theta$ takes the form $I(\theta) \propto \sum_m |D^J_{m,\lambda}(\theta)|^2$,
+where $D^J_{m,\lambda}$ are the Wigner rotation matrices and $\lambda$ is the helicity
+of the decay system; the allowed values of $\lambda$ are constrained by $P$ and $C$
+conservation and therefore discriminate between different $J^{PC}$ hypotheses
+\cite[Ch.~18]{Amsler2018}. This is the experimental method by which the intrinsic
+parity of the charged pion was established as $P(\pi^-) = -1$ through the reaction
+$\pi^- d \to nn$, and it remains the standard technique applied in modern resonance
+searches at facilities such as LHCb and BESIII.
+% --- END NEW ---
+ 
 %% FIGURE SUGGESTION: Table of meson quantum numbers J^{PC} and the corresponding
 %% nonets, as in Amsler (2018) Ch.~4 (Table 4.1). Exotic J^{PC} combinations should
 %% be highlighted to distinguish them from conventional qq states.
-
+ 
 In the following sections, we will conver many unanswered questions up to this point:
-
+ 
 \begin{itemize}
     \item What is the experimental evidence for colors, and many are there
     \item What is the evidence for gluons and how many do we have
@@ -345,3 +413,4 @@ In the following sections, we will conver many unanswered questions up to this p
     \item How does QCD produce hadrons
     \item Which hadrons do exist, and do they have an spectrum
 \end{itemize}
+
