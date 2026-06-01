@@ -16,7 +16,7 @@ carry colour charge and therefore participate in all three interactions; it is
 precisely the strong force that binds them into the composite, strongly interacting
 particles collectively known as \emph{hadrons} \cite[Ch.~1]{HalzenMartin1984}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\linewidth]{Figures/SM.png}
     \caption{Standard Model particle table (leptons, quarks, gauge bosons)}
@@ -126,14 +126,12 @@ sufficient energy to create new quark-antiquark pairs from the vacuum, a process
 that leads to hadronisation and the production of jets of hadrons observed at high
 energy colliders.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\linewidth]{Figures/Cornell_potential.pdf}
     \caption{Cornell potential V(r) = -a/r + br as a function of interquark distance r, as in Amsler (2018) Fig.~9.13. The Coulomb and linear regimes should be clearly labelled, along with the quark-pair creation threshold.}
     \label{fig:CornellCharmonium}
 \end{figure}
-
-
  
 \subsection{Screening and anti-screening}
  
@@ -179,7 +177,7 @@ low energies.
 
 where $n_c$ is the number of colors and $n_f$ is the number of quark flavours below $Q$.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{Figures/RunningStrongForce.png}
     \caption{$\alpha_s$ as a function of energy}
@@ -397,6 +395,107 @@ $\pi^- d \to nn$, and it remains the standard technique applied in modern resona
 searches at facilities such as LHCb and BESIII.
 
 \subsection{Charge conjugation}
+
+Charge conjugation ($C$) is the discrete symmetry operation that maps every
+particle onto its corresponding antiparticle, reversing the signs of all additive
+internal quantum numbers: the electric charge $Q$, the baryon number $B$, the
+isospin projection $I_3$, and the flavour quantum numbers strangeness, charm,
+bottomness, and topness. The magnetic moment changes sign as well, since it is
+proportional to the charge. Space--time coordinates and kinematic quantities such
+as momentum and orbital or spin angular momentum are left entirely unaffected by
+the operation \cite[Ch.~3]{Amsler2018}.
+ 
+Because applying $C$ twice returns the original state, $C^2 = \mathbf{1}$, the
+eigenvalues are $\pm 1$ and the corresponding quantum number is called the
+\emph{$C$ parity}. Only particles that are their own antiparticles can be
+eigenstates of $C$: this requires zero electric charge, $I_3 = 0$, and the absence
+of all flavour quantum numbers. Self-conjugated neutral bosons satisfying these
+conditions include the $\pi^0$, $\eta$, $\omega$, $\phi$, and $J/\psi$, as well as
+the photon $\gamma$. Gluons, which carry both a colour and an anticolour label,
+are not eigenstates of $C$: a red-antigreen gluon is mapped onto an antired-green
+gluon and is therefore a physically distinct object \cite[Ch.~3]{Amsler2018}.
+ 
+The $C$ parity of the photon is fixed by the gauge-field structure of
+electromagnetism. When all charges reverse sign, the electromagnetic four-potential
+must also reverse, $A^\mu \to -A^\mu$, and consequently both the electric and
+magnetic fields change sign. It follows that
+\begin{equation}
+    C\,|\gamma\rangle = -|\gamma\rangle,
+    \qquad J^{PC}(\gamma) = 1^{--}.
+    \label{eq:photon_Cparity}
+\end{equation}
+Since $C$ is a multiplicative quantum number, a state of $n$ photons satisfies
+\begin{equation}
+    C\,|n\gamma\rangle = (-1)^n\,|n\gamma\rangle.
+    \label{eq:ngamma_Cparity}
+\end{equation}
+Conservation of $C$ parity in electromagnetic transitions therefore allows the
+$C$ eigenvalue of any hadron to be read off directly from its photon decay
+multiplicity. The $\pi^0 \to \gamma\gamma$ decay immediately gives $C(\pi^0) =
+(-1)^2 = +1$ and hence $J^{PC}(\pi^0) = 0^{-+}$; likewise $C(\eta) = +1$ from
+$\eta \to \gamma\gamma$. The single-photon decay $\omega \to \pi^0\gamma$
+requires $C(\omega) = -C(\pi^0)\cdot C(\gamma) = -1$, giving $J^{PC}(\omega) =
+1^{--}$, the same conclusion following from $\rho^0 \to \pi^0\gamma$
+\cite[Ch.~3]{Amsler2018}.
+ 
+Conservation of $C$ in electromagnetic processes is stringently tested by searching
+for transitions whose photon multiplicity would demand a $C$ eigenvalue incompatible
+with the decaying state. The $C$-violating decay $\pi^0 \to 3\gamma$ was sought at
+LAMPF by producing neutral pions through the charge-exchange reaction
+$\pi^-p \to \pi^0 n$ and recording three-photon coincidences in a large NaI(Tl)
+crystal array; an upper limit of
+$\Gamma(\pi^0 \to 3\gamma)/\Gamma(\pi^0 \to 2\gamma) < 3.1 \times 10^{-8}$ was
+established \cite[Ch.~3]{Amsler2018}. A complementary test exploits the fact that
+both $J/\psi$ and $\phi$ are $1^{--}$ vector mesons with $C = -1$; the decay
+$J/\psi \to \phi\gamma$ would violate $C$ conservation, and a search by the BESIII
+experiment found no signal, setting an upper limit of $1.4 \times 10^{-6}$ on that
+branching fraction \cite[Ch.~3]{Amsler2018}.
+ 
+For a $q\bar{q}$ meson with orbital angular momentum $\ell$ and total quark spin
+$s$, the $C$ parity is derived from the transformation properties of the spatial and
+spin wavefunctions under interchange of the quark and antiquark labels. Using the
+symmetry properties of the relevant Clebsch--Gordan coefficients, one finds that
+particle--antiparticle pairs are eigenstates of charge conjugation with eigenvalue
+\begin{equation}
+    C(q\bar{q}) = (-1)^{\ell+s}.
+    \label{eq:qqbar_Cparity}
+\end{equation}
+The ground-state $\ell = 0$, $s = 0$ mesons have $C = +1$; combined with the
+parity $P = (-1)^{\ell+1} = -1$ (Eq.~\eqref{eq:meson_parity}), this gives
+$J^{PC} = 0^{-+}$ for the pseudoscalar nonet. The $\ell = 0$, $s = 1$ states have
+$C = -1$ and $P = -1$, yielding $J^{PC} = 1^{--}$ for the vector nonet. As a
+further application of Eq.~\eqref{eq:qqbar_Cparity}, $C$ conservation in strong
+interactions constrains the angular momentum of the $\pi^+\pi^-$ system in
+$\rho^0 \to \pi^+\pi^-$: since $C(\rho^0) = -1$ and $C(\pi^+\pi^-)=(-1)^\ell$,
+the relative angular momentum $\ell$ between the two pions must be odd; total
+angular momentum conservation then uniquely selects $\ell = 1$, consistent
+with the known $P$-wave structure of this decay \cite[Ch.~3]{Amsler2018}.
+ 
+Together, Eqs.~\eqref{eq:meson_parity} and \eqref{eq:qqbar_Cparity} imply the
+constraint $PC = (-1)^{2\ell + s + 1} = (-1)^{s+1}$, which is fixed by the
+total quark spin $s$ alone and is independent of $\ell$. For $s = 0$ one has
+$PC = -1$, so $P$ and $C$ always carry opposite signs; for $s = 1$ one has
+$PC = +1$, so they always agree. This restricts the accessible $J^{PC}$ combinations
+to a discrete set, and several combinations are altogether forbidden for any
+$q\bar{q}$ state: $J^{PC} = 0^{--},\,0^{+-},\,1^{-+},\,2^{+-},\ldots$ cannot be
+produced by any choice of integer $\ell$ and $s = 0$ or $1$. These
+\emph{exotic quantum numbers} therefore provide unambiguous signatures for
+multiquark states, hybrid mesons, or glueballs if observed experimentally
+\cite[Ch.~4]{Amsler2018}.
+ 
+Like parity, $C$ is conserved in strong and electromagnetic interactions but
+violated by the weak interaction. The combined operation $CP$, whose conservation
+would follow if both $P$ and $C$ were simultaneously respected, is also very nearly
+conserved but displays small violations in the neutral kaon system and in $B$ meson
+decays. These $CP$ violations are accommodated within the Standard Model through
+the irreducible complex phase of the Cabibbo--Kobayashi--Maskawa (CKM)
+quark-mixing matrix, and their precise measurement remains an active test of the
+Standard Model \cite[Ch.~1]{Amsler2018}.
+ 
+%% FIGURE SUGGESTION: Table or diagram of meson J^{PC} assignments as a function
+%% of orbital angular momentum ell and total spin s = 0, 1, showing accessible and
+%% exotic (forbidden) combinations. See Amsler (2018) Ch.~4, Table 4.1.
+
 
  
 In the following sections, we will cover many unanswered questions up to this point:
