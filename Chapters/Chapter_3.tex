@@ -1,5 +1,698 @@
 \section{Groups, Isospin and Colour}
+\label{sec:groups}
 
+The proliferation of strongly interacting particles catalogued in the
+``particle zoo'' (Sect.~\ref{sec:introduction}) demanded an organising principle
+analogous to the periodic table, in which a recurring ordering scheme betrays an
+underlying substructure. The decisive insight, due to Gell-Mann and Ne'eman, was
+that the observed hadrons populate \emph{multiplets} which are the irreducible
+representations of a continuous symmetry group, $\mathrm{SU}(3)_f$, and that these
+multiplets are naturally built from a fundamental triplet of constituents---the
+quarks \cite[Ch.~1]{Amsler2018}. This chapter develops the group-theoretical
+machinery underlying that classification. It begins with the abstract notion of a
+symmetry group, specialises to the isospin group $\mathrm{SU}(2)$, shows how
+representations are combined, extends the formalism to the flavour group
+$\mathrm{SU}(3)$, introduces Young tableaux as a systematic bookkeeping tool, and
+closes with the exact colour symmetry $\mathrm{SU}(3)_c$ that underpins Quantum
+Chromodynamics.
+
+% ============================================================
+\subsection{Symmetries, groups and Lie algebras}
+\label{subsec:symmetries}
+
+A symmetry is a transformation that leaves the physics of a system unchanged, and
+the set of all such transformations forms a \emph{group}. The rotation group serves
+as the prototype. Two successive rotations $R_1$ and $R_2$ compose into a single
+rotation $R_3 = R_2 \cdot R_1$, so the set of rotations is closed under composition;
+the identity (no rotation) belongs to the set, every rotation possesses an inverse,
+and composition is associative. Rotations about different axes do not in general
+commute, $R_1 \cdot R_2 \neq R_2 \cdot R_1$, so the group is non-Abelian. Because a
+rotation depends continuously and differentiably on its parameters (the rotation
+angles), the rotation group is a \emph{Lie group}, whose defining feature is that
+any finite element can be reached as a succession of infinitesimal transformations
+close to the identity \cite[Ch.~6]{Amsler2018}.
+
+The physical requirement that no measurement depend on the orientation of the
+apparatus fixes the way symmetry transformations act on quantum states. If a
+rotation maps $\ket{\Psi} \to \ket{\Psi'} = U\ket{\Psi}$, the transition probability
+between two states must be preserved,
+\begin{equation}
+    |\braket{\Phi|\Psi}|^2
+    = |\braket{\Phi'|\Psi'}|^2
+    = |\bra{\Phi} U^\dagger U \ket{\Psi}|^2,
+\end{equation}
+which forces $U$ to be unitary, $U^\dagger U = \mathbb{1}$. Demanding in addition
+that matrix elements of the Hamiltonian be preserved leads to
+\begin{equation}
+    H = U^\dagger H\, U
+    \quad\Longleftrightarrow\quad
+    [\,U, H\,] = 0 ,
+\end{equation}
+the statement that a symmetry of the dynamics is equivalent to the existence of an
+operator commuting with $H$. For a time-independent transformation the equation of
+motion $i\,\mathrm{d}\ket{\Psi}/\mathrm{d}t = H\ket{\Psi}$ then implies that the
+expectation value of $U$ is a constant of the motion, so each continuous symmetry
+yields a conserved quantity \cite[Ch.~6]{Amsler2018}.
+
+The local structure of a Lie group is encoded in its behaviour near the identity. An
+infinitesimal rotation through an angle $\epsilon$ about the $z$-axis is written
+\begin{equation}
+    U = \mathbb{1} - i\,\epsilon\, J_3 ,
+    \label{eq:infinitesimal}
+\end{equation}
+where the Hermitian operator $J_3$ is the \emph{generator} of the rotation. Working
+out the action of an infinitesimal spatial rotation on a wavefunction
+$\Psi(\vec{r})$ and expanding to first order identifies the generator with the third
+component of the orbital angular momentum operator,
+\begin{equation}
+    J_3 = x\,p_y - y\,p_x ,
+\end{equation}
+so that invariance under rotations is equivalent to conservation of angular
+momentum \cite[Ch.~6]{Amsler2018}. A finite rotation is recovered by exponentiating
+$N$ infinitesimal ones,
+\begin{equation}
+    U(\Theta) = \lim_{N\to\infty}\!\left(\mathbb{1} - i\,\frac{\Theta}{N}\,J_3\right)^{\!N}
+    = e^{-i\,\Theta J_3}.
+\end{equation}
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% Schematic of an active versus a passive rotation in the (x,y)-plane,
+% illustrating that an active rotation by +Theta is equivalent to a passive
+% rotation by -Theta. Reproduce from the week 17 VL1 "Symmetries and groups"
+% slides, or adapt Amsler Fig. 18.1.
+% ------------------------------------------------------------
+
+The three generators $J_1, J_2, J_3$ of rotations about the coordinate axes do not
+commute; instead they close under commutation into a \emph{Lie algebra},
+\begin{equation}
+    [\,J_j, J_k\,] = i\,\epsilon_{jkl}\,J_l ,
+    \label{eq:su2algebra}
+\end{equation}
+where the totally antisymmetric symbol $\epsilon_{jkl}$ furnishes the
+\emph{structure constants} of the group, equal to $+1$ for a cyclic permutation of
+$jkl$, $-1$ for an anti-cyclic one, and zero otherwise. The commutation relations
+define the group properties independently of any particular representation. Because
+the generators do not commute, the eigenvalues of only one of them, conventionally
+$J_3$, can be used as a good quantum number; the Casimir operator $J^2$ commutes
+with all three generators, $[\,J^2, J_i\,] = 0$, and the simultaneous eigenstates
+$\ket{jm}$ satisfy
+\begin{equation}
+    J^2 \ket{jm} = j(j+1)\ket{jm},
+    \qquad
+    J_3 \ket{jm} = m\ket{jm}.
+\end{equation}
+This algebraic structure is common to spin, isospin and indeed any angular-momentum
+variable, and it is fulfilled for every allowed value $j = 0, \tfrac{1}{2}, 1,
+\tfrac{3}{2}, \dots$ \cite[Ch.~6]{Amsler2018}.
+
+% ============================================================
+\subsection{SU(2): Spin and isospin}
+\label{subsec:su2}
+
+The lowest-dimensional non-trivial representation of the rotation algebra
+\eqref{eq:su2algebra} is the spin-$\tfrac{1}{2}$ representation, in which the
+generators are represented by the Pauli matrices,
+\begin{equation}
+    J_i = \tfrac{1}{2}\sigma_i ,
+    \qquad
+    \sigma_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},\;
+    \sigma_2 = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix},\;
+    \sigma_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+\end{equation}
+acting on the two basis spinors $\binom{1}{0}$ for $m = +\tfrac{1}{2}$ and
+$\binom{0}{1}$ for $m = -\tfrac{1}{2}$. The corresponding transformation matrices
+are
+\begin{equation}
+    U(\Theta_i) = e^{-i\,\Theta_i \sigma_i/2}
+    = \mathbb{1}\cos\tfrac{\Theta_i}{2} - i\,\sigma_i \sin\tfrac{\Theta_i}{2},
+\end{equation}
+which are unitary because the $\sigma_i$ are Hermitian. Since the Pauli matrices are
+traceless, the identity $\det\!\big(e^{i\sigma}\big) = e^{i\,\mathrm{Tr}(\sigma)} =
+1$ shows that these matrices have unit determinant. The set of all such matrices
+therefore forms the \emph{special unitary group in two dimensions},
+$\mathrm{SU}(2)$, whose two-dimensional representation is the fundamental one; from
+it the representations of dimension $1, 2, 3, 4, \dots$, corresponding to $j = 0,
+\tfrac{1}{2}, 1, \tfrac{3}{2}, \dots$, can be constructed \cite[Ch.~6]{Amsler2018}.
+
+The same mathematics applies, in an entirely different physical context, to
+\emph{isospin}. The concept was introduced by Heisenberg in 1932 to express the
+near-equality of the proton and neutron masses ($m_p = 938.3$~MeV, $m_n =
+939.6$~MeV) and the charge independence of the nuclear force. In analogy with spin,
+one regards the nucleon as a single particle $N$ with isospin $i = \tfrac{1}{2}$
+existing in two charge sub-states distinguished by the third component $i_3$,
+\begin{equation}
+    \ket{p} = \ket{\tfrac{1}{2}, +\tfrac{1}{2}},
+    \qquad
+    \ket{n} = \ket{\tfrac{1}{2}, -\tfrac{1}{2}}.
+\end{equation}
+Just as the $2s+1$ spin states of a particle are degenerate in the absence of
+external fields, the $2i+1$ members of an isospin multiplet have nearly equal masses
+in the absence of electromagnetism. Isospin is a useful concept precisely because it
+is conserved in strong interactions: the strong force depends on the total isospin
+$I$ but not on its projection $I_3$ \cite[Ch.~3]{Amsler2018}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% Energy-level diagram of the mirror nuclei 14C, 14N and 14O, showing the
+% near-degeneracy of corresponding levels that demonstrates the charge
+% independence of nuclear forces. Reproduce from the week 17 VL2
+% "Example: Isospin (SU(2))" slide.
+% ------------------------------------------------------------
+
+The electromagnetic interaction breaks this symmetry. The electric charge is fixed
+not by $I_3$ alone but by the Gell-Mann--Nishijima relation,
+\begin{equation}
+    Q = I_3 + \frac{Y}{2},
+    \qquad
+    Y = B + S,
+    \label{eq:gmn}
+\end{equation}
+where $Y$ is the hypercharge, $B$ the baryon number and $S$ the strangeness. Because
+the photon couples to $Q$, the electromagnetic interaction singles out the $I_3$
+component and lifts the degeneracy within a multiplet \cite[Ch.~3]{Amsler2018}. With
+the help of \eqref{eq:gmn} the $i_3$ values are assigned to the members of each
+multiplet, for example $\pi^+, \pi^0, \pi^-$ for the pion triplet ($i = 1$) and
+$\big(p, n\big)$ for the nucleon doublet. Since $i_3$ is additive and the isospin of
+a hadron is the vector sum of the constituent isospins, the up and down quarks of
+the first generation form an isospin doublet with $i_3(u) = +\tfrac{1}{2}$ and
+$i_3(d) = -\tfrac{1}{2}$, while the strange quark is an isospin singlet
+\cite[Ch.~3]{Amsler2018}.
+
+% ============================================================
 \subsection{Addition of spin}
+\label{subsec:addition}
 
+Two systems carrying angular momenta $j_A$ and $j_B$ can be described in the product
+basis $\ket{j_A m_A}\ket{j_B m_B}$. The total angular momentum $\vec{J} = \vec{J}_A +
+\vec{J}_B$ again satisfies the Lie algebra \eqref{eq:su2algebra}, and the product of
+the two representations, of dimensions $(2j_A+1)$ and $(2j_B+1)$, decomposes into a
+direct sum of irreducible representations with
+\begin{equation}
+    J = |j_A - j_B|,\; |j_A - j_B| + 1,\; \dots,\; j_A + j_B .
+\end{equation}
+The eigenstates of total angular momentum are linear combinations of the product
+states,
+\begin{equation}
+    \ket{j_A j_B\, J M} = \sum_{m_A, m_B} C(m_A m_B; J M)\,
+    \ket{j_A m_A}\ket{j_B m_B},
+    \qquad M = m_A + m_B,
+\end{equation}
+where the expansion coefficients $C(m_A m_B; J M)$ are the Clebsch--Gordan
+coefficients \cite[Ch.~6]{Amsler2018}. For two spin-$\tfrac{1}{2}$ systems this
+reads symbolically
+\begin{equation}
+    \mathbf{2} \otimes \mathbf{2} = \mathbf{3} \oplus \mathbf{1},
+    \label{eq:2x2}
+\end{equation}
+the dimension of each irreducible representation being equal to the dimension of the
+corresponding multiplet. The symmetric triplet and the antisymmetric singlet of two
+spins are explicitly
+\begin{align}
+    \ket{1,+1} &= \,\uparrow\uparrow, &
+    \ket{1,0} &= \tfrac{1}{\sqrt{2}}(\uparrow\downarrow + \downarrow\uparrow), &
+    \ket{1,-1} &= \,\downarrow\downarrow, \\
+    \ket{0,0} &= \tfrac{1}{\sqrt{2}}(\uparrow\downarrow - \downarrow\uparrow), & & & &
+\end{align}
+and the analogous decomposition of the two-nucleon isospin states replaces
+$\uparrow$ by $p$ and $\downarrow$ by $n$.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% Table of Clebsch-Gordan coefficients (the PDG table for the couplings
+% 1/2 x 1/2, 1 x 1/2, 3/2 x 1/2, etc.). Reproduce the PDG/Amsler
+% Clebsch-Gordan table shown on the week 17 VL2 "More on Clebsch Gordon
+% Coefficients" slide.
+% ------------------------------------------------------------
+
+A classic application is the determination of the deuteron isospin. The total
+non-relativistic wavefunction of the two-nucleon system factorises into space, spin
+and isospin parts,
+\begin{equation}
+    \Psi_{\mathrm{total}} = \phi(\mathrm{space}) \cdot \alpha(\mathrm{spin})
+    \cdot \chi(\mathrm{isospin}),
+\end{equation}
+and must be antisymmetric under exchange of the two identical fermions. The deuteron
+has spin $1$, so its spin function $\alpha$ is symmetric; its spatial wavefunction is
+dominantly an $\ell = 0$ $S$-wave, which is symmetric since it transforms as
+$(-1)^\ell$ under interchange. Antisymmetry of the total wavefunction therefore
+requires the isospin function $\chi$ to be antisymmetric, which selects the singlet:
+the deuteron has $I = 0$ \cite[Ch.~3]{Amsler2018}. This assignment is confirmed by
+comparing the cross sections of the two reactions
+\begin{equation}
+    \text{(a)}\;\; p + p \to d + \pi^+,
+    \qquad
+    \text{(b)}\;\; p + n \to d + \pi^0,
+\end{equation}
+whose initial states have isospin $1$ and a mixture of $0$ and $1$ respectively. Only
+the $I = 1$ component contributes to deuteron production, and isospin symmetry then
+predicts the ratio of cross sections
+\begin{equation}
+    \frac{\sigma(\text{a})}{\sigma(\text{b})} = \frac{2}{1},
+\end{equation}
+in agreement with experiment \cite[Ch.~3]{Amsler2018}.
+
+The same isospin bookkeeping accounts for the relative strengths of pion--nucleon
+scattering. The $\pi N$ system couples to $i = \tfrac{1}{2}$ and $i = \tfrac{3}{2}$,
+and at low energy the cross sections are dominated by the excitation of the
+$\Delta(1232)$ resonance with $i = \tfrac{3}{2}$. Isospin conservation then fixes the
+maximal total cross sections to be roughly in the ratio
+\begin{equation}
+    \sigma_{\mathrm{tot}}(\pi^+ p) : \sigma_{\mathrm{tot}}(\pi^- p) \approx 3 : 1 ,
+\end{equation}
+consistent with the measured peak values of about $210$~mb and $70$~mb, respectively
+\cite[Ch.~3]{Amsler2018}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% Total and elastic pi^+ p and pi^- p cross sections versus laboratory beam
+% momentum, showing the dominant Delta(1232) peak. Reproduce the PDG cross-
+% section compilation shown on the week 17 VL2 slide (PDG Fig. 39.14).
+% ------------------------------------------------------------
+
+The procedure extends to more than two constituents by iterating the decomposition.
+For three spin-$\tfrac{1}{2}$ systems one finds
+\begin{equation}
+    \mathbf{2} \otimes \mathbf{2} \otimes \mathbf{2}
+    = (\mathbf{3} \oplus \mathbf{1}) \otimes \mathbf{2}
+    = \mathbf{4} \oplus \mathbf{2} \oplus \mathbf{2},
+    \label{eq:2x2x2}
+\end{equation}
+giving one quadruplet and two doublets. While such repeated coupling with
+Clebsch--Gordan coefficients is feasible for $\mathrm{SU}(2)$, it becomes unwieldy
+for the larger groups encountered below; a more systematic graphical tool, the Young
+tableaux, is developed in Sect.~\ref{subsec:youngtableaux}.
+
+% ============================================================
+\subsection{Isospin of antiparticles}
+\label{subsec:antiparticles}
+
+The treatment of antiparticles within $\mathrm{SU}(2)$ requires care. From the
+charge assignments and the Gell-Mann--Nishijima relation one reads off the isospin
+projections
+\begin{equation}
+    p : \ket{\tfrac{1}{2}, +\tfrac{1}{2}}, \quad
+    n : \ket{\tfrac{1}{2}, -\tfrac{1}{2}}, \quad
+    \bar{p} : \ket{\tfrac{1}{2}, -\tfrac{1}{2}}, \quad
+    \bar{n} : \ket{\tfrac{1}{2}, +\tfrac{1}{2}} .
+\end{equation}
+It is tempting to group the antinucleons into the doublet $\binom{\bar{n}}{\bar{p}}$,
+in parallel with $\binom{p}{n}$, but this naive assignment is wrong: particles and
+antiparticles must transform in the same way under isospin rotations if the same
+Clebsch--Gordan coefficients are to be used for both \cite[Ch.~6]{Amsler2018}.
+
+Consider a rotation through an angle $\Theta$ about the $2$-axis in isospin space,
+generated by the Pauli matrix $\tau_2$,
+\begin{equation}
+    \begin{pmatrix} p' \\ n' \end{pmatrix}
+    = e^{-i\Theta\tau_2/2}
+    \begin{pmatrix} p \\ n \end{pmatrix}
+    = \begin{pmatrix}
+        \cos\tfrac{\Theta}{2} & -\sin\tfrac{\Theta}{2} \\[2pt]
+        \sin\tfrac{\Theta}{2} & \;\cos\tfrac{\Theta}{2}
+      \end{pmatrix}
+    \begin{pmatrix} p \\ n \end{pmatrix},
+\end{equation}
+so that $p' = p\cos\tfrac{\Theta}{2} - n\sin\tfrac{\Theta}{2}$ and $n' =
+p\sin\tfrac{\Theta}{2} + n\cos\tfrac{\Theta}{2}$. For the antiparticles to transform
+identically one requires
+\begin{equation}
+    \bar{p}' = \bar{p}\cos\tfrac{\Theta}{2} - \bar{n}\sin\tfrac{\Theta}{2},
+    \qquad
+    \bar{n}' = \bar{p}\sin\tfrac{\Theta}{2} + \bar{n}\cos\tfrac{\Theta}{2}.
+\end{equation}
+These relations can be cast in exactly the same matrix form as for the particles
+provided the antiparticle doublet is ordered with a relative sign,
+\begin{equation}
+    \begin{pmatrix} -\bar{n}' \\ \bar{p}' \end{pmatrix}
+    = \begin{pmatrix}
+        \cos\tfrac{\Theta}{2} & -\sin\tfrac{\Theta}{2} \\[2pt]
+        \sin\tfrac{\Theta}{2} & \;\cos\tfrac{\Theta}{2}
+      \end{pmatrix}
+    \begin{pmatrix} -\bar{n} \\ \bar{p} \end{pmatrix}.
+\end{equation}
+The correct antinucleon doublet is therefore $\binom{-\bar{n}}{\bar{p}}$, and the
+corresponding antiquark doublet is $\binom{-\bar{d}}{\bar{u}}$. The lesson is that in
+$\mathrm{SU}(2)$ a representation and its complex conjugate have identical
+transformation properties; the doublet $\mathbf{2}$ and the antidoublet
+$\mathbf{2}^*$ are equivalent \cite[Ch.~6]{Amsler2018}. This pseudoreality is special
+to $\mathrm{SU}(2)$ and does not carry over to $\mathrm{SU}(3)$, where the
+fundamental triplet $\mathbf{3}$ and its conjugate $\mathbf{3}^*$ are genuinely
+distinct, as discussed next.
+
+% ============================================================
+\subsection{SU(3): Gell-Mann's Eightfold Way}
+\label{subsec:su3}
+
+The need to enlarge the symmetry group arose from the discovery of strange
+particles. Hadrons such as the $\Lambda$ and the $K^0$ are copiously produced in
+strong interactions, for example in $\pi^- p \to \Lambda K^0$, yet decay only weakly
+and hence with comparatively long lifetimes ($\tau_\Lambda = 2.6 \times
+10^{-10}$~s); moreover, they are always produced in pairs. To account for this
+behaviour Gell-Mann (1953) and Nishijima (1955) introduced an additive quantum
+number, the \emph{strangeness} $S$, conserved by the strong but not the weak
+interaction \cite[Ch.~1]{Amsler2018}. Strangeness enters the Gell-Mann--Nishijima
+relation \eqref{eq:gmn} through the hypercharge $Y = B + S$, and the crucial
+observation is that the hypercharge operator $Y$ can be diagonalised simultaneously
+with $I_3$. Since a special unitary group $\mathrm{SU}(N)$ admits $N-1$ mutually
+commuting generators, accommodating the two simultaneously diagonal operators $I_3$
+and $Y$ requires the rank-two group $\mathrm{SU}(3)$ \cite[Ch.~7]{Amsler2018}.
+
+The group $\mathrm{SU}(3)$ consists of the unitary $3 \times 3$ matrices with unit
+determinant, generated by the eight linearly independent traceless Hermitian
+matrices $G_i = \tfrac{1}{2}\lambda_i$, where the $\lambda_i$ are the Gell-Mann
+matrices,
+\begin{equation}
+\begin{aligned}
+    \lambda_1 &= \begin{pmatrix} 0&1&0\\1&0&0\\0&0&0 \end{pmatrix},
+    & \lambda_2 &= \begin{pmatrix} 0&-i&0\\i&0&0\\0&0&0 \end{pmatrix},
+    & \lambda_3 &= \begin{pmatrix} 1&0&0\\0&-1&0\\0&0&0 \end{pmatrix}, \\[4pt]
+    \lambda_4 &= \begin{pmatrix} 0&0&1\\0&0&0\\1&0&0 \end{pmatrix},
+    & \lambda_5 &= \begin{pmatrix} 0&0&-i\\0&0&0\\i&0&0 \end{pmatrix},
+    & & \\[4pt]
+    \lambda_6 &= \begin{pmatrix} 0&0&0\\0&0&1\\0&1&0 \end{pmatrix},
+    & \lambda_7 &= \begin{pmatrix} 0&0&0\\0&0&-i\\0&i&0 \end{pmatrix},
+    & \lambda_8 &= \frac{1}{\sqrt{3}}\begin{pmatrix} 1&0&0\\0&1&0\\0&0&-2 \end{pmatrix}.
+\end{aligned}
+\label{eq:gellmann}
+\end{equation}
+These replace the Pauli matrices of $\mathrm{SU}(2)$ and obey the Lie algebra
+\begin{equation}
+    \big[\,\tfrac{1}{2}\lambda_r, \tfrac{1}{2}\lambda_s\,\big]
+    = i\,f_{rsk}\,\tfrac{1}{2}\lambda_k ,
+\end{equation}
+with the totally antisymmetric structure constants $f_{rsk}$ \cite[Ch.~7]{Amsler2018}.
+Two of the generators are diagonal and are identified with the physical quantum
+numbers
+\begin{equation}
+    I_3 = \tfrac{1}{2}\lambda_3,
+    \qquad
+    Y = \tfrac{1}{\sqrt{3}}\lambda_8 .
+\end{equation}
+Because the $\mathrm{SU}(2)$ submatrices reappear within $\lambda_{1,2}$, in
+$\lambda_{4,5}$, and in $\lambda_{6,7}$, the group $\mathrm{SU}(3)$ contains three
+$\mathrm{SU}(2)$ subgroups---the familiar $I$-spin together with the $V$-spin and
+$U$-spin---whose ladder operators are
+\begin{equation}
+    I_\pm = G_1 \pm iG_2,
+    \qquad
+    V_\pm = G_4 \pm iG_5,
+    \qquad
+    U_\pm = G_6 \pm iG_7 .
+\end{equation}
+
+The fundamental representation is three-dimensional, and its basis states are the
+light quarks
+\begin{equation}
+    u = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad
+    d = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad
+    s = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix},
+\end{equation}
+which are eigenstates of the diagonal operators $I_3$ and $Y$. Acting with the
+diagonal Gell-Mann matrices,
+\begin{equation}
+    I_3\,\Phi = \tfrac{1}{2}\!
+    \begin{pmatrix} 1&0&0\\0&-1&0\\0&0&0 \end{pmatrix}\!
+    \begin{pmatrix} u\\d\\s \end{pmatrix}
+    = \begin{pmatrix} +\tfrac{1}{2}\,u\\ -\tfrac{1}{2}\,d\\ 0 \end{pmatrix},
+    \qquad
+    Y\,\Phi = \tfrac{1}{3}\!
+    \begin{pmatrix} 1&0&0\\0&1&0\\0&0&-2 \end{pmatrix}\!
+    \begin{pmatrix} u\\d\\s \end{pmatrix}
+    = \begin{pmatrix} +\tfrac{1}{3}\,u\\ +\tfrac{1}{3}\,d\\ -\tfrac{2}{3}\,s \end{pmatrix},
+\end{equation}
+reproduces, via \eqref{eq:gmn}, the complete set of quark quantum numbers collected
+in Table~\ref{tab:quarks} \cite[Ch.~7]{Amsler2018}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Quantum numbers of the three light quarks: baryon number $B$, electric
+    charge $Q$, spin $J$, strangeness $S$, isospin $I$ and its projection $I_3$.}
+    \label{tab:quarks}
+    \begin{tabular}{c c c c c c c}
+        \hline
+        Quark & $B$ & $Q$ & $J$ & $S$ & $I$ & $I_3$ \\
+        \hline
+        $u$ & $\tfrac{1}{3}$ & $+\tfrac{2}{3}$ & $\tfrac{1}{2}$ & $0$  & $\tfrac{1}{2}$ & $+\tfrac{1}{2}$ \\
+        $d$ & $\tfrac{1}{3}$ & $-\tfrac{1}{3}$ & $\tfrac{1}{2}$ & $0$  & $\tfrac{1}{2}$ & $-\tfrac{1}{2}$ \\
+        $s$ & $\tfrac{1}{3}$ & $-\tfrac{1}{3}$ & $\tfrac{1}{2}$ & $-1$ & $0$            & $0$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% Side-by-side weight diagrams in the (I_3, Y)-plane of the SU(3) fundamental
+% triplet (u, d, s) and its conjugate (anti-u, anti-d, anti-s), plus the
+% nine-member q-qbar hexagon. Reproduce from the week 18 VL1 "Summary: Quark
+% properties" slide, or adapt Amsler Fig. 7.1.
+% ------------------------------------------------------------
+
+Antiquarks transform under the conjugate representation $\mathbf{3}^*$, whose weight
+diagram is the inversion of the triplet through the origin. Unlike the
+$\mathrm{SU}(2)$ case discussed in Sect.~\ref{subsec:antiparticles}, the triplet and
+antitriplet of $\mathrm{SU}(3)$ are inequivalent. Hadrons are then built as
+$\mathrm{SU}(3)$ multiplets from these fundamental objects: mesons as quark--antiquark
+states $q\bar{q}$ and baryons as three-quark states $qqq$. The systematic
+construction of the resulting multiplets is the subject of the next subsection.
+
+% ============================================================
 \subsection{SU(N) multiplets and Young tableaux}
+\label{subsec:youngtableaux}
+
+To find the multiplet content of a product of representations one needs the
+dimensions and permutation symmetries of the irreducible representations contained
+in it. The \emph{Young tableaux} provide a graphical algorithm that accomplishes
+this for $\mathrm{SU}(N)$, the relevant decompositions for the physics of hadrons
+being
+\begin{equation}
+    \mathbf{3} \otimes \mathbf{3}^* = \mathbf{8} \oplus \mathbf{1},
+    \qquad
+    \mathbf{3} \otimes \mathbf{3} \otimes \mathbf{3}
+    = \mathbf{10} \oplus \mathbf{8} \oplus \mathbf{8} \oplus \mathbf{1},
+    \label{eq:su3decomp}
+\end{equation}
+for the $q\bar q$ mesons and $qqq$ baryons, respectively
+\cite[Ch.~6]{Amsler2018}. The symmetry of the wavefunctions plays a decisive role:
+the total meson wavefunction must have a definite symmetry, whereas the total baryon
+wavefunction must be antisymmetric because it describes three identical fermions.
+
+In the tableau formalism a single box represents the fundamental representation of
+dimension $N$, while a single column of $N-1$ boxes represents the conjugate
+representation $N^*$. A valid tableau must be left- and top-justified. The dimension
+of a tableau is obtained as a ratio of two products. For the numerator one inserts
+the value $N$ in the top-left box, adds one unit when moving to the right and
+subtracts one unit when descending, so that the box in row $r$ and column $c$ carries
+the value $N - r + c$; the numerator is the product of all these values. For the
+denominator one computes, for each box, its \emph{hook}---the number of boxes met by
+a path entering from the right and exiting at the bottom of that box---and multiplies
+the hooks together. The dimension is the product of values divided by the product of
+hooks \cite[Ch.~6]{Amsler2018}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The four-panel definition of Young tableaux: (a) a valid versus an invalid
+% tableau, (b) the assignment of "values" N, N+1, ... and N-1, N-2, ...,
+% (c) the construction of the "hooks", and the worked 2 (x) 2 = 3 + 1 example.
+% Reproduce from the week 17 VL2 "SU(N) and Young tableaux" slides, or adapt
+% Amsler Figs. 6.4 and 6.5.
+% ------------------------------------------------------------
+
+As a first illustration, the coupling of two fundamental doublets of $\mathrm{SU}(2)$
+is represented by the product of two single boxes, which decomposes into a
+horizontal pair of boxes (the symmetric representation) and a vertical pair (the
+antisymmetric one),
+\begin{equation}
+    \mathbf{2} \otimes \mathbf{2} = \mathbf{3} \oplus \mathbf{1},
+\end{equation}
+recovering the spin triplet and singlet of Eq.~\eqref{eq:2x2}. The identical box
+structure applied to $\mathrm{SU}(3)$ instead yields $\mathbf{3} \otimes \mathbf{3} =
+\mathbf{6} \oplus \mathbf{3}^*$, since the antisymmetric vertical pair of boxes is
+the conjugate triplet in $\mathrm{SU}(3)$. The geometry of the boxes thus encodes the
+permutation symmetry directly: a row of boxes is totally symmetric, a column totally
+antisymmetric.
+
+Higher products are evaluated by combining tableaux according to a definite recipe.
+One labels the boxes of the second tableau row by row with a sequence of symbols
+$a, b, c, \dots$, then appends them to the first tableau from the right: the $a$'s
+are added so that no column contains more than one $a$; the $b$'s are added next,
+subject to the constraint that, reading from right to left and top to bottom, the
+running count of $b$'s never exceeds that of $a$'s; the procedure is repeated for the
+$c$'s, after which the dimension of each resulting tableau is computed as above
+\cite[Ch.~6]{Amsler2018}. Applying this to three fundamental triplets reproduces the
+baryon decomposition of Eq.~\eqref{eq:su3decomp},
+\begin{equation}
+    \mathbf{3} \otimes \mathbf{3} \otimes \mathbf{3}
+    = \mathbf{10}_S \oplus \mathbf{8}_{MS} \oplus \mathbf{8}_{MA} \oplus \mathbf{1}_A ,
+\end{equation}
+in which the subscripts label the totally symmetric decuplet, the two mixed-symmetry
+octets, and the totally antisymmetric singlet. Each irreducible representation of
+$\mathrm{SU}(3)$ can be labelled by a pair of integers $(\alpha, \beta)$, the numbers
+of unpaired boxes below the first and second rows of its tableau, which fixes the
+shape of the corresponding weight diagram in the $(I_3, Y)$-plane and distinguishes,
+for instance, the decuplet $\mathbf{10} = (3,0)$ from its conjugate $\mathbf{10}^* =
+(0,3)$ \cite[Ch.~6]{Amsler2018}.
+
+A word of caution applies to the $q\bar q$ mesons. Because a meson is composed of a
+quark in the $\mathbf{3}$ and an antiquark in the $\mathbf{3}^*$, the row-versus-column
+symmetry of the Young tableau is not directly meaningful, and the symmetry of the
+meson wavefunctions must be analysed separately. For baryons, by contrast, the totally
+antisymmetric requirement on the three-fermion wavefunction cannot be met by the
+flavour, spin and spatial degrees of freedom alone---the ground-state baryons sit in
+symmetric flavour--spin combinations with $\ell = 0$---which is the puzzle resolved by
+the introduction of colour \cite[Ch.~6]{Amsler2018}.
+
+% ============================================================
+\subsection{Multiplet quantum numbers and the Gell-Mann--Okubo mass formula}
+\label{subsec:gmo}
+
+The $\mathrm{SU}(3)$ decompositions of Eq.~\eqref{eq:su3decomp} organise the light
+hadrons into the multiplets observed experimentally: the $q\bar q$ mesons fall into
+nonets ($\mathbf{8}\oplus\mathbf{1}$), while the $qqq$ baryons populate an octet and
+a decuplet. Each member carries a definite spin-parity fixed by the internal
+angular-momentum structure of its constituents.
+
+For a $q\bar q$ meson the total quark spin $S = s_q + s_{\bar q}$ takes the values
+$0$ or $1$ (Sect.~\ref{subsec:addition}) and combines with the relative orbital
+angular momentum $L$ to give the meson spin $J = L \oplus S$, with $|L-S| \le J \le
+L+S$. The state is labelled in spectroscopic notation $n^{\,2S+1}L_J$, where $L = S,
+P, D, \dots$ denotes $L = 0, 1, 2, \dots$ and $n$ is the radial quantum number. The
+parity and charge-conjugation eigenvalues follow from the spatial wavefunction
+$\psi(\vec r) = R(r)\,Y_{lm}(\theta,\phi)$: under parity the spherical harmonic
+transforms as $Y_{lm} \to (-1)^L Y_{lm}$, and including the intrinsic odd parity of a
+fermion--antifermion pair gives
+\begin{equation}
+    P(q\bar q) = (-1)^{L+1},
+    \qquad
+    C(q\bar q) = (-1)^{L+S},
+    \label{eq:PC}
+\end{equation}
+the charge-conjugation eigenvalue being defined only for the neutral, flavourless
+members of a multiplet \cite[Ch.~2]{Amsler2018}. The $L = 0$ ground states are
+therefore the pseudoscalar mesons ($S=0$, $J^{PC} = 0^{-+}$) and the vector mesons
+($S=1$, $J^{PC} = 1^{--}$); for reference the photon carries $J^{PC} = 1^{--}$ and
+the $\pi^0$ carries $0^{-+}$. The complete treatment, including the $G$-parity and
+the catalogue of allowed and forbidden $J^{PC}$ combinations, is given in the
+following chapter on mesons.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The pseudoscalar (J^PC = 0^-+) and vector (J^PC = 1^--) meson nonets together
+% with the baryon octet (J^P = 1/2^+) and decuplet (J^P = 3/2^+), drawn as weight
+% diagrams in the (I_3, Y)-plane. Reproduce from the week 18 VL1 "Meson
+% multiplets" and "Baryon multiplets" slides.
+% ------------------------------------------------------------
+
+Within a multiplet the members would be mass-degenerate if $\mathrm{SU}(3)$ were an
+exact symmetry. They are not: the masses increase markedly with hypercharge, by
+roughly $130$--$150$~MeV per unit of strangeness, reflecting the larger mass of the
+strange quark relative to the up and down quarks. Smaller splittings along the
+isospin ($I_3$) axis arise from the electromagnetic interaction and the tiny
+$u$--$d$ mass difference, while the overall offsets between distinct multiplets are
+due to the spin-dependent (spin--spin and spin--orbit) forces of the strong
+interaction \cite[Ch.~13]{Amsler2018}. Treating the symmetry breaking as a
+perturbation proportional to the hypercharge, Gell-Mann and Okubo parametrised the
+masses of a multiplet as
+\begin{equation}
+    M = M_0 + M_1\,Y + M_2\!\left[\,I(I+1) - \tfrac{1}{4}Y^2\,\right],
+    \label{eq:gmoformula}
+\end{equation}
+where $M_0$, $M_1$ and $M_2$ are constants fixed for each multiplet. Applied to the
+baryon octet, Eq.~\eqref{eq:gmoformula} yields the relation
+\begin{equation}
+    2\big[\,m(N) + m(\Xi)\,\big] = 3\,m(\Lambda) + m(\Sigma),
+\end{equation}
+which the measured masses satisfy to better than $1\%$ \cite[Ch.~13]{Amsler2018}.
+
+For the decuplet the isospin and hypercharge of the members are linearly related,
+$I = 1 + \tfrac{1}{2}Y$, so the quadratic term in Eq.~\eqref{eq:gmoformula} cancels
+and the mass becomes a linear function of $Y$. The masses of the $\Delta$,
+$\Sigma^*$, $\Xi^*$ and $\Omega^-$ states, situated at successive hypercharges
+$Y = 1, 0, -1, -2$, are therefore equally spaced. This \emph{equal-spacing rule}
+predicted the mass of the then-undiscovered $\Omega^-$ from its decuplet partners
+$\Sigma^*$ and $\Delta$,
+\begin{equation}
+    m(\Omega^-) = 3\,m(\Sigma^*) - 2\,m(\Delta) \approx 1691~\mathrm{MeV},
+\end{equation}
+in striking agreement with the value $m(\Omega^-) = 1672$~MeV measured after its
+discovery at Brookhaven in 1964---a landmark confirmation of the $\mathrm{SU}(3)$
+classification scheme \cite[Ch.~13]{Amsler2018}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The bubble-chamber photograph and reconstructed decay chain of the first
+% Omega^- event (K^- p -> Omega^- K^+ K^0, followed by Omega^- -> Xi^0 pi^-,
+% Xi^0 -> Lambda pi^0, Lambda -> p pi^-, pi^0 -> gamma gamma). Reproduce from
+% the week 18 VL1 "Discovery of the Omega^-" slide (Barnes et al., Phys. Rev.
+% Lett. 12, 204 (1964)).
+% ------------------------------------------------------------
+
+% ============================================================
+\subsection{Colour charge}
+\label{subsec:colour}
+
+The most direct evidence for an additional degree of freedom comes from the
+spin-$\tfrac{3}{2}$ ground-state baryons composed of three identical quarks, such as
+the $\Delta^{++}(uuu)$, the $\Delta^-(ddd)$ and the $\Omega^-(sss)$. For the
+$\Omega^-$ the flavour, spin and spatial parts of the wavefunction are each fully
+symmetric,
+\begin{equation}
+    \Omega^- = \ket{sss}\,\ket{\uparrow\uparrow\uparrow}\,\ket{L = 0},
+    \label{eq:omega}
+\end{equation}
+where $L$ is the total orbital angular momentum of the three quarks. Such a state
+appears to violate the Pauli principle, which demands that the wavefunction of
+identical fermions be antisymmetric under permutations \cite[Ch.~10]{Amsler2018}.
+
+The resolution, due to Greenberg and to Han and Nambu in the mid-1960s, is the
+introduction of a new quantum number, \emph{colour}: each quark flavour exists in
+three colour states, labelled red ($r$), green ($g$) and blue ($b$), so that a
+baryon is a superposition of the six colour permutations rendered antisymmetric by
+the colour wavefunction
+\begin{equation}
+\begin{split}
+    \beta(q_1 q_2 q_3) = \frac{1}{\sqrt{6}}
+    \big[\, & q_1(r)q_2(g)q_3(b) + q_1(b)q_2(r)q_3(g) + q_1(g)q_2(b)q_3(r) \\
+    & - q_1(g)q_2(r)q_3(b) - q_1(b)q_2(g)q_3(r) - q_1(r)q_2(b)q_3(g) \,\big].
+\end{split}
+\end{equation}
+Multiplying the symmetric flavour-spin-space wavefunction \eqref{eq:omega} by this
+antisymmetric colour factor restores the overall antisymmetry and makes the baryon
+colour-neutral, or ``white'' \cite[Ch.~10]{Amsler2018}. Antiquarks carry the
+corresponding anticolours $\bar{r}, \bar{g}, \bar{b}$, and a meson is a colourless
+superposition of a quark and an antiquark of matching anticolour; for the $\pi^+$,
+\begin{equation}
+    \beta(\pi^+) = \frac{1}{\sqrt{3}}
+    \big[\, u(R)\bar{d}(\bar{R}) + u(G)\bar{d}(\bar{G}) + u(B)\bar{d}(\bar{B}) \,\big].
+\end{equation}
+
+The interaction between coloured quarks is mediated by gluons, which themselves carry
+one colour and one anticolour. Counting the combinations of three colours with three
+anticolours gives the same group-theoretical decomposition encountered for the
+$q\bar q$ mesons,
+\begin{equation}
+    \mathbf{3} \otimes \mathbf{3}^* = \mathbf{8} \oplus \mathbf{1},
+\end{equation}
+which separates the nine colour--anticolour states into a colour octet and a colour
+singlet. The eight octet states are the physical gluons; the singlet combination
+$\tfrac{1}{\sqrt{3}}\ket{r\bar{r} + g\bar{g} + b\bar{b}}$ is colourless and, being
+unconfined, would mediate a long-range strong force that is not observed, so it does
+not appear as a physical field \cite[Ch.~10]{Amsler2018}. The exact colour symmetry
+$\mathrm{SU}(3)_c$ and its non-Abelian dynamics, including confinement and asymptotic
+freedom, are discussed in Sect.~\ref{sec:introduction}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% Cartoon of the colour flux between two quarks exchanging a coloured gluon,
+% illustrating colour conservation at the vertex. Reproduce from the week 18
+% lecture material, or adapt Amsler Fig. 10.1.
+% ------------------------------------------------------------
+
+That colour is a real, threefold degree of freedom is confirmed by several
+measurements that count colour states. The decay rate of the $\pi^0 \to 2\gamma$
+process proceeds through a quark triangle whose amplitude is enhanced by a factor of
+three from the colour sum; the branching fractions of the $W^+$ boson into hadronic
+channels carry a factor of three for each available quark colour; and the ratio of
+the $e^+e^- \to \mathrm{hadrons}$ cross section to the muon-pair cross section is
+multiplied by three relative to the naive quark count. All three observations require
+exactly three colours \cite[Ch.~10]{Amsler2018}.                         
