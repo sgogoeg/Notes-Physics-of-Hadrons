@@ -1,11 +1,576 @@
-\section{Mesons and wave functions}
+\section{Mesons, wave functions and nomenclature}
+\label{sec:mesons}
 
+The previous chapter organised the light hadrons into the irreducible
+representations of $\mathrm{SU}(3)_f$ and used the Gell-Mann--Okubo formula to
+account for the mass splittings within the baryon multiplets. This chapter
+specialises that machinery to the $q\bar q$ mesons. We first complete the catalogue
+of meson quantum numbers begun in Sect.~\ref{sec:groups} by deriving the $G$ parity
+and listing the accessible and the ``exotic'' $J^{PC}$ combinations. We then build
+the meson nonet and analyse the symmetry of its wave functions in the combined
+spin--flavour group $\mathrm{SU}(6)$, discuss the mixing of the two neutral
+isoscalars and the special case of ideal mixing, fix the mixing angle from the meson
+masses, and examine the dynamical consequences of the quark-line structure through
+the Okubo--Zweig--Iizuka rule and the leptonic widths of the vector mesons. The
+chapter closes with the modern naming scheme and with the $\eta$ meson as a precision
+laboratory for the strong interaction and for physics beyond the Standard Model.
+
+% ============================================================
 \subsection{Quantum numbers and wavefunctions}
+\label{subsec:qnumbers}
 
+A meson is a bound quark--antiquark pair, the strong-interaction analogue of
+positronium. Its internal wavefunction factorises into a radial, an angular and a
+spin part,
+\begin{equation}
+    \psi(\vec r,\vec s) = R(r)\,Y_{lm}(\theta,\phi)\,\chi(\vec s),
+    \label{eq:meson_wavefunction}
+\end{equation}
+so that the total quark spin $S = s_q + s_{\bar q}$ takes the values $0$ or $1$ and
+combines with the relative orbital angular momentum $L$ to give the meson spin
+$J = L \oplus S$, with $|L-S| \le J \le L+S$. The state is conventionally labelled in
+the spectroscopic notation $n^{\,2S+1}L_J$, where $n$ is the radial quantum number
+and $L = S, P, D, \dots$ stands for $L = 0, 1, 2, \dots$
+\cite[Ch.~2]{Amsler2018}. The parity and charge-conjugation eigenvalues of a
+$q\bar q$ pair, derived in Sect.~\ref{sec:groups}, are
+\begin{equation}
+    P = (-1)^{L+1},
+    \qquad
+    C = (-1)^{L+S},
+    \label{eq:meson_PC}
+\end{equation}
+the $C$ parity being defined only for the electrically neutral members with hidden
+flavour ($S = C = B = 0$), for which the particle is its own antiparticle
+\cite[Ch.~3]{Amsler2018}.
+
+Charged mesons, and more generally any state with $i_3 \neq 0$, cannot be eigenstates
+of $C$ alone, since charge conjugation flips the sign of $i_3$ and therefore maps,
+for instance, a $\pi^+$ onto a $\pi^-$,
+\begin{equation}
+    C\,\ket{\pi^+} = \eta_C\,\ket{\pi^-}.
+\end{equation}
+The eigenvalue can nevertheless be recovered by following the charge conjugation
+with a rotation by $180^\circ$ about the $2$-axis in isospin space, represented by
+the operator $R_U = \exp(i\pi I_2)$, which restores $i_3$ and hence the original
+charge. The combined operation defines the \emph{$G$ parity}
+\begin{equation}
+    G = C\,e^{i\pi I_2},
+    \label{eq:Gparity_def}
+\end{equation}
+of which the whole isospin multiplet is now a common eigenstate. For an isospin-$I$
+multiplet the rotation contributes a factor $(-1)^I$, so that for a $q\bar q$ system
+\begin{equation}
+    G = C\,(-1)^I = (-1)^{L+S+I},
+    \label{eq:Gparity}
+\end{equation}
+combining Eqs.~\eqref{eq:meson_PC} and \eqref{eq:Gparity_def}
+\cite[Ch.~3]{Amsler2018}. Because both $C$ and isospin are conserved by the strong
+interaction, $G$ parity is conserved as well; it is a practical bookkeeping device
+rather than an independent symmetry. A particularly useful consequence is that a
+system of $n$ pions has $G(n\pi) = (-1)^n$, which dictates that the $\rho$ ($G=+1$)
+decays into two pions and the $\omega$ ($G=-1$) into three. The $G$ parity is not
+defined for the $K$, $D$ and $B$ mesons, which carry open flavour
+\cite[Ch.~3]{Amsler2018}.
+
+Equations~\eqref{eq:meson_PC} and \eqref{eq:Gparity} restrict the quantum numbers
+that a simple $q\bar q$ pair can carry. Running through the lowest values of $L$ and
+$S$ gives the accessible combinations
+\begin{equation}
+    J^{PC}(q\bar q) = 0^{-+},\,0^{++},\,1^{--},\,1^{+-},\,1^{++},\,
+                      2^{--},\,2^{-+},\,2^{++},\,3^{--},\,3^{+-},\,3^{++},\,\dots
+    \label{eq:allowed_JPC}
+\end{equation}
+while the values
+\begin{equation}
+    J^{PC} = 0^{--},\,0^{+-},\,1^{-+},\,2^{+-},\,3^{-+},\,\dots
+    \label{eq:exotic_JPC}
+\end{equation}
+cannot be reached by any $L,S$ assignment. A state observed with one of these
+\emph{exotic} quantum numbers cannot be a conventional meson and must instead be a
+glueball ($gg$), a hybrid ($q\bar q g$), a meson--meson molecule, or a multiquark
+state such as a tetraquark ($q\bar q q\bar q$); these configurations are taken up in
+a later chapter \cite[Ch.~4]{Amsler2018}. The catalogue \eqref{eq:exotic_JPC}
+thereby turns the elementary counting of $q\bar q$ quantum numbers into an
+experimental search strategy for physics beyond the naive quark model.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The L,S -> J^PC ladder: schematic spin-coupling pictures (two arrows for the
+% quark and antiquark spins) for L = 0, 1, 2 with the resulting allowed J^PC
+% values listed beside each row, ending with the accessible and forbidden
+% (exotic) J^PC lists. Reproduce from the week 19 VL1 "Possible quantum numbers
+% of qqbar states" slide (or week 19 VL2 summary slide).
+%
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.85\linewidth]{Figures/qqbar_JPC_ladder.pdf}
+%     \caption{Spin and orbital angular momentum of a $q\bar q$ pair and the
+%     resulting $J^{PC}$ quantum numbers. The combinations
+%     in the lower block (Eq.~\eqref{eq:exotic_JPC}) cannot be formed by a simple
+%     quark--antiquark pair and are termed exotic.}
+%     \label{fig:jpc_ladder}
+% \end{figure}
+% ------------------------------------------------------------
+
+% ============================================================
 \subsection{Mesons}
+\label{subsec:mesons}
 
-\subsection{The OZI rule}
+With three flavours of light quark the fundamental representation of
+$\mathrm{SU}(3)_f$ is the triplet $(u,d,s)$, and a $q\bar q$ pair lives in the product
+\begin{equation}
+    \mathbf{3}\otimes\mathbf{3}^* = \mathbf{1}\oplus\mathbf{8},
+    \label{eq:nonet_decomp}
+\end{equation}
+so that, for a given $J^{PC}$, the nine quark--antiquark combinations group into an
+octet and a singlet---the meson \emph{nonet} \cite[Ch.~7]{Amsler2018}. The six
+states on the periphery of the weight diagram carry open flavour and are uniquely
+fixed; for the pseudoscalars they are the kaons $K^+ = u\bar s$, $K^0 = d\bar s$,
+$\bar K^0 = s\bar d$, $K^- = s\bar u$ together with the charged pions
+$\pi^+ = u\bar d$ and $\pi^- = d\bar u$. The three states sitting at the centre of
+the hexagon all have $i_3 = Y = 0$ and must be disentangled. The neutral member of
+the isotriplet cannot contain an $s\bar s$ component and is
+\begin{equation}
+    \ket{8,3} = \tfrac{1}{\sqrt 2}\,\ket{u\bar u - d\bar d}
+    \;\;(\,\widehat{=}\;\pi^0\;\text{or}\;\rho^0\,),
+    \label{eq:pi0_state}
+\end{equation}
+while the two isoscalars are the $\mathrm{SU}(3)$ singlet and the isoscalar member of
+the octet, obtained by Gram--Schmidt orthogonalisation,
+\begin{align}
+    \ket{1,1} &= \tfrac{1}{\sqrt 3}\,\ket{u\bar u + d\bar d + s\bar s}, \\
+    \ket{8,1} &= \tfrac{1}{\sqrt 6}\,\ket{u\bar u + d\bar d - 2s\bar s},
+    \label{eq:singlet_octet}
+\end{align}
+the singlet being the flavour-symmetric, $\mathrm{SU}(3)$-invariant combination and
+the octet state the one orthogonal both to it and to Eq.~\eqref{eq:pi0_state}
+\cite[Ch.~7]{Amsler2018}.
 
-\subsection{The Gell-Mann-Okubo mass formula}
+The permutation symmetry of the meson wavefunction is most transparent in the
+combined spin--flavour group obtained by merging the flavour group
+$\mathrm{SU}(3)_f$ with the spin group $\mathrm{SU}(2)_{\text{spin}}$ into
+$\mathrm{SU}(6)$, whose fundamental representation contains the six states
+$u\!\uparrow, d\!\uparrow, s\!\uparrow, u\!\downarrow, d\!\downarrow, s\!\downarrow$.
+A meson wavefunction factorises as
+\begin{equation}
+    \Psi = \Phi^{\text{flavour}}\,\chi^{\text{spin}}\,R(x),
+    \label{eq:su6_wavefunction}
+\end{equation}
+and since the flavour part decomposes according to Eq.~\eqref{eq:nonet_decomp} into
+symmetric and antisymmetric combinations $\Phi_S, \Phi_A$, while the two spins
+combine into symmetric ($\chi_S$, $S=1$) and antisymmetric ($\chi_A$, $S=0$) parts,
+there are four possible products: the symmetric $\Phi_S\chi_S$ and $\Phi_A\chi_A$,
+and the antisymmetric $\Phi_S\chi_A$ and $\Phi_A\chi_S$
+\cite[Ch.~7]{Amsler2018}. The physically realised symmetry is fixed by charge
+conjugation, which exchanges quark and antiquark and acts on the flavour part with
+the factor $(-1)^{L+S}$ of Eq.~\eqref{eq:meson_PC}. For the pseudoscalar ground
+states ($L=S=0$, spin function $\chi_A$),
+\begin{equation}
+    C\ket{\pi^0} = C(\Phi\chi) = (-1)^{0+0}\,\Phi\chi = +\Phi\chi = \Phi_S\chi
+    \;\;\Longrightarrow\;\; \Psi(\pi^0) = \Phi_S\chi_A,
+\end{equation}
+which is overall antisymmetric, while for the vector ground states ($L=0$, $S=1$,
+spin function $\chi_S$),
+\begin{equation}
+    C\ket{\rho^0} = (-1)^{0+1}\,\Phi\chi = -\Phi\chi = \Phi_A\chi
+    \;\;\Longrightarrow\;\; \Psi(\rho^0) = \Phi_A\chi_S,
+\end{equation}
+again antisymmetric overall. Consistently, the neutral isovector
+Eq.~\eqref{eq:pi0_state} is realised as the flavour-symmetric combination for the
+pseudoscalar and as the flavour-antisymmetric combination for the vector
+\cite[Ch.~7]{Amsler2018}.
 
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The two weight diagrams (hexagons) of the pseudoscalar (J^PC = 0^-+) and vector
+% (J^PC = 1^--) nonets in the (I_3, Y) plane, with the open-flavour members on
+% the periphery (K, pi / K*, rho) and the three central states (pi^0, eta, eta'
+% / rho^0, omega, phi) at the origin. Reproduce from the week 19 VL1 "Meson
+% multiplets" slide, or adapt Amsler Fig. 5.1.
+%
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{Figures/meson_nonets.pdf}
+%     \caption{Weight diagrams of the pseudoscalar ($J^{PC} = 0^{-+}$) and vector
+%     ($J^{PC} = 1^{--}$) meson nonets in the $(I_3, Y)$ plane. The six
+%     open-flavour states lie on the periphery of the hexagon; the three neutral,
+%     flavourless states occupy the centre.}
+%     \label{fig:meson_nonets}
+% \end{figure}
+% ------------------------------------------------------------
+
+% ============================================================
 \subsection{Nonets and ideal mixing}
+\label{subsec:nonets}
+
+The two central isoscalars $\ket{8,1}$ and $\ket{1,1}$ share all conserved quantum
+numbers ($Q = i = S = 0$) and therefore mix. The physically observed states are the
+orthogonal superpositions
+\begin{align}
+    \ket{S_A} &= \cos\theta\,\ket{8,1} - \sin\theta\,\ket{1,1}, \notag\\
+    \ket{S_B} &= \sin\theta\,\ket{8,1} + \cos\theta\,\ket{1,1},
+    \label{eq:nonet_mixing}
+\end{align}
+with a single mixing angle $\theta$ that must be determined from experiment by
+comparing masses, decays and production properties \cite[Ch.~5]{Amsler2018}. A
+distinguished value is \emph{ideal mixing},
+\begin{equation}
+    \tan\theta = \frac{1}{\sqrt 2}
+    \;\;\Longleftrightarrow\;\;
+    \theta = 35.3^\circ,
+    \label{eq:ideal_mixing}
+\end{equation}
+for which the $s\bar s$ component decouples completely from the light quarks, so that
+one physical isoscalar becomes pure strange and the other a pure $u,d$ combination,
+\begin{equation}
+    \ket{S_A} = -\ket{s\bar s},
+    \qquad
+    \ket{S_B} = \tfrac{1}{\sqrt 2}\,\ket{u\bar u + d\bar d}.
+    \label{eq:ideal_states}
+\end{equation}
+
+The vector nonet is very close to ideal mixing. The near degeneracy
+$m(\rho(770)) \approx m(\omega(782))$ already signals that the $\omega$ shares the
+light-quark content of the $\rho^0$, and the assignment
+$\ket{\omega} = \tfrac{1}{\sqrt 2}\ket{u\bar u + d\bar d}$,
+$\ket{\phi} = -\ket{s\bar s}$ follows with $\theta_V \approx 35.3^\circ$
+\cite[Ch.~5]{Amsler2018}. The pseudoscalar nonet is the conspicuous exception: its
+mixing angle lies in the range $-10^\circ$ to $-20^\circ$, far from ideal, so that
+the $\eta$ and $\eta'$ are close to the pure octet and singlet states of
+Eq.~\eqref{eq:singlet_octet}. The reason is dynamical. The mixing is driven by the
+annihilation of the $q\bar q$ pair into intermediate gluons; for the $0^{-+}$
+isoscalars a two-gluon intermediate state is allowed, generating a large
+perturbation, whereas for the $1^{--}$ isoscalars the Fermi--Yang theorem forbids a
+spin-$1$ state from coupling to two spin-$1$ gluons, so at least three gluons are
+required and the perturbation is strongly suppressed \cite[Ch.~5]{Amsler2018}. This
+is why the vectors mix ideally while the pseudoscalars do not. The measured masses
+of the two ground-state nonets,
+\begin{equation}
+\begin{aligned}
+    &m(\pi^\pm) = 139.6,\;\; m(\pi^0) = 135,\;\;
+     m(\eta) = 547.3,\;\; m(\eta') = 957.8,\\
+    &m(K^\pm) = 493.7,\;\; m(K^0) = 497.7
+    \qquad\text{(pseudoscalars)},\\[2pt]
+    &m(\rho) = 770,\;\; m(\omega) = 782,\;\; m(\phi) = 1019,\;\;
+     m(K^{*\pm}) = 892,\;\; m(K^{*0}) = 896
+     \quad\text{(vectors)},
+\end{aligned}
+\label{eq:nonet_masses}
+\end{equation}
+(in MeV) are the inputs to the mass formulae of the next subsection
+\cite[Ch.~5]{Amsler2018}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The wavefunction-mixing perturbation: oscillation between qqbar pairs mediated
+% by gluon exchange, contrasting the two-gluon process allowed for the 0^-+
+% isoscalars with the three-gluon process required for the 1^-- isoscalars
+% (Fermi-Yang theorem), and the angular-momentum suppression for L > 0.
+% Reproduce/adapt from Amsler Fig. 5.2.
+%
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.8\linewidth]{Figures/mixing_perturbation.pdf}
+%     \caption{Gluonic perturbation responsible for singlet--octet mixing. The
+%     two-gluon process is allowed for the pseudoscalar isoscalars but forbidden
+%     for the vectors, which require at least three gluons; this explains the
+%     near-ideal mixing of the vector nonet and the large deviation of the
+%     pseudoscalars.}
+%     \label{fig:mixing_perturbation}
+% \end{figure}
+% ------------------------------------------------------------
+
+% ============================================================
+\subsection{The Gell-Mann--Okubo mass formula}
+\label{subsec:gmo-mesons}
+
+The mass formula introduced for the baryon multiplets in
+Sect.~\ref{subsec:gmo} applies equally to the mesons, with the mixing angle now
+following from the nonet masses. Treating the quark masses additively, the
+pseudoscalar masses are
+\begin{equation}
+    M_\pi = M_0 + 2M_q,
+    \qquad
+    M_K = M_0 + M_q + M_s,
+    \label{eq:gmo_piK}
+\end{equation}
+while the pure octet and singlet states carry
+\begin{equation}
+    M_8 = M_0 + \tfrac{2}{3}M_q + \tfrac{4}{3}M_s,
+    \qquad
+    M_1 = M_0 + \tfrac{4}{3}M_q + \tfrac{2}{3}M_s,
+    \label{eq:gmo_18}
+\end{equation}
+corresponding to the octet and singlet wavefunctions of
+Eq.~\eqref{eq:singlet_octet}. Eliminating the unknown quark masses yields the two
+relations
+\begin{equation}
+    4M_K - M_\pi = 3M_8,
+    \qquad
+    2M_K + M_\pi = 3M_1.
+    \label{eq:gmo_relations}
+\end{equation}
+Diagonalising the $2\times2$ mass matrix in the basis $(\ket{8,1}, \ket{1,1})$ and
+identifying the eigenvalues with the physical $\eta$ and $\eta'$ masses through
+$\langle\varphi|H|\varphi\rangle = M_\varphi$ gives, with the off-diagonal element
+$M_{18} = \langle 8,1|H|1,1\rangle$,
+\begin{align}
+    M_\eta   &= M_8\cos^2\theta + M_1\sin^2\theta - 2M_{18}\sin\theta\cos\theta,
+    \notag\\
+    M_{\eta'} &= M_8\sin^2\theta + M_1\cos^2\theta + 2M_{18}\sin\theta\cos\theta,
+    \notag\\
+    0 &= (M_8 - M_1)\sin\theta\cos\theta + M_{18}(\cos^2\theta - \sin^2\theta),
+    \label{eq:gmo_matrix}
+\end{align}
+the last line expressing the vanishing of the off-diagonal element in the physical
+basis. Solving for the angle yields the \emph{linear mass formula}
+\begin{equation}
+    \tan^2\theta =
+    \frac{3M_\eta + M_\pi - 4M_K}{4M_K - 3M_{\eta'} - M_\pi},
+    \label{eq:gmo_linear}
+\end{equation}
+which has an often-used variant, the \emph{quadratic mass formula}, obtained by
+replacing each mass by its square,
+\begin{equation}
+    \tan^2\theta =
+    \frac{3M_\eta^2 + M_\pi^2 - 4M_K^2}{4M_K^2 - 3M_{\eta'}^2 - M_\pi^2}.
+    \label{eq:gmo_quadratic}
+\end{equation}
+There is no compelling theoretical reason to prefer one over the other, and the two
+return appreciably different angles \cite[Ch.~5]{Amsler2018}. Applied to the
+established nonets the formulae give the values collected in
+Table~\ref{tab:mixing_angles}; the vector, tensor and higher nonets come out close
+to the ideal $35.3^\circ$, while the pseudoscalars are markedly smaller, consistent
+with the dynamical argument of Sect.~\ref{subsec:nonets}.
+
+\begin{table}[t]
+    \centering
+    \caption{Mixing angles $\Theta$ extracted from the linear
+    (Eq.~\eqref{eq:gmo_linear}) and quadratic (Eq.~\eqref{eq:gmo_quadratic}) mass
+    formulae for the well-established meson nonets \cite[Ch.~5]{Amsler2018}.}
+    \label{tab:mixing_angles}
+    \begin{tabular}{lcc}
+        \hline
+        Nonet members &
+        $\Theta_{\mathrm{linear}}$ &
+        $\Theta_{\mathrm{quad}}$ \\
+        \hline
+        $\pi,\,K,\,\eta',\,\eta$ &
+        $-23^\circ$ & $-10^\circ$ \\
+        $\rho(770),\,K^*(892),\,\phi(1020),\,\omega(783)$ &
+        $36^\circ$ & $39^\circ$ \\
+        $a_2(1320),\,K_2^*(1430),\,f_2'(1525),\,f_2(1270)$ &
+        $26^\circ$ & $29^\circ$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+For the pseudoscalars the small angle $\theta \approx -19.3^\circ$ leads to the
+explicit wavefunctions
+\begin{equation}
+    \ket{\eta}  = \tfrac{1}{\sqrt 3}\,\ket{u\bar u + d\bar d - s\bar s},
+    \qquad
+    \ket{\eta'} = \tfrac{1}{\sqrt 6}\,\ket{u\bar u + d\bar d + 2s\bar s},
+    \label{eq:eta_states}
+\end{equation}
+which interpolate between the pure octet/singlet limit ($\theta = 0^\circ$) and the
+ideally mixed case ($\theta = 35.3^\circ$), where $\ket{S_A} = -\ket{s\bar s}$
+\cite[Ch.~5]{Amsler2018}. The same relations applied to the baryon multiplets were
+discussed in Sect.~\ref{subsec:gmo}.
+
+% ============================================================
+\subsection{The OZI rule}
+\label{subsec:ozi}
+
+The Okubo--Zweig--Iizuka (OZI) rule states that a strong decay whose Feynman graph
+can be separated into the initial and final hadrons \emph{without cutting any quark
+line} is suppressed: the process may still proceed, but with a probability
+comparable to that of an electromagnetic transition \cite[Ch.~5]{Amsler2018}.
+Intuitively, the decay rate diminishes the more $q\bar q$ pairs have to be created
+out of the vacuum. The textbook illustration is the $\phi(1020)$, which is almost
+pure $s\bar s$. Its decay into $K\bar K$ proceeds through connected quark lines and is
+OZI allowed, whereas the decay into $\pi^+\pi^-\pi^0$ requires the initial $s$ and
+$\bar s$ to annihilate and three new light pairs to be produced, a disconnected
+graph that is OZI suppressed. The suppression survives despite the very different
+phase space available, the $Q$ value being about $600$~MeV for $3\pi$ but only about
+$20$~MeV for $K\bar K$. The branching ratios bear this out, with
+$BR(\phi\to K\bar K)\approx 84\%$ against $BR(\phi\to 3\pi)\approx 15\%$, and the
+narrow total width $\Gamma(\phi) = 4.4$~MeV contrasts sharply with the
+OZI-unsuppressed $\Gamma(\rho(770)) = 150$~MeV \cite[Ch.~5]{Amsler2018}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The OZI quark-line diagrams for the phi meson: (top) the connected, OZI-allowed
+% graph phi(s sbar) -> K^- (s ubar) K^+ (u sbar), and (bottom) the disconnected,
+% OZI-suppressed graph phi(s sbar) -> pi^+ pi^0 pi^- in which the s sbar pair
+% annihilates and three light qqbar pairs are created. Reproduce from the week 19
+% VL1 "OZI rule" slide, or adapt Amsler Fig. 5.3.
+%
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{Figures/ozi_phi.pdf}
+%     \caption{Quark-line diagrams for $\phi$ decay. The connected $K\bar K$ graph
+%     (top) is OZI allowed and dominates, whereas the disconnected $3\pi$ graph
+%     (bottom), in which the $s\bar s$ pair annihilates, is OZI suppressed.}
+%     \label{fig:ozi_phi}
+% \end{figure}
+% ------------------------------------------------------------
+
+A complementary and more quantitative probe of the quark content is the leptonic
+width of the vector mesons, the decay $V \to e^+e^-$ proceeding through a single
+virtual photon coupling to the quark charges. The rate is proportional to the square
+of the charge-weighted sum of the flavour amplitudes,
+\begin{equation}
+    \Gamma(V \to e^+e^-) \;\propto\; \Big|\textstyle\sum_q e_q\,c_q\Big|^2,
+    \label{eq:leptonic_width}
+\end{equation}
+where $e_q$ are the quark charges and $c_q$ the wavefunction coefficients. Inserting
+the ideally mixed states $\ket{\rho^0} = \tfrac{1}{\sqrt 2}\ket{u\bar u - d\bar d}$,
+$\ket{\omega} = \tfrac{1}{\sqrt 2}\ket{u\bar u + d\bar d}$ and
+$\ket{\phi} = -\ket{s\bar s}$ with $e_u = +\tfrac{2}{3}$,
+$e_d = e_s = -\tfrac{1}{3}$ gives the squared amplitudes $\tfrac12$, $\tfrac{1}{18}$
+and $\tfrac19$, that is
+\begin{equation}
+    \Gamma_\rho : \Gamma_\omega : \Gamma_\phi = 9 : 1 : 2.
+    \label{eq:leptonic_ratio}
+\end{equation}
+The measured widths in Table~\ref{tab:leptonic_widths} reproduce the predicted
+hierarchy remarkably well given the crudeness of the single-photon estimate
+\cite[Ch.~7]{Amsler2018}. The residual discrepancies, most visibly for the $\rho^0$,
+arise from $\rho$--$\omega$ interference: the small $u$--$d$ mass difference breaks
+charge symmetry so that the physical $\rho$ and $\omega$ are not pure isospin
+eigenstates but each contain a small admixture of the other's isospin, an effect
+studied for instance by the Crystal Barrel collaboration in $\bar p p$ annihilation.
+
+\begin{table}[t]
+    \centering
+    \caption{Leptonic widths $\Gamma_{e^+e^-}$ of the vector mesons compared with
+    the quark-charge prediction of Eq.~\eqref{eq:leptonic_width}. Experimental
+    values from the PDG; the ratios are normalised to the $\omega$
+    \cite[Ch.~7]{Amsler2018}.}
+    \label{tab:leptonic_widths}
+    \begin{tabular}{lccccc}
+        \hline
+         & $\rho^0$ & $\omega$ & $\phi$ & $J/\psi$ & $\Upsilon$ \\
+        \hline
+        $\Gamma_{e^+e^-}$ [keV] &
+        $7.04$ & $0.60$ & $1.27$ & $5.53$ & $1.34$ \\
+        Measured ratio &
+        $\sim\!11.7$ & $\sim\!1$ & $\sim\!2.1$ & $\sim\!9.2$ & $\sim\!2.2$ \\
+        Expected ratio &
+        $\sim\!9$ & $\sim\!1$ & $\sim\!2$ & $\sim\!8$ & $\sim\!2$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% ============================================================
+\subsection{Nomenclature of conventional mesons}
+\label{subsec:nomenclature}
+
+Before 1986 hadron names were assigned haphazardly, often reflecting the fantasy or
+the name of the discoverer; the rapidly growing number of states made a systematic
+scheme indispensable. The convention introduced by the Particle Data Group in 1986
+assigns names from which the quantum numbers $J^{PC}$ and the isospin can be read off,
+while preserving the familiar labels of the long-known states such as the pion, the
+kaon and the $\rho$ \cite[Ch.~4]{Amsler2018}. Two complementary labels are used: the
+measured $J^{PC}$, and the spectroscopic notation $^{2S+1}L_J$ which encodes the
+internal quantum numbers in the non-relativistic quark model.
+
+The base symbol is fixed by the isospin and by the $J^{PC}$ of the neutral,
+hidden-flavour member for which $C$ is defined, as summarised in
+Table~\ref{tab:meson_naming}. A subscript $J$ is appended for all states except the
+pseudoscalars ($0^{-+}$) and the vectors ($1^{--}$), whose ground states keep their
+historical names. For example, the $\rho_3(1690)$ is an established orbital
+excitation with $L = 2$, quantum numbers $J^{PC} = 3^{--}$ and isospin $i = 1$
+\cite[Ch.~4]{Amsler2018}.
+
+\begin{table}[t]
+    \centering
+    \caption{Naming scheme for the light $q\bar q$ mesons. The base name is set by
+    the isospin $i$ and the spin--parity, with the spectroscopic term $^{2S+1}L_J$
+    given for reference \cite[Ch.~4]{Amsler2018}.}
+    \label{tab:meson_naming}
+    \begin{tabular}{cccccccc}
+        \hline
+        $L$ & $S$ & $J^{PC}$ & $^{2S+1}L_J$ &
+        $i=1$ & $i=0$ & $i=0$ & strange \\
+        \hline
+        $0$ & $0$ & $0^{-+}$ & $^1S_0$ & $\pi$ & $\eta$  & $\eta'$ & $K$    \\
+        $0$ & $1$ & $1^{--}$ & $^3S_1$ & $\rho$ & $\omega$ & $\phi$ & $K^*$  \\
+        $1$ & $0$ & $1^{+-}$ & $^1P_1$ & $b_1$ & $h_1$   & $h_1'$  & $K_1$  \\
+        $1$ & $1$ & $0^{++}$ & $^3P_0$ & $a_0$ & $f_0$   & $f_0'$  & $K_0^*$\\
+        $1$ & $1$ & $1^{++}$ & $^3P_1$ & $a_1$ & $f_1$   & $f_1'$  & $K_1$  \\
+        $1$ & $1$ & $2^{++}$ & $^3P_2$ & $a_2$ & $f_2$   & $f_2'$  & $K_2^*$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION (optional, extended table):
+% The continuation of the naming table for L = 2, 3, 4 (D, F, G waves), listing
+% the pi_2/eta_2, rho/omega/phi (D-wave), b_3/h_3, a_J/f_J families and the
+% corresponding strange K_J states. Reproduce from the week 19 VL2 "Conventional
+% mesons: Naming scheme" slide (second table), or adapt Amsler Table 4.1.
+% ------------------------------------------------------------
+
+% ============================================================
+\subsection{The \texorpdfstring{$\eta$}{eta} meson as a gateway to QCD and new physics}
+\label{subsec:eta-gateway}
+
+The $\eta$ occupies a special place among the light mesons. With a mass of
+$m(\eta) = 548$~MeV it has ample phase space to decay into pions, yet its quantum
+numbers $I^G J^{PC} = 0^+ 0^{-+}$ forbid or suppress the most obvious channels,
+turning the particle into a sensitive testing ground for the symmetries of the strong
+interaction \cite[Ch.~3]{Amsler2018}. The two-pion mode is forbidden outright: with
+$J_\eta = 0$ the pions must be in a relative $S$ wave, giving the pair the parity
+$P(\pi\pi) = (-1)^L\,P(\pi)^2 = +1$, in conflict with the negative parity of the
+$\eta$. The three-pion mode respects parity but violates $G$ parity, since
+$G(\eta) = +1$ while $G(3\pi) = (-1)^3 = -1$; equivalently, three isospin-$1$ pions
+cannot be coupled to the isospin-$0$ of the $\eta$ in a fully symmetric way, so the
+decay is forbidden by isospin symmetry. Nevertheless it is observed with a sizeable
+branching ratio, $BR(\eta\to3\pi)\approx 55\%$ \cite[Ch.~3]{Amsler2018}.
+
+The resolution is that isospin is not an exact symmetry: because $m_u \neq m_d$, the
+$\pi^0$ and the $\eta$ mix,
+\begin{equation}
+    \ket{\eta_{\text{phys}}} = \ket{\eta} - \epsilon\,\ket{\pi^0},
+    \qquad
+    \epsilon \sim (m_d - m_u),
+    \label{eq:pi_eta_mixing}
+\end{equation}
+so that the physical $\eta$ decays ``through'' its small $\pi^0$ admixture. The rate
+of $\eta\to3\pi$ is therefore directly sensitive to the light-quark mass difference,
+making the $\eta$ a precision laboratory for one of the fundamental parameters of
+QCD \cite[Ch.~3]{Amsler2018}.
+
+The same suppression of conventional channels makes the $\eta$ attractive as a
+window onto physics beyond the Standard Model. With many of its strong and
+electromagnetic decays forbidden or strongly suppressed, the relative weight of any
+rare or symmetry-violating mode is enhanced. The rare radiative decay
+$\eta \to \pi\gamma\gamma$, in particular, can be used to search for light, weakly
+coupled mediators over a broad mass range: a new boson produced in
+$\eta \to B'\gamma \to \pi^0\gamma\gamma$ or a light scalar in
+$\eta \to \pi^0 S \to \pi^0\gamma\gamma$ would appear as a peak in the
+$\pi^0\gamma$ (or diphoton) invariant-mass spectrum on top of the Standard-Model
+continuum.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% (a) The triangle (quark-loop) diagram for eta -> pi gamma gamma, with the eta
+% coupling to a u,d,s loop emitting two photons (and the new-physics variant in
+% which one photon line is replaced by a hypothetical boson B). (b) A schematic
+% pi^0-gamma invariant-mass spectrum showing the smooth Standard-Model continuum
+% with a narrow "bump" from a hypothetical mediator. Reproduce from the week 19
+% VL1 "The eta meson as gate to new physics" slide.
+%
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.85\linewidth]{Figures/eta_rare_decay.pdf}
+%     \caption{(a) Quark-loop diagram for the rare decay
+%     $\eta\to\pi^0\gamma\gamma$ and its new-physics variant
+%     $\eta\to\pi^0 S\to\pi^0\gamma\gamma$. (b) Sketch of the expected
+%     $\pi^0\gamma$ invariant-mass spectrum: a hypothetical light mediator would
+%     appear as a narrow peak over the Standard-Model continuum.}
+%     \label{fig:eta_rare_decay}
+% \end{figure}
+% ------------------------------------------------------------
