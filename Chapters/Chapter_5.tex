@@ -1,5 +1,393 @@
 \section{Baryons and color}
 
+% ============================================================
 \subsection{Baryon wave function and the antisymmetry problem}
+\label{subsec:baryon-antisymmetry}
 
+Baryons are bound states of three quarks, and since quarks are spin-$\tfrac{1}{2}$
+fermions the Pauli principle requires the total wave function to be antisymmetric
+under the exchange of any pair of constituents. In the non-relativistic quark model
+the wave function factorizes into a flavor part, a spin part and a spatial part,
+\begin{equation}
+    \Psi = \Phi_{\text{flavour}}\,\chi_{\text{spin}}\,R(\vec{r}),
+    \label{eq:baryon-Psi-nocolor}
+\end{equation}
+which is the form available before color is introduced \cite[Ch.~13]{Amsler2018}.
+The spatial factor of the ground-state baryons carries no orbital angular momentum,
+$L = 0$, and is therefore symmetric, so the required antisymmetry has to be supplied
+by the combined flavor and spin factors alone.
+
+The building blocks are fixed by the group-theoretical decompositions of three
+fundamental representations. For flavor one finds
+\begin{equation}
+    \mathbf{3} \otimes \mathbf{3} \otimes \mathbf{3}
+    = \mathbf{10}_{S} \oplus \mathbf{8}_{M_S} \oplus \mathbf{8}_{M_A}
+      \oplus \mathbf{1}_{A},
+    \label{eq:flavor-3x3x3}
+\end{equation}
+giving a totally symmetric decuplet, two octets of mixed symmetry and a totally
+antisymmetric singlet \cite[Ch.~13]{Amsler2018}. For the three quark spins the
+analogous coupling reads
+\begin{equation}
+    \mathbf{2} \otimes \mathbf{2} \otimes \mathbf{2}
+    = \mathbf{4}_{S} \oplus \mathbf{2}_{M_S} \oplus \mathbf{2}_{M_A},
+    \label{eq:spin-2x2x2}
+\end{equation}
+that is, one fully symmetric spin-$\tfrac{3}{2}$ quadruplet and two spin-$\tfrac{1}{2}$
+doublets of mixed symmetry. Note that no totally antisymmetric combination of three
+spin-$\tfrac{1}{2}$ states exists, a fact that will prove decisive below.
+
+Experimentally the baryons of lowest mass arrange themselves into exactly the
+multiplets that these representations predict: a spin-$\tfrac{1}{2}$ octet containing
+the proton and the neutron, and a spin-$\tfrac{3}{2}$ decuplet containing the
+$\Delta(1232)$. Both are observed as the ground states, with $L = 0$ and hence a
+symmetric spatial wave function \cite[Ch.~13]{Amsler2018}.
+
+The difficulty becomes most transparent at the corners of the decuplet, where the
+three quark flavors are identical. The state
+\begin{equation}
+    \Delta^{++} = \ket{uuu}\,\ket{\uparrow\uparrow\uparrow}\,\ket{L=0}
+\end{equation}
+is symmetric in flavor, symmetric in spin and symmetric in space, so the product
+\eqref{eq:baryon-Psi-nocolor} is \emph{totally symmetric} under quark exchange. The
+same holds for the $\Delta^-(ddd)$ and the $\Omega^-(sss)$. Such configurations
+manifestly violate the Pauli principle for identical fermions, and with only the
+factors in \eqref{eq:baryon-Psi-nocolor} at hand there is no way to repair the
+symmetry \cite[Ch.~10]{Amsler2018}. The quark model, otherwise so successful in
+accounting for the observed multiplets, is thereby driven into a genuine
+contradiction whose resolution requires an additional degree of freedom.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The baryon decuplet weight diagram drawn as a triangle, with the three corner
+% states ddd, uuu and sss highlighted as the manifestly symmetric configurations
+% (u^up u^up u^up), (d^up d^up d^up), (s^up s^up s^up). Reproduce from the
+% week 19 VL2 "Baryons in SU(6)" slide ("The problem gets directly obvious in the
+% decuplet").
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.55\textwidth]{figures/decuplet_corners.pdf}
+%   \caption{Weight diagram of the spin-$\tfrac{3}{2}$ baryon decuplet. The three
+%   corner states $\Delta^{++}(uuu)$, $\Delta^-(ddd)$ and $\Omega^-(sss)$ are built
+%   from three identical quarks with aligned spins and a symmetric $L=0$ spatial
+%   wave function, and are therefore totally symmetric under exchange.}
+%   \label{fig:decuplet-corners}
+% \end{figure}
+% ------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================
+\subsection{Baryons in SU(6) and the ``56''-plet}
+\label{subsec:su6-56plet}
+
+The flavor and spin degrees of freedom can be combined into a single larger symmetry
+by embedding the three flavors and the two spin states into a sixfold fundamental
+representation. Coupling three such sextets and reducing the product with the help of
+Young tableaux gives
+\begin{equation}
+    \mathbf{6} \otimes \mathbf{6} \otimes \mathbf{6}
+    = \mathbf{56}_{S} \oplus \mathbf{70}_{M_S} \oplus \mathbf{70}_{M_A}
+      \oplus \mathbf{20}_{A},
+    \label{eq:su6-6x6x6}
+\end{equation}
+where the subscripts again record the permutation symmetry \cite[Ch.~13]{Amsler2018}.
+Each $\mathrm{SU}(6)$ supermultiplet decomposes into definite combinations of an
+$\mathrm{SU}(3)$ flavor multiplet and a definite total quark spin. The totally
+symmetric $\mathbf{56}$ contains precisely the observed ground states,
+\begin{equation}
+    \mathbf{56} = (\mathbf{8},\, s=\tfrac{1}{2}) \;\oplus\; (\mathbf{10},\, s=\tfrac{3}{2}),
+\end{equation}
+that is, the spin-$\tfrac{1}{2}$ octet of nucleons and the spin-$\tfrac{3}{2}$
+decuplet headed by the $\Delta(1232)$ \cite[Ch.~13]{Amsler2018}. The ground-state
+baryons therefore fit the ``56''-plet without exception, which at first sight is a
+remarkable success of the scheme.
+
+The flavor wave functions that enter these assignments illustrate how the symmetry is
+realized. For the $\Delta$ the totally symmetric flavor function is
+\begin{equation}
+    \Phi_{\Delta} = \sqrt{\tfrac{1}{3}}
+    \big[\, uud + (ud + du)u \,\big],
+\end{equation}
+while the two mixed-symmetry partners needed for the octet read
+\begin{equation}
+    \Phi_{M_A} = \sqrt{\tfrac{1}{2}}\,\big[\,(ud - du)u\,\big],
+    \qquad
+    \Phi_{M_S} = \sqrt{\tfrac{1}{6}}\,\big[\,(ud + du)u - 2\,uud\,\big].
+\end{equation}
+A totally symmetric spin-$\tfrac{1}{2}$ wave function is then assembled from the
+mixed-symmetric and mixed-antisymmetric flavor and spin factors, the proton being the
+symmetric combination $\tfrac{1}{\sqrt{2}}\,(\Phi_{M_S}\chi_{M_S}
++ \Phi_{M_A}\chi_{M_A})$ \cite[Ch.~13]{Amsler2018}.
+
+This is exactly where the antisymmetry problem of Sect.~\ref{subsec:baryon-antisymmetry}
+returns in its sharpest form. The $\mathbf{56}$ is totally symmetric in the combined
+flavor--spin variables, and for the ground states the orbital wave function $R(\vec r)$
+with $L=0$ is symmetric as well. The product
+\begin{equation}
+    \Psi^{\text{total}} = \Phi_{\text{flavour}}\,\chi_{\text{spin}}\,R(\vec{r})
+\end{equation}
+is then symmetric, in direct conflict with the Pauli principle, which demands a
+totally antisymmetric baryon. The very multiplet that accommodates all the observed
+ground states is the one with the wrong overall symmetry, so the success of the
+classification and its apparent failure under fermion statistics are two sides of the
+same fact \cite[Ch.~13]{Amsler2018}.
+
+\FloatBarrier
+
+% ============================================================
+\subsection{Color as a new degree of freedom}
+\label{subsec:color-dof}
+
+The resolution, proposed in the mid-1960s by Greenberg and by Han and Nambu, and
+developed by Gell-Mann, is to endow each quark flavor with a further internal quantum
+number called \emph{color} \cite[Ch.~10]{Amsler2018}. Every quark comes in three
+color states, labelled red ($r$), green ($g$) and blue ($b$), which span the
+fundamental triplet of a new symmetry group $\mathrm{SU}(3)_{c}$. Unlike flavor
+$\mathrm{SU}(3)$, which is badly broken by the quark mass differences, the color
+symmetry $\mathrm{SU}(3)_{c}$ is taken to be exact.
+
+The color states couple in the same way as the flavors,
+\begin{equation}
+    \mathbf{3} \otimes \mathbf{3} \otimes \mathbf{3}
+    = \mathbf{10}_{S} \oplus \mathbf{8}_{M_S} \oplus \mathbf{8}_{M_A}
+      \oplus \mathbf{1}_{A},
+\end{equation}
+and it is the totally antisymmetric singlet $\mathbf{1}_{A}$ that is used to restore
+the overall antisymmetry of the baryon \cite[Ch.~10]{Amsler2018}. Explicitly, the
+antisymmetric color wave function of three quarks is
+\begin{equation}
+\begin{split}
+    \lambda_{\text{color}}(q_1 q_2 q_3) = \frac{1}{\sqrt{6}}
+    \big[\, & q_1(r)q_2(g)q_3(b) + q_1(b)q_2(r)q_3(g) + q_1(g)q_2(b)q_3(r) \\
+    & - q_1(g)q_2(r)q_3(b) - q_1(b)q_2(g)q_3(r) - q_1(r)q_2(b)q_3(g) \,\big].
+\end{split}
+\end{equation}
+Multiplying the symmetric flavor--spin--space wave function of the ``56''-plet by this
+antisymmetric color factor yields a total wave function
+\begin{equation}
+    \psi = \Phi_{\text{flavour}}\,\chi_{\text{spin}}\,\lambda_{\text{color}}\,R(\vec{r}),
+    \label{eq:full-Psi-color}
+\end{equation}
+in which the symmetric product $\Phi_{\text{flavour}}\,\chi_{\text{spin}}\,R(\vec{r})$
+is multiplied by the antisymmetric $\lambda_{\text{color}}$, so that the result is
+antisymmetric and the Pauli principle is satisfied \cite[Ch.~10]{Amsler2018}. The
+$\Delta^{++}$, $\Delta^-$ and $\Omega^-$ are thereby rescued precisely because their
+color factor carries the antisymmetry that the rest of the wave function lacks.
+
+A baryon built from the color singlet is colorless, or ``white''. This is the
+quantitative content of the observation that all hadrons seen in nature are color
+singlets: color charge itself is never observed in isolation, and only color-neutral
+combinations propagate as free particles \cite[Ch.~10]{Amsler2018}. The exactness of
+$\mathrm{SU}(3)_{c}$ together with this confinement of color provides the foundation on which Quantum Chromodynamics is built.
+
+\FloatBarrier
+
+% ============================================================
+\subsection{Gluons and the color octet}
+\label{subsec:gluons-octet}
+
+If color is to be a dynamical charge, the force between quarks must transmit it. The
+mediators of the strong interaction, the gluons, therefore carry one unit of color and
+one unit of anticolor, color being conserved at each quark--gluon vertex
+\cite[Ch.~10]{Amsler2018}. The nine combinations of a color with an anticolor reduce
+in the same manner as the $q\bar q$ mesons,
+\begin{equation}
+    \mathbf{3} \otimes \mathbf{3}^{*} = \mathbf{1} \oplus \mathbf{8},
+\end{equation}
+splitting the color--anticolor states into a singlet and an octet. The eight octet
+states,
+\begin{equation}
+    r\bar g,\; r\bar b,\; g\bar r,\; g\bar b,\; b\bar r,\; b\bar g,\;
+    \tfrac{1}{\sqrt{2}}(r\bar r - g\bar g),\;
+    \tfrac{1}{\sqrt{6}}(r\bar r + g\bar g - 2 b\bar b),
+\end{equation}
+are the eight physical gluons, the gauge fields of QCD, while the remaining colorless
+combination is the singlet
+\begin{equation}
+    \tfrac{1}{\sqrt{3}}\,(r\bar r + g\bar g + b\bar b).
+\end{equation}
+
+The singlet gluon is not realized in nature, and confinement provides the reason. A
+color-singlet gluon would itself be colorless, and a colorless mediator could be
+emitted as a free particle and exchanged between two color-singlet hadrons, giving rise
+to a long-range strong force with strong coupling \cite[Ch.~10]{Amsler2018}. No such
+force is observed, so the singlet does not appear as a physical field and exactly eight
+colored gluons remain. Because the gluons carry color themselves, they interact with one
+another, a non-Abelian feature that distinguishes QCD from electrodynamics and underlies
+both confinement and asymptotic freedom.
+
+\FloatBarrier
+
+% ============================================================
+\subsection{Baryon supermultiplets and excited states}
+\label{subsec:supermultiplets}
+
+With the total wave function antisymmetrized by color as in \eqref{eq:full-Psi-color},
+the requirement of antisymmetry can be reformulated for the visible degrees of freedom:
+since $\lambda_{\text{color}}$ is always the antisymmetric singlet, the remaining product
+$\Phi_{\text{flavour}}\,\chi_{\text{spin}}\,R(\vec{r})$ must be totally
+\emph{symmetric}. For the ground states the orbital factor is symmetric and this selects
+the ``56''-plet. The excited baryons, however, may carry orbital angular momentum, which
+opens additional possibilities for the spatial wave function $R(\vec{r})$ and hence for the
+$\mathrm{SU}(6)$ content \cite[Ch.~15]{Amsler2018}.
+
+The internal motion of three quarks is conveniently described by the two Jacobi
+coordinates
+\begin{equation}
+    \vec{\rho} = \tfrac{1}{\sqrt{2}}\,(\vec{x}_1 - \vec{x}_2),
+    \qquad
+    \vec{\lambda} = \tfrac{1}{\sqrt{6}}\,(\vec{x}_1 + \vec{x}_2 - 2\,\vec{x}_3),
+\end{equation}
+where $\vec{\rho}$ describes the relative motion within a quark pair and $\vec{\lambda}$
+the motion of the third quark relative to that pair. The associated orbital angular
+momenta determine the parity,
+\begin{equation}
+    P(qqq) = (-1)^{\ell_\rho}\,(-1)^{\ell_\lambda},
+\end{equation}
+so that ground-state baryons with $\ell_\rho = \ell_\lambda = 0$ have $J^P =
+\tfrac{1}{2}^+$ or $\tfrac{3}{2}^+$ \cite[Ch.~13]{Amsler2018}. In the harmonic-oscillator
+model the excitations are organized by the band number
+\begin{equation}
+    N = 2n + L = 2 n_\rho + 2 n_\lambda + \ell_\rho + \ell_\lambda,
+\end{equation}
+and the spectrum is classified under the combined $\mathrm{SU}(6) \times O(3)$ symmetry,
+each level being labelled by an $\mathrm{SU}(6)$ multiplet and its orbital angular momentum $L$ \cite[Ch.~15]{Amsler2018}.
+
+The mixed-symmetry and antisymmetric $\mathrm{SU}(6)$ multiplets, which cannot describe
+the symmetric ground states, become accessible once the orbital wave function itself
+carries a definite mixed or antisymmetric character. The $\vec{\rho}$ excitation is
+antisymmetric and the $\vec{\lambda}$ excitation symmetric under exchange of the first two
+quarks, and combining these with mixed flavor--spin functions produces a totally symmetric
+product. In this way the $\mathbf{70}$-plet appears as the lowest negative-parity band
+($N=1$, $L=1$), decomposing into a spin-$\tfrac{3}{2}$ octet together with a decuplet, an
+octet and a singlet of spin $\tfrac{1}{2}$, while the totally antisymmetric flavor singlet
+$\Phi_A$, which has no place among the ground states, is realized only in these excited
+multiplets, namely in the $\mathbf{70}$ and the $\mathbf{20}$
+\cite[Ch.~15]{Amsler2018}. The $\mathrm{SU}(6)$ supermultiplets thus organize as
+\begin{align}
+    \mathbf{56}: &\quad s=\tfrac{1}{2}\ \text{octet},\;\; s=\tfrac{3}{2}\ \text{decuplet}, \nonumber\\
+    \mathbf{70}: &\quad s=\tfrac{1}{2}\ \text{decuplet},\;\; s=\tfrac{3}{2}\ \text{octet},\;\;
+                   s=\tfrac{1}{2}\ \text{octet},\;\; s=\tfrac{1}{2}\ \text{singlet}, \\
+    \mathbf{20}: &\quad s=\tfrac{3}{2}\ \text{singlet},\;\; s=\tfrac{1}{2}\ \text{octet}. \nonumber
+\end{align}
+
+These predicted supermultiplets map onto the experimentally established excited baryons.
+The known $N^{*}$ and $\Delta^{*}$ resonances, as well as the strange $\Lambda^{*}$ and
+$\Sigma^{*}$ states, populate the bands expected from $\mathrm{SU}(6)\times O(3)$, with the
+ground-state nucleons and $\Delta(1232)$ in the $(\mathbf{56},0^{+})$ at $N=0$ and the
+lowest orbital excitations in the $(\mathbf{70},1^{-})$ at $N=1$
+\cite[Ch.~15]{Amsler2018}. The model predicts many more excitations than have been seen;
+several states couple only weakly to the pion--nucleon and kaon--nucleon channels used to
+produce them, and no firmly established candidate has yet been assigned to the
+$\mathbf{20}$-plet \cite[Ch.~15]{Amsler2018}.
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The lowest baryon supermultiplets in the SU(6) x O(3) harmonic-oscillator model,
+% plotted as orbital angular momentum L (or L_3q) versus band number N, with the
+% (56,0+), (70,1-), (56,2+), (70,2+), (20,1+), ... boxes and the associated
+% measured N* and Delta* masses. Reproduce from the week 20 VL1 "Multiplets <->
+% known N*, Delta*-states" slide (after the PDG/Amsler Fig. 15.3).
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{figures/baryon_supermultiplets.pdf}
+%   \caption{Distribution of the lowest baryon supermultiplets in the
+%   $\mathrm{SU}(6)\times O(3)$ harmonic-oscillator model as a function of orbital
+%   angular momentum and band number $N = 2n + L$, with the established $N^{*}$ and
+%   $\Delta^{*}$ assignments.}
+%   \label{fig:baryon-supermultiplets}
+% \end{figure}
+% ------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================
 \subsection{Finding color in experiments}
+\label{subsec:color-experiment}
+
+Color was introduced to save the quark model, but its threefold character is not a
+bookkeeping device: it can be measured. The cleanest counting experiment is the
+annihilation of electron--positron pairs into hadrons through a virtual photon. Since the
+photon couples to the quark electric charge, the total annihilation cross section into a
+quark--antiquark pair of charge $e_f$ is, summing over all kinematically accessible final
+states,
+\begin{equation}
+    \sigma_{\text{tot}}(e^+e^- \to f\bar f)
+    \;\propto\; \sum_{\text{all } f\bar f \text{ pairs}} \frac{4\pi e_f^{2}}{3s},
+\end{equation}
+where $\sqrt{s}$ is the center-of-mass energy \cite[Ch.~10]{Amsler2018}. Normalizing the
+hadronic cross section to that for muon pairs removes the common kinematic factors and
+isolates the charge and color content,
+\begin{equation}
+    R = \frac{\sigma_{\text{tot}}(e^+e^- \to q\bar q)}
+             {\sigma_{\text{tot}}(e^+e^- \to \mu^+\mu^-)}
+      = N_c \sum_q e_q^{2},
+    \label{eq:R-ratio}
+\end{equation}
+the factor $N_c$ arising because each quark flavor is produced in $N_c$ distinguishable
+colors \cite[Ch.~10]{Amsler2018}.
+
+The predictive power of \eqref{eq:R-ratio} lies in its step structure. As the energy
+crosses the threshold for producing a new flavor, the ratio increases by $e_q^{2} N_c$.
+Taking $N_c = 3$ one predicts $R = 2$ in the region where only the $u$, $d$ and $s$ quarks
+are produced, rising to $R = 10/3$ above the charm threshold and to $R = 11/3$ once the
+bottom quark contributes,
+\begin{align}
+    u,d:   &\quad \big(\tfrac{2}{3}\big)^2 + \big(\tfrac{1}{3}\big)^2 = \tfrac{5}{9}
+            \;\Rightarrow\; \tfrac{5}{9}\,N_c, \nonumber\\
+    u,d,s: &\quad \big(\tfrac{2}{3}\big)^2 + 2\big(\tfrac{1}{3}\big)^2 = \tfrac{2}{3}
+            \;\Rightarrow\; \tfrac{2}{3}\,N_c\;(=2\ \text{for}\ N_c=3), \\
+    u,d,s,c:   &\quad \;\Rightarrow\; \tfrac{10}{9}\,N_c, \nonumber\\
+    u,d,s,c,b: &\quad \;\Rightarrow\; \tfrac{11}{9}\,N_c. \nonumber
+\end{align}
+The measured value of $R$ in the continuum between the resonances matches these
+predictions only for $N_c = 3$, which is the central experimental statement that there are
+three colors \cite[Ch.~10]{Amsler2018}. Figure~\ref{fig:R-ratio-steps} shows the
+leading-order prediction with its characteristic increases at the open-flavor thresholds.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/R_ratio_steps.pdf}
+    \caption{Leading-order prediction for the ratio $R = \sigma(e^+e^- \to
+    \text{hadrons})/\sigma(e^+e^- \to \mu^+\mu^-) = N_c \sum_q e_q^2$ as a function of
+    $\sqrt{s}$, for $N_c = 3$. The ratio increases by $e_q^2 N_c$ each time the energy
+    crosses the threshold for producing a new quark flavor, giving $R = 2$ ($u,d,s$),
+    $R = 10/3$ (adding $c$) and $R = 11/3$ (adding $b$). The smooth resonances are omitted.}
+    \label{fig:R-ratio-steps}
+\end{figure}
+
+% ------------------------------------------------------------
+% FIGURE SUGGESTION:
+% The measured e+e- -> hadrons cross section and the ratio R over the full
+% sqrt(s) range, showing the rho/omega/phi region, the narrow J/psi and psi(2S),
+% the Upsilon states and the Z pole, with the experimental R sitting on the
+% predicted plateaux. Reproduce from the week 20 VL1 "Color - Experimental
+% evidence for N_C = 3" slide (PDG compilation).
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\textwidth]{figures/R_measured_PDG.pdf}
+%   \caption{Measured ratio $R$ in $e^+e^-$ annihilation as a function of $\sqrt{s}$,
+%   compared with the prediction $R = N_c \sum_q e_q^2$. The agreement requires
+%   $N_c = 3$.}
+%   \label{fig:R-measured}
+% \end{figure}
+% ------------------------------------------------------------
+
+The same factor of three appears in two further measurements. The decay $\pi^0 \to 2\gamma$
+proceeds through a quark triangle whose amplitude is enhanced by the color sum, so that the
+partial width scales as $N_c^{2}$ and the predicted rate agrees with experiment only for
+three colors; without color the neutral-pion lifetime would be about nine times longer.
+Likewise, the hadronic branching ratio of the $W^{+}$ boson, close to $66\%$, carries a
+factor of three for each available quark color in the $u\bar d$ and $c\bar s$ channels
+\cite[Ch.~10]{Amsler2018}. Taken together, the $e^+e^-$ ratio, the $\pi^0$ lifetime and the
+$W$ branching fractions all point to the same conclusion, $N_c = 3$, which is the
+experimental basis of QCD.
+
+A related experimental fact, the strong suppression of flavor-changing neutral currents
+such as $K^{+} \to \pi^{+}\nu\bar\nu$, is accounted for by the GIM mechanism and the
+Cabibbo theory and was historically tied to the prediction of the charm quark, whose
+$c\bar c$ bound states first appeared as the narrow $J/\psi$ resonance discussed in the
+following section.
+
+\FloatBarrier
