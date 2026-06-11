@@ -75,38 +75,38 @@ hadronic matter \cite[Ch.~14]{HalzenMartin1984}.
 \subsection{QCD and the strong interaction}
  
 The theory of the strong interaction, \emph{Quantum Chromodynamics} (QCD), is a
-non-Abelian gauge theory based on the local colour symmetry group
+non-Abelian gauge theory based on the local color symmetry group
 $\mathrm{SU}(3)_c$, whose mathematical structure was established by Fritzsch,
-Gell-Mann, and Leutwyler in 1973. The fundamental charge of QCD is colour,
+Gell-Mann, and Leutwyler in 1973. The fundamental charge of QCD is color,
 introduced by Han and Nambu and by Greenberg in the mid-1960s: each quark
-flavour exists in three colour states conventionally labelled red ($r$), green ($g$),
-and blue ($b$), while antiquarks carry the corresponding anticolours
+flavour exists in three colour states conventionally labeled red ($r$), green ($g$),
+and blue ($b$), while antiquarks carry the corresponding anticolors
 \cite[Ch.~10]{Amsler2018}. The gauge bosons of the theory are eight massless
 gluons, each carrying one unit of colour and one of anticolour, corresponding to the
 eight generators of $\mathrm{SU}(3)_c$. A ninth combination,
-$\tfrac{1}{\sqrt{3}}|r\bar{r} + g\bar{g} + b\bar{b}\rangle$, would form a colour
-singlet; since a free colour-singlet gluon would mediate a long-range force of
-infinite range not observed in nature, only the eight-dimensional colour octet of
+$\tfrac{1}{\sqrt{3}}\ket{r\bar{r} + g\bar{g} + b\bar{b}}$, would form a color
+singlet; since a free color-singlet gluon would mediate a long-range force of
+infinite range not observed in nature, only the eight-dimensional color octet of
 gluons appears as a physical field \cite[Ch.~10]{Amsler2018}.
  
-A direct consequence of $\mathrm{SU}(3)_c$ is colour confinement: free quarks and
+A direct consequence of $\mathrm{SU}(3)_c$ is color confinement: free quarks and
 free gluons are never observed in isolation. All detectable hadrons are
-colour-neutral, or \emph{white}, objects. Because gluons are electrically neutral
-and carry no intrinsic quantum numbers beyond colour, the quantum numbers of a
-hadron---its electric charge, spin, flavour, and parity---are determined entirely by
+color-neutral, or \emph{white}, objects. Because gluons are electrically neutral
+and carry no intrinsic quantum numbers beyond color, the quantum numbers of a
+hadron---its electric charge, spin, flavor, and parity---are determined entirely by
 the quantum numbers of its constituent quarks and antiquarks
-\cite[Ch.~1]{Amsler2018}. The allowed colour-singlet configurations follow from
-the tensor decompositions of colour representations: a quark-antiquark pair
+\cite[Ch.~1]{Amsler2018}. The allowed color-singlet configurations follow from
+the tensor decompositions of color representations: a quark-antiquark pair
 $3_c \otimes \bar{3}_c = 1_c + 8_c$ can form a singlet meson, and three quarks
 $3_c \otimes 3_c \otimes 3_c \supset 1_c$ can form a singlet baryon. More exotic
-colour-neutral arrangements --- tetraquarks, pentaquarks, and glueballs --- are
+color-neutral arrangements --- tetraquarks, pentaquarks, and glueballs --- are
 equally permitted by QCD, though their unambiguous experimental identification
 remains an open challenge \cite[Ch.~10]{Amsler2018}.
 
 The number of colour charges $N_c = 3$ is not a free parameter but is independently
 confirmed by three experimental observations \cite[Ch.~10]{Amsler2018}. First, the
 measured two-photon decay rate $\Gamma(\pi^0 \to \gamma\gamma) = 7.7 \pm 0.2$~eV
-is reproduced by the anomalous triangle diagram only when $N_c = 3$ colour species
+is reproduced by the anomalous triangle diagram only when $N_c = 3$ color species
 run in the internal quark loop. Second, the ratio of hadronic to leptonic cross
 sections in $e^+e^-$ annihilation,
 \begin{equation}
@@ -402,21 +402,21 @@ opposite intrinsic parities, and it is confirmed experimentally by the decay of
 parapositronium ($^1S_0$, $e^+e^-$) into two photons, which establishes
 $C(e^+e^-) = +1$ and thus $P(e^+e^-) = -1$.
  
-For a $q\bar{q}$ meson in a state of orbital angular momentum $\ell$, the
+For a $q\bar{q}$ meson in a state of orbital angular momentum $L$, the
 intrinsic parities of the quark and antiquark combine with the spatial wavefunction
 to give
 \begin{equation}
     P(q\bar{q})
-    \;=\; P(q)\cdot P(\bar{q})\cdot(-1)^\ell
-    \;=\; (+1)(-1)(-1)^\ell
-    \;=\; (-1)^{\ell+1}.
+    \;=\; P(q)\cdot P(\bar{q})\cdot(-1)^L
+    \;=\; (+1)(-1)(-1)^L
+    \;=\; (-1)^{L+1}.
     \label{eq:meson_parity}
 \end{equation}
-The lightest mesons occupy the $\ell = 0$ ground state and therefore have $P = -1$.
-Depending on whether the total quark spin $s$ is zero or one, these ground states
+The lightest mesons occupy the $L = 0$ ground state and therefore have $P = -1$.
+Depending on whether the total quark spin $S$ is zero or one, these ground states
 carry $J^{PC} = 0^{-+}$ (pseudoscalar nonet: $\pi, K, \eta, \eta'$) or
 $J^{PC} = 1^{--}$ (vector nonet: $\rho, K^*, \omega, \phi$). Orbital excitations
-with $\ell = 1$ yield $P = +1$ states corresponding to the scalar ($0^{++}$),
+with $L = 1$ yield $P = +1$ states corresponding to the scalar ($0^{++}$),
 axial-vector ($1^{++}$ and $1^{+-}$), and tensor ($2^{++}$) nonets
 \cite[Ch.~4]{Amsler2018}.
  
@@ -457,6 +457,7 @@ parity of the charged pion was established as $P(\pi^-) = -1$ through the reacti
 $\pi^- d \to nn$, and it remains the standard technique applied in modern resonance
 searches at facilities such as LHCb and BESIII.
 
+
 \FloatBarrier
 
 \subsection{Charge conjugation}
@@ -485,13 +486,13 @@ electromagnetism. When all charges reverse sign, the electromagnetic four-potent
 must also reverse, $A^\mu \to -A^\mu$, and consequently both the electric and
 magnetic fields change sign. It follows that
 \begin{equation}
-    C\,|\gamma\rangle = -|\gamma\rangle,
+    C\,\ket{\gamma} = -\ket{\gamma},
     \qquad J^{PC}(\gamma) = 1^{--}.
     \label{eq:photon_Cparity}
 \end{equation}
 Since $C$ is a multiplicative quantum number, a state of $n$ photons satisfies
 \begin{equation}
-    C\,|n\gamma\rangle = (-1)^n\,|n\gamma\rangle.
+    C\,\ket{n\gamma} = (-1)^n\,\ket{n\gamma}.
     \label{eq:ngamma_Cparity}
 \end{equation}
 Conservation of $C$ parity in electromagnetic transitions therefore allows the
@@ -516,34 +517,34 @@ $J/\psi \to \phi\gamma$ would violate $C$ conservation, and a search by the BESI
 experiment found no signal, setting an upper limit of $1.4 \times 10^{-6}$ on that
 branching fraction \cite[Ch.~3]{Amsler2018}.
  
-For a $q\bar{q}$ meson with orbital angular momentum $\ell$ and total quark spin
-$s$, the $C$ parity is derived from the transformation properties of the spatial and
+For a $q\bar{q}$ meson with orbital angular momentum $L$ and total quark spin
+$S$, the $C$ parity is derived from the transformation properties of the spatial and
 spin wavefunctions under interchange of the quark and antiquark labels. Using the
 symmetry properties of the relevant Clebsch--Gordan coefficients, one finds that
 particle--antiparticle pairs are eigenstates of charge conjugation with eigenvalue
 \begin{equation}
-    C(q\bar{q}) = (-1)^{\ell+s}.
+    C(q\bar{q}) = (-1)^{L+S}.
     \label{eq:qqbar_Cparity}
 \end{equation}
-The ground-state $\ell = 0$, $s = 0$ mesons have $C = +1$; combined with the
-parity $P = (-1)^{\ell+1} = -1$ (Eq.~\eqref{eq:meson_parity}), this gives
-$J^{PC} = 0^{-+}$ for the pseudoscalar nonet. The $\ell = 0$, $s = 1$ states have
+The ground-state $L = 0$, $S = 0$ mesons have $C = +1$; combined with the
+parity $P = (-1)^{L+1} = -1$ (Eq.~\eqref{eq:meson_parity}), this gives
+$J^{PC} = 0^{-+}$ for the pseudoscalar nonet. The $L = 0$, $S = 1$ states have
 $C = -1$ and $P = -1$, yielding $J^{PC} = 1^{--}$ for the vector nonet. As a
 further application of Eq.~\eqref{eq:qqbar_Cparity}, $C$ conservation in strong
 interactions constrains the angular momentum of the $\pi^+\pi^-$ system in
-$\rho^0 \to \pi^+\pi^-$: since $C(\rho^0) = -1$ and $C(\pi^+\pi^-)=(-1)^\ell$,
-the relative angular momentum $\ell$ between the two pions must be odd; total
-angular momentum conservation then uniquely selects $\ell = 1$, consistent
+$\rho^0 \to \pi^+\pi^-$: since $C(\rho^0) = -1$ and $C(\pi^+\pi^-)=(-1)^L$,
+the relative angular momentum $L$ between the two pions must be odd; total
+angular momentum conservation then uniquely selects $L = 1$, consistent
 with the known $P$-wave structure of this decay \cite[Ch.~3]{Amsler2018}.
  
 Together, Eqs.~\eqref{eq:meson_parity} and \eqref{eq:qqbar_Cparity} imply the
-constraint $PC = (-1)^{2\ell + s + 1} = (-1)^{s+1}$, which is fixed by the
-total quark spin $s$ alone and is independent of $\ell$. For $s = 0$ one has
-$PC = -1$, so $P$ and $C$ always carry opposite signs; for $s = 1$ one has
+constraint $PC = (-1)^{2L + S + 1} = (-1)^{S+1}$, which is fixed by the
+total quark spin $S$ alone and is independent of $L$. For $S = 0$ one has
+$PC = -1$, so $P$ and $C$ always carry opposite signs; for $S = 1$ one has
 $PC = +1$, so they always agree. This restricts the accessible $J^{PC}$ combinations
 to a discrete set, and several combinations are altogether forbidden for any
 $q\bar{q}$ state: $J^{PC} = 0^{--},\,0^{+-},\,1^{-+},\,2^{+-},\ldots$ cannot be
-produced by any choice of integer $\ell$ and $s = 0$ or $1$. These
+produced by any choice of integer $L$ and $S = 0$ or $1$. These
 \emph{exotic quantum numbers} therefore provide unambiguous signatures for
 multiquark states, hybrid mesons, or glueballs if observed experimentally
 \cite[Ch.~4]{Amsler2018}.
@@ -560,13 +561,13 @@ Standard Model \cite[Ch.~1]{Amsler2018}.
 In the following sections, we will cover many unanswered questions up to this point:
  
 \begin{itemize}
-    \item What is the experimental evidence for colors, and many are there
-    \item What is the evidence for gluons and how many do we have
-    \item How do we measure $\alpha_s$
-    \item What are the quark masses
-    \item What is the nature and observations of confinement
-    \item How does QCD produce hadrons
-    \item Which hadrons do exist, and do they have an spectrum
+    \item What is the experimental evidence for colors, and many are there?
+    \item What is the evidence for gluons and how many do we have?
+    \item How do we measure $\alpha_s$?
+    \item What are the quark masses?
+    \item What is the nature and observations of confinement?
+    \item How does QCD produce hadrons?
+    \item Which hadrons do exist, and do they have an spectrum?
 \end{itemize}
 
 \FloatBarrier

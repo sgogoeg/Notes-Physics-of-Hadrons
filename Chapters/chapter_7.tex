@@ -1,8 +1,620 @@
-\section{}
+% ============================================================================
+%  Chapter 7 — Glueballs and Hybrid Mesons
+%  The Quark Structure of Hadrons (project)
+% ----------------------------------------------------------------------------
+%  Preamble packages assumed by this chapter:
+%     amsmath, graphicx, placeins (for \FloatBarrier),
+%     tikz with \usetikzlibrary{arrows.meta},
+%     and a \ket{...} macro (e.g. from the physics package, or a custom
+%     \newcommand{\ket}[1]{\left|#1\right\rangle}).
+%
+%  Cross-references used below: \ref{sec:groups} (G parity / exotic J^{PC} /
+%  SU(3)) and \ref{sec:mesons} (meson quantum numbers and nonet mixing).
+%  Adjust the label names if they differ in your master document. The OZI rule
+%  was introduced together with the J/psi width in the hadron-spectrometry
+%  chapter; insert the corresponding \ref where indicated if a label exists.
+%
+%  Generated figures (Matplotlib, vector PDF, in ./figures/):
+%     figures/dalitz_boundary.pdf       — Dalitz boundary + rho bands
+%     figures/angular_distributions.pdf — helicity-angle distributions
+%  All other figures are indicated as commented placeholders, each with a
+%  suggested caption, label and placeholder filename.
+% ============================================================================
 
-\subsection{more light meson spesctroscopy}
+\section{Glueballs and Hybrid Mesons}
+\label{sec:glueballs}
 
-Glueballs and more eotics in light mesons...
+Quantum chromodynamics predicts more than the familiar $q\bar q$ mesons and
+$qqq$ baryons. Because the gluons that mediate the strong interaction themselves
+carry color, the theory admits color-singlet bound states with explicit gluonic
+content: \emph{glueballs}, made of glue alone, and \emph{hybrid mesons}, in which
+a gluonic excitation is added to a quark--antiquark pair. This chapter reviews the
+phenomenological status of these states in the light-quark sector, following
+Amsler \cite[Ch.~11]{Amsler2018}. We first recall why such states are expected,
+establish experimentally that gluons are real dynamical objects, and quote the
+mass scale set by lattice QCD. We then assemble the experimental machinery used to
+find them --- gluon-rich production channels, antiproton--proton annihilation at
+rest, the Dalitz plot, and partial wave analysis --- before turning to the
+concrete evidence in the scalar, tensor and exotic-$J^{PC}$ sectors. Compact
+multiquark states (tetraquarks and pentaquarks) are deferred to the dedicated
+chapter on multiquark states.
+
+% ============================================================================
+\subsection{Gluonic matter: glueballs and hybrids}
+\label{subsec:gluonic_matter}
+
+The strong interaction is described by the non-Abelian gauge theory
+$\mathrm{SU}(3)_c$, whose force carriers are eight massless gluons. Unlike the
+photon of quantum electrodynamics, which is electrically neutral, the gluons carry
+color charge and therefore couple to one another. This self-coupling is responsible
+for the running of the strong coupling constant $\alpha_s$ and for asymptotic
+freedom, and it has a striking spectroscopic consequence: the theory permits
+color-singlet states built purely from glue. Two-gluon ($gg$) and three-gluon
+($ggg$) systems may bind into glueballs, the strong force in its purest form, while
+a quark--antiquark pair together with an excited gluonic flux gives a $q\bar q g$
+hybrid meson. Both lattice QCD and the flux-tube model predict that glueballs and
+hybrids exist \cite[Ch.~10]{Amsler2018,Amsler2018}.
+
+The light-meson sector is the natural proving ground. The cleanest signature of a
+state lying outside the quark model is an \emph{exotic} combination of spin, parity
+and charge conjugation: the assignment $J^{PC}=1^{-+}$, for example, cannot be
+formed by any $q\bar q$ pair (cf.\ Sect.~\ref{sec:groups}). The search proceeds on
+two fronts. Among the isoscalar scalar mesons at least two candidates, the
+$f_0(1500)$ and the $f_0(1710)$, dispute the status of the ground-state glueball,
+while the first excited (tensor) glueball has not yet been identified, even though
+more $2^{++}$ states have been reported than the $q\bar q$ nonets can accommodate.
+On the second front, two isovector states with exotic quantum numbers $1^{-+}$, the
+$\pi_1(1400)$ and the $\pi_1(1600)$, are incompatible with $q\bar q$ assignments and
+could be hybrid mesons or multiquark states \cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (schematic cartoon) --------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.85\linewidth]{figures/glueball_hybrid_cartoon.pdf}
+%   \caption{Schematic comparison of a conventional $q\bar q$ meson, a two-gluon
+%            glueball, and a $q\bar q g$ hybrid with an excited gluonic flux tube.}
+%   \label{fig:glueball_hybrid_cartoon}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Seeing gluons: multi-jet events}
+\label{subsec:multijet}
+
+Before hunting for bound states of glue it is worth recalling that the gluon is an
+experimentally established quantum. In electron--positron annihilation,
+$e^+e^-\to\gamma^*\to q\bar q$, the quark and antiquark fragment into two
+back-to-back jets of hadrons. Hard-gluon bremsstrahlung off one of the quarks,
+$q\bar q g$, produces a third jet; the three-jet topology observed at the PETRA
+collider in 1979 was the first direct evidence for the gluon. Higher-order
+processes, in which the radiated gluon itself splits ($g\to gg$) or a secondary
+$q\bar q$ pair is produced, give rise to four-jet events.
+
+The relative rates of two-, three- and four-jet events and their angular
+correlations cannot be described without the gluon and its self-interaction. Their
+quantitative analysis at LEP, for instance by the ALEPH experiment, both measures
+$\alpha_s$ and confirms that the gluon is a spin-$1$ boson belonging to a
+non-Abelian gauge theory. The reality of gluons as dynamical, self-interacting
+objects is the physical prerequisite for expecting them to form bound states.
+
+% ---- PLACEHOLDER FIGURES (event display + parton diagrams) -----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{figures/multijet_event_display.pdf}
+%   \caption{Reconstructed multi-jet events in $e^+e^-$ annihilation recorded by
+%            the ALEPH detector at LEP.}
+%   \label{fig:multijet_event}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{figures/jet_diagrams.pdf}
+%   \caption{Parton-level diagrams for two-jet ($q\bar q$), three-jet ($q\bar q g$)
+%            and four-jet ($q\bar q gg$ and $q\bar q q'\bar q'$) final states in
+%            $e^+e^-$ annihilation.}
+%   \label{fig:jet_diagrams}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The glueball spectrum from lattice QCD}
+\label{subsec:lattice}
+
+Lattice gauge theory predicts a rich spectrum of glueballs. In the quenched
+approximation the ground state is a scalar, $0^{++}$, with a mass of about
+$1700~\mathrm{MeV}$ (with an uncertainty of order $100~\mathrm{MeV}$); the first
+excited state is a tensor, $2^{++}$, near $2400~\mathrm{MeV}$, and the lightest
+glueball carrying exotic quantum numbers, $2^{+-}$, lies around
+$4200~\mathrm{MeV}$ \cite[Ch.~11]{Amsler2018}.
+
+This prediction comes with an important complication. The low-mass glueballs fall
+in the same mass region as ordinary isoscalar $q\bar q$ states --- the scalar near
+the $1^3P_0$ ($0^{++}$) mesons and the tensor near the $2^3P_2$, $3^3P_2$ and
+$1^3F_2$ ($2^{++}$) mesons --- so a glueball will mix with nearby $q\bar q$ states
+of the same quantum numbers. The lattice values quoted above are obtained in the
+quenched approximation, which neglects virtual $q\bar q$ pairs and hence this
+mixing, although first calculations including quark loops suggest that the mass
+shifts are small. The practical consequence is that the scalar sector contains more
+isoscalar states than a single $0^{++}$ $q\bar q$ nonet can hold: the lightest
+scalars, those below $1~\mathrm{GeV}$, are most naturally interpreted as four-quark
+states, while the ground-state $1^3P_0$ $q\bar q$ nonet lies in the
+$1400~\mathrm{MeV}$ region. Identifying the scalar glueball therefore requires a
+good understanding of \emph{all} the scalar states \cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (lattice spectrum) ---------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{figures/glueball_spectrum_lattice.pdf}
+%   \caption{Predicted glueball mass spectrum from quenched lattice QCD, ordered by
+%            $J^{PC}$. The scalar $0^{++}$ ground state lies near $1700~\mathrm{MeV}$
+%            and the tensor $2^{++}$ near $2400~\mathrm{MeV}$
+%            (after Morningstar and Peardon).}
+%   \label{fig:glueball_spectrum}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Strategies for the glueball search}
+\label{subsec:strategies}
+
+Glueball production is expected to be enhanced in gluon-rich environments and
+suppressed where the dynamics is governed by photons, which couple to the electric
+charges of quarks rather than to gluons. Two-photon collisions therefore act as an
+``anti-glueball filter'': a glueball should be suppressed in $\gamma\gamma$
+production, a feature exploited at $e^+e^-$ machines (JADE, L3, ALEPH and Belle).
+
+Conversely, three classes of reaction are gluon-rich and so favorable for glueball
+formation. The first is central production in high-energy hadron collisions, in
+which the incident projectiles are scattered through small angles and a gluon-rich
+system is produced centrally by double-Pomeron exchange; this channel was studied
+by the WA91 and WA102 experiments at CERN and more recently at LHCb. The second is
+the radiative decay $J/\psi(1S)\to\gamma\,+\,\text{light hadrons}$, in which the
+$c\bar c$ pair annihilates through intermediate gluons (MARK~III, DM2 and BES at
+Beijing). The third is antiproton--proton annihilation, both at rest and in flight,
+studied by ASTERIX, Crystal Barrel and OBELIX at LEAR. The future PANDA experiment
+at FAIR will continue this program with antiproton beams
+\cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (production diagrams) ------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{figures/glueball_production_channels.pdf}
+%   \caption{Gluon-rich glueball production: central production via double-Pomeron
+%            exchange (left), radiative $J/\psi$ decay (centre) and $\bar p p$
+%            annihilation (right).}
+%   \label{fig:production_channels}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Antiproton--proton annihilation at rest}
+\label{subsec:annihilation}
+
+Annihilation at rest is valuable because it prepares the reaction in a small number
+of well-defined initial states. A low-momentum antiproton entering a liquid
+hydrogen ($\mathrm{LH_2}$) or deuterium ($\mathrm{LD_2}$) target is captured by a
+proton to form protonium, a $\bar p p$ atom, at a large principal quantum number
+$n\approx 30$. The atom then cascades toward low $n$ through radiative (X-ray) and
+Auger transitions. In a liquid target the dominant effect is \emph{Stark mixing}:
+collisions with neighboring atoms mix the otherwise degenerate $\ell$-states, so
+that annihilation proceeds predominantly from atomic $S$-states even at higher $n$.
+In a gaseous target circular cascades become important, and in vacuum they dominate
+because the Stark effect is absent \cite[Ch.~3]{Amsler2018}.
+
+Annihilation from a given atomic state fixes the initial quantum numbers. For a
+fermion--antifermion system the parity, charge conjugation and $G$ parity are
+\begin{equation}
+  P = -(-1)^{L}, \qquad
+  C = (-1)^{L+S}, \qquad
+  G = (-1)^{L+S+I}.
+  \label{eq:ppbar_PCG}
+\end{equation}
+Annihilation from the two $S$-wave states therefore gives
+$\,^1S_0\;(L=0,\,S=0)\to J^{PC}=0^{-+}$, with $I^{G}(J^{PC})=1^{-}(0^{-+})$ or
+$0^{+}(0^{-+})$, and $\,^3S_1\;(L=0,\,S=1)\to 1^{--}$, with $I^{G}=1^{+}$ or
+$0^{-}$. From the $P$-wave atom one obtains $\,^1P_1\to 1^{+-}$, $\,^3P_0\to 0^{++}$,
+$\,^3P_1\to 1^{++}$ and $\,^3P_2\to 2^{++}$.
+
+Two features make this an exceptionally clean laboratory for spectroscopy. First,
+conservation of the quantum numbers in Eq.~\eqref{eq:ppbar_PCG} severely restricts
+which initial states can feed a given final state; for the $3\pi$ system, for
+instance, $G_{3\pi}=-1$ and $C_{3\pi^0}=+1$ select only a handful of $\,^{2S+1}L_J$
+initial states. Second, different initial atomic states do not interfere with one
+another. Together these properties greatly reduce the number of amplitudes that
+must be considered in a partial wave analysis \cite[Ch.~3]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURES (detector + Stark mixing) -------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{figures/crystal_barrel_detector.pdf}
+%   \caption{Front and side view of the Crystal Barrel detector at LEAR, showing the
+%            CsI(Tl) calorimeter, the jet drift chamber and the proportional
+%            chambers around the liquid-hydrogen target.}
+%   \label{fig:crystal_barrel}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{figures/stark_mixing_cascade.pdf}
+%   \caption{Protonium cascade and annihilation: (a) liquid hydrogen, Stark mixing
+%            dominant; (b) gaseous hydrogen, circular cascades important;
+%            (c) vacuum, circular cascades dominant.}
+%   \label{fig:stark_mixing}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Multiparticle final states and the Dalitz plot}
+\label{subsec:dalitz}
+
+In a three-body final state $M_1 M_2 M_3$ a resonance reveals itself as an
+enhancement in the invariant mass of a pair of particles,
+\begin{equation}
+  M^2 = \left(E_i + E_j\right)^2 - \left(\vec p_i + \vec p_j\right)^2 .
+  \label{eq:invariant_mass}
+\end{equation}
+A single one-dimensional projection, however, superimposes the dynamics of the
+other two pairs, so one variable does not capture the full reaction. The number of
+independent variables follows from simple counting. Three four-vectors carry twelve
+quantities; energy--momentum conservation removes four, the three known particle
+masses remove three more, and the absence of a preferred orientation in space
+(three Euler angles) removes a final three, leaving exactly two. Choosing the two
+invariant-mass-squared combinations $m_{12}^2$ and $m_{23}^2$ defines the Dalitz
+plot, which contains the complete dynamics of the decay \cite[Ch.~11]{Amsler2018}.
+
+The Dalitz plot has three properties that make it the central tool of light-meson
+spectroscopy. Pure phase space populates it uniformly, so a structureless reaction
+gives a flat distribution. A resonance in one of the two-body subsystems produces a
+band at the corresponding resonance mass. And the kinematic boundary depends on the
+parent mass, so the available phase space --- in particular the lower-left edge of
+the plot --- differs for $\eta$, for $\bar p p$, and for a heavier parent decaying
+to the same three particles. Figure~\ref{fig:dalitz_boundary} shows the boundary for
+$(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$ together with the three $\rho(770)$
+bands.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.62\linewidth]{Figures/dalitz_boundary.pdf}
+  \caption{Kinematically allowed region (Dalitz plot) for
+           $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$. The shaded strips indicate
+           where the three charge states of the $\rho(770)$ appear:
+           $\rho^+\!\to\pi^+\pi^0$ (vertical), $\rho^-\!\to\pi^-\pi^0$ (horizontal)
+           and $\rho^0\!\to\pi^+\pi^-$ (diagonal). The bands cross near the centre,
+           where interference is strong.}
+  \label{fig:dalitz_boundary}
+\end{figure}
+
+The spin of a resonance is encoded in the geometry of its decay. In the resonance
+rest frame the two daughters emerge back-to-back, and the helicity angle $\theta$
+between a daughter momentum and the spectator (or beam) direction reflects the
+resonance spin and modulates the intensity along the band, as sketched in
+Fig.~\ref{fig:dalitz_geometry}.
+
+\begin{figure}[t]
+  \centering
+  \begin{tikzpicture}[>=stealth]
+    \coordinate (R) at (0,0);
+    % back-to-back daughters in the resonance rest frame
+    \draw[->,thick] (R) -- ( 2.6,0) node[right] {$M_1$};
+    \draw[->,thick] (R) -- (-2.6,0) node[left]  {$M_2$};
+    % beam / spectator axis through the resonance
+    \draw[thick,dashed] (-1.35,-2.15) -- (1.35,2.15);
+    \node[below] at (-1.35,-2.15) {$\bar p p$ axis};
+    \node[above right] at (1.35,2.15) {$M_3$ (recoil)};
+    % helicity angle between M1 and the beam axis
+    \draw (1.0,0) arc (0:58:1.0);
+    \node at (1.32,0.46) {$\theta$};
+    \filldraw[red] (R) circle (1.8pt) node[below right=1pt] {$R$};
+  \end{tikzpicture}
+  \caption{Decay geometry of a resonance $R$ in its rest frame. The daughters
+           $M_1$ and $M_2$ are emitted back-to-back; the helicity angle $\theta$ is
+           measured between a daughter and the beam (spectator $M_3$) direction and
+           carries the spin information.}
+  \label{fig:dalitz_geometry}
+\end{figure}
+
+The classic illustration is $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$, whose
+Dalitz plot shows clear bands from the $\rho^+(770)$, $\rho^-(770)$ and
+$\rho^0(770)$, together with a contribution from the $f_2(1270)$, and strong
+interference effects at the crossings of the $\rho$ bands. The three $\rho$ charge
+states appear with approximately equal strength, which requires the annihilating
+$\bar p p$ to be in $I=0$, so that the $\,^3S_1$ initial state dominates. In the
+$\rho\pi$ basis the $(I,I_3)=(0,0)$ and $(1,0)$ combinations are
+\begin{align}
+  \ket{0,0} &= \tfrac{1}{\sqrt{3}}
+      \bigl(\ket{\rho^+\pi^-} - \ket{\rho^0\pi^0} + \ket{\rho^-\pi^+}\bigr),
+      \label{eq:rhopi_I0}\\[2pt]
+  \ket{1,0} &= \tfrac{1}{\sqrt{2}}
+      \bigl(\ket{\rho^+\pi^-} - \ket{\rho^-\pi^+}\bigr).
+      \label{eq:rhopi_I1}
+\end{align}
+A first contributing amplitude is therefore $\,^3S_1\to\rho\pi$ followed by
+$\rho\to\pi\pi$, that is $0^{-}(1^{--})\to 1^{+}(1^{-})\,1^{-}(0^{-})$
+\cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (measured 3pi Dalitz data) -------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{figures/dalitz_3pi_data.pdf}
+%   \caption{Measured Dalitz plot for $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$,
+%            showing the three $\rho(770)$ bands and the $f_2(1270)$, with strong
+%            interference at the band crossings.}
+%   \label{fig:dalitz_3pi_data}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Angular distributions and partial wave analysis}
+\label{subsec:pwa}
+
+The observed intensity over the Dalitz plot is the modulus squared of a coherent
+sum of amplitudes. For a given set of overall quantum numbers it may be written
+\begin{equation}
+  I_{J^{PC}}(s_1,s_2) =
+      \int_{\Delta s_{12}\,\Delta s_{13}}
+      \left| \sum_{\text{perm}} \sum_{L,\ell}
+             A_{J^{PC},L,\ell} \right|^{2},
+  \label{eq:intensity}
+\end{equation}
+with each partial amplitude factorizing into three pieces,
+\begin{equation}
+  A_{J^{PC},L,\ell}
+     = Z_{J^{PC},L,\ell}(\vec p,\vec q)\,
+       \cdot D_L(\vec p)\,
+       \cdot F_\ell(\vec p,\vec q),
+  \label{eq:amplitude}
+\end{equation}
+where $Z$ carries the angular dependence (and hence the spin information), $D_L$ is
+the centrifugal-barrier factor, and $F_\ell$ is the dynamical (Breit--Wigner)
+amplitude \cite[Ch.~11]{Amsler2018}. Here $L$ denotes the orbital angular momentum
+of the resonance relative to the spectator and $\ell$ the relative angular momentum
+of the two mesons into which the resonance decays.
+
+The angular factor turns the helicity-angle distribution into a sensitive spin
+analyzer. For the reaction $\bar p p(\,^1S_0)\to X\eta\to\pi\pi\,\eta$ the
+distribution in $\cos\theta$ is essentially $\lvert P_J(\cos\theta)\rvert^2$: it is
+flat for a scalar resonance ($0^{+}\to 0^{-}0^{-}$, $\ell=0$), proportional to
+$\cos^2\theta$ for a vector ($1^{-}\to 0^{-}0^{-}$, $\ell=1$), and a structured,
+doubly peaked distribution proportional to $(3\cos^2\theta-1)^2/4$ for a tensor
+($2^{+}\to 0^{-}0^{-}$, $\ell=2$). These markedly different shapes,
+Fig.~\ref{fig:angular_distributions}, allow a partial wave analysis (PWA) to
+determine the $J^{PC}$ of the contributing resonances. States are then named
+according to $I^{G}(J^{PC}):X_J(\text{mass})$, with isospin-$1$ states written
+$a_J(\text{mass})$ and isospin-$0$ states $f_J(\text{mass})$.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/angular_distributions.pdf}
+  \caption{Helicity-angle distributions for the decay of a resonance $X$ into two
+           pseudoscalars in $\bar p p(\,^1S_0)\to X\eta\to\pi\pi\,\eta$, shown for
+           spin $0$ (flat), spin $1$ ($\cos^2\theta$) and spin $2$
+           ($(3\cos^2\theta-1)^2/4$). The distinct shapes determine the resonance
+           spin.}
+  \label{fig:angular_distributions}
+\end{figure}
+
+A word of caution is essential: not every peak in a one-dimensional projection is a
+resonance. Reflections of genuine bands and interference between amplitudes can
+produce structures in a mass spectrum that correspond to no physical state. Only a
+full amplitude analysis over the Dalitz plot, incorporating the correct angular
+structure, reliably separates resonances from kinematic artifacts. The projection of
+the $(\bar p p)_{\text{rest}}\to\pi^0\pi^0\eta$ Dalitz plot, in which a prominent
+bump in the $M^2(\pi^0\eta)$ spectrum is partly a reflection rather than a state, is
+the textbook example \cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (projection showing a false peak) ------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{figures/pi0pi0eta_projection.pdf}
+%   \caption{$M^2(\pi^0\eta)$ projection of the $(\bar p p)_{\text{rest}}\to
+%            \pi^0\pi^0\eta$ Dalitz plot. Not every peak corresponds to a resonance:
+%            part of the structure arises from band reflections and interference.}
+%   \label{fig:pi0pi0eta_projection}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The scalar glueball and mixing with $q\bar q$ states}
+\label{subsec:scalar_glueball}
+
+The decisive data on the scalar sector came from stopped-antiproton annihilation at
+LEAR, studied with the Crystal Barrel detector. Dalitz plots of all-neutral final
+states reveal a rich scalar and tensor content. The reaction
+$(\bar p p)_{\text{rest}}\to\pi^0\pi^0\pi^0$ shows the $0^{++}$ states $f_0(500)$
+(the broad $\sigma$), $f_0(980)$, $f_0(1370)$ and $f_0(1500)$, together with the
+$2^{++}$ states $f_2(1270)$ and $f_2(1565)$. The reaction
+$(\bar p p)_{\text{rest}}\to\pi^0\pi^0\eta$ shows the $1^{-}(0^{++})$ states
+$a_0(980)$ and $a_0(1450)$ and the $1^{-}(2^{++})$ state $a_2(1320)$, together with
+the $f_0(980)$. The reaction $(\bar p p)_{\text{rest}}\to\pi^0\eta\eta$ shows the
+$a_0(980)$ and the scalars $f_0(1370)$ and $f_0(1500)$ \cite[Ch.~11]{Amsler2018}.
+
+The central observation is that the $1300$--$1700~\mathrm{MeV}$ region contains more
+isoscalar scalars than a single $0^{++}$ $q\bar q$ nonet can hold: one state is
+supernumerary and is the glueball candidate. To disentangle the glue from the
+$q\bar q$ states one uses $\mathrm{SU}(3)_f$ decay couplings. Recall the ideal
+nonet mixing introduced in Sect.~\ref{sec:mesons}: the mostly-strange isoscalar is
+\begin{equation}
+  \ket{f'} = \sqrt{\tfrac{2}{3}}\,\ket{f_8} - \sqrt{\tfrac{1}{3}}\,\ket{f_1}
+           = -\ket{s\bar s},
+  \label{eq:fprime_ideal}
+\end{equation}
+and the mostly-nonstrange isoscalar is
+\begin{equation}
+  \ket{f} = \sqrt{\tfrac{1}{3}}\,\ket{f_8} + \sqrt{\tfrac{2}{3}}\,\ket{f_1}
+          = \tfrac{1}{\sqrt{2}}\,\ket{u\bar u + d\bar d} \equiv \ket{n\bar n},
+  \label{eq:f_ideal}
+\end{equation}
+with the general physical state written $\ket{f_\alpha}=\cos\alpha\,\ket{n\bar n}
+-\sin\alpha\,\ket{s\bar s}$. A pure glueball, by contrast, couples equally to all
+flavors and is therefore a flavor singlet,
+\begin{equation}
+  \ket{G} = \tfrac{1}{\sqrt{3}}\,\ket{u\bar u + d\bar d + s\bar s},
+  \label{eq:glueball_singlet}
+\end{equation}
+which gives, apart from phase-space factors, the characteristic decay pattern
+\begin{equation}
+  G \to \pi\pi : K\bar K : \eta\eta : \eta\eta' = 3 : 4 : 1 : 0 .
+  \label{eq:glueball_ratios}
+\end{equation}
+The coupling to $\eta\eta'$ vanishes for an ideal flavor-singlet glueball
+\cite[Ch.~11]{Amsler2018}.
+
+Confronting these expectations with the data identifies the prime candidate. The
+$f_0(1710)$ decays preferentially into $K\bar K$, is produced in
+$\gamma\gamma\to K\bar K$ (Belle), and is barely seen in $\bar p p$ annihilation;
+the last point follows from the OZI rule, since the proton contains no constituent
+$s$ quark. These properties mark it as dominantly $s\bar s$. The $f_0(1500)$, on the
+other hand, prefers $\pi\pi$, has a small $K\bar K$ coupling
+($K\bar K/\pi\pi \ll 1$, seen both by Crystal Barrel and in WA102 central
+production), and is not observed in $\gamma\gamma$ collisions. This pattern is
+consistent with a state dominated by glue, with about $80\%$ glue and only about
+$20\%$ $q\bar q$ admixture. With the $f_0(1370)$ already occupying the
+$n\bar n$ slot, there is no room for the $f_0(1500)$ as an ordinary $n\bar n$ state,
+which makes it the strongest candidate for the (mixed) ground-state scalar glueball
+\cite[Ch.~11]{Amsler2018}.
+
+A further OZI test reinforces this picture. Because there is insufficient phase
+space to produce the $f_0(1710)$ in annihilation at rest, Crystal Barrel searched
+for it with higher-momentum antiprotons in $\bar p p\to\pi^0\eta\eta$ at
+$900~\mathrm{MeV}/c$. The $f_0(1500)$ is clearly seen while the
+$f_0(1710)\to\eta\eta$ is not, again indicating that the $f_0(1710)$ is mostly
+$s\bar s$. The classification nonetheless remains controversial: some analyses
+favor the $f_0(1710)$ as the ground-state glueball, and lattice calculations that
+include dynamical quarks may ultimately settle the question
+\cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURES (Crystal Barrel Dalitz plots + couplings) ---------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{figures/crystalbarrel_dalitz_neutral.pdf}
+%   \caption{Crystal Barrel Dalitz plots from $\bar p p$ annihilation at rest into
+%            $6\gamma$: $\pi^0\pi^0\pi^0$, $\pi^0\pi^0\eta$ and $\pi^0\eta\eta$,
+%            revealing the scalar and tensor isoscalar and isovector mesons.}
+%   \label{fig:cb_dalitz_neutral}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{figures/scalar_couplings_R1R2.pdf}
+%   \caption{Ratios $R_2$ versus $R_1$ of squared couplings of the isoscalar
+%            scalars to $K\bar K$ and $\eta\eta$ relative to $\pi\pi$. The curve is
+%            the $q\bar q$ prediction as a function of mixing angle $\alpha$; the
+%            boxes are data from $\bar p p$ annihilation (Crystal Barrel) and
+%            central production (WA102).}
+%   \label{fig:scalar_couplings}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{figures/glue_distribution_f0.pdf}
+%   \caption{Distribution of the glue ($G_0$), $s\bar s$ ($S$) and $n\bar n$ ($N$)
+%            components in the $f_0(1370)$, $f_0(1500)$ and $f_0(1710)$
+%            wavefunctions, from central production and $J/\psi$ decay data.}
+%   \label{fig:glue_distribution}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Tensor mesons and the excited glueball}
+\label{subsec:tensor}
+
+Because the first excited glueball is predicted to be a tensor near
+$2400~\mathrm{MeV}$, the isoscalar tensor sector deserves attention. The ideally
+mixed $1^3P_2$ $q\bar q$ states, the $f_2(1270)$ (largely $n\bar n$) and the
+$f_2'(1525)$ (largely $s\bar s$), are well established. Between about
+$1525~\mathrm{MeV}$ and $2500~\mathrm{MeV}$, however, eight isoscalar tensor mesons
+have been reported, whereas only six are expected to belong to the $2^3P_2$,
+$3^3P_2$ and $1^3F_2$ nonets. This excess hints at the presence of a tensor
+glueball \cite[Ch.~11]{Amsler2018}.
+
+The difficulty is that these tensor states are broad and overlapping, so they
+interfere strongly and none can yet be assigned definitively as the glueball. The
+OZI-suppressed reaction $\bar p p\to\phi\phi$, which can nevertheless proceed through
+the emission of glueballs, is one promising channel for isolating the tensor
+glueball. It is worth noting in passing that some of these states may have a
+different origin altogether: the $f_2(1565)$, for example, could be a
+nucleon--antinucleon bound state shaken out of protonium. Such baryonia have
+remained experimentally elusive, perhaps because the onset of annihilation at short
+distances broadens them substantially \cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (isoscalar tensor spectrum) ------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{figures/isoscalar_tensor_spectrum.pdf}
+%   \caption{Reported isoscalar $2^{++}$ mesons between $1.5$ and $2.5~\mathrm{GeV}$.
+%            The states are broad and overlapping, complicating the identification
+%            of the predicted tensor glueball.}
+%   \label{fig:tensor_spectrum}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Hybrid mesons and $J^{PC}=1^{-+}$ exotics}
+\label{subsec:hybrids}
+
+A hybrid meson is a quark--antiquark pair bound together with an excited gluonic
+flux tube. It may be an isoscalar or an isovector and, crucially, it can carry
+exotic values of $J^{PC}$. The flux-tube model and lattice QCD both place the
+lightest hybrids in the range $1.7$--$1.9~\mathrm{GeV}$, with quantum numbers
+$0^{-+}$, $1^{-+}$, $1^{--}$ and $2^{-+}$; most are expected to be broad, though
+some may be as narrow as $100~\mathrm{MeV}$. The unmistakable experimental signature
+is the assignment $J^{PC}=1^{-+}$, which no $q\bar q$ pair can have (cf.\
+Sect.~\ref{sec:groups}) \cite[Ch.~11]{Amsler2018}.
+
+Two isovector $1^{-+}$ candidates are known. The $\pi_1(1400)$, about
+$350~\mathrm{MeV}$ broad, decays into $\eta\pi$; its $\ell=1$ amplitude interferes
+with the $\ell=2$ amplitude of the $a_2(1320)\to\eta\pi$, producing a
+forward--backward asymmetry in the $\eta\pi$ angular distribution. It was reported
+at BNL in $\pi^-p\to\eta\pi^0 n$ with $18~\mathrm{GeV}$ pions and by Crystal Barrel
+in $\bar p n\to\pi^-\pi^0\eta$ associated with a slow spectator proton, using a
+liquid-deuterium target. The $\pi_1(1600)$ is a second $1^{-+}$ state, reported in
+diffractive $\pi^- N$ interactions; it decays into $\rho\pi$, $b_1(1235)\pi$ and
+$f_1(1285)\pi$ but not into $\eta\pi$. A clear $\rho^0\pi^-$ signal, for instance, is
+seen by the COMPASS experiment in $\pi^- \mathrm{Pb}\to\pi^+\pi^-\pi^- X$ with
+$190~\mathrm{GeV}$ pions \cite[Ch.~11]{Amsler2018}.
+
+The interpretation of the two states differs. The $\pi_1(1400)$ lies well below the
+predicted hybrid mass and is therefore an unlikely hybrid; a four-quark
+interpretation is more natural. The $\pi_1(1600)$, by contrast, sits close to the
+predictions and decays into a pair of $P$-wave and $S$-wave mesons ($b_1\pi$ and
+$f_1\pi$), exactly as expected for a hybrid, so it behaves like a genuine hybrid
+candidate. The search for hybrid mesons is still in its infancy: the remaining
+members of the hybrid nonets must be identified, and progress is expected from new
+facilities such as GlueX at Jefferson Laboratory, which photoproduces mesons off
+nucleons with linearly polarized photons \cite[Ch.~11]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (pi- pi0 eta Dalitz, pi1(1400)) --------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{figures/dalitz_pimpi0eta.pdf}
+%   \caption{Dalitz plot of $\bar p n\to\pi^-\pi^0\eta$ from Crystal Barrel. The
+%            $\pi_1(1400)$ appears as an excess of events above the $\rho$ band in
+%            the vicinity of the $a_2(1320)$.}
+%   \label{fig:dalitz_pimpi0eta}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+Glueballs and more exotics in light mesons...
 
 How to see gluons experimentally? Answer: multi-jet events... $g \rightarrow \text{jets}$
 
@@ -46,4 +658,45 @@ Angular resolution, that comes from spin of resonance, we can read in the Dalitz
 Example: 3 rho bands + f2(1270)
 
 size depends on the available mass you have
+
+Lecture 09/06:
+
+Recap: Dalitz plot for pure phase space: completely homogeneous. Resonances lead to structures. Partial waves leads to information about the properties of the resonances. 
+
+Correspondence is the result of the partial wave analysis. A priori we do not know what produces which strcuture.
+
+Glueballs may be mixing with resonances... Thus we need to see understand resonances very well to be able to distinguish between glueballs and not glueballs...
+
+Now... from non-relativistic BW to more complicated case.
+
+For multiple final states, S becomes a matrix... (It has always been a matrix but now it is relevant). Relativistic means it changes... \textbf{Flatte-parametrization} for two channels... 
+
+Lifetime of resonances do not change depending on which decay channel we are looking at... So the result for different channels to get the width would not change... it does not matter that it corresponds to 0.2 or 0.6 of all decays...
+
+$\gamma_1^2 + \gamma_2^2 = $
+
+reason for relativistic resonances: 
+
+To find the fit... we want to scan the complex s plane until the denominator of BW (rel) is zero. 
+
+One could say the slice of BW at the real part is not so bad... it depends....
+
+For example a_0 (960) one decay eats into the other for gamma's squareds comparable 
+
+Resonance looks like very narrow, but it is a complicated situation...
+
+Another example Xc1(3872)
+
+Scattering gets really complicated... We still have to calculate them...
+
+Now, partial waves analysis. Can they indicate missing resonances?
+
+Chi squared to fit... You need to consider acceptance...
+
+If by taking the chi squared per degree of freedom you see something systematic but not random... probably we missed something.
+
+In the examples it was an exotic Jpc = 1--+, now chi squared per dof is around 1, so much better 
+
+
+
 
