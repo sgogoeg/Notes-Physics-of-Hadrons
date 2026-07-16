@@ -1,12 +1,883 @@
-\section{Baryon Spectrometry}
+% ============================================================================
+%  Chapter 8 — Baryon Spectroscopy   (drafted from week 25 VL1/VL2 and
+%  week 26 VL1/VL2-part1 slides)
+%  The Quark Structure of Hadrons (project)
+% ----------------------------------------------------------------------------
+%  Preamble packages assumed by this chapter:
+%     amsmath, graphicx, placeins (for \FloatBarrier),
+%     tikz with \usetikzlibrary{arrows.meta,decorations.pathmorphing},
+%     and a \ket{...} macro (e.g. from the physics package, or a custom
+%     \newcommand{\ket}[1]{\left|#1\right\rangle}).
+%
+%  Cross-references used below:
+%     \ref{sec:baryons-color}  (Chapter 5: SU(6), Jacobi coordinates,
+%                               harmonic oscillator, 56/70/20 supermultiplets)
+%     \ref{sec:glueballs}      (Chapter 7: partial wave analysis, Dalitz plot,
+%                               line shapes) — for the PWA machinery
+%     \ref{sec:multiquark}     (multiquark chapter: pentaquarks in detail)
+%     \ref{sec:electron-scattering} (Chapter 9: form factors, structure functions)
+%  Adjust the label names if they differ in the master document.
+%
+%  Sources: the physics of this chapter follows the lecture slides
+%  (weeks 25-26) and Amsler \cite{Amsler2018}, Ch.~13 (baryons) and Ch.~15
+%  (light baryon excitations); pentaquarks Ch.~16.  Several experimental
+%  results are quoted from the primary literature shown on the slides.  These
+%  are not yet in references.bib; suggested entries to add (then replace the
+%  inline mentions by \cite):
+%     ChiangTabakin1997 — W.-T. Chiang, F. Tabakin, Phys. Rev. C 55, 2054 (1997)
+%     Elsner2007        — D. Elsner et al., Eur. Phys. J. A 33, 147 (2007)
+%     Gottschall2014    — M. Gottschall et al. (CBELSA/TAPS),
+%                         Phys. Rev. Lett. 112, 012003 (2014)
+%     Anisovich2012     — A.V. Anisovich et al. (BnGa), Eur. Phys. J. A 48, 15 (2012)
+%     Anisovich2017     — V. Anisovich et al. (BnGa), Phys. Lett. B 766, 357 (2017)
+%     Kashevarov2017    — V.L. Kashevarov et al., Phys. Rev. Lett. 118, 212001 (2017)
+%     Mueller2020       — J. Mueller et al. (CBELSA/TAPS), Phys. Lett. B 803, 135323 (2020)
+%     Edwards2011       — R. Edwards et al., Phys. Rev. D 84, 074508 (2011)
+%     Mai2021           — M. Mai, Eur. Phys. J. Spec. Top. 230, 1593 (2021)
+%
+%  Generated figure (Matplotlib, vector PDF, in ./Figures/):
+%     Figures/broad_overlapping_resonances.pdf
+%  Inline TikZ diagrams (compiled with the document): Isgur-Karl level scheme,
+%  photoproduction cascade, centre-of-mass reaction geometry, and the
+%  double-polarization spin configurations.  All other figures are indicated as
+%  commented placeholders with a suggested caption, label and placeholder
+%  filename.
+% ============================================================================
 
-Quantum numbers of pi N experiment production (slide 196)
+\section{Baryon Spectroscopy}
+\label{sec:baryon-spectroscopy}
 
-Pi N to R to Pi N
+The quark model of Chapter~\ref{sec:baryons-color} organizes the baryons into the
+$\mathrm{SU}(6)\times O(3)$ supermultiplets and predicts, band by band, which excited
+states should exist. Turning that prediction into physics requires confronting it with the
+measured spectrum, and this is far from straightforward: the excited nucleons are broad,
+they overlap strongly, and many of the states the quark model predicts have never been
+seen. This chapter follows the experimental program that has been built to meet this
+challenge---photoproduction of mesons off polarized nucleons, the measurement of
+polarization observables, and their combination in a multichannel partial wave
+analysis---and summarizes what the resulting spectrum has taught us, and where it still
+resists understanding. The theoretical classification is taken as established from
+Chapter~\ref{sec:baryons-color}; here the emphasis is on how the states are found and on
+the questions they raise \cite[Ch.~15]{Amsler2018}.
 
-0- 1/2+ (Implies l=0) to S 
+% ============================================================================
+\subsection{Motivation: baryons as bound states of QCD}
+\label{subsec:why-baryons}
 
-S N* J (Mass) 
+Baryons are the dominant part of the visible matter in the universe, and they played a
+decisive role in its early development. Roughly one hundredth of a millisecond after the
+Big Bang the universe cooled through the transition from a soup of deconfined quarks and
+gluons---the quark--gluon plasma---to color-neutral hadrons, and the details of that
+transition depend on the spectrum of baryon resonances that were then accessible. The
+existence of baryons such as the $\Delta^{++}$, whose totally symmetric $\ket{uuu}$
+configuration forced the introduction of the color quantum number, is itself a direct
+manifestation of the non-abelian character of QCD \cite[Ch.~13]{Amsler2018}. It is
+therefore hard to claim that quantum chromodynamics is understood while its own bound
+states are not; the spectroscopy of baryons remains one of the least understood areas of
+the Standard Model.
 
+The central puzzle is how QCD builds heavy, massive bound states out of almost massless
+quarks. The discovery of the Higgs boson at the LHC established the mechanism that gives
+the elementary quarks their \emph{current} masses, but this accounts for only a small
+fraction of the nucleon mass. The light-quark current masses are of order a few
+$\mathrm{MeV}$, whereas the effective \emph{constituent} masses needed to reproduce the
+hadron spectrum are of order a few hundred $\mathrm{MeV}$, as summarized in
+Table~\ref{tab:quark-masses}. The proton mass of $938~\mathrm{MeV}$ corresponds to three
+constituent quarks of roughly $300~\mathrm{MeV}$ each; the constituent mass is generated by
+QCD itself, not by the Higgs mechanism. Even in the chiral limit of exactly massless $u$
+and $d$ quarks more than eighty percent of the proton mass is still reproduced, a
+phenomenon that F.~Wilczek aptly termed ``mass without mass'' \cite[Ch.~15]{Amsler2018}.
 
-Old numenclature N(1535)1/2- used to ve S11(1535)
+\begin{table}[t]
+    \centering
+    \begin{tabular}{lcc}
+        \hline
+        Quark & Current mass & Constituent mass \\
+        \hline
+        $u$ & $2.2~\mathrm{MeV}$ & $340~\mathrm{MeV}$ \\
+        $d$ & $4.7~\mathrm{MeV}$ & $340~\mathrm{MeV}$ \\
+        $s$ & $95~\mathrm{MeV}$  & $510~\mathrm{MeV}$ \\
+        \hline
+        & generated by the & generated \\
+        & Higgs mechanism  & by QCD \\
+        \hline
+    \end{tabular}
+    \caption{Current (valence) quark masses generated by the Higgs mechanism, compared with
+    the effective constituent masses required by the quark model. The proton mass of
+    $938~\mathrm{MeV}$ is far larger than the sum of the current masses of its
+    constituents.}
+    \label{tab:quark-masses}
+\end{table}
+
+Understanding the baryon spectrum therefore comes down to two questions that organize the
+whole subject. The first concerns the relevant effective degrees of freedom: are they
+constituent quarks, and if so how is their mass generated, or must one instead invoke
+quark--diquark, meson--baryon, hybrid or multiquark configurations? The second concerns the
+effective forces between those degrees of freedom---an effective one-gluon exchange, a
+Goldstone-boson exchange, or instanton-induced interactions, all of which have been used
+within quark models. Whether QCD can be approximated at all by constituent quarks plus a
+linear confinement potential plus a residual interaction, and how confinement itself is
+generated, are the open problems that motivate the measurements described in the remainder
+of this chapter \cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (motivation graphics) ------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/history_of_universe_hadrons.pdf}
+%   \caption{Cartoon of the thermal history of the universe, highlighting the
+%            transition from the quark--gluon plasma to hadrons about
+%            $10^{-5}\,\mathrm{s}$ after the Big Bang, and the later formation of
+%            nuclei. The transition depends on the existing baryon resonances.}
+%   \label{fig:history-universe}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Quark-model predictions and the residual interaction}
+\label{subsec:qm-predictions}
+
+The starting point is the classification established in
+Chapter~\ref{sec:baryons-color}. The totally antisymmetric color singlet factors out,
+\begin{equation}
+    \psi = \Phi_{\text{flavour}}\,\chi_{\text{spin}}\,\lambda_{\text{color}}\,R(\vec{r}),
+\end{equation}
+so that the remaining space--spin--flavor part must be symmetric. Coupling three
+$\mathrm{SU}(6)$ fundamental representations gives
+$\mathbf{6}\otimes\mathbf{6}\otimes\mathbf{6}
+= \mathbf{56}_S\oplus\mathbf{70}_M\oplus\mathbf{70}_M\oplus\mathbf{20}_A$, and the orbital
+motion, described by the two Jacobi coordinates $\vec\rho$ and $\vec\lambda$, is organized
+by the harmonic-oscillator band number
+\begin{equation}
+    N = 2(n_\rho + n_\lambda) + \ell_\rho + \ell_\lambda,
+    \qquad
+    P = (-1)^{\ell_\rho + \ell_\lambda},
+\end{equation}
+with total orbital angular momentum $L = \ell_\rho + \ell_\lambda$. A supermultiplet is
+labeled $(D, L^{P}_{N})$, where $D$ is the dimension of the $\mathrm{SU}(6)$ representation.
+The ground state occupies the $(\mathbf{56},0^{+})$ at $N=0$, containing the
+spin-$\tfrac{1}{2}$ octet and the spin-$\tfrac{3}{2}$ decuplet, and the lowest orbital
+excitations form the $(\mathbf{70},1^{-})$ at $N=1$ \cite[Ch.~15]{Amsler2018}. Individual
+states carry the modern name $N(\text{mass})J^{P}$; the older $L_{2I\,2J}(\text{mass})$
+notation from $\pi N$ scattering, in which $L$ is the orbital angular momentum in the $\pi
+N$ system, survives in labels such as $S_{11}(1535)$, now written $N(1535)\tfrac{1}{2}^-$.
+
+The harmonic oscillator alone leaves each band degenerate and cannot reproduce the
+observed masses; a residual interaction is needed to split the levels. Concrete quark
+models assume that constituent quarks move in an effective confinement potential and add a
+residual interaction of one of three kinds, before solving the equation of motion
+\cite[Ch.~15]{Amsler2018}. In the effective \emph{one-gluon exchange} picture the
+non-relativistic model of Isgur and Karl fixes the color-hyperfine strength to the
+$N$--$\Delta$ splitting; the spin--orbit ($\vec L\cdot\vec S$) term that this exchange also
+predicts turns out to be large, in conflict with the data, and is set to zero by hand. The
+relativized model of Capstick and Roberts retains the spin--orbit force but finds it
+largely compensated by the Thomas precession. The \emph{Goldstone-boson (pion) exchange}
+model of Glozman and Riska instead takes the spin--spin interaction into account while
+neglecting the tensor piece. The \emph{instanton-induced} interaction of Kretzschmer,
+L\"oring, Metsch and Petry is implemented in a fully relativistic quark model. Each of
+these residual interactions is capable of reproducing the gross structure of the spectrum,
+but they differ in detail and none is derived from first principles.
+
+The simplest illustration is the first orbital excitation in the Isgur--Karl picture,
+sketched in Fig.~\ref{fig:isgur-karl}. Promoting the system from $L=0$ to $L=1$ costs one
+oscillator quantum $\hbar\omega_0$, about $500~\mathrm{MeV}$, and the negative-parity
+$N=1$ band splits under the residual and spin--orbit interactions into the five nucleon
+levels $N(1535)\tfrac{1}{2}^-$, $N(1520)\tfrac{3}{2}^-$, $N(1650)\tfrac{1}{2}^-$,
+$N(1675)\tfrac{5}{2}^-$ and $N(1700)\tfrac{3}{2}^-$, accompanied by two $\Delta$ states
+with $J^{P}=\tfrac{1}{2}^-$ and $\tfrac{3}{2}^-$. The spin-dependent interaction
+$V_{\text{spin}}$ is also what lifts the $\Delta(1232)$ above the nucleon in the ground
+state \cite[Ch.~15]{Amsler2018}.
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[>=Latex, line width=0.8pt]
+        % axis reference (invisible)
+        % ground state column L=0
+        \draw[thick] (0.0,0.0) -- (1.6,0.0) node[right]{$N(939)$};
+        \draw[thick] (0.0,0.9) -- (1.6,0.9) node[right]{$\Delta(1232)$};
+        \draw[<->] (-0.35,0.0) -- (-0.35,0.9);
+        \node[left] at (-0.35,0.45) {\footnotesize $V_{\text{spin}}$};
+        \node at (0.8,-0.6) {\fbox{$L=0$}};
+
+        % oscillator gap
+        \draw[<->] (2.6,0.45) -- (2.6,3.4);
+        \node[right] at (2.6,1.95) {\footnotesize $\hbar\omega_0$};
+
+        % excited column L=1
+        \draw[thick] (4.4,3.9) -- (6.0,3.9) node[right]{\footnotesize $N(1700)\,\tfrac{3}{2}^-$};
+        \draw[thick] (4.4,3.5) -- (6.0,3.5) node[right]{\footnotesize $N(1675)\,\tfrac{5}{2}^-$};
+        \draw[thick] (4.4,3.1) -- (6.0,3.1) node[right]{\footnotesize $N(1650)\,\tfrac{1}{2}^-$};
+        \draw[thick] (4.4,2.4) -- (6.0,2.4) node[right]{\footnotesize $N(1535)\,\tfrac{1}{2}^-$};
+        \draw[thick] (4.4,2.0) -- (6.0,2.0) node[right]{\footnotesize $N(1520)\,\tfrac{3}{2}^-$};
+        \node at (5.2,-0.6) {\fbox{$L=1$}};
+
+        % connecting bracket + DeltaE label
+        \draw[dashed] (3.6,3.9) -- (4.4,3.9);
+        \draw[dashed] (3.6,2.0) -- (4.4,2.0);
+        \node at (8.7,1.0) {\footnotesize $\Delta E \approx 500~\mathrm{MeV}$};
+        \node at (8.7,0.4) {\footnotesize plus two $\Delta$ states};
+        \node at (8.7,-0.0) {\footnotesize $J=\tfrac{1}{2}^-,\,\tfrac{3}{2}^-$};
+    \end{tikzpicture}
+    \caption{The first orbital excitation of the nucleon in the Isgur--Karl model. The
+    ground-state $L=0$ octet and decuplet members, split by the spin-dependent interaction
+    $V_{\text{spin}}$, are promoted by one oscillator quantum $\hbar\omega_0$ to the
+    negative-parity $L=1$ band, which the residual and spin--orbit interactions split into
+    the observed $N^{*}$ levels near $1500$--$1700~\mathrm{MeV}$, together with two
+    $\Delta^{*}$ states.}
+    \label{fig:isgur-karl}
+\end{figure}
+
+When the calculation is carried to higher bands, the models reproduce the overall pattern
+of the $N^{*}$ and $\Delta^{*}$ spectra reasonably well, but two systematic problems
+appear. The ordering of the lowest positive- and negative-parity states near
+$1500~\mathrm{MeV}$---the inversion in which the Roper resonance
+$N(1440)\tfrac{1}{2}^+$ lies below $N(1535)\tfrac{1}{2}^-$---is not reproduced by the
+one-gluon-exchange models, and is better described once instanton-induced forces are
+included. More seriously, all of these models predict many more states, especially at
+higher masses, than have ever been observed. This is the long-standing
+\emph{missing-resonance problem}. One popular response is that a baryon may possess an
+effective quark--diquark structure, in which two of the quarks are frozen into a tightly
+correlated pair; with one internal degree of freedom removed, the number of predicted
+excitations is substantially reduced, bringing prediction closer to observation
+\cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURES (model spectra + missing resonances) --------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/nstar_capstick_roberts.pdf}
+%   \caption{Calculated $N^{*}$ spectrum in the relativized one-gluon-exchange
+%            model (Capstick, Roberts) compared with the observed states, ordered
+%            by $J^{P}$. The overall pattern is reproduced, the
+%            $\tfrac{1}{2}^+/\tfrac{1}{2}^-$ ordering near $1500~\mathrm{MeV}$ is not,
+%            and many predicted states are missing.}
+%   \label{fig:nstar-oge}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/nstar_metsch_petry.pdf}
+%   \caption{Calculated $N^{*}$ spectrum in the relativistic quark model with
+%            instanton-induced forces (L\"oring, Metsch, Petry). The
+%            $\tfrac{1}{2}^+/\tfrac{1}{2}^-$ pattern near $1500~\mathrm{MeV}$ is
+%            better reproduced than in the one-gluon-exchange model.}
+%   \label{fig:nstar-instanton}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/missing_resonances_diquark.pdf}
+%   \caption{The missing-resonance problem: quark models predict more baryons than
+%            are observed. A quark--diquark structure, in which one internal degree
+%            of freedom is frozen, reduces the number of predicted states.}
+%   \label{fig:missing-resonances}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Excited baryons from lattice QCD}
+\label{subsec:lattice-baryons}
+
+Beyond quark models, the excitation spectrum can be computed directly from QCD on a
+space--time lattice. The calculation of Edwards \textit{et al.}
+(Phys.\ Rev.\ D 84 (2011) 074508) yields the excited $N^{*}$ and $\Delta^{*}$ spectra,
+expressed in units of the $\Omega$ mass, ordered by $J^{P}$. The result is encouraging in
+two respects that bear directly on the quark-model discussion of the previous subsection.
+First, the spectrum exhibits the broad features expected from
+$\mathrm{SU}(6)\otimes O(3)$ symmetry, and the counting of levels in each $J^{P}$ column
+agrees with the non-relativistic quark model---the same rich pattern of states, including
+those not yet observed experimentally, is present. Second, the lattice spectrum shows no
+sign of parity doubling: states of opposite parity are not degenerate, a point to which we
+return in Sect.~\ref{subsec:parity-doublets}. These lattice results are of course obtained
+with approximations, most notably an unphysically large pion mass of
+$m_\pi = 396~\mathrm{MeV}$, so they should be read as confirming the qualitative structure
+rather than the precise masses \cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (lattice QCD spectrum) -----------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/lattice_excited_baryons.pdf}
+%   \caption{Excited $N^{*}$ (left) and $\Delta^{*}$ (right) baryon spectra from
+%            lattice QCD (Edwards et al.), in units of $m/m_\Omega$ and ordered by
+%            $J^{P}$. The level counting reproduces the $\mathrm{SU}(6)\otimes O(3)$
+%            expectation and shows no parity doubling; the calculation uses
+%            $m_\pi = 396~\mathrm{MeV}$.}
+%   \label{fig:lattice-baryons}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The excitation spectrum and the experimental challenge}
+\label{subsec:excitation-challenge}
+
+Like any composite system, a baryon reveals its internal dynamics through its excitation
+spectrum. The idea is the same one that runs through atomic and nuclear physics, only the
+energy scale changes: the atom, of size $10^{-10}~\mathrm{m}$, has excitations of order
+$\mathrm{eV}$; the nucleus, of size $10^{-14}~\mathrm{m}$, of order $\mathrm{MeV}$; and the
+proton, of size $10^{-15}~\mathrm{m}$, of order $\mathrm{GeV}$. In the atom the discrete
+excitation energies show up directly as sharp absorption and emission lines, and the
+spectrum can be read off almost by inspection. Studying the strong interaction through the
+excitation spectrum of the proton and neutron---the lightest $qqq$ systems---is the direct
+analogue of this atomic spectroscopy \cite[Ch.~15]{Amsler2018}.
+
+The analogy breaks down in one decisive respect. The excited nucleons do not appear as
+sharp lines. Because they decay through the strong interaction their lifetimes are
+extremely short, and Heisenberg's uncertainty relation $\Delta E\cdot\Delta t\gtrsim\hbar$
+turns short lifetimes into large widths: the resonances are broad and strongly overlapping,
+as illustrated in Fig.~\ref{fig:broad-resonances}. What one measures is not a series of
+isolated peaks but the coherent sum of many overlapping amplitudes, in which neighboring
+states interfere. Extracting the individual resonances---their masses, widths, spins and
+parities---from such a spectrum is the central experimental challenge of baryon
+spectroscopy, and it is what makes the measurement of additional observables, discussed in
+the following subsections, indispensable.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.72\linewidth]{Figures/broad_overlapping_resonances.pdf}
+    \caption{The excited nucleons do not appear as the narrow, isolated lines one might
+    naively expect (top), but as broad, strongly overlapping resonances whose amplitudes
+    add coherently (bottom). Heisenberg's uncertainty relation converts the short strong-decay
+    lifetimes into large widths, and the interference of neighboring states makes the
+    individual resonances hard to disentangle.}
+    \label{fig:broad-resonances}
+\end{figure}
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Photoproduction experiments and the Crystal Barrel/TAPS setup at ELSA}
+\label{subsec:photoproduction-elsa}
+
+To disentangle the overlapping resonances one needs both a good understanding of the
+spectrum and detailed knowledge of the properties, in particular the decays, of each
+state. Two requirements follow directly: different final states must be investigated,
+since a given resonance couples differently to each, and polarization observables must be
+measured, since only these provide the information needed for an unambiguous partial wave
+analysis. A vigorous experimental program pursuing exactly this has been underway
+worldwide, at CLAS (Jefferson Lab), CBELSA/TAPS (ELSA), the Crystal Ball (MAMI) and LEPS
+(SPring-8), all performing photoproduction experiments with polarized beams and polarized
+targets \cite[Ch.~15]{Amsler2018}.
+
+The Crystal Barrel/TAPS experiment at the ELSA accelerator in Bonn is representative. An
+electron beam extracted from ELSA passes through a goniometer and produces a
+bremsstrahlung photon beam, whose energy is determined event by event by a magnetic
+tagging system. The tagged photons strike a polarized target of butanol
+($\mathrm{C_4H_9OH}$) held at $50~\mathrm{mK}$, and the reaction products are detected over
+almost the full solid angle by the CsI(Tl) Crystal Barrel calorimeter together with an
+inner detector, a forward detector, the TAPS calorimeter and a gas Cherenkov counter, with
+a photon-intensity monitor downstream. This arrangement is well suited to reactions such as
+$\gamma p \to N^{*} \to p\eta \to p\gamma\gamma$, in which the recoiling proton is tracked
+while the decay photons are measured in the calorimeters, following the invariant-mass and
+missing-mass techniques of Chapter~\ref{sec:invariant-mass} \cite[Ch.~2]{Amsler2018}.
+
+The quality of the resulting data is high. In $\gamma p \to p4\gamma$ the experiment
+resolves the $\pi^0\pi^0$, $\pi^0\eta$ and $\eta\eta$ combinations of the four photons with
+low background and good resolution, giving clean access to $\gamma p \to p\pi^0\pi^0$ and
+$\gamma p \to p\pi^0\eta$. These two-meson final states are especially valuable because
+they permit the study of \emph{cascading} decays, in which a high-lying $N^{*}$ or
+$\Delta^{*}$ decays by successive single-meson emission through an intermediate resonance,
+as sketched in Fig.~\ref{fig:cascade}. Each step of such a chain carries information about
+a different resonance, so a single reaction can constrain several states at once.
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[>=Latex, line width=0.8pt,
+        photon/.style={decorate, decoration={snake, amplitude=0.6pt, segment length=5pt}}]
+        % three horizontal levels
+        \draw[very thick] (0,3.4) -- (3.2,3.4) node[right]{$N^{*},\,\Delta^{*}$ (high)};
+        \draw[very thick] (0,1.7) -- (3.2,1.7) node[right]{$\Delta,\,N^{*}$ (intermediate)};
+        \draw[very thick] (0,0.0) -- (3.2,0.0) node[right]{proton};
+        % incoming photon exciting the proton (drawn on the left, upward)
+        \draw[photon] (-1.4,0.0) -- (-0.2,0.0);
+        \node[left] at (-1.4,0.0) {$\gamma$};
+        \draw[->] (-0.2,0.05) .. controls (0.4,1.8) .. (0.2,3.35);
+        % first meson emission
+        \draw[->] (1.6,3.4) -- (1.6,1.75);
+        \node[right] at (1.6,2.55) {\footnotesize $\pi^0,\eta$};
+        % second meson emission
+        \draw[->] (1.6,1.7) -- (1.6,0.05);
+        \node[right] at (1.6,0.85) {\footnotesize $\pi^0,\eta$};
+    \end{tikzpicture}
+    \caption{Cascading decay of a high-lying baryon resonance. The photon excites the
+    proton to an $N^{*}$ or $\Delta^{*}$, which decays by successive emission of a $\pi^0$
+    or $\eta$ through an intermediate resonance back to the proton. Two-meson final states
+    such as $p\pi^0\pi^0$ and $p\pi^0\eta$ give access to these chains and thereby to
+    several resonances in a single reaction.}
+    \label{fig:cascade}
+\end{figure}
+
+% ---- PLACEHOLDER FIGURES (ELSA setup + data quality) -----------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/cbelsa_taps_setup.pdf}
+%   \caption{The Crystal Barrel/TAPS experiment at ELSA: tagged bremsstrahlung
+%            photon beam, polarized butanol target at $50~\mathrm{mK}$, the CsI(Tl)
+%            Crystal Barrel with inner detector, forward detector, TAPS and gas
+%            Cherenkov counter.}
+%   \label{fig:cbelsa-setup}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/cbelsa_data_quality.pdf}
+%   \caption{Data quality in $\gamma p\to p4\gamma$: the $\pi^0\pi^0$, $\pi^0\eta$
+%            and $\eta\eta$ combinations of the four photons are cleanly separated,
+%            and the Dalitz plots of $\gamma p\to p\pi^0\pi^0$ and
+%            $\gamma p\to p\pi^0\eta$ show low background and good resolution.}
+%   \label{fig:cbelsa-data}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Separating overlapping resonances: final states and angular distributions}
+\label{subsec:final-states-angles}
+
+The total photoabsorption cross section on the proton, $\gamma p \to X$, shows only a few
+broad bumps that flatten out with increasing photon energy; the individual resonances are
+buried in the coherent sum and cannot be separated from the total cross section alone.
+Additional information is needed, and the first handle is the choice of final state. A given
+resonance couples with different strength to $p\pi^0$, $p\eta$, $p\pi^0\pi^0$ and
+$p\pi^0\eta$, so the excitation functions of these exclusive channels peak at different
+masses; comparing them already reveals that different states dominate in different regions,
+which the inclusive cross section hides \cite[Ch.~15]{Amsler2018}.
+
+The second handle is the angular distribution. Even within a single final state, the
+differential cross section $\mathrm{d}\sigma/\mathrm{d}\Omega$ carries information about the
+spins and parities of the contributing resonances. For $\gamma p \to p\pi^0$, for example,
+the distribution in $\cos\theta$ (with $\theta$ the polar angle of the emitted meson in the
+center-of-mass frame, Fig.~\ref{fig:cm-geometry}) changes character markedly with photon
+energy---forward--backward peaked at one energy, central at another---because different
+partial waves, and hence different $J^{P}$, dominate. One caveat must be kept throughout:
+not only resonant but also non-resonant background amplitudes contribute to the observed
+distributions, and the two interfere, so the angular shapes cannot be read off as those of
+a single state in isolation \cite[Ch.~15]{Amsler2018}.
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[>=Latex, line width=0.8pt,
+        photon/.style={decorate, decoration={snake, amplitude=0.7pt, segment length=5pt}}]
+        % incoming photon and target proton
+        \draw[photon] (-2.6,0) -- (0,0);
+        \node[left] at (-2.6,0) {$\gamma$};
+        \node[below left] at (0,0) {$p$};
+        % outgoing meson at angle theta, and recoil proton
+        \draw[->] (0,0) -- (2.3,1.55);
+        \node[right] at (2.3,1.55) {$\eta$};
+        \draw[->] (0,0) -- (2.5,-0.75);
+        \node[right] at (2.5,-0.75) {$p$};
+        % reference axis and angle
+        \draw[dashed] (0,0) -- (2.6,0);
+        \draw (1.1,0) arc (0:34:1.1);
+        \node at (1.35,0.35) {$\theta$};
+    \end{tikzpicture}
+    \caption{Center-of-mass geometry of the reaction $\gamma p \to \eta p$. The polar angle
+    $\theta$ of the produced meson relative to the beam axis is the variable in which the
+    differential cross section is measured; its shape reflects the $J^{P}$ of the
+    contributing partial waves.}
+    \label{fig:cm-geometry}
+\end{figure}
+
+% ---- PLACEHOLDER FIGURES (channels + angular distributions) ----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/photoabsorption_channels.pdf}
+%   \caption{Total photoabsorption cross section $\gamma p\to X$ (PDG) together with
+%            the exclusive channels $p\pi^0$, $p\eta$, $p\pi^0\pi^0$ and
+%            $p\pi^0\eta$, which peak at different masses and thus isolate different
+%            resonances.}
+%   \label{fig:photoabsorption-channels}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.85\linewidth]{Figures/pi0_angular_distributions.pdf}
+%   \caption{Differential cross section $\mathrm{d}\sigma/\mathrm{d}\Omega$ for
+%            $\gamma p\to p\pi^0$ versus $\cos\theta$ at $E_\gamma = 765$ and
+%            $1040~\mathrm{MeV}$. The different shapes signal different contributing
+%            $J^{P}$; resonant and background amplitudes interfere.}
+%   \label{fig:pi0-angular}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Polarization observables and the complete experiment}
+\label{subsec:polarization-observables}
+
+Cross sections and angular distributions are not enough. For the photoproduction of a
+pseudoscalar meson, $\gamma p \to p M$, the reaction is described by four complex
+amplitudes, and reconstructing them---up to an overall phase---from the data requires a
+carefully chosen set of observables. Chiang and Tabakin (Phys.\ Rev.\ C 55 (1997) 2054)
+showed that eight well-chosen observables suffice to determine the contributing amplitudes,
+and this set is the basis for an unambiguous partial wave analysis
+\cite[Ch.~15]{Amsler2018}.
+
+The consequence of measuring too few observables is not merely a loss of precision but a
+genuine ambiguity. A well-documented example is $\gamma p \to p\eta$, where two different
+partial wave solutions were found that both described the differential cross section
+$\mathrm{d}\sigma/\mathrm{d}\Omega$ and the beam asymmetry $\Sigma$ equally well, yet
+implied quite different resonance content---one solution dominated by
+$N(1520)\tfrac{3}{2}^-$, the other by $N(1720)\tfrac{3}{2}^+$
+(Elsner \textit{et al.}, Eur.\ Phys.\ J.\ A 33 (2007) 147). The two fits are
+indistinguishable on the measured observables but describe different physics, so the
+solution is not unique. Resolving such ambiguities requires further polarization
+observables, which is the motivation for the double-polarization experiments of the next
+subsection \cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (ambiguous PWA solutions) --------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/pwa_ambiguity_peta.pdf}
+%   \caption{Two partial wave solutions for $\gamma p\to p\eta$ that both describe
+%            $\mathrm{d}\sigma/\mathrm{d}\Omega$ and the beam asymmetry $\Sigma$
+%            (here at $E_\gamma = 1250~\mathrm{MeV}$), yet imply markedly different
+%            resonance contributions. The solution is not unambiguous without
+%            further observables.}
+%   \label{fig:pwa-ambiguity}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Double-polarization experiments as a filter for resonances}
+\label{subsec:double-polarization}
+
+The most powerful of the additional observables come from \emph{double-polarization}
+experiments, which act as a filter for resonances. Using circularly polarized photons on a
+longitudinally polarized target, one measures the two helicity cross sections
+$\sigma_{1/2}$ and $\sigma_{3/2}$, defined by whether the photon spin and the nucleon spin
+are antiparallel (total helicity $\tfrac{1}{2}$) or parallel (total helicity $\tfrac{3}{2}$),
+as illustrated in Fig.~\ref{fig:helicity-config}. Their difference isolates the
+contributions of definite helicity and is conveniently expressed through the asymmetry
+\begin{equation}
+    E = \frac{\sigma_{1/2} - \sigma_{3/2}}{\sigma_{1/2} + \sigma_{3/2}}.
+    \label{eq:E-observable}
+\end{equation}
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[>=Latex, line width=0.9pt,
+        photon/.style={decorate, decoration={snake, amplitude=0.7pt, segment length=5pt}}]
+        % left configuration: sigma_1/2
+        \begin{scope}
+            \draw[photon] (-2.2,0) -- (-0.6,0);
+            \draw[->] (-0.55,0) -- (0.35,0);          % photon spin ->
+            \node[above] at (-0.1,0.05) {\footnotesize spin $1$};
+            \draw[<-] (0.6,0) -- (1.5,0);             % nucleon spin <-
+            \node[below] at (1.05,-0.05) {\footnotesize $-\tfrac{1}{2}$};
+            \node at (0.5,-0.95) {$\sigma_{1/2}$};
+        \end{scope}
+        % right configuration: sigma_3/2
+        \begin{scope}[xshift=6.2cm]
+            \draw[photon] (-2.2,0) -- (-0.6,0);
+            \draw[->] (-0.55,0) -- (0.35,0);          % photon spin ->
+            \node[above] at (-0.1,0.05) {\footnotesize spin $1$};
+            \draw[->] (0.6,0) -- (1.5,0);             % nucleon spin ->
+            \node[below] at (1.05,-0.05) {\footnotesize $+\tfrac{1}{2}$};
+            \node at (0.5,-0.95) {$\sigma_{3/2}$};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{The two helicity configurations measured with a circularly polarized photon
+    (spin $1$) and a longitudinally polarized nucleon. When the spins are antiparallel the
+    total helicity is $\tfrac{1}{2}$ ($\sigma_{1/2}$, left); when they are parallel it is
+    $\tfrac{3}{2}$ ($\sigma_{3/2}$, right). Their difference filters resonances by
+    helicity.}
+    \label{fig:helicity-config}
+\end{figure}
+
+For $\gamma p \to p\eta$ the helicity-difference counting rate $N_{1/2} - N_{3/2}$, and the
+corresponding $\sigma_{1/2}-\sigma_{3/2}$, are dominated at threshold by the
+$N(1535)\tfrac{1}{2}^-$ and provide direct evidence for the contributions of
+$N(1710)\tfrac{1}{2}^+$ and $N(1720)\tfrac{3}{2}^+$ that the unpolarized data could not
+fix (Müller \textit{et al.}, CBELSA/TAPS). For $\gamma p \to p\pi^0$ the separately measured
+$\sigma_{1/2}$ and $\sigma_{3/2}$, together with the asymmetry $E$ of
+Eq.~\eqref{eq:E-observable}, proved even more revealing: the established partial wave
+analyses (SAID, MAID and Bonn--Gatchina), which all describe the previously existing
+unpolarized photoproduction data, show large deviations from one another and from the new
+data, even at low energies where everything was thought to be well understood. This
+demonstrates the sensitivity of the double-polarization data to high-mass resonances
+(Gottschall \textit{et al.}, CBELSA/TAPS, Phys.\ Rev.\ Lett.\ 112 (2014) 012003). The
+double-polarization observables are, in short, the additional information the field had
+been missing \cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURES (double polarization data) ------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/helicity_difference_peta.pdf}
+%   \caption{Helicity-difference counting rate $N_{1/2}-N_{3/2}$ and
+%            $\sigma_{1/2}-\sigma_{3/2}$ for $\gamma p\to p\eta$, with the
+%            $N(1535)\tfrac{1}{2}^-$ dominant at threshold and evidence for
+%            $N(1710)\tfrac{1}{2}^+$ and $N(1720)\tfrac{3}{2}^+$ (Müller et al.,
+%            CBELSA/TAPS). PWA curves: MAID, SAID, BnGa.}
+%   \label{fig:helicity-difference-eta}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/E_observable_pi0.pdf}
+%   \caption{Helicity cross sections $\sigma_{1/2}$, $\sigma_{3/2}$ and the double-
+%            polarization asymmetry $E$ for $\gamma p\to p\pi^0$ (Gottschall et al.,
+%            CBELSA/TAPS). The SAID, MAID and BnGa predictions deviate strongly from
+%            the data, revealing sensitivity to high-mass resonances.}
+%   \label{fig:E-observable-pi0}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Results: new baryon resonances and the modern spectrum}
+\label{subsec:new-resonances}
+
+The high-quality polarization data, analyzed within the multichannel Bonn--Gatchina
+partial wave analysis, have transformed the baryon spectrum. The analysis both confirms
+known resonances---determining their properties more precisely---and establishes new ones.
+The impact is striking when measured against the Review of Particle Physics: between 2000
+and 2010 not a single new baryon resonance was added by the Particle Data Group, whereas
+the photoproduction results of the past decade have introduced a whole series of states
+and raised the status of others, as summarized in Table~\ref{tab:bnga-states}. The reason
+is that photoproduction provides access to the ``inelastic'' channels; before, the
+database was built almost entirely from $\pi N$ scattering and some pion photoproduction.
+Reaching the inelastic final states allows a much better determination of resonance
+properties, and these results now enter the Review of Particle Physics directly
+(Anisovich \textit{et al.}, Eur.\ Phys.\ J.\ A 48 (2012) 15; Müller \textit{et al.},
+Phys.\ Lett.\ B 803 (2020) 135323) \cite[Ch.~15]{Amsler2018}.
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{lccc}
+        \hline
+        State & RPP 2010 & Our analyses & RPP 2022 \\
+        \hline
+        $N(1710)\tfrac{1}{2}^+$   & $\ast\ast\ast$ & $\ast\ast\ast\ast$ & $\ast\ast\ast\ast$ \\
+        $N(1860)\tfrac{5}{2}^+$   &                & $\ast$             & $\ast\ast$ \\
+        $N(1875)\tfrac{3}{2}^-$   &                & $\ast\ast\ast$     & $\ast\ast\ast$ \\
+        $N(1880)\tfrac{1}{2}^+$   &                & $\ast\ast\ast$     & $\ast\ast\ast$ \\
+        $N(1895)\tfrac{1}{2}^-$   &                & $\ast\ast\ast\ast$ & $\ast\ast\ast\ast$ \\
+        $N(1900)\tfrac{3}{2}^+$   & $\ast\ast$     & $\ast\ast\ast\ast$ & $\ast\ast\ast\ast$ \\
+        $N(2060)\tfrac{5}{2}^-$   &                & $\ast\ast\ast$     & $\ast\ast\ast$ \\
+        $N(2100)\tfrac{1}{2}^+$   & $\ast$         & $\ast\ast\ast$     & $\ast\ast\ast$ \\
+        $N(2120)\tfrac{3}{2}^-$   &                & $\ast\ast\ast$     & $\ast\ast\ast$ \\
+        $\Delta(1600)\tfrac{3}{2}^+$ & $\ast\ast\ast$ & $\ast\ast\ast$  & $\ast\ast\ast\ast$ \\
+        $\Delta(1900)\tfrac{1}{2}^-$ & $\ast$      & $\ast\ast\ast$     & $\ast\ast\ast$ \\
+        $\Delta(1940)\tfrac{3}{2}^-$ & $\ast$      & $\ast\ast$         & $\ast\ast$ \\
+        $\Delta(2200)\tfrac{7}{2}^-$ & $\ast$      & $\ast\ast\ast$     & $\ast\ast\ast$ \\
+        \hline
+    \end{tabular}
+    \caption{Selected $N^{*}$ and $\Delta^{*}$ resonances whose existence or status was
+    established or improved by the multichannel Bonn--Gatchina analysis of photoproduction
+    data, with their star ratings in the Review of Particle Physics in 2010, in these
+    analyses, and in 2022. Only examples are shown.}
+    \label{tab:bnga-states}
+\end{table}
+
+A telling recent example combines the ELSA program with data from MAMI. In
+$\gamma p \to \eta p$ the cross section shows a cusp at the $\eta' p$ threshold
+(Kashevarov \textit{et al.}, Phys.\ Rev.\ Lett.\ 118 (2017) 212001); a joint analysis of
+$\gamma p \to \eta p$ and $\gamma p \to \eta' p$ confirms the state
+$N(1895)\tfrac{1}{2}^-$ and its coupling to both $p\eta$ and $p\eta'$. Yet the broader
+picture remains unsettled: the measured masses of the excited baryons do not fit the
+theoretical expectations, and the systematics of the observed spectrum is still not
+reproduced by the model calculations. The experimental progress has sharpened rather than
+resolved the theoretical problem \cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (MAMI eta cusp) ------------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/mami_eta_cusp.pdf}
+%   \caption{Total cross section for $\gamma p\to\eta p$ from MAMI, showing a cusp
+%            at the $\eta' p$ threshold (Kashevarov et al.). A joint MAID analysis of
+%            $\gamma p\to\eta p$ and $\gamma p\to\eta' p$ confirms
+%            $N(1895)\tfrac{1}{2}^-$ coupling to $p\eta$ and $p\eta'$.}
+%   \label{fig:mami-eta-cusp}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Parity doublets and the limits of present understanding}
+\label{subsec:parity-doublets}
+
+One pattern that emerges from the pole positions of the established $N^{*}$ and
+$\Delta^{*}$ resonances is the appearance of \emph{parity doublets}: pairs of states of
+equal spin and nearly equal mass but opposite parity. Their occurrence is not expected,
+either by present lattice QCD calculations---which, as noted in
+Sect.~\ref{subsec:lattice-baryons}, show no parity doubling---or by constituent quark
+models. That such doublets nevertheless occur is a clear sign that strong QCD is not yet
+understood \cite[Ch.~15]{Amsler2018}.
+
+The natural question is whether \emph{all} high-mass states come in parity doublets, and
+here the answer is negative. Among the $\Delta$ states near $1900~\mathrm{MeV}$ the positive-parity
+levels $\Delta(1910)\tfrac{1}{2}^+$, $\Delta(1920)\tfrac{3}{2}^+$,
+$\Delta(1905)\tfrac{5}{2}^+$ and $\Delta(1950)\tfrac{7}{2}^+$ have negative-parity partners
+$\Delta(1900)\tfrac{1}{2}^-$, $\Delta(1940)\tfrac{3}{2}^-$ and $\Delta(1930)\tfrac{5}{2}^-$
+at each spin except $\tfrac{7}{2}$. A dedicated multichannel search for the parity partner
+of the well-established $\Delta(1950)\tfrac{7}{2}^+$ (a four-star state), combining the
+$\pi^0 p$, $\pi^+ n$, $K\Sigma$, $\pi^0\pi^0 p$ and $\pi^0\eta p$ channels, finds a
+$J^{P}=\tfrac{7}{2}^-$ state only at the significantly higher mass of about
+$2200~\mathrm{MeV}$---confirming the one-star $\Delta(2200)\tfrac{7}{2}^-$ of the PDG---and
+no partner near $1950~\mathrm{MeV}$ (Anisovich \textit{et al.}, Phys.\ Lett.\ B 766 (2017)
+357). The conclusion is that certain states have parity partners and others do not, a
+pattern that remains unexplained. The supporting fits use the CBELSA/TAPS and CLAS
+polarization data, with and without the $\Delta(2200)\tfrac{7}{2}^-$ amplitude included,
+to demonstrate that the data require this state \cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURES (parity doublets + partner search) ----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/parity_doublets_poles.pdf}
+%   \caption{Pole positions of the $N^{*}$ (left) and $\Delta^{*}$ (right)
+%            resonances, arranged by $J^{P}$. Parity doublets occur, but not for
+%            every high-mass state; they are expected neither by lattice QCD nor by
+%            constituent quark models.}
+%   \label{fig:parity-doublets}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/delta_partner_search.pdf}
+%   \caption{Multichannel $\Delta\chi^2$ scan (channels $\pi^0 p$, $\pi^+ n$,
+%            $K\Sigma$, $\pi^0\pi^0 p$, $\pi^0\eta p$) for the mass of a
+%            $\tfrac{7}{2}^-$ state. No partner of $\Delta(1950)\tfrac{7}{2}^+$ is
+%            found near $1950~\mathrm{MeV}$; a minimum appears near $2200~\mathrm{MeV}$
+%            (Anisovich et al.).}
+%   \label{fig:delta-partner-search}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The strange-baryon sector: $\Lambda^{*}$ and $\Sigma^{*}$}
+\label{subsec:strange-baryons}
+
+The progress just described concerns the non-strange sector, where substantial advances
+have been made. The strange-baryon sector tells a very different story. The
+$\mathrm{SU}(6)\times O(3)$ classification of Chapter~\ref{sec:baryons-color} predicts, in
+addition to the $N^{*}$ and $\Delta^{*}$ multiplets, the octets, decuplets and flavor
+singlets ($\Lambda^{*}$) built from the three light flavors $u$, $d$ and $s$. Clarifying
+whether these predicted states actually exist is the obvious next step, because the
+systematics of the full $\mathrm{SU}(6)\times O(3)$ multiplets cannot be tested on the
+non-strange states alone. Yet the strange sector is very poorly known: several open
+questions---which expected $qqq$ states exist, why certain resonances have parity partners
+while others do not, and whether the relevant degrees of freedom are three quarks,
+quark--diquark or meson--baryon configurations---all point back to the need for strange-baryon
+data \cite[Ch.~15]{Amsler2018}.
+
+The situation is stark. The Review of Particle Physics of 2024 describes the field as
+``starved for data'': the established $\Lambda^{*}$ and $\Sigma^{*}$ resonances have
+remained essentially unchanged for more than thirty years, and in the $qqq$-systematics
+tables many expected states are either unknown or supported only by one- or two-star
+evidence. Not even all members of the first excitation band are known. There is one
+celebrated exception. The $\Lambda(1405)$, long treated as a single resonance, is now
+understood in the chiral unitary approach---which builds it dynamically from the
+meson--baryon interaction---to possess a \emph{two-pole} structure, with poles near
+$(m,\Gamma)\approx(1325,\,180)~\mathrm{MeV}$ and $(1429,\,24)~\mathrm{MeV}$ rather than a
+single state (Mai, Eur.\ Phys.\ J.\ Spec.\ Top.\ 230 (2021) 1593). The $\Lambda(1405)$ is
+thus two states and not one, a reminder that even the best-studied strange baryon holds
+surprises \cite[Ch.~15]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURES (systematics table + Lambda(1405)) ----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/qqq_systematics_lambda_sigma.pdf}
+%   \caption{$qqq$ systematics of the $\Lambda^{*}$ and $\Sigma^{*}$ resonances by
+%            $(D,L^{P}_{N})\,S\,J^{P}$, with singlet, octet and decuplet members.
+%            Many expected states are unknown or supported by only one- or two-star
+%            evidence; the field is starved for data.}
+%   \label{fig:qqq-systematics}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/lambda1405_two_poles.pdf}
+%   \caption{The two-pole structure of the $\Lambda(1405)$ in the chiral unitary
+%            approach, shown in the complex energy plane (Mai). The state is built
+%            from the meson--baryon interaction and corresponds to two poles, not one.}
+%   \label{fig:lambda1405-two-poles}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Outlook: INSIGHT at ELSA and the link to pentaquark spectroscopy}
+\label{subsec:insight-outlook}
+
+To supply the missing strange-baryon data a new experiment, INSIGHT (Investigation of the
+Strong Interaction in the light-flavor sector), is being set up at ELSA as an integral part
+of the Cluster of Excellence ``Color meets Flavor.'' It combines a polarized target, a
+silicon-pixel vertex detector, the Crystal Barrel calorimeter, a magnet and the forward
+endcap calorimeter of the PANDA experiment (PANDA-FWEC-EMC), together with a tagging
+system, gas electron multiplier detectors, straw-tube trackers and a time-of-flight wall.
+Covering almost the full $4\pi$ solid angle, it provides high-resolution photon detection,
+precise charged-particle tracking and both a polarized beam and a polarized target, opening
+access to new final states that include strange baryons \cite[Ch.~15]{Amsler2018}.
+
+Isospin-selective reactions are the key. Channels such as
+$\gamma p \to K^{+}\Lambda^{*} \to K^{+}\Sigma^0\pi^0$ and
+$\gamma p \to K^{+}\Sigma^{*0} \to K^{+}\Lambda\pi^0$ single out the $\Lambda^{*}$ or the
+$\Sigma^{*}$ by their isospin, and simulations show that states such as $\Lambda(1405)$ and
+$\Lambda(1520)$ can be extracted with convincing signal-to-background even in the presence
+of the many competing channels, with a $\pi^0$ mass resolution of a few $\mathrm{MeV}$ and
+particle identification from time of flight. The measurement of polarization observables is
+essential here for the same reason as in the non-strange sector: several groups have
+reanalyzed the existing strange-baryon data (from KSU, ANL/Osaka, Bonn--Gatchina and JPAC)
+and obtained different solutions from almost the same data, which the target asymmetry
+accessible with a polarized target can distinguish \cite[Ch.~15]{Amsler2018}.
+
+Well-determined strange-baryon resonances are important beyond spectroscopy proper. In the
+LHCb discovery of hidden-charm pentaquark candidates in
+$\Lambda_b^0 \to J/\psi\, p\, K^{-}$---the $P_c(4312)^+$, $P_c(4440)^+$ and
+$P_c(4457)^+$---the $K^{-}p$ system proceeds through a dense spectrum of $\Lambda^{*}$
+resonances, and the properties of those resonances directly affect the extraction of the
+pentaquark parameters. Whether the $P_c$ states are genuine compact pentaquarks or
+meson--baryon molecules is still open, and polarization experiments that pin down the
+strange-baryon background are needed to avoid ambiguities; a common analysis of ELSA and
+LHCb data would be a considerable advantage. The pentaquark states themselves are treated in
+detail in Chapter~\ref{sec:multiquark} \cite[Ch.~16]{Amsler2018}. With INSIGHT the light
+strange-baryon spectrum is finally within reach, and the next chapter turns from the
+spectrum of hadrons to their internal structure as probed by electron scattering
+(Chapter~\ref{sec:electron-scattering}).
+
+% ---- PLACEHOLDER FIGURES (INSIGHT + strange baryon simulation + pentaquark) -
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/insight_setup.pdf}
+%   \caption{The INSIGHT experiment at ELSA: polarized target, silicon-pixel
+%            detector, Crystal Barrel, magnet, PANDA forward endcap calorimeter,
+%            tagging system, GEM and straw-tube trackers and time-of-flight wall,
+%            covering almost $4\pi$.}
+%   \label{fig:insight-setup}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/strange_baryon_simulation.pdf}
+%   \caption{Simulation of $\gamma p\to K^{+}\Lambda^{*}\to K^{+}\Sigma^0\pi^0$,
+%            showing a clean separation of $\Lambda(1405)$ and $\Lambda(1520)$ in the
+%            $\Sigma\pi$ invariant mass against the summed background channels.}
+%   \label{fig:strange-baryon-sim}
+% \end{figure}
+%
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/lhcb_pentaquarks.pdf}
+%   \caption{LHCb pentaquark candidates $P_c(4312)^+$, $P_c(4440)^+$ and
+%            $P_c(4457)^+$ in the $J/\psi\,p$ mass of
+%            $\Lambda_b^0\to J/\psi\,p\,K^{-}$. The $K^{-}p$ system passes through
+%            $\Lambda^{*}$ resonances whose properties affect the extraction.}
+%   \label{fig:lhcb-pentaquarks}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
