@@ -1,1 +1,958 @@
-\section{Nucleon structure}
+% ============================================================================
+%  Chapter 9 — Elastic and Resonant Probes of Nucleon Structure
+%  (drafted from week 26 VL2-part2, week 27 VL1 and VL2 slides)
+%  The Quark Structure of Hadrons (project)
+% ----------------------------------------------------------------------------
+%  Preamble packages assumed by this chapter (all already loaded in main.tex):
+%     amsmath, amssymb, graphicx, placeins (for \FloatBarrier),
+%     physics + braket (for the \ket{...} macro and \dv, \dd),
+%     tikz with \usetikzlibrary{arrows.meta,decorations.pathmorphing}.
+%
+%  Cross-references used below:
+%     \ref{sec:baryon-spectroscopy}  (Chapter 8: photoproduction, N* spectrum,
+%                                     Delta(1232), helicity amplitudes)
+%     \ref{subsec:qm-predictions}    (Chapter 8: SU(6)xO(3), N->Delta as M1)
+%     \ref{sec:dis-nucleon-structure}(Chapter 10: inclusive DIS, structure
+%                                     functions, parton model) — forward pointer;
+%                                     create this label at the head of Chapter 10.
+%  Chapter 8 points here through \ref{sec:electron-scattering}; that label is
+%  attached to \section below so the existing forward reference resolves.
+%  Adjust the label names if they differ in the master document.
+%
+%  Sources: the physics of this chapter follows the lecture slides
+%  (week 26 VL2-part2 "Scattering experiments ... Meaning of Q^2"; week 27 VL1
+%  "Review: Reaction types ... proton radius at AMBER"; week 27 VL2
+%  "Resonance Production ... Structure Functions") together with
+%  Amsler \cite{Amsler2018}. Amsler treats electron scattering and nucleon form
+%  factors mainly in the introductory and baryon-structure chapters; the precise
+%  chapter numbers below (\cite[Ch.~1]{Amsler2018} for the parton picture,
+%  \cite[Ch.~14]{Amsler2018} for nucleon electromagnetic properties) should be
+%  checked against the printed edition and adjusted if needed.
+%  Several experimental results are quoted from the primary literature shown on
+%  the slides. These are not yet in references.bib; suggested entries to add
+%  (then replace the inline mentions by \cite):
+%     Bernauer2010      — J.C. Bernauer et al. (A1), Phys. Rev. Lett. 105, 242001 (2010)
+%     Pohl2010          — R. Pohl et al. (CREMA), Nature 466, 213 (2010)
+%     Antognini2013     — A. Antognini et al. (CREMA), Science 339, 417 (2013)
+%     Xiong2019         — W. Xiong et al. (PRad), Nature 575, 147 (2019)
+%     Punjabi2005       — V. Punjabi et al. (JLab), Phys. Rev. C 71, 055202 (2005)
+%     Puckett2012       — A.J.R. Puckett et al., Phys. Rev. C 85, 045203 (2012)
+%     Perdrisat2007     — C.F. Perdrisat, V. Punjabi, M. Vanderhaeghen,
+%                         Prog. Part. Nucl. Phys. 59, 694 (2007)
+%     Milner2014        — R. Milner et al. (OLYMPUS), Nucl. Instrum. Meth. A 741, 1 (2014)
+%     Henderson2017     — B.S. Henderson et al. (OLYMPUS), Phys. Rev. Lett. 118, 092501 (2017)
+%     Ye2018            — Z. Ye et al., Phys. Lett. B 777, 8 (2018)
+%     AMBER2019         — B. Adams et al. (AMBER/COMPASS++), SPSC-P-360, CERN-SPSC-2019-022
+%     Aznauryan2012     — I.G. Aznauryan, V.D. Burkert, Prog. Part. Nucl. Phys. 67, 1 (2012)
+%
+%  Generated figures (Matplotlib, vector PDF, in ./Figures/):
+%     Figures/resolving_power.pdf       — Delta x vs Q^2 with the slide table points
+%     Figures/dipole_sachs.pdf          — dipole G_D(Q^2) and normalised Sachs ratios
+%     Figures/proton_radius_puzzle.pdf  — r_p compilation (ep, H, muH, CODATA)
+%  All other figures (kinematics diagram, detector layouts, resonance spectra,
+%  transition-form-factor data) are indicated as commented placeholders, each
+%  with a suggested caption, label and placeholder filename.
+% ============================================================================
+
+\section{Elastic and Resonant Probes of Nucleon Structure}
+\label{sec:electron-scattering}
+
+The spectroscopy of the preceding chapters mapped out \emph{which} hadrons exist and
+how their masses and quantum numbers are organized, but it says nothing about what a
+nucleon looks like \emph{inside}. A proton is not a point: it is an extended,
+strongly bound system of quarks, antiquarks and gluons, and the questions that
+spectroscopy cannot answer---how the electric charge and the magnetic moment are
+distributed in space, how the constituents share the momentum and the spin of the
+whole, and how those distributions change as we look at ever shorter distances---are
+questions about \emph{structure}. This chapter and the next turn to the experimental
+tool that has answered them most cleanly, the scattering of high-energy electrons off
+nucleons. Here we treat the regime in which the target either recoils intact
+(elastic scattering, encoded in the nucleon \emph{form factors}) or is excited to a
+definite resonance (encoded in \emph{transition form factors}); the fully inelastic
+regime, in which the nucleon is shattered and one measures the momentum distributions
+of its partons, is the subject of Chapter~\ref{sec:dis-nucleon-structure}.
+
+% ============================================================================
+\subsection{Motivation: probing nucleon structure with electron scattering}
+\label{subsec:why-electron-scattering}
+
+The idea of using a beam of light particles to reveal the structure of a target is as
+old as subatomic physics itself. In the experiment that founded the field, Rutherford,
+Geiger and Marsden scattered $\alpha$~particles off a thin gold foil and found a small
+but unmistakable rate of large-angle deflections. For a pointlike, spinless projectile
+of charge $ze$ scattering in the Coulomb field of a pointlike nucleus of charge $Ze$,
+the differential cross section is the Rutherford formula
+\begin{equation}
+    \dv{\sigma}{\Omega}
+    = \left(\frac{Z z e^{2}}{16\pi\epsilon_0 E}\right)^{\!2}
+      \frac{1}{\sin^{4}\!\frac{\theta}{2}},
+    \label{eq:rutherford}
+\end{equation}
+where $E$ is the kinetic energy of the projectile and $\theta$ the scattering angle.
+The steep $\sin^{-4}(\theta/2)$ rise toward small angles, and above all the survival of
+the cross section out to large angles, were what forced the conclusion that the atomic
+positive charge is concentrated in a tiny nucleus rather than spread through the atom
+\cite[Ch.~1]{Amsler2018}. The lesson is general: the angular distribution of a
+scattered pointlike probe is a direct fingerprint of the charge distribution of the
+target.
+
+To resolve the interior of a nucleon rather than of an atom, one needs a probe that is
+itself pointlike, whose interaction with the target is understood from first
+principles, and that perturbs the target as little as possible. The electron satisfies
+all three requirements. It is, as far as we can tell, a structureless Dirac particle,
+so any structure seen in the cross section belongs to the target and not to the probe.
+Its interaction is electromagnetic and therefore governed by quantum electrodynamics,
+the best-tested theory in physics, so the ``ruler'' is calibrated exactly. And because
+the electromagnetic coupling $\alpha \approx 1/137$ is small, a single virtual photon
+is exchanged to very good approximation, so the reaction can be pictured as the clean
+one-photon process of Fig.~\ref{fig:kinematics} rather than as a complicated multiple
+scattering. These are precisely the advantages that $\alpha$~particles lacked---an
+$\alpha$ is composite and strongly interacting---and they are the reason the modern
+study of nucleon structure is built on electron beams \cite[Ch.~1]{Amsler2018}.
+
+The price to pay is energy. A probe of momentum $q$ can resolve spatial structures no
+smaller than of order its reduced wavelength, so that the accessible distance scale is
+\begin{equation}
+    \Delta x \;\sim\; \frac{\hbar c}{\sqrt{Q^{2}}},
+    \qquad \hbar c \approx 0.197~\mathrm{GeV\,fm},
+    \label{eq:resolving-power}
+\end{equation}
+where $Q^{2}=-q^{2}$ is the (positive) squared four-momentum transferred by the virtual
+photon, defined precisely in the next subsection. Equation~\eqref{eq:resolving-power}
+is the quantitative statement of why nucleon structure demands GeV-scale machines: to
+probe the proton, whose radius is about $0.84~\mathrm{fm}$, requires
+$Q^{2}\sim 0.05~\mathrm{GeV}^{2}$, while resolving structures ten times smaller
+requires $Q^{2}$ a hundred times larger. Table~\ref{tab:resolving-power} and
+Fig.~\ref{fig:resolving-power} translate a few representative momentum transfers into
+distances; the trend is monotonic and unforgiving, and it sets the scale of every
+experiment discussed in this chapter and the next \cite[Ch.~1]{Amsler2018}.
+
+\begin{table}[t]
+    \centering
+    \caption{The distance scale $\Delta x \sim \hbar c/\sqrt{Q^{2}}$ resolved by a
+             virtual photon of virtuality $Q^{2}$, from
+             Eq.~\eqref{eq:resolving-power}. Resolving smaller structures requires
+             higher momentum transfer and hence higher beam energy.}
+    \label{tab:resolving-power}
+    \begin{tabular}{cc}
+        \toprule
+        $Q^{2}~(\mathrm{GeV^2})$ & Distance scale $\Delta x$ (fm) \\
+        \midrule
+        $0.01$ & $\sim 2$    \\
+        $0.1$  & $\sim 0.6$  \\
+        $1$    & $\sim 0.2$  \\
+        $10$   & $\sim 0.06$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.62\linewidth]{Figures/resolving_power.pdf}
+    \caption{Resolving power of a virtual photon,
+             $\Delta x \sim \hbar c/\sqrt{Q^{2}}$
+             (Eq.~\eqref{eq:resolving-power}), as a function of its virtuality
+             $Q^{2}$. The red points are the representative values of
+             Table~\ref{tab:resolving-power}; the dashed line marks the proton
+             charge radius. Probing sub-nucleonic distances requires
+             $Q^{2}\gtrsim 1~\mathrm{GeV}^{2}$.}
+    \label{fig:resolving-power}
+\end{figure}
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Reaction kinematics and reaction types}
+\label{subsec:kinematics}
+
+The generic reaction underlying the whole chapter is the scattering of an electron off
+a nucleon,
+\begin{equation}
+    e(k) + N(P) \;\rightarrow\; e(k') + X(P_X),
+    \label{eq:generic-reaction}
+\end{equation}
+where $k$, $k'$, $P$ and $P_X$ are the four-momenta of the incoming electron, the
+scattered electron, the target nucleon and the unobserved hadronic final state $X$
+(Fig.~\ref{fig:kinematics}). In the one-photon-exchange approximation the electron
+line couples to the nucleon through a single virtual photon that carries the
+\emph{exchanged four-momentum}
+\begin{equation}
+    q \;=\; k - k',
+\end{equation}
+so that all of the information about the target is encoded in how it responds to a
+photon of four-momentum $q$. The single most useful invariant built from $q$ is its
+negative square,
+\begin{equation}
+    Q^{2} \;\equiv\; -q^{2} \;>\; 0,
+\end{equation}
+which is positive because the exchanged photon is spacelike; $Q^{2}$ is the virtuality
+that already appeared in Eq.~\eqref{eq:resolving-power} and sets the resolution of the
+probe.
+
+\begin{figure}[t]
+    \centering
+    % ---- PLACEHOLDER FIGURE (one-photon-exchange kinematics) ----------------
+    % Reproduce the "Review: Reaction kinematics" slide: incident electron
+    % k^mu=(E,vec k) and scattered electron k'^mu=(E',vec k') meeting at a vertex,
+    % a wavy exchanged photon q^mu=(nu,vec q), and the nucleon target at rest
+    % P^mu=(M,0) with the hadronic final state X emerging. A TikZ diagram with
+    % \usetikzlibrary{decorations.pathmorphing} for the photon line is the natural
+    % choice, matching the inline Feynman graphs of Chapters 7-8.
+    % \includegraphics[width=0.7\linewidth]{Figures/ep_kinematics.pdf}
+    \caption{One-photon-exchange kinematics of electron--nucleon scattering,
+             Eq.~\eqref{eq:generic-reaction}. The incident electron
+             $k=(E,\vec k)$ scatters to $k'=(E',\vec k')$, transferring a virtual
+             photon of four-momentum $q=(\nu,\vec q)$ to a nucleon at rest
+             $P=(M,\vec 0)$, which emerges as the hadronic system $X$.}
+    \label{fig:kinematics}
+\end{figure}
+
+Working in the rest frame of the target, $P=(M,\vec 0)$, the photon transfers to the
+nucleon the \emph{energy}
+\begin{equation}
+    \nu \;=\; E - E' \;=\; \frac{P\cdot q}{M},
+    \label{eq:nu}
+\end{equation}
+the difference between the incoming and outgoing electron energies. Together $Q^{2}$
+and $\nu$ specify the kinematics completely for an unpolarized measurement. Two
+further invariants recur throughout: the squared invariant mass of the hadronic final
+state,
+\begin{equation}
+    W^{2} \;=\; (P+q)^{2} \;=\; M^{2} + 2M\nu - Q^{2},
+    \label{eq:W2}
+\end{equation}
+which distinguishes elastic scattering from resonance production and from the
+continuum, and the dimensionless \emph{Bjorken variable}
+\begin{equation}
+    x_{B} \;=\; \frac{Q^{2}}{2P\cdot q} \;=\; \frac{Q^{2}}{2M\nu},
+    \label{eq:xbj}
+\end{equation}
+whose meaning as the momentum fraction of the struck parton emerges in
+Chapter~\ref{sec:dis-nucleon-structure}. The elastic case is the special point at
+which the target recoils intact, $W = M$, which by Eq.~\eqref{eq:W2} forces
+$Q^{2}=2M\nu$ and hence $x_{B}=1$; every inelastic process has $W>M$ and $x_{B}<1$.
+
+What distinguishes the several classes of measurement is not the elementary reaction
+\eqref{eq:generic-reaction} but \emph{which} part of the final state is detected and
+in which kinematic region. It is worth setting out the taxonomy at the start, because
+each class probes a different structure quantity and the rest of this chapter, and the
+next, is organized around it:
+\begin{description}
+    \item[Elastic scattering, $eN\to eN$.] The nucleon survives ($W=M$). The response
+        is parametrized by two \emph{elastic form factors}, treated in
+        Sects.~\ref{subsec:form-factors}--\ref{subsec:two-photon}.
+    \item[Resonance electroproduction, $eN\to eN^{*}\to e+\text{hadrons}$.] The nucleon
+        is excited to a definite resonance ($W\simeq M_{N^{*}}$). The response is
+        parametrized by \emph{transition form factors}, treated in
+        Sect.~\ref{subsec:transition-ff}.
+    \item[Inclusive deep inelastic scattering (DIS), $eN\to eX$.] Only the scattered
+        electron is detected and $W$ lies in the continuum. The response is
+        parametrized by \emph{parton distribution functions}
+        (Chapter~\ref{sec:dis-nucleon-structure}).
+    \item[Semi-inclusive DIS, $eN\to e\,h\,X$.] One final-state hadron $h$ is detected
+        in addition to the electron, giving access to \emph{transverse-momentum
+        dependent distributions} (Chapter~\ref{sec:dis-nucleon-structure}).
+    \item[Exclusive reactions, e.g.\ $eN\to eN\gamma$ or $eN\to eN\,M$.] The entire
+        final state is reconstructed, giving access to \emph{generalized parton
+        distributions} and meson form factors (beyond the scope of these notes).
+\end{description}
+The organizing principle is a ladder in $W$ and $Q^{2}$: at fixed low $W=M$ one measures
+the ground-state form factors; stepping up in $W$ one reaches the resonances; and at
+large $W$ and large $Q^{2}$ one enters the deep inelastic region where the photon
+resolves individual partons. The present chapter climbs the first two rungs; the third
+is the subject of Chapter~\ref{sec:dis-nucleon-structure} \cite[Ch.~1]{Amsler2018}.
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Mott scattering and elastic form factors}
+\label{subsec:form-factors}
+
+The Rutherford cross section \eqref{eq:rutherford} was derived for a spinless
+projectile. An electron is a spin-$\tfrac{1}{2}$ Dirac particle, and accounting for its
+spin modifies the angular distribution in a way that already contains physics. The
+result is the \emph{Mott cross section}
+\begin{equation}
+    \left(\dv{\sigma}{\Omega}\right)_{\!\mathrm{Mott}}
+    = \left(\dv{\sigma}{\Omega}\right)_{\!\mathrm{Rutherford}}
+      \left(1 - \beta^{2}\sin^{2}\tfrac{\theta}{2}\right)\frac{E'}{E},
+    \qquad \beta = \frac{v}{c},
+    \label{eq:mott}
+\end{equation}
+where the recoil factor $E'/E$ accounts for the energy carried away by a target of
+finite mass. The characteristic suppression $\left(1-\beta^{2}\sin^{2}\tfrac{\theta}{2}\right)$
+at backward angles is a consequence of \emph{helicity conservation}. The helicity of a
+relativistic particle,
+\begin{equation}
+    h = \frac{\vec s\cdot\vec p}{|\vec s|\,|\vec p|},
+\end{equation}
+the projection of the spin onto the direction of motion, is conserved for a
+relativistic electron interacting through the vector coupling of QED. In the limit
+$\beta\to 1$ the electron cannot reverse its momentum without flipping its helicity, so
+backscattering off a spinless target is forbidden and the cross section vanishes at
+$\theta=180^{\circ}$. Mott scattering is thus the correct pointlike baseline against
+which the structure of a real, extended target is measured \cite[Ch.~1]{Amsler2018}.
+
+A real nucleon is not pointlike, and its finite extent shows up as a $Q^{2}$-dependent
+reduction of the cross section below the Mott value. For a static charge distribution
+$\rho(\vec r)$ the deviation is captured by a \emph{form factor}, the Fourier transform
+of the spatial distribution,
+\begin{equation}
+    F(\vec q^{\,2}) \;=\; \int \dd^{3}r\;\rho(\vec r)\,
+    \mathrm{e}^{\,\mathrm{i}\vec q\cdot\vec r/\hbar}.
+    \label{eq:form-factor-def}
+\end{equation}
+A pointlike charge, $\rho(\vec r)=\delta^{3}(\vec r)$, gives a constant form factor and
+recovers the Mott result at all $Q^{2}$; any spatial spread makes $F$ fall with
+increasing $Q^{2}$, and the shape of that fall-off encodes the shape of the charge
+distribution. The correspondence is qualitative but instructive: an exponential charge
+distribution produces a dipole form factor (this is the case of the proton), a Gaussian
+distribution produces a Gaussian form factor, and a sharp-edged homogeneous sphere
+produces an oscillating form factor with diffraction minima. Reading the fall-off
+backwards is, in principle, an inverse Fourier transform from the measured $F(Q^{2})$
+to the charge density $\rho(\vec r)$ \cite[Ch.~1]{Amsler2018}.
+
+A spin-$\tfrac{1}{2}$ target such as the nucleon carries not one but two independent
+form factors, because the virtual photon couples both to the charge and to the magnetic
+moment. They are the \emph{Dirac form factor} $F_{1}(Q^{2})$, associated with the
+convective (charge) current, and the \emph{Pauli form factor} $F_{2}(Q^{2})$,
+associated with the spin-flip (anomalous-magnetic-moment) current. Their values at zero
+momentum transfer are fixed by the static properties of the nucleon,
+\begin{equation}
+    F_{1}(0) = Q_{N}, \qquad F_{2}(0) = \kappa_{N},
+    \label{eq:F1F2-norm}
+\end{equation}
+where $Q_{N}$ is the nucleon charge in units of $e$ (one for the proton, zero for the
+neutron) and $\kappa_{N}$ is its anomalous magnetic moment. These normalizations are
+the low-$Q^{2}$ anchors of the whole subject: any parametrization of the form factors
+must reproduce Eq.~\eqref{eq:F1F2-norm} at the origin, and the \emph{slope} at the
+origin measures the nucleon's size, as we shall see in
+Sect.~\ref{subsec:proton-radius} \cite[Ch.~14]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (rho(r) <-> F(q^2) correspondence) ------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/rho_formfactor_gallery.pdf}
+%   \caption{Correspondence between a static charge distribution $\rho(r)$ (left)
+%            and the modulus of its form factor $|F(q^2)|$ (right), from
+%            Eq.~\eqref{eq:form-factor-def}: pointlike $\to$ constant (electron),
+%            exponential $\to$ dipole (proton), Gaussian $\to$ Gaussian
+%            ($^{6}$Li), homogeneous or diffuse sphere $\to$ oscillating
+%            ($^{40}$Ca).}
+%   \label{fig:formfactor-gallery}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The Rosenbluth separation and the Sachs form factors}
+\label{subsec:rosenbluth}
+
+To connect the two form factors to a measurable cross section one must combine the
+Dirac and Pauli currents with the electron kinematics. The result, the
+\emph{Rosenbluth formula}, expresses the elastic cross section as the Mott cross section
+multiplied by a bracket that mixes the two form factors,
+\begin{equation}
+    \dv{\sigma}{\Omega}
+    = \left(\dv{\sigma}{\Omega}\right)_{\!\mathrm{Mott}}
+      \left[\frac{G_{E}^{2}(Q^{2}) + \tau\,G_{M}^{2}(Q^{2})}{1+\tau}
+      + 2\tau\,G_{M}^{2}(Q^{2})\tan^{2}\tfrac{\theta}{2}\right],
+    \qquad
+    \tau = \frac{Q^{2}}{4M^{2}}.
+    \label{eq:rosenbluth}
+\end{equation}
+It is written not in terms of $F_{1}$ and $F_{2}$ but in terms of the \emph{Sachs form
+factors}, the linear combinations
+\begin{align}
+    G_{E}(Q^{2}) &= F_{1}(Q^{2}) - \tau\,F_{2}(Q^{2}), \label{eq:GE}\\
+    G_{M}(Q^{2}) &= F_{1}(Q^{2}) + F_{2}(Q^{2}), \label{eq:GM}
+\end{align}
+which are chosen because the cross section \eqref{eq:rosenbluth} contains no
+interference term between them: $G_{E}$ and $G_{M}$ appear only squared. In the
+Breit frame $G_{E}$ and $G_{M}$ are the Fourier transforms of the charge and
+magnetization distributions, respectively, which is why they, rather than $F_{1}$ and
+$F_{2}$, are the natural objects to measure. Their normalizations follow from
+Eq.~\eqref{eq:F1F2-norm},
+\begin{equation}
+    G_{E}(0) = Q_{N}, \qquad G_{M}(0) = \mu_{N},
+    \label{eq:GEGM-norm}
+\end{equation}
+with $\mu_{N}$ the total magnetic moment of the nucleon in nuclear magnetons
+\cite[Ch.~14]{Amsler2018}.
+
+The structure of Eq.~\eqref{eq:rosenbluth} suggests a clean experimental strategy,
+the \emph{Rosenbluth separation}. At fixed $Q^{2}$ one divides the measured cross
+section by the Mott cross section and plots the result against $\tan^{2}\tfrac{\theta}{2}$,
+which requires taking data at several beam energies and scattering angles chosen to keep
+$Q^{2}$ constant. The bracket in Eq.~\eqref{eq:rosenbluth} is then a straight line whose
+slope is proportional to $G_{M}^{2}(Q^{2})$ and whose intercept fixes the combination
+$[G_{E}^{2}+\tau G_{M}^{2}]/(1+\tau)$; the two together yield $G_{E}$ and $G_{M}$
+separately at that $Q^{2}$. Repeating the exercise over a range of momentum transfers
+maps out both form factors. The method has one intrinsic weakness that will matter
+below: the electric term enters the intercept weighted by $1/(1+\tau)$ relative to the
+magnetic term, so as $Q^{2}$ grows and $\tau$ becomes large the sensitivity to $G_{E}$
+shrinks, and extracting it from the small residual $\tan^{2}\tfrac{\theta}{2}$ dependence
+becomes increasingly difficult \cite[Ch.~14]{Amsler2018}.
+
+Applied across a wide range of momentum transfers, the Rosenbluth method reveals a
+remarkably simple regularity: all four nucleon form factors are described, to first
+approximation, by a single universal \emph{dipole} shape,
+\begin{equation}
+    G_{D}(Q^{2}) = \left(1 + \frac{Q^{2}}{\Lambda^{2}}\right)^{\!-2},
+    \qquad \Lambda^{2} = 0.71~\mathrm{GeV}^{2},
+    \label{eq:dipole}
+\end{equation}
+in the sense that $G_{E}^{p}\approx G_{D}$ and $G_{M}^{p}/\mu_{p}\approx G_{D}$, and
+similarly for the dominant neutron magnetic form factor. The dipole shape corresponds,
+through Eq.~\eqref{eq:form-factor-def}, to an exponential charge distribution, and its
+scale $\Lambda$ fixes the size of the nucleon. Figure~\ref{fig:dipole-sachs} shows the
+proton electric and (normalized) magnetic form factors following this common curve.
+The dipole is only an approximation---modern data show few-percent deviations that
+carry real information---but it is an excellent organizing baseline and the reference
+against which all departures are quoted \cite[Ch.~14]{Amsler2018}.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figures/dipole_sachs.pdf}
+    \caption{The proton electric form factor $G_{E}^{p}$ and the normalized magnetic
+             form factor $G_{M}^{p}/\mu_{p}$, both following the universal dipole
+             shape $G_{D}(Q^{2})=(1+Q^{2}/\Lambda^{2})^{-2}$ with
+             $\Lambda^{2}=0.71~\mathrm{GeV}^{2}$ (Eq.~\eqref{eq:dipole}). Points
+             are representative Rosenbluth extractions; the curves are the dipole.}
+    \label{fig:dipole-sachs}
+\end{figure}
+
+% ---- PLACEHOLDER FIGURE (Rosenbluth linear fit) ----------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.55\linewidth]{Figures/rosenbluth_linefit.pdf}
+%   \caption{Rosenbluth separation at fixed $Q^{2}$: the reduced cross section
+%            $(\mathrm{d}\sigma/\mathrm{d}\Omega)_{\exp}/
+%            (\mathrm{d}\sigma/\mathrm{d}\Omega)_{\mathrm{Mott}}$ plotted against
+%            $\tan^{2}(\theta/2)$ is a straight line whose slope gives
+%            $G_{M}^{2}$ and whose intercept gives
+%            $[G_{E}^{2}+\tau G_{M}^{2}]/(1+\tau)$.}
+%   \label{fig:rosenbluth-fit}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (A1 spectrometer at Mainz) -------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/a1_spectrometer_mainz.pdf}
+%   \caption{The A1 magnetic-spectrometer setup at the Mainz Microtron (MAMI),
+%            used for high-precision elastic form-factor measurements: height
+%            $15~\mathrm{m}$, weight $>200~\mathrm{t}$, momentum resolution
+%            $<10^{-4}$, angular acceptance $\Delta\Omega<28~\mathrm{msr}$.}
+%   \label{fig:a1-mainz}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Polarization transfer and the $G_E/G_M$ discrepancy}
+\label{subsec:polarization-transfer}
+
+The weakness of the Rosenbluth method at large $Q^{2}$---the shrinking weight of the
+electric term---makes $G_{E}^{p}$ progressively harder to extract just where one most
+wants to know it. When $\tau G_{M}^{2}\gg G_{E}^{2}$ the cross section is dominated by
+the magnetic form factor and the electric contribution is a small correction on a large
+background, so that percent-level systematic errors in the absolute cross section
+translate into large errors in $G_{E}^{p}$. A different observable is needed, one in
+which $G_{E}$ and $G_{M}$ enter on a more equal footing.
+
+\emph{Polarization transfer} provides exactly this. One scatters a longitudinally
+polarized electron off an unpolarized proton and measures the polarization of the
+recoiling proton,
+\begin{equation}
+    \vec e + p \;\rightarrow\; e + \vec p,
+\end{equation}
+resolving it into a component $P_{t}$ transverse to and a component $P_{l}$ along the
+proton momentum in the scattering plane. The ratio of the two recoil polarizations is,
+remarkably, directly proportional to the ratio of the form factors,
+\begin{equation}
+    \frac{G_{E}}{G_{M}}
+    = -\,\frac{P_{t}}{P_{l}}\,\frac{E+E'}{2M}\,\tan\tfrac{\theta}{2}.
+    \label{eq:pol-transfer}
+\end{equation}
+Because $P_{t}$ arises from the electric--magnetic interference and $P_{l}$ from the
+magnetic term, the ratio $G_{E}/G_{M}$ appears \emph{linearly} rather than through a
+small squared difference, and it is measured as a ratio of two polarization components
+in the same detector. A great many systematic uncertainties---beam intensity, target
+density, detector acceptance---cancel in that ratio, so the method is exquisitely
+sensitive to $G_{E}/G_{M}$ precisely in the region where the cross section is dominated
+by $G_{M}$ and the Rosenbluth method fails. The technique requires a beam of known
+helicity and a polarimeter for the recoil proton; a partial derivation of
+Eq.~\eqref{eq:pol-transfer} from the hadronic tensor is given in Sect.~3.1 of
+Perdrisat, Punjabi and Vanderhaeghen (Prog.\ Part.\ Nucl.\ Phys.\ 59 (2007) 694)
+\cite[Ch.~14]{Amsler2018}.
+
+Measuring the recoil polarization is itself an experimental problem worth a sentence,
+because it uses the same spin--orbit physics that pervaded the baryon-polarization
+measurements of Chapter~\ref{sec:baryon-spectroscopy}. Proton polarimetry is based on
+the spin--orbit interaction in a secondary scattering off an analyzer nucleus: the
+$\vec L\cdot\vec S$ force produces a left--right asymmetry whose sign and magnitude
+measure the transverse polarization component. The spin--orbit force is, however, blind
+to the \emph{longitudinal} polarization, which must first be rotated into a transverse
+direction; this is done by letting the proton precess in the magnetic field of the
+spectrometer dipole before it reaches the polarimeter. The comparison of the front and
+back tracking chambers on either side of the analyzer then yields both polarization
+components \cite[Ch.~14]{Amsler2018}.
+
+The physics payoff was a surprise. Rosenbluth separations had long suggested that the
+proton electric and magnetic form factors keep the same shape, so that the ratio
+$\mu_{p}\,G_{E}^{p}/G_{M}^{p}\approx 1$ is roughly independent of $Q^{2}$. The
+polarization-transfer measurements at Jefferson Lab told a different story: the ratio
+falls steadily and approximately linearly with increasing $Q^{2}$, dropping well below
+unity by a few $\mathrm{GeV}^{2}$. The two methods, each internally consistent,
+disagree---and the discrepancy grows with $Q^{2}$, exactly where the Rosenbluth
+extraction of $G_{E}^{p}$ is least reliable. This is not a small effect at the edge of
+the errors; it is a qualitative disagreement about whether the charge and magnetization
+of the proton have the same spatial extent. The two leading explanations are that the
+Rosenbluth cross sections need a radiative correction that had been underestimated, or
+that the one-photon-exchange picture itself receives a non-negligible \emph{two-photon}
+correction; the latter is the subject of the next subsection \cite[Ch.~14]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (recoil polarimeter / FPP) -------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.85\linewidth]{Figures/recoil_polarimeter.pdf}
+%   \caption{Principle of recoil polarimetry. Left: the spin--orbit force in
+%            secondary scattering off an analyzer nucleus produces a left--right
+%            asymmetry sensitive to the transverse polarization
+%            ($\vec L\cdot\vec S$ changes sign across the analyzer). Right:
+%            precession of the longitudinal component $P_{l}$ in the spectrometer
+%            dipole rotates it into a measurable transverse component at the focal
+%            plane polarimeter (FPP).}
+%   \label{fig:recoil-polarimeter}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (mu_p G_E/G_M vs Q^2) -----------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/gegm_ratio_vs_q2.pdf}
+%   \caption{The ratio $\mu_{p}\,G_{E}^{p}/G_{M}^{p}$ versus $Q^{2}$. Rosenbluth
+%            separations suggest a ratio near unity (weak $Q^{2}$ dependence),
+%            whereas polarization-transfer data (Punjabi, Puckett, and others)
+%            fall approximately linearly below unity, revealing the
+%            $G_{E}/G_{M}$ discrepancy. Also indicated: the Born (single-photon)
+%            graph, standard radiative corrections, and the smaller hard
+%            two-photon-exchange graphs.}
+%   \label{fig:gegm-discrepancy}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Two-photon exchange}
+\label{subsec:two-photon}
+
+The whole apparatus of form factors rests on the one-photon-exchange approximation,
+and the $G_{E}/G_{M}$ discrepancy is the first place where that approximation is
+seriously questioned. Exchanging a second photon between the electron and the proton
+is suppressed by one power of $\alpha$ relative to the Born graph and had traditionally
+been folded into the standard radiative corrections only in part. The two methods
+respond to it differently: because the Rosenbluth intercept extracts a small electric
+term from a large magnetic background, it is far more vulnerable to a small
+angle-dependent two-photon contamination than the polarization-transfer ratio, which is
+protected by the cancellation of systematics. A two-photon-exchange (TPE) contribution
+of the expected size could therefore reconcile the two extractions
+\cite[Ch.~14]{Amsler2018}.
+
+The clean experimental signature of TPE is a comparison of electron and positron
+scattering. Reversing the lepton charge flips the sign of the interference between the
+one- and two-photon amplitudes, so the ratio
+\begin{equation}
+    R_{2\gamma}
+    = \frac{\sigma_{e^{+}p}}{\sigma_{e^{-}p}}
+    = \left(\frac{N_{\exp}(e^{+})}{N_{\exp}(e^{-})}\right)
+      \Bigg/
+      \left(\frac{N_{\mathrm{MC}}(e^{+})}{N_{\mathrm{MC}}(e^{-})}\right)
+    \label{eq:r2gamma}
+\end{equation}
+deviates from unity by twice the TPE effect; the Monte-Carlo factors normalize away the
+charge-independent radiative corrections. This is what the OLYMPUS experiment measured
+at the DORIS storage ring at DESY, alternating $e^{-}$ and $e^{+}$ beams through the same
+detector roughly once a day so that the two data sets were taken under nearly identical
+conditions, which is essential because the effect sought is at the percent level.
+The critical systematic is the relative luminosity of the two beams, and much of the
+experimental effort went into measuring it \cite[Ch.~14]{Amsler2018}.
+
+The outcome is that two-photon exchange is real but small, of the order of a percent
+and rising toward backward angles (small $\varepsilon$, the virtual-photon longitudinal
+polarization). Within the still-sizable uncertainties this is about the magnitude needed
+to bring the Rosenbluth and polarization-transfer determinations of
+$\mu_{p}\,G_{E}^{p}/G_{M}^{p}$ into agreement, so TPE is the currently favored resolution
+of the discrepancy. It is not yet the last word: the measurements were confined to
+$Q^{2}\lesssim 2.5~\mathrm{GeV}^{2}$, whereas the discrepancy is largest at higher
+$Q^{2}$, and closing that gap---perhaps with future measurements at Jefferson Lab---is
+needed before the case can be considered settled \cite[Ch.~14]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (OLYMPUS setup at DESY) ----------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{Figures/olympus_desy.pdf}
+%   \caption{The OLYMPUS detector at the DORIS storage ring (DESY): drift
+%            chambers, toroidal magnet coils, time-of-flight scintillators,
+%            $12^{\circ}$ telescopes and symmetric M{\o}ller/Bhabha (SyMB)
+%            luminosity calorimeters, with alternating $e^{-}/e^{+}$ beams.}
+%   \label{fig:olympus}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (R_2gamma vs epsilon) ------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/r2gamma_vs_epsilon.pdf}
+%   \caption{The two-photon-exchange ratio $R_{2\gamma}$ (Eq.~\eqref{eq:r2gamma})
+%            versus the virtual-photon polarization $\varepsilon$, from OLYMPUS,
+%            compared with the Blunden ($N$ and $N+\Delta$), Bernauer and Tomalak
+%            calculations. The effect is at the percent level and grows toward
+%            backward angles (small $\varepsilon$).}
+%   \label{fig:r2gamma}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The neutron form factor}
+\label{subsec:neutron-ff}
+
+Everything so far concerned the proton, but a complete picture of nucleon structure
+requires the neutron, and the neutron poses its own difficulties. The first is that
+there is no free neutron target: neutrons are unstable in isolation and must be studied
+bound in a light nucleus, in practice the deuteron or helium-3, with the theoretical
+complication of extracting the neutron response from the nuclear one. The second is that
+the neutron is electrically neutral, so its electric form factor vanishes at the origin,
+$G_{E}^{n}(0)=0$, and remains small at all momentum transfers; measuring a small quantity
+that must be disentangled from nuclear effects is the central challenge of neutron
+form-factor physics \cite[Ch.~14]{Amsler2018}.
+
+Despite its smallness, $G_{E}^{n}$ is not zero, and its non-vanishing is itself
+structural information: it shows that the neutron has an internal charge separation even
+though its net charge is zero. The measured $G_{E}^{n}$ rises to a small positive
+maximum around $Q^{2}\sim 0.3$--$0.5~\mathrm{GeV}^{2}$ and falls slowly thereafter. Read
+through the Fourier correspondence of Eq.~\eqref{eq:form-factor-def}, this corresponds
+to a spatial charge density that is positive in the interior and negative in the outer
+region---consistent with the intuitive picture of the neutron's negatively charged
+$d$-quark tail extending beyond a more compact positive core---so that the two
+contributions cancel in the total charge but not in the spatial distribution. The
+neutron \emph{magnetic} form factor $G_{M}^{n}$, by contrast, is large and follows the
+same standard dipole shape as the proton form factors to good approximation, reflecting
+the fact that the neutron's magnetic moment is comparable to the proton's
+\cite[Ch.~14]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (G_M^n, G_E^n data + neutron charge density) -------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/neutron_form_factors.pdf}
+%   \caption{Neutron form factors. Left: the magnetic form factor
+%            $G_{M}^{n}/(\mu_{n}G_{D})$ (top) and the electric form factor
+%            $G_{E}^{n}$ (bottom) versus $Q^{2}$, from measurements on deuterium
+%            and $^{3}\mathrm{He}$ targets. Right: the inferred neutron charge
+%            density $4\pi r^{2}\rho(r)$, positive in the interior and negative in
+%            the outer region, integrating to zero net charge.}
+%   \label{fig:neutron-ff}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The proton charge radius and the radius puzzle}
+\label{subsec:proton-radius}
+
+The most basic number one can extract from the elastic form factors is the size of the
+proton, and it is the subject of one of the more instructive controversies of recent
+subatomic physics. The charge radius is defined through the low-$Q^{2}$ slope of the
+electric form factor. Expanding Eq.~\eqref{eq:form-factor-def} for small momentum
+transfer gives
+\begin{equation}
+    G_{E}(Q^{2}) = 1 - \frac{r_{p}^{2}}{6}\,Q^{2} + \cdots,
+    \label{eq:GE-expansion}
+\end{equation}
+so that the mean-square charge radius is minus six times the slope of $G_{E}$ at the
+origin,
+\begin{equation}
+    r_{p}^{2} = -6\,\left.\dv{G_{E}}{Q^{2}}\right|_{Q^{2}=0}.
+    \label{eq:rp-slope}
+\end{equation}
+The experimental task is therefore to measure the \emph{slope} of $G_{E}$ as $Q^{2}\to 0$,
+which is intrinsically hard: one must map the form factor at the smallest accessible
+momentum transfers, where it differs from unity by only a fraction of a percent, and
+extrapolate the slope to the origin. The high-precision elastic-scattering measurement
+at Mainz gave
+\begin{equation}
+    \left\langle r_{E}^{2}\right\rangle^{1/2}
+    = 0.879(5)_{\mathrm{stat.}}(4)_{\mathrm{syst.}}(2)_{\mathrm{model}}(4)_{\mathrm{group}}
+      ~\mathrm{fm},
+    \label{eq:rp-mainz}
+\end{equation}
+where the last two uncertainties reflect the choice of fit function and of data
+grouping---already a warning that the extrapolation carries model dependence
+\cite[Ch.~14]{Amsler2018}.
+
+A completely independent route to the same number uses atomic spectroscopy rather than
+scattering. An electron in an $S$ state of hydrogen has a non-vanishing probability of
+being found \emph{inside} the proton, and the finite proton size shifts the energy of
+that state; an electron in a $P$ state has a node at the origin and is essentially
+unaffected. Measuring $P\!-\!S$ transition frequencies to very high precision therefore
+determines the proton size, once the pure QED contributions---the Bohr levels, the Dirac
+fine structure, the Lamb shift and the hyperfine splitting---have been subtracted. Many
+such transitions in ordinary hydrogen were measured before 2010, and their weighted
+average agreed, within errors, with the electron-scattering value; the two independent
+methods appeared to give a consistent proton radius of about $0.88~\mathrm{fm}$
+\cite[Ch.~14]{Amsler2018}.
+
+The consensus broke in 2010. The muon is about two hundred times heavier than the
+electron, so in \emph{muonic} hydrogen the muon orbits some two hundred times closer to
+the proton and spends far more of its time inside it; the finite-size shift of the muonic
+$S$ levels is enhanced by roughly the cube of the mass ratio, making muonic hydrogen an
+exquisitely sensitive proton-size probe. The measurement is correspondingly harder---one
+must produce a muon beam, stop it to form muonic hydrogen before the muon decays, and
+perform laser spectroscopy on the resulting atom within microseconds---but the CREMA
+collaboration succeeded, and their proton radius came out several standard deviations
+\emph{smaller} than the electron-based value, near $0.84~\mathrm{fm}$. This
+$\sim 4\%$ disagreement, far larger than the quoted uncertainties of either method, is
+the \emph{proton radius puzzle}. Figure~\ref{fig:proton-radius-puzzle} compiles the
+determinations that define it: the muonic-hydrogen values cluster tightly around the
+small radius, while the older electron-scattering and hydrogen-spectroscopy values
+scatter around the larger one \cite[Ch.~14]{Amsler2018}.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.72\linewidth]{Figures/proton_radius_puzzle.pdf}
+    \caption{The proton radius puzzle: determinations of the proton charge radius
+             $r_{p}$ from electron--proton scattering ($ep$), ordinary hydrogen
+             spectroscopy (H), muonic-hydrogen spectroscopy ($\mu$H), a
+             dispersion-theoretical analysis, and the CODATA average. The
+             muonic-hydrogen band (shaded) sits about $4\%$ below the older
+             electron-based values. Numerical values follow the compilation shown
+             in the lecture and should be updated against the latest data.}
+    \label{fig:proton-radius-puzzle}
+\end{figure}
+
+Since then the situation has moved, though not to everyone's satisfaction. Several newer
+hydrogen-spectroscopy measurements and a dedicated low-$Q^{2}$ electron-scattering
+experiment (PRad at Jefferson Lab) have come out closer to the smaller,
+muonic-hydrogen value, and the 2018 CODATA adjustment shifted the recommended radius
+downward accordingly, so that the discrepancy is now widely regarded as easing rather
+than as a signal of new physics. But the individual determinations still scatter beyond
+their quoted errors, and the underlying difficulty---that every scattering extraction
+rests on an extrapolation of the slope \eqref{eq:rp-slope} to $Q^{2}=0$, with its
+attendant model dependence---has not gone away \cite[Ch.~14]{Amsler2018}.
+
+The natural way to attack the extrapolation problem is to reduce the radiative
+corrections that plague electron measurements, and here muons offer a second advantage
+beyond their sensitivity: scattering measurements with muons need much smaller radiative
+corrections than those with electrons, because the larger muon mass suppresses the
+radiative tail. The drawback is that muon beams are unstable and hard to prepare, which
+is why such a measurement was not attempted earlier. It is now the goal of the AMBER
+experiment at CERN, which will use the versatile M2 beamline to deliver both positive and
+negative muons onto an active hydrogen target and measure the forward-going scattered
+muons in a spectrometer, the recoil proton being detected in a high-pressure hydrogen
+time-projection chamber. Because the existing data sets agree near $Q^{2}=0$ but diverge
+as $Q^{2}$ grows, and because the radius is the \emph{slope} at the origin, what is
+needed is precisely a consistent map of $G_{E}$ across a wide range of small $Q^{2}$;
+AMBER is designed to provide it \cite[Ch.~14]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (G_E slope, Mainz 2010) ----------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{Figures/ge_slope_mainz.pdf}
+%   \caption{Low-$Q^{2}$ electric form factor $G_{E}(Q^{2})$ from the Mainz 2010
+%            data. The proton radius is extracted from the slope at the origin,
+%            Eq.~\eqref{eq:rp-slope}; the near-unity value and small slope make the
+%            extrapolation challenging.}
+%   \label{fig:ge-slope}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (hydrogen level scheme / muonic H spectroscopy) ----
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/hydrogen_levels_radius.pdf}
+%   \caption{Left: hydrogen level scheme showing the successive Bohr, Dirac, Lamb
+%            and hyperfine contributions, and the additional shift $r_{p}$ due to
+%            the finite proton size, which affects $S$ states but not $P$ states.
+%            Right: the muonic-hydrogen $2S$--$2P$ laser-spectroscopy resonance
+%            measured by CREMA.}
+%   \label{fig:hydrogen-radius}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (AMBER M2 beamline / PRM setup) --------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/amber_prm_setup.pdf}
+%   \caption{The AMBER proton-radius measurement at CERN's M2 beamline: a beam of
+%            positive and negative muons scatters on an active high-pressure
+%            hydrogen time-projection chamber, with silicon-pixel detectors and
+%            scintillating-fiber hodoscopes tracking the incident and scattered
+%            muons and the recoil proton.}
+%   \label{fig:amber-setup}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Resonance electroproduction and transition form factors}
+\label{subsec:transition-ff}
+
+Elastic scattering probes the ground state of the nucleon, but the same virtual photon
+can also \emph{excite} the nucleon, and stepping up in $W$ from the elastic point
+$W=M$ into the resonance region turns electron scattering into a tool for the physics of
+Chapter~\ref{sec:baryon-spectroscopy}. Increasing the energy transfer $\nu$ at fixed
+$Q^{2}$ raises the invariant mass \eqref{eq:W2} of the hadronic system, and when $W$
+matches the mass of a nucleon resonance the cross section shows a peak. The reaction
+\begin{equation}
+    ep \to e\Delta^{+} \to e\,p\pi^{0} \quad\text{or}\quad e\,n\pi^{+},
+\end{equation}
+for example, proceeds through the $\Delta(1232)$, and in the language of the exchanged
+photon it is the excitation $\gamma^{*}p\to\Delta^{+}\to p\pi^{0}$ or $n\pi^{+}$. A
+measurement of the inclusive electron spectrum $\mathrm{d}^{2}\sigma/\mathrm{d}\Omega\,
+\mathrm{d}E'$ at fixed beam energy shows, as $E'$ decreases from the elastic peak, a
+succession of broad bumps at the masses of the low-lying resonances---the
+$\Delta(1232)$, then the second and third resonance regions---sitting on a smooth
+background, before the spectrum turns into the featureless deep-inelastic continuum at
+still lower $E'$ \cite[Ch.~14]{Amsler2018}.
+
+The strength of each resonance peak depends on $Q^{2}$, and this dependence is the new
+structural information. As $Q^{2}$ increases the resonance bumps do not merely shrink
+uniformly; their relative heights change, because each resonance is excited by the
+photon with its own $Q^{2}$-dependent strength. Comparing the resonance region at
+$Q^{2}=0$ (real-photon photoproduction), at a few tenths of a $\mathrm{GeV}^{2}$, and at
+$Q^{2}\sim 1$--$2~\mathrm{GeV}^{2}$ shows the $\Delta(1232)$ dominating at low $Q^{2}$
+and falling faster than the higher resonances as $Q^{2}$ grows. This $Q^{2}$ dependence
+is quantified by \emph{transition form factors}, the analogues of the elastic form
+factors for an excitation. Formally, elastic scattering measures the diagonal matrix
+element of the electromagnetic current between ground states,
+$\gamma^{*}N\to N\Rightarrow\ket{N|J^{\mu}|N}$, whereas resonance excitation measures the
+\emph{off-diagonal} element between the ground state and an excited state,
+$\gamma^{*}N\to N^{*}\Rightarrow\ket{N^{*}|J^{\mu}|N}$. The elastic form factors describe
+the structure of the ground state; the transition form factors describe how the nucleon
+is promoted into a specific higher state, and thereby test the wavefunction of that
+excited state directly \cite[Ch.~14]{Amsler2018}.
+
+The number of independent transition form factors is fixed by the spins involved. A
+transition between two spin-$\tfrac{1}{2}$ states, $N\to N$, needs two form factors,
+$G_{E}$ and $G_{M}$, as in the elastic case. A transition from a spin-$\tfrac{1}{2}$
+nucleon to the spin-$\tfrac{3}{2}$ $\Delta$, $N\to\Delta$, needs three: a magnetic
+dipole $G_{M}^{*}$, an electric quadrupole $G_{E}^{*}$ and a Coulomb quadrupole
+$G_{C}^{*}$, corresponding to the transition multipoles $M1$, $E2$ and $C2$
+respectively. Experimentally one does not measure these form factors directly but
+extracts, from the angular distributions and polarization observables of the decay
+products, a set of \emph{helicity amplitudes}---$A_{1/2}$, $A_{3/2}$ and
+$S_{1/2}$---which are then related to the form factors. This is the same helicity-amplitude
+language introduced for photoproduction in Chapter~\ref{sec:baryon-spectroscopy}, now
+extended to virtual photons and hence to non-zero $Q^{2}$ \cite[Ch.~14]{Amsler2018}.
+
+The $\Delta(1232)$ illustrates what such measurements reveal. Using a polarized electron
+beam and a polarized target, an experiment like CLAS at Jefferson Lab measures a set of
+beam and target asymmetries, fits them to extract the helicity amplitudes, and from
+these computes the three transition form factors as functions of $Q^{2}$. Two results
+stand out. First, the dominant magnetic dipole form factor $G_{M}^{*}$ falls off
+noticeably faster with $Q^{2}$ than the elastic proton magnetic form factor, showing
+that the spatial structure of the $N\to\Delta$ transition differs from that of the
+ground state. Second, it is common to quote the small quadrupole amplitudes as ratios to
+the dominant dipole,
+\begin{equation}
+    R_{EM} = \frac{E_{1+}}{M_{1+}}, \qquad R_{SM} = \frac{S_{1+}}{M_{1+}},
+    \label{eq:multipole-ratios}
+\end{equation}
+because these ratios test the shape of the transition directly. In the simplest quark
+model the $N\to\Delta$ transition is a pure spin flip of a single quark, a pure $M1$
+transition, which predicts
+\begin{equation}
+    R_{EM} = R_{SM} = 0.
+    \label{eq:naive-quark-prediction}
+\end{equation}
+The data disagree: both ratios are small but non-zero, with $R_{EM}$ at the level of a
+few percent and $R_{SM}$ growing in magnitude with $Q^{2}$. A non-vanishing quadrupole
+means that the $\Delta$, or the transition to it, is not spherically symmetric---a
+deformation that the naive single-quark picture cannot produce and that points to
+$D$-state admixtures or pion-cloud effects in the nucleon wavefunction. This connects
+directly to the residual-interaction discussion of
+Sect.~\ref{subsec:qm-predictions}: the transition form factors are a quantitative test
+of the same quark-model dynamics that the mass spectrum probes only indirectly
+\cite[Ch.~14]{Amsler2018}.
+
+Beyond the $\Delta$, transition form factors have become a systematic tool for
+disentangling the nature of the nucleon resonances. The Roper resonance
+$N(1440)\tfrac{1}{2}^{+}$ is the classic problem case: its position below its
+negative-parity partners inverts the ordering expected from the quark model, and it has
+long been debated whether it is an ordinary radial excitation, a hybrid with excited
+glue, or a dynamically generated meson--baryon state. The $Q^{2}$ dependence of its
+helicity amplitudes $A_{1/2}$ and $S_{1/2}$---in particular the sign change of $A_{1/2}$
+at low $Q^{2}$ and its approach to the quark-model curve at high $Q^{2}$---has been
+decisive evidence that the Roper is, after all, dominated by a three-quark core dressed
+by a substantial meson cloud, rather than a pure hybrid. More generally, comparing the
+transition form factors of resonances of different orbital, spin-flavor and radial
+structure lets one read off which degrees of freedom are excited, how large the
+meson-cloud contributions are, and how the description changes from the low-$Q^{2}$
+hadronic regime to the high-$Q^{2}$ quark regime \cite[Ch.~14]{Amsler2018}.
+
+Transition form factors are also accessible in the \emph{timelike} region, $q^{2}>0$,
+through the radiative decays of hyperons and mesons into a lepton pair, which probe the
+same matrix elements at $Q^{2}<0$ and provide a complementary handle on the electromagnetic
+structure of excited states. Taken together, the elastic and transition form factors of
+this chapter exhaust what can be learned while the nucleon or its excitation remains a
+coherent object described by a small number of form factors. Pushing to still larger $W$
+and $Q^{2}$ breaks the nucleon into its constituents and replaces form factors by parton
+distributions: the transition from the hadronic to the quark-level description, sketched
+qualitatively at the end of this chapter through the elastic $\to$ inelastic $\to$ deep
+inelastic progression, is where Chapter~\ref{sec:dis-nucleon-structure} begins
+\cite[Ch.~14]{Amsler2018}.
+
+% ---- PLACEHOLDER FIGURE (inclusive e-spectrum with resonance bumps) --------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/resonance_electroproduction_spectrum.pdf}
+%   \caption{Inclusive electron spectrum
+%            $\mathrm{d}^{2}\sigma/\mathrm{d}\Omega\,\mathrm{d}E'$ for
+%            $ep\to eX$ at fixed beam energy, showing the elastic peak (scaled
+%            down) and the succession of resonance bumps
+%            ($\Delta(1232)$ and the second and third resonance regions) as
+%            functions of $E'$ and the invariant mass $W$.}
+%   \label{fig:resonance-spectrum}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (resonance region vs Q^2) --------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/resonance_region_vs_q2.pdf}
+%   \caption{The resonance region in the total cross section versus $W$ at
+%            $Q^{2}=0$, $0.1$, $1.0$ and $2.0~\mathrm{GeV}^{2}$. The
+%            $\Delta(1232)$ dominates at low $Q^{2}$ and falls faster than the
+%            higher resonances as $Q^{2}$ increases.}
+%   \label{fig:resonance-vs-q2}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (Delta multipole ratios R_EM, R_SM) ----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/delta_multipole_ratios.pdf}
+%   \caption{The $N\to\Delta$ multipole ratios $R_{EM}=E_{1+}/M_{1+}$ (top) and
+%            $R_{SM}=S_{1+}/M_{1+}$ (bottom) versus $Q^{2}$
+%            (Eq.~\eqref{eq:multipole-ratios}). Both are small but non-zero,
+%            contradicting the pure-$M1$ quark-model expectation
+%            $R_{EM}=R_{SM}=0$ (Eq.~\eqref{eq:naive-quark-prediction}) and
+%            signalling a deformation of the transition.}
+%   \label{fig:delta-multipoles}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (Roper helicity amplitudes) ------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/roper_helicity_amplitudes.pdf}
+%   \caption{Helicity amplitudes $A_{1/2}$ and $S_{1/2}$ of the Roper resonance
+%            $N(1440)\tfrac{1}{2}^{+}$ versus $Q^{2}$, compared with quark-model
+%            curves. The sign change of $A_{1/2}$ at low $Q^{2}$ and the
+%            high-$Q^{2}$ trend support a three-quark core dressed by a meson
+%            cloud.}
+%   \label{fig:roper}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
