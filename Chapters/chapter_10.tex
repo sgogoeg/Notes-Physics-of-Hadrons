@@ -1,1 +1,1807 @@
+% ============================================================================
+%  Chapter 10 — Deep Inelastic Scattering and the Multidimensional Structure
+%  of the Nucleon
+%  (drafted from week 27 VL2, week 28 VL2, week 29 VL2 and week 30 VL1 slides)
+%  The Quark Structure of Hadrons (project)
+% ----------------------------------------------------------------------------
+%  Preamble packages assumed by this chapter (all already loaded in main.tex):
+%     amsmath, amssymb, graphicx, booktabs, placeins (for \FloatBarrier),
+%     physics + braket (for the \ket{...}/\bra{...} macros and \dv, \dd),
+%     tikz with \usetikzlibrary{arrows.meta,decorations.pathmorphing}.
+%
+%  Cross-references used below:
+%     \ref{sec:electron-scattering}  (Chapter 9: elastic and resonant probes,
+%                                     kinematics, form factors, the elastic ->
+%                                     inelastic ladder)
+%     \ref{subsec:kinematics}        (Chapter 9: q, Q^2, nu, x_B, W^2 defined)
+%     \ref{subsec:form-factors}      (Chapter 9: Mott, Sachs form factors)
+%     \ref{subsec:proton-radius}     (Chapter 9: radius from the slope of G_E)
+%     \ref{subsec:transition-ff}     (Chapter 9: resonance electroproduction)
+%     \ref{sec:baryon-spectroscopy}  (Chapter 8: N* spectrum, helicity amplitudes)
+%  Chapter 9 points here through \ref{sec:dis-nucleon-structure}; that label is
+%  attached to \section below so the existing forward references resolve.
+%  Adjust label names if they differ in the master document.
+%
+%  Sources: the physics of this chapter follows the lecture slides
+%  (week 27 VL2 "Inclusive Scattering ... Structure Functions"; week 28 VL2
+%  "Spin Structure of the Proton ... STAR/PHENIX"; week 29 VL2 "Why Collinear
+%  PDFs are not enough ... TMDs a world wide effort"; week 30 VL1 "Why PDFs and
+%  TMDs are still incomplete ... Structure summary") together with
+%  Amsler \cite{Amsler2018}. Amsler treats the parton model and deep inelastic
+%  scattering mainly in the introductory chapter; the chapter number below
+%  (\cite[Ch.~1]{Amsler2018}) should be checked against the printed edition and
+%  adjusted if needed. The spin-structure, TMD and GPD material is largely not
+%  covered in Amsler and is referenced to the lecture, to Thomas & Weise
+%  \cite{ThomasWeise2001} and to the primary literature.
+%
+%  Thomas & Weise, "The Structure of the Nucleon" (Wiley-VCH, Berlin 2001), is
+%  the standard monograph for this material and is cited throughout. Chapter map
+%  (checked against the printed table of contents):
+%     Ch. 1  Introduction; electroweak quark currents
+%     Ch. 2  Electromagnetic Structure of the Nucleon
+%            (2.1 elastic scattering, 2.2 form factors, 2.2.7 timelike region,
+%             2.3 nucleon resonances, 2.4 Compton, 2.4.4 virtual Compton)
+%     Ch. 3  Weak Probes of Nucleon Structure (3.2 charged-current neutrino)
+%     Ch. 4  Deep-Inelastic Lepton Scattering
+%            (4.1 parton model + Callan-Gross, 4.2 scaling violations,
+%             4.3 neutrino DIS, 4.4 sum rules [Gross-Llewellyn-Smith, Adler,
+%             momentum, Gottfried], 4.5 unpolarized data, 4.6 spin-dependent
+%             structure functions [4.6.1 g_1, 4.6.2 Bjorken, 4.6.3 Ellis-Jaffe,
+%             4.6.4 g_2], 4.7 qualitative parton distributions,
+%             4.8 off-forward parton distributions = GPDs, DVCS, Ji sum rule)
+%     Ch. 5  Elements of QCD (5.5 OPE, 5.6 DIS within QCD, DGLAP)
+%     Ch. 6  Aspects of Non-Perturbative QCD (6.4 lattice, 6.4.5 nucleon spin)
+%     Ch. 7  Chiral Symmetry and Nucleon Structure (7.4 the pion cloud)
+%     Ch. 8  Models of the Nucleon (8.4 bag models, 8.5 cloudy bag)
+%     App. B Cross Sections for Lepton- and Photon-Nucleon Scattering
+%  NOTE: the book predates the TMD and GTMD programs. The TMD subsections
+%  (subsec:tmds, subsec:collins) and the GTMD outlook therefore carry no
+%  Thomas & Weise citation, and GPDs appear there only under the older name
+%  "off-forward parton distributions" (Sect. 4.8). Citations below give the
+%  chapter, with the section appended where the chapter is long enough that the
+%  extra precision helps.
+%
+%  Suggested references.bib entries (not yet in the file; then replace the
+%  inline mentions by \cite):
+%     ThomasWeise2001   — A.W. Thomas, W. Weise, The Structure of the Nucleon,
+%                         Wiley-VCH, Berlin (2001), ISBN 3-527-40297-7
+%                         (ready-to-paste BibTeX entry at the end of this header)
+%     Bjorken1969       — J.D. Bjorken, Phys. Rev. 179, 1547 (1969)
+%     Feynman1969       — R.P. Feynman, Phys. Rev. Lett. 23, 1415 (1969)
+%     Close1979         — F.E. Close, An Introduction to Quarks and Partons,
+%                         Academic Press (1979)
+%     EMC1988           — J. Ashman et al. (EMC), Phys. Lett. B 206, 364 (1988)
+%     EMC1989           — J. Ashman et al. (EMC), Nucl. Phys. B 328, 1 (1989)
+%     EllisJaffe1974    — J. Ellis, R.L. Jaffe, Phys. Rev. D 9, 1444 (1974)
+%     COMPASS2016       — C. Adolph et al. (COMPASS), Phys. Lett. B 753, 18 (2016)
+%     STAR2015          — L. Adamczyk et al. (STAR), Phys. Rev. Lett. 115, 092002 (2015)
+%     PHENIX2016        — A. Adare et al. (PHENIX), Phys. Rev. D 93, 011501 (2016)
+%     Collins1993       — J.C. Collins, Nucl. Phys. B 396, 161 (1993)
+%     Sivers1990        — D.W. Sivers, Phys. Rev. D 41, 83 (1990)
+%     Collins2002       — J.C. Collins, Phys. Lett. B 536, 43 (2002)
+%     TMDHandbook2023   — R. Boussarie et al., TMD Handbook, arXiv:2304.03302
+%                         (JLAB-THY-23-3780)
+%     SeaQuest2021      — J. Dove et al. (SeaQuest), Nature 590, 561 (2021)
+%     SeaQuest2026      — SeaQuest collaboration, "Final SeaQuest Results ...",
+%                         Phys. Rev. Lett. 136, 171901 (2026)
+%     MSHT20            — S. Bailey et al., Eur. Phys. J. C 81, 341 (2021)
+%     NNPDFpol          — E.R. Nocera et al. (NNPDF), Nucl. Phys. B 887, 276 (2014)
+%   -- week 30 additions --
+%     Mueller1994       — D. Mueller et al., Fortsch. Phys. 42, 101 (1994)
+%     Ji1997            — X. Ji, Phys. Rev. Lett. 78, 610 (1997)
+%     Radyushkin1997    — A.V. Radyushkin, Phys. Rev. D 56, 5524 (1997)
+%     Burkardt2000      — M. Burkardt, Phys. Rev. D 62, 071503 (2000)
+%     DVCS2023          — Phys. Rev. Lett. 130, 211902 (2023)   [CLAS12 DVCS BSA]
+%     DVMP2024          — Phys. Lett. B 849, 138459 (2024)      [CLAS12 DVMP]
+%     Sullivan1972      — J.D. Sullivan, Phys. Rev. D 5, 1732 (1972)
+%     AmendoliaPion1986 — S.R. Amendolia et al. (NA7), Nucl. Phys. B 277, 168 (1986)
+%     AmendoliaKaon1986 — S.R. Amendolia et al. (NA7), Phys. Lett. B 178, 435 (1986)
+%     JAM2021           — P.C. Barry et al. (JAM), Phys. Rev. Lett. 127, 232001 (2021)
+%     PARTONS2018       — B. Berthou et al., Eur. Phys. J. C 78, 478 (2018)
+%     EICYellowReport   — R. Abdul Khalek et al., Nucl. Phys. A 1026, 122447 (2022)
+%
+%  BibTeX entry to add to references.bib:
+%     @book{ThomasWeise2001,
+%       author    = {Thomas, Anthony W. and Weise, Wolfram},
+%       title     = {The Structure of the Nucleon},
+%       publisher = {Wiley-VCH},
+%       address   = {Berlin},
+%       year      = {2001},
+%       isbn      = {3-527-40297-7}
+%     }
+%
+%  Generated inline TikZ figures (compiled with the document):
+%     - schematic DIS phase-space map (Q^2 vs nu), Fig.~\ref{fig:dis-phase-space}
+%     - the GTMD "diamond" of structure-function relationships,
+%       Fig.~\ref{fig:gtmd-diamond}
+%  All data figures (F_2 scaling, PDFs, g_1^p, TMD tables, SeaQuest, DVCS/DVMP
+%  asymmetries, tomography maps, pion/kaon form factors, EIC layout) are
+%  copyrighted experimental plots and are indicated as commented placeholders,
+%  each with a suggested caption, label and placeholder filename.
+% ============================================================================
+
 \section{Deep inelastic scattering and the multidimensional structure of the nucleon}
+\label{sec:dis-nucleon-structure}
+
+Chapter~\ref{sec:electron-scattering} treated the two regimes in which the nucleon
+responds to a virtual photon as a coherent object: elastic scattering, where the target
+recoils intact and its response is a handful of form factors, and resonance
+electroproduction, where the photon excites a definite state described by transition
+form factors. Both descriptions break down once the momentum transfer becomes large
+enough to resolve distances small compared with the nucleon itself. Then the photon no
+longer scatters off the proton as a whole but off its pointlike constituents, the
+hadronic final state is a jet of many particles rather than a single baryon, and the
+natural language is no longer form factors but the momentum, spin and transverse-motion
+\emph{distributions} of the quarks and gluons inside the nucleon. This chapter follows
+that transition. It begins with inclusive deep inelastic scattering and the structure
+functions, works through the parton model and its scaling violations, and then turns to
+the frontiers where a one-dimensional momentum picture is no longer enough: the spin
+decomposition of the nucleon, its three-dimensional structure in momentum space, and
+finally its spatial structure, reached through exclusive reactions and generalized
+parton distributions. The closing subsections assemble all of these objects into a
+single hierarchy and sketch what remains to be measured
+\cite[Ch.~1]{Amsler2018}. The standard monograph on the subject, Thomas and Weise
+\cite{ThomasWeise2001}, is used throughout as the principal reference for the
+formalism; its Chapters~2--4 follow the same progression from elastic form factors
+through weak probes to deep inelastic scattering that these two chapters take.
+
+% ============================================================================
+\subsection{Kinematics of inclusive scattering and the hadronic tensor}
+\label{subsec:inclusive-kinematics}
+
+The measurement that opens the deep inelastic regime is the simplest one imaginable:
+detect only the scattered electron and sum over everything else. The reaction is
+\begin{equation}
+    e(k) + N(P) \;\rightarrow\; e(k') + X,
+    \label{eq:inclusive-reaction}
+\end{equation}
+where $X$ stands for any hadronic final state allowed by conservation laws, and the
+cross section is the incoherent sum over all such states,
+\begin{equation}
+    \sigma_{\mathrm{incl}} \;=\; \sum_{X}\,\bigl|\mathcal{M}(eN\to eX)\bigr|^{2}.
+    \label{eq:sigma-incl}
+\end{equation}
+The kinematics are exactly those introduced in Chapter~\ref{sec:electron-scattering}
+(Sect.~\ref{subsec:kinematics}), now used in a new region. The virtual photon carries
+four-momentum $q=k-k'$ and virtuality $Q^{2}=-q^{2}$; in the target rest frame it
+transfers energy
+\begin{equation}
+    \nu \;=\; E - E' \;=\; \frac{P\cdot q}{M},
+\end{equation}
+and the squared invariant mass of the hadronic system is
+\begin{equation}
+    W^{2} \;=\; (P+q)^{2} \;=\; M^{2} + 2M\nu - Q^{2}.
+    \label{eq:W2-again}
+\end{equation}
+Two dimensionless variables organize the inclusive data. The Bjorken variable
+\begin{equation}
+    x_{B} \;=\; \frac{Q^{2}}{2P\cdot q} \;=\; \frac{Q^{2}}{2M\nu}
+    \label{eq:xB-again}
+\end{equation}
+runs from $x_{B}=1$ at the elastic point down toward zero deep in the continuum, and
+the inelasticity
+\begin{equation}
+    y \;=\; \frac{P\cdot q}{P\cdot k} \;=\; \frac{M\nu}{P\cdot k}
+    \label{eq:inelasticity}
+\end{equation}
+measures the fraction of the electron energy transferred to the target in the rest
+frame. The elastic limit is recovered when the target recoils as a single nucleon,
+$W=M$, which by Eq.~\eqref{eq:W2-again} forces $Q^{2}=2M\nu$ and hence $x_{B}=1$; every
+inelastic process has $W>M$ and $x_{B}<1$ \cite[Ch.~1]{Amsler2018},
+\cite[Ch.~4]{ThomasWeise2001}.
+
+The dynamical content of the reaction is separated from the kinematics in the same way
+that was anticipated at the end of Chapter~\ref{sec:electron-scattering}. The amplitude
+factorizes into a leptonic and a hadronic piece joined by the photon propagator,
+\begin{equation}
+    A \;\sim\; \frac{1}{q^{2}}\,j^{\mu}\,J_{\mu},
+\end{equation}
+where $j^{\mu}$ is the electron current, known exactly from quantum electrodynamics, and
+$J_{\mu}$ is the hadronic current, which we cannot compute. Squaring the amplitude and
+summing over final states, the cross section is a contraction of a \emph{leptonic
+tensor} $L_{\mu\nu}$ with a \emph{hadronic tensor} $W^{\mu\nu}$,
+\begin{equation}
+    \mathrm{d}\sigma \;\sim\; |A|^{2} \;\sim\; L_{\mu\nu}\,W^{\mu\nu},
+\end{equation}
+with the hadronic tensor defined by the current matrix elements summed over the
+unobserved states $X$,
+\begin{equation}
+    2W^{\mu\nu} \;=\; \sum_{X}\,
+    \bra{N(p)} J^{\mu\dagger} \ket{X}\bra{X} J^{\nu} \ket{N(p)}\,
+    (2\pi)^{3}\,\delta^{(4)}(p+q-p_{X}).
+    \label{eq:hadronic-tensor}
+\end{equation}
+The leptonic tensor is calculable; the hadronic tensor is not, because it contains the
+full non-perturbative structure of the target. The strategy of the rest of this chapter
+is the one used throughout hadron physics: since $W^{\mu\nu}$ cannot be calculated, it
+is \emph{parametrized} by writing down the most general expression consistent with
+Lorentz covariance, current conservation and parity, and the coefficient functions that
+appear---the \emph{structure functions}---are then measured. A fuller derivation may be
+found in the lecture reference (F.\,E.\ Close, \emph{An Introduction to Quarks and
+Partons}) and in Thomas and Weise \cite[Ch.~4]{ThomasWeise2001}, whose Appendix~B
+collects the corresponding lepton-- and photon--nucleon cross sections in explicit
+form.
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Structure functions and the generalized Rosenbluth formula}
+\label{subsec:structure-functions}
+
+Carrying out the covariant decomposition of $W^{\mu\nu}$ for unpolarized scattering
+yields two independent structure functions, conventionally $W_{1}$ and $W_{2}$, each a
+function of the two invariants $Q^{2}$ and $\nu$. Contracting with the leptonic tensor
+generalizes the elastic Rosenbluth formula of Chapter~\ref{sec:electron-scattering} to
+the inelastic case,
+\begin{equation}
+    \frac{\mathrm{d}^{2}\sigma}{\mathrm{d}\Omega\,\mathrm{d}E'}
+    = \left(\frac{\mathrm{d}\sigma}{\mathrm{d}\Omega}\right)_{\!\mathrm{Mott}}
+      \left[\,W_{2}(Q^{2},\nu) + 2\,W_{1}(Q^{2},\nu)\tan^{2}\tfrac{\theta}{2}\,\right],
+    \label{eq:inelastic-rosenbluth}
+\end{equation}
+where the elastic form-factor combinations have been replaced by the two structure
+functions, and, crucially, these are now functions of \emph{two} independent variables
+rather than of $Q^{2}$ alone: at fixed $Q^{2}$ the target may be left in a continuum of
+final-state masses. Just as in the elastic case, the coefficients of the Mott cross
+section separate a longitudinal-like ($W_{2}$) from a transverse-like ($W_{1}$) response,
+and they can be disentangled by varying the scattering angle at fixed $Q^{2}$ and $\nu$
+\cite[Ch.~1]{Amsler2018}. The covariant decomposition of $W^{\mu\nu}$ that produces
+$W_{1}$ and $W_{2}$, and the cross-section formulae that follow from it, are given in
+Thomas and Weise \cite[Ch.~4]{ThomasWeise2001}.
+
+It is more common to work with the dimensionless structure functions
+\begin{align}
+    F_{1}(x,Q^{2}) &= M\,W_{1}(Q^{2},\nu),
+    \label{eq:F1-def}\\
+    F_{2}(x,Q^{2}) &= \nu\,W_{2}(Q^{2},\nu),
+    \label{eq:F2-def}
+\end{align}
+which absorb the kinematic mass and energy factors and, as the notation anticipates,
+turn out to depend essentially on the single variable $x=x_{B}$. In terms of $F_{1}$ and
+$F_{2}$, and changing variables to $Q^{2}$ and $x$, the cross section reads
+\begin{equation}
+    \frac{\mathrm{d}^{2}\sigma}{\mathrm{d}Q^{2}\,\mathrm{d}x}
+    = \frac{4\pi\alpha^{2}}{Q^{4}}
+      \left[\left(1 - y - \frac{M^{2}y^{2}x^{2}}{Q^{2}}\right)
+      \frac{F_{2}(x,Q^{2})}{x} + y^{2}F_{1}(x,Q^{2})\right].
+    \label{eq:dis-xsec}
+\end{equation}
+Because $F_{1}$ and $F_{2}$ depend on two variables, a full determination requires
+measurements at fixed $x$ and $Q^{2}$ but at several values of $\nu$---that is, at
+several beam energies---so that the separation implied by
+Eq.~\eqref{eq:inelastic-rosenbluth}
+can be performed \cite[Ch.~1]{Amsler2018}, \cite[Ch.~4]{ThomasWeise2001}.
+
+The several classes of electron-scattering measurement occupy distinct regions of the
+$(\nu,Q^{2})$ plane, and it is worth mapping them out before interpreting the structure
+functions, because the interpretation changes qualitatively from one region to the next.
+Figure~\ref{fig:dis-phase-space} shows the standard picture. The line
+$Q^{2}=2M\nu$---equivalently $W=M$, $x_{B}=1$---is elastic scattering; below and to the
+left of it lies a kinematically forbidden region; along the $\nu$ axis at $Q^{2}=0$ sits
+real-photon photoproduction; the band of resonances of
+Chapter~\ref{sec:electron-scattering} runs just below the elastic line; and the open
+region of large $\nu$ and large $Q^{2}$, where $W\gg M$, is the deep inelastic
+scattering region proper.
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[>=Stealth, scale=1.0]
+        % axes
+        \draw[->,thick] (0,0) -- (7.2,0) node[below right] {$\nu$};
+        \draw[->,thick] (0,0) -- (0,5.4) node[left] {$Q^{2}$};
+        % elastic line Q^2 = 2 M nu
+        \draw[thick] (0,0) -- (4.2,5.0);
+        \node[rotate=50, anchor=south] at (2.0,2.55)
+            {\small line of elastic scattering ($Q^{2}=2M\nu$)};
+        % forbidden region hatch (left of elastic line)
+        \foreach \i in {0,...,9}{
+            \draw[gray!60] (0,{0.5*\i}) -- ({0.42*(0.5*\i)},{0.5*\i});
+        }
+        \node[align=center] at (0.75,4.2) {\small A};
+        % DIS region
+        \node at (5.5,3.0) {\small \textbf{DIS region}};
+        \node at (5.5,2.4) {\small E};
+        % resonance band just below elastic line
+        \draw[decorate,decoration={snake,amplitude=0.4mm,segment length=2mm}]
+            (0.3,0.05) -- (3.6,3.9);
+        \node[rotate=50] at (1.35,1.35) {\small C (resonances)};
+        % photoproduction along nu axis
+        \node[anchor=north] at (3.3,-0.05) {\small D: photoproduction ($Q^{2}=0$)};
+        \draw[very thick] (0.05,0) -- (6.8,0);
+    \end{tikzpicture}
+    \caption{Schematic map of the electron--nucleon scattering phase space in the
+             $(\nu,Q^{2})$ plane. \textbf{A}: kinematically forbidden.
+             \textbf{B}: the line of elastic scattering $Q^{2}=2M\nu$ ($W=M$,
+             $x_{B}=1$). \textbf{C}: electroproduction of resonances just below
+             the elastic line. \textbf{D}: real-photon photoproduction along the
+             $\nu$ axis at $Q^{2}=0$. \textbf{E}: the deep inelastic scattering
+             region at large $\nu$ and large $Q^{2}$, where $W\gg M$ and the
+             photon resolves individual partons. Adapted from the lecture slide.}
+    \label{fig:dis-phase-space}
+\end{figure}
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The parton model and Bjorken scaling}
+\label{subsec:parton-model}
+
+The decisive experimental fact about the structure functions is that, in the deep
+inelastic region, they cease to depend on $Q^{2}$ and become functions of $x$ alone.
+This \emph{Bjorken scaling} is what one expects if the virtual photon, at high $Q^{2}$,
+scatters elastically off pointlike, effectively free constituents inside the nucleon
+rather than off an extended charge distribution: an extended object would impose a
+$Q^{2}$-dependent form factor, whereas a point charge does not. The constituents are
+Feynman's \emph{partons}, identified with the quarks (and, as it emerged, the gluons) of
+the quark model \cite[Ch.~1]{Amsler2018}, \cite[Ch.~4.1]{ThomasWeise2001}. A second
+consequence of scattering off pointlike spin-$\tfrac{1}{2}$ constituents is the
+Callan--Gross relation $F_{2}(x)=2xF_{1}(x)$, which ties the two structure functions
+together and is well satisfied by the data; had the partons been spinless, $F_{1}$ would
+have vanished instead \cite[Ch.~4.1]{ThomasWeise2001}.
+
+In the parton model the structure function $F_{2}$ is a charge-weighted sum over the
+quark momentum distributions,
+\begin{equation}
+    F_{2}(x) \;=\; x_{B}\sum_{q} e_{q}^{2}\,\bigl[q(x) + \bar q(x)\bigr],
+    \label{eq:F2-parton}
+\end{equation}
+the sum running over quark flavors with electric charges $e_{q}$. Writing $u^{p}(x)$,
+$d^{p}(x),\dots$ for the probability densities to find a $u$, $d,\dots$ quark carrying
+longitudinal momentum fraction $x$ in the proton, and using $e_{u}=+\tfrac{2}{3}$,
+$e_{d}=-\tfrac{1}{3}$ so that $e_{u}^{2}=\tfrac{4}{9}$ and $e_{d}^{2}=\tfrac{1}{9}$,
+\begin{align}
+    F_{2}^{p}(x) &= x\left(\tfrac{4}{9}\,u^{p}(x) + \tfrac{1}{9}\,d^{p}(x) + \cdots\right),
+    \label{eq:F2p}\\
+    F_{2}^{n}(x) &= x\left(\tfrac{1}{9}\,u^{p}(x) + \tfrac{4}{9}\,d^{p}(x) + \cdots\right),
+    \label{eq:F2n}
+\end{align}
+where the neutron distributions have been related to the proton ones by isospin
+symmetry, $u^{n}=d^{p}$ and $d^{n}=u^{p}$, which follows because the neutron is the
+isospin partner of the proton ($I=\tfrac{1}{2}$, $I_{3}=-\tfrac{1}{2}$ versus
+$+\tfrac{1}{2}$). Measuring $F_{2}$ on proton and neutron (deuteron) targets over the
+full range of $x$ and $Q^{2}$ therefore separates the up- and down-quark distributions;
+the accumulated data span many orders of magnitude in $Q^{2}$ and confirm scaling to
+good approximation across most of the $x$ range \cite[Ch.~1]{Amsler2018},
+\cite[Ch.~4.5]{ThomasWeise2001}.
+
+Neutrino scattering provides a complementary and charge-selective probe. The
+charged-current reaction is mediated by the $W$ boson rather than the photon, so it
+couples to a definite quark chirality and introduces a third, parity-violating structure
+function $F_{3}$,
+\begin{equation}
+    \frac{\mathrm{d}^{2}\sigma^{\nu,\bar\nu}}{\mathrm{d}x\,\mathrm{d}y}
+    = \frac{G_{F}^{2}\,s}{2\pi}
+      \left[\,F_{1}^{(\nu,\bar\nu)}\,x y^{2}
+      + F_{2}^{(\nu,\bar\nu)}(1-y)
+      \pm F_{3}^{(\nu,\bar\nu)}\left(1-\tfrac{y}{2}\right)x y\,\right],
+    \label{eq:neutrino-xsec}
+\end{equation}
+with the $+$ sign for neutrinos and the $-$ sign for antineutrinos. Because the $W$
+selects quark flavors, the neutrino structure functions pick out specific combinations,
+\begin{align}
+    F_{2}^{\nu p} = F_{2}^{\bar\nu n} &= 2x\,[\,d(x) + \bar u(x)\,],
+    & F_{2}^{\nu n} = F_{2}^{\bar\nu p} &= 2x\,[\,u(x) + \bar d(x)\,],
+    \label{eq:F2-neutrino}\\
+    F_{3}^{\nu p} = F_{3}^{\bar\nu n} &= 2\,[\,d(x) - \bar u(x)\,],
+    & F_{3}^{\nu n} = F_{3}^{\bar\nu p} &= 2\,[\,u(x) - \bar d(x)\,],
+    \label{eq:F3-neutrino}
+\end{align}
+so that combining charged-lepton and neutrino data cleanly disentangles the valence
+distributions (through $F_{3}$, which is sensitive to $q-\bar q$) from the sea (through
+the $q+\bar q$ combinations in $F_{2}$) \cite[Ch.~4.3]{ThomasWeise2001}. The first
+moment of $F_{3}$ simply counts the valence quarks of the target, which is the content of
+the Gross--Llewellyn-Smith sum rule \cite[Ch.~4.4]{ThomasWeise2001}.
+
+% ---- PLACEHOLDER FIGURE (F_2 scaling, world data vs Q^2) -------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{Figures/f2_scaling_world_data.pdf}
+%   \caption{The proton structure function $F_{2}(x,Q^{2})$ (scaled by powers of
+%            two for legibility) versus $Q^{2}$ over many orders of magnitude, from
+%            H1, ZEUS, BCDMS, E665, NMC and SLAC. At moderate $x$ the data are
+%            nearly flat (Bjorken scaling); the rise at small $x$ and fall at large
+%            $x$ with increasing $Q^{2}$ are the scaling violations described by
+%            DGLAP evolution (Sect.~\ref{subsec:dglap}).}
+%   \label{fig:f2-scaling}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{QCD evolution: the DGLAP equations}
+\label{subsec:dglap}
+
+Bjorken scaling is only approximate. Inspected closely, the structure functions drift
+with $Q^{2}$: at small $x$ they rise and at large $x$ they fall as $Q^{2}$ increases.
+These \emph{scaling violations} are not a failure of the parton picture but a prediction
+of quantum chromodynamics. As the resolution $Q^{2}$ is raised, the photon resolves ever
+finer structure---a quark is seen to be accompanied by the gluons it radiates and the
+quark--antiquark pairs those gluons produce---so the momentum distributions themselves
+depend logarithmically on the scale at which they are probed. The evolution is governed
+by the DGLAP (Dokshitzer--Gribov--Lipatov--Altarelli--Parisi) equations, which for the
+quark and gluon distributions read
+\begin{align}
+    \frac{\partial q_{i}(x,Q^{2})}{\partial\ln Q^{2}}
+    &= \frac{\alpha_{s}(Q^{2})}{2\pi}\sum_{j}\int_{x}^{1}\frac{\mathrm{d}y}{y}
+       \left[P_{q_{i}\leftarrow q_{j}}\!\left(\tfrac{x}{y}\right)q_{j}(y,Q^{2})
+       + P_{q_{i}\leftarrow g}\!\left(\tfrac{x}{y}\right)g(y,Q^{2})\right],
+    \label{eq:dglap-q}\\[4pt]
+    \frac{\partial g(x,Q^{2})}{\partial\ln Q^{2}}
+    &= \frac{\alpha_{s}(Q^{2})}{2\pi}\sum_{j}\int_{x}^{1}\frac{\mathrm{d}y}{y}
+       \left[P_{g\leftarrow q_{j}}\!\left(\tfrac{x}{y}\right)q_{j}(y,Q^{2})
+       + P_{g\leftarrow g}\!\left(\tfrac{x}{y}\right)g(y,Q^{2})\right].
+    \label{eq:dglap-g}
+\end{align}
+The \emph{splitting functions} $P_{a\leftarrow b}(z)$ give the probability that a parton
+of type $b$ radiates a parton of type $a$ carrying a fraction $z$ of its momentum; they
+are calculable in perturbative QCD and correspond to the elementary vertices
+$q\to qg$, $g\to q\bar q$ and $g\to gg$. Given the distributions measured at one scale,
+Eqs.~\eqref{eq:dglap-q}--\eqref{eq:dglap-g} predict them at every other scale, and the
+agreement of this evolution with the measured $Q^{2}$ dependence of $F_{2}$ over several
+orders of magnitude is one of the most stringent quantitative tests of QCD. It is also
+the only handle that inclusive electromagnetic DIS has on the gluon, which carries no
+electric charge and is therefore invisible to the photon except through its effect on
+the evolution \cite[Ch.~1]{Amsler2018}, \cite[Ch.~4.2]{ThomasWeise2001}. A more formal
+route to the same equations proceeds through the operator product expansion and the
+renormalization group, which express the moments of the structure functions in terms of
+anomalous dimensions; Thomas and Weise develop that machinery in full
+\cite[Ch.~5]{ThomasWeise2001}.
+
+An important consistency condition constrains the distributions at any scale: the total
+longitudinal momentum of the nucleon must be shared among its partons,
+\begin{equation}
+    \sum_{i}\int_{0}^{1}\mathrm{d}x\;x_{i}\,q_{i}(x) \;=\; 1,
+    \label{eq:momentum-sum-rule}
+\end{equation}
+where the sum runs over all quarks, antiquarks and gluons. Experimentally the quarks and
+antiquarks carry only about half of the nucleon momentum; the remainder is carried by
+the gluons \cite[Ch.~4.4]{ThomasWeise2001}. Modern \emph{global fits}---for example the
+MSHT20 analysis---determine the
+full set of parton distributions by fitting Eqs.~\eqref{eq:dglap-q}--\eqref{eq:dglap-g}
+simultaneously to a large body of DIS, Drell--Yan and collider data, exploiting the fact
+that each process constrains a particular flavor combination in a particular range of
+$x$. Accurate parton distributions are not only of intrinsic interest: they are a
+required input to essentially every cross-section prediction at the LHC, so that the
+precision of collider physics rests directly on the quality of these fits.
+
+% ---- PLACEHOLDER FIGURE (MSHT20 PDFs xf(x) at two scales) ------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/msht20_pdfs.pdf}
+%   \caption{Parton distributions $x f(x,\mu^{2})$ of the proton from the MSHT20
+%            NNLO global fit at $\mu^{2}=10~\mathrm{GeV}^{2}$ (left) and
+%            $\mu^{2}=10^{4}~\mathrm{GeV}^{2}$ (right), showing the valence $u_{V}$
+%            and $d_{V}$, the sea $\bar u,\bar d,s,c$, and the gluon $g$ (scaled by
+%            $1/10$). The growth of the gluon and sea at small $x$ with increasing
+%            $\mu^{2}$ is the DGLAP evolution of
+%            Eqs.~\eqref{eq:dglap-q}--\eqref{eq:dglap-g}.}
+%   \label{fig:msht20-pdfs}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (DGLAP splitting vertices) ------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{Figures/dglap_vertices.pdf}
+%   \caption{The elementary QCD splitting vertices underlying the DGLAP kernels:
+%            $q\to qg$, $g\to q\bar q$ and $g\to gg$. A TikZ diagram with
+%            \texttt{decorations.pathmorphing} for the gluon lines is the natural
+%            choice, matching the inline graphs of earlier chapters.}
+%   \label{fig:dglap-vertices}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Spin structure of the nucleon: polarized DIS}
+\label{subsec:polarized-dis}
+
+Unpolarized DIS answers how the \emph{momentum} of the nucleon is distributed among its
+partons. It says nothing about how the \emph{spin} is distributed, and that turns out to
+be a subtler and historically more surprising question. To reach it one polarizes both
+the beam and the target,
+\begin{equation}
+    \vec e(k) + \vec p(P) \;\rightarrow\; e(k') + X,
+\end{equation}
+and, in the simplest configuration, aligns the spins longitudinally---along the beam
+direction---and compares the cross sections with the beam and target spins parallel and
+antiparallel. The observable is the longitudinal double-spin asymmetry
+\begin{equation}
+    A_{LL} \;=\; \frac{\sigma^{\uparrow\uparrow} - \sigma^{\uparrow\downarrow}}
+                       {\sigma^{\uparrow\uparrow} + \sigma^{\uparrow\downarrow}},
+    \label{eq:ALL}
+\end{equation}
+in which the large spin-independent part of the cross section cancels in the difference,
+leaving the spin-dependent response.
+
+The hadronic tensor of Eq.~\eqref{eq:hadronic-tensor} has an antisymmetric,
+spin-dependent part that was dropped in the unpolarized treatment. Restoring it and
+repeating the covariant decomposition introduces two new, spin-dependent structure
+functions $G_{1}$ and $G_{2}$, appearing in the polarized cross-section difference
+\begin{equation}
+    \frac{\mathrm{d}\sigma(\uparrow\downarrow - \uparrow\uparrow)}
+         {\mathrm{d}\Omega\,\mathrm{d}E'}
+    = \frac{4\alpha^{2}E'}{E\,Q^{2}}
+      \bigl\{(E + E'\cos\theta)\,M\,G_{1} - Q^{2}\,G_{2}\bigr\}.
+    \label{eq:polarized-xsec}
+\end{equation}
+Exactly as $W_{1,2}$ were traded for the scaling functions $F_{1,2}$, the spin-dependent
+structure functions are rewritten as
+\begin{align}
+    g_{1}(x,Q^{2}) &= M^{2}\nu\,G_{1}(\nu,Q^{2}),
+    \label{eq:g1-def}\\
+    g_{2}(x,Q^{2}) &= M\nu^{2}\,G_{2}(\nu,Q^{2}),
+    \label{eq:g2-def}
+\end{align}
+and the polarized cross-section difference takes the compact scaling form
+\begin{equation}
+    \frac{\mathrm{d}^{2}\sigma(\uparrow\downarrow - \uparrow\uparrow)}
+         {\mathrm{d}x\,\mathrm{d}\Omega}
+    = \frac{4\pi\alpha^{2}}{M E x\,Q^{2}}
+      \left[\left(2 - \frac{Q^{2}}{2M E x} - \frac{Q^{2}}{2E^{2}}\right)
+      g_{1}(x,Q^{2}) - \frac{2Mx}{E}\,g_{2}(x,Q^{2})\right].
+    \label{eq:g1g2-xsec}
+\end{equation}
+The functions $g_{1}$ and $g_{2}$ are the spin-dependent structure functions; they carry
+the information about how the parton spins are oriented inside a polarized nucleon
+\cite[Ch.~1]{Amsler2018}, \cite[Ch.~4.6]{ThomasWeise2001}.
+
+The parton interpretation of $g_{1}$ parallels that of $F_{2}$. Introduce the quark
+\emph{helicity distributions}, the difference between the density of quarks with spin
+aligned and anti-aligned with the parent nucleon,
+\begin{align}
+    \Delta q(x) &= q^{\uparrow}(x) - q^{\downarrow}(x),
+    \label{eq:delta-q}\\
+    \Delta\bar q(x) &= \bar q^{\uparrow}(x) - \bar q^{\downarrow}(x),
+    \label{eq:delta-qbar}
+\end{align}
+where the arrows denote the quark helicity relative to the nucleon spin. Then, in the
+parton model,
+\begin{equation}
+    g_{1}(x) \;=\; \frac{1}{2}\sum_{q} e_{q}^{2}\,
+    \bigl[\Delta q(x) + \Delta\bar q(x)\bigr],
+    \label{eq:g1-parton}
+\end{equation}
+the charge-weighted sum of the quark helicity distributions, in exact analogy with
+Eq.~\eqref{eq:F2-parton}. Polarized DIS thus gives direct access to the helicity
+structure of the partons, the spin analogue of the momentum distributions measured in
+the unpolarized case \cite[Ch.~4.6]{ThomasWeise2001}. The second spin structure function
+$g_{2}$ has no such simple interpretation: it receives higher-twist contributions in
+which the quarks cannot be treated as independent, so that it measures quark--gluon
+correlations rather than a probability density \cite[Ch.~4.6]{ThomasWeise2001}.
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Measuring \texorpdfstring{$g_{1}$}{g1}: asymmetries, depolarization and
+the EMC experiment}
+\label{subsec:g1-measurement}
+
+Measuring the polarized cross section directly is impractical, because it is a small
+difference of two large numbers. In practice one measures asymmetries, in which the bulk
+of the systematic uncertainties cancels. The measured lepton-level asymmetry is
+\begin{equation}
+    A(x,Q^{2})
+    = \frac{\dfrac{\mathrm{d}^{2}\sigma^{\uparrow\downarrow}}{\mathrm{d}x\,\mathrm{d}Q^{2}}
+          - \dfrac{\mathrm{d}^{2}\sigma^{\uparrow\uparrow}}{\mathrm{d}x\,\mathrm{d}Q^{2}}}
+           {\dfrac{\mathrm{d}^{2}\sigma^{\uparrow\downarrow}}{\mathrm{d}x\,\mathrm{d}Q^{2}}
+          + \dfrac{\mathrm{d}^{2}\sigma^{\uparrow\uparrow}}{\mathrm{d}x\,\mathrm{d}Q^{2}}}
+    = x y\,
+      \frac{\left(2 - y - \dfrac{Mxy}{E}\right)g_{1} - \dfrac{2Mx}{E}\,g_{2}}
+           {\left(1 - y - \dfrac{Mxy}{2E}\right)F_{2} + x y^{2}F_{1}}.
+    \label{eq:A-lepton}
+\end{equation}
+It is not the electron but the exchanged virtual photon that probes the nucleon, and it
+is often cleaner to work with the \emph{virtual-photon} asymmetries. These are defined
+from the photoabsorption cross sections for the two transverse helicity states,
+$\sigma^{T}_{1/2}$ and $\sigma^{T}_{3/2}$, the transverse--longitudinal interference
+$\sigma_{TL}$, and the longitudinal-to-transverse ratio $R=\sigma_{L}/\sigma_{T}$,
+\begin{equation}
+    A_{1}(x,Q^{2}) = \frac{\sigma^{T}_{1/2} - \sigma^{T}_{3/2}}
+                          {\sigma^{T}_{1/2} + \sigma^{T}_{3/2}},
+    \qquad
+    A_{2}(x,Q^{2}) = \frac{\sigma_{TL}}{\sigma_{T}},
+    \label{eq:A1A2-def}
+\end{equation}
+and are related to the structure functions by
+\begin{align}
+    A_{1}(x,Q^{2}) &= \frac{2x(1+R)}{F_{2}(x,Q^{2})}
+        \left[g_{1}(x,Q^{2}) - \frac{2Mx}{Ey}\,g_{2}(x,Q^{2})\right],
+    \label{eq:A1}\\
+    A_{2}(x,Q^{2}) &= \frac{2x(1+R)}{F_{2}(x,Q^{2})}
+        \sqrt{\frac{2Mx}{Ey}}\,
+        \bigl(g_{1}(x,Q^{2}) + g_{2}(x,Q^{2})\bigr).
+    \label{eq:A2}
+\end{align}
+Inverting, the polarized structure function is
+\begin{equation}
+    g_{1}(x,Q^{2}) = \frac{F_{2}(x,Q^{2})}{2x\,\bigl(1 + R(x,Q^{2})\bigr)}
+        \left[A_{1} + \sqrt{\frac{2Mx}{Ey}}\,A_{2}\right].
+    \label{eq:g1-from-A}
+\end{equation}
+The measured asymmetry $A$ of Eq.~\eqref{eq:A-lepton} is related to the photon
+asymmetries through the \emph{depolarization factor} $D$, which measures how much of the
+electron polarization is transferred to the virtual photon,
+\begin{equation}
+    A = D\,(A_{1} + \eta A_{2}) \approx D A_{1},
+    \qquad
+    D = \frac{y(2-y)}{y^{2} + 2(1-y)(1+R)},
+    \qquad
+    \eta = \frac{2(1-y)\sqrt{Q^{2}}}{Ey(2-y)},
+    \label{eq:depolarization}
+\end{equation}
+where the kinematic coefficient $\eta$ is small over most of the accessible range, so
+that $A_{2}$ contributes little. Combining these relations gives the working formula by
+which $g_{1}$ is extracted from the measured asymmetry,
+\begin{equation}
+    g_{1}(x,Q^{2}) \;\approx\; \frac{F_{2}(x,Q^{2})}{2x\,\bigl(1 + R(x,Q^{2})\bigr)}\,
+    \frac{A}{D}.
+    \label{eq:g1-working}
+\end{equation}
+
+The classic measurement was made by the European Muon Collaboration (EMC) at the CERN M2
+beamline---the same beamline now used by AMBER (Chapter~\ref{sec:electron-scattering}).
+A high-energy muon beam scattered off a polarized target built from two cells polarized
+in opposite directions, an arrangement that measures both spin orientations
+simultaneously and cancels many of the systematic uncertainties associated with beam and
+target drifts \cite[Ch.~1]{Amsler2018}.
+
+The result was unexpected. The first moment of $g_{1}^{p}$ can be written
+\begin{equation}
+    \int_{0}^{1}\mathrm{d}x\;g_{1}^{p}(x,Q^{2})
+    = a(Q^{2}) + b(Q^{2})\,\Delta\Sigma,
+    \label{eq:g1-moment}
+\end{equation}
+where $\Delta\Sigma$ is the total quark and antiquark helicity contribution to the
+nucleon spin. The Ellis--Jaffe sum rule, which assumes a spin-symmetric sea and takes the
+octet axial
+charges from hyperon beta decay, predicted
+$\int_{0}^{1}g_{1}^{p}(x)\,\mathrm{d}x = 0.185$, corresponding to quarks carrying most of
+the spin \cite[Ch.~4.6]{ThomasWeise2001}. It is worth being clear about which assumption
+failed: the closely related Bjorken sum rule, formed from the \emph{difference} of the
+proton and neutron moments, rests only on isospin symmetry and the measured axial charge
+$g_{A}/g_{V}$, and it is well confirmed---so the discrepancy lies in the flavor-singlet
+part, not in the framework \cite[Ch.~4.6]{ThomasWeise2001}. The EMC found instead
+\begin{equation}
+    \Delta\Sigma = (14 \pm 3 \pm 10)\,\%,
+    \label{eq:EMC-result}
+\end{equation}
+consistent with the quarks carrying almost \emph{none} of the nucleon spin---the
+\emph{proton spin crisis}. Later, higher-statistics data, most notably from COMPASS,
+raised the value to
+\begin{equation}
+    \Delta\Sigma = (33 \pm 3 \pm 5)\,\%,
+    \label{eq:COMPASS-result}
+\end{equation}
+still far below the naive expectation $\Delta\Sigma\sim 1$ that the proton spin is
+carried entirely by the valence quarks.
+
+% ---- PLACEHOLDER FIGURE (EMC apparatus) -----------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/emc_apparatus.pdf}
+%   \caption{The EMC forward spectrometer at the CERN M2 muon beamline. The
+%            polarized target (two oppositely polarized cells), forward magnet,
+%            drift/proportional chambers, hodoscopes and the muon absorber select
+%            scattered muons over a wide kinematic range.}
+%   \label{fig:emc-apparatus}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (g_1^p and its integral, Ellis-Jaffe) --------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{Figures/g1p_ellis_jaffe.pdf}
+%   \caption{The proton spin structure function $x g_{1}^{p}(x)$ (solid) and its
+%            running integral $\int_{x}^{1}g_{1}^{p}\,\mathrm{d}x$ (dashed) versus
+%            $x$, compared with the Ellis--Jaffe sum-rule expectation. The integral
+%            falls short of the sum-rule value, quantifying the spin crisis.}
+%   \label{fig:g1p}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The proton spin sum rule: resolving the spin crisis}
+\label{subsec:spin-sum-rule}
+
+To interpret $\Delta\Sigma$ one needs a bookkeeping of all the ways angular momentum can
+be stored in the nucleon. In this context the parton spin means the parton helicity in
+the infinite-momentum frame, and the total spin of the nucleon decomposes as
+\begin{equation}
+    \frac{1}{2} \;=\; \frac{1}{2}\,\Delta\Sigma + \Delta G + L_{q} + L_{g},
+    \label{eq:spin-sum-rule}
+\end{equation}
+where $\Delta\Sigma$ is the total quark and antiquark helicity contribution, $\Delta G$
+the gluon helicity contribution, and $L_{q}$ and $L_{g}$ the orbital angular momenta of
+the quarks and gluons respectively. The naive expectation is $\Delta\Sigma\sim 1$, the
+proton spin carried entirely by the valence-quark spins; the measured value
+\eqref{eq:COMPASS-result} shows that this cannot be the whole story
+\cite[Ch.~1]{Amsler2018}, \cite[Ch.~4.6]{ThomasWeise2001}.
+
+A large part of the deficit can be accounted for without invoking anything exotic. First,
+the valence quarks are relativistic and cannot be treated as static: their lower Dirac
+components carry orbital motion that reduces the fraction of the spin stored as quark
+helicity from $100\%$ to roughly $65\%$. Second, the pion cloud---the nucleon spending
+part of its time as a virtual baryon plus pion---dilutes the quark helicity by a further
+factor of about $0.7$--$0.8$. Third, one-gluon exchange between the quarks lowers the
+quark-spin fraction by a further $\sim 15\%$. Multiplying these effects together,
+\begin{equation}
+    \Delta\Sigma \;=\; (0.7\text{--}0.8)\times(0.65 - 0.15) \;\sim\; 35\text{--}40\,\%,
+    \label{eq:spin-estimate}
+\end{equation}
+in reasonable agreement with the data. None of these three ingredients is an \emph{ad
+hoc} repair: the relativistic reduction is built into the bag models, and the pion-cloud
+dilution is a characteristic prediction of the cloudy bag and the other chiral quark
+models \cite[Ch.~8]{ThomasWeise2001}, the pion cloud itself being a direct consequence of
+spontaneously broken chiral symmetry \cite[Ch.~7]{ThomasWeise2001}. Some spin is still
+unaccounted for, and the natural candidate is the gluon---as so often in nucleon
+structure, the glue is called on to make up the balance.
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Gluon polarization and direct measurements}
+\label{subsec:gluon-polarization}
+
+The gluons carry roughly half of the nucleon momentum (Sect.~\ref{subsec:dglap}), so it
+is natural to ask how much of its \emph{spin} they carry---the term $\Delta G$ in the sum
+rule \eqref{eq:spin-sum-rule}. By analogy with the quark case one defines the gluon
+helicity distribution
+\begin{equation}
+    \Delta g(x) \;=\; g^{\uparrow}(x) - g^{\downarrow}(x),
+    \label{eq:delta-g}
+\end{equation}
+the difference between the densities of gluons with helicity aligned and anti-aligned
+with the nucleon spin. Because the gluon carries no electric charge, it does not appear
+directly in the photon-mediated $g_{1}$; it enters only indirectly, through its effect on
+the scale evolution of the quark helicity distributions. The polarized DGLAP equation
+couples $\Delta q$ to $\Delta g$,
+\begin{equation}
+    \frac{\partial\Delta q(x,Q^{2})}{\partial\ln Q^{2}}
+    \;\sim\; \Delta P_{qq}\,\Delta q(x,Q^{2}) + \Delta P_{qg}\,\Delta g(x,Q^{2}),
+    \label{eq:polarized-dglap}
+\end{equation}
+so a scaling-violation analysis of $g_{1}(x,Q^{2})$ constrains $\Delta g$, but only
+weakly over the limited lever arm in $Q^{2}$ available in fixed-target DIS. There is a
+further subtlety of principle here: the flavor-singlet axial current is not conserved at
+the quantum level, and the axial anomaly mixes the quark and gluon contributions, so that
+the split of Eq.~\eqref{eq:spin-sum-rule} into $\Delta\Sigma$ and $\Delta G$ is
+scheme dependent and part of the apparent smallness of $\Delta\Sigma$ can be moved into
+an anomalous gluon term \cite[Ch.~4.6]{ThomasWeise2001}.
+
+A direct handle on $\Delta g$ comes from polarized proton--proton collisions, in which
+gluons participate in the hard scattering at leading order. This is the program of the
+STAR and PHENIX experiments at the RHIC polarized proton collider. The idea is to measure
+the longitudinal double-spin asymmetry in high-transverse-momentum jet (or pion)
+production,
+\begin{equation}
+    A_{LL} \;=\; \frac{\sigma^{++} - \sigma^{+-}}{\sigma^{++} + \sigma^{+-}},
+    \label{eq:ALL-rhic}
+\end{equation}
+where the superscripts label the helicities of the two colliding protons. At the high
+energies of RHIC, jet production is dominated by the subprocesses $gg\to gg$ and
+$qg\to qg$, both of which involve at least one gluon, so $A_{LL}$ is directly sensitive
+to $\Delta g$; other channels such as $qg\to q\gamma$ provide complementary constraints
+with different systematics. The measured asymmetries are small but significantly
+positive, establishing that $\Delta g$ is non-zero and positive over the measured range
+of gluon momentum fraction.
+
+Assembling all the measured pieces, the sum rule reads approximately
+\begin{equation}
+    \frac{1}{2} = \frac{1}{2}\,\Delta\Sigma + \Delta G + L_{q} + L_{g}
+    \;\approx\; \frac{1}{2}\times 0.3 + (0.2\text{--}0.4) + L_{q} + L_{g},
+    \label{eq:spin-sum-numbers}
+\end{equation}
+with the quark helicity contributing about $0.3$ and the gluon helicity, integrated over
+the measured range, about $0.2$--$0.4$. The quark and gluon spins together do not saturate
+the sum rule; the balance must be supplied by the orbital angular momenta $L_{q}$ and
+$L_{g}$, which remain the least well determined ingredients and are the primary
+motivation for the multidimensional structure studies of the following subsections.
+Lattice QCD offers an independent, first-principles route to the same decomposition, and
+the nucleon spin structure has been among its targets from early on
+\cite[Ch.~6]{ThomasWeise2001}.
+
+% ---- PLACEHOLDER FIGURE (STAR/PHENIX A_LL vs p_T) -------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/rhic_all_jets.pdf}
+%   \caption{Longitudinal double-spin asymmetry $A_{LL}$ for inclusive jet (and
+%            direct-photon) production in polarized $pp$ collisions at RHIC (STAR
+%            and PHENIX), compared with polarized-PDF predictions (DSSV, LSS,
+%            NNPDF, BB). A small positive asymmetry establishes a non-zero gluon
+%            polarization $\Delta G>0$ over the measured $x$ range.}
+%   \label{fig:rhic-all}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (NNPDFpol helicity PDFs) --------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{Figures/nnpdfpol.pdf}
+%   \caption{Polarized (helicity) parton distributions from the NNPDFpol2.0 NNLO
+%            analysis at $Q=1.0~\mathrm{GeV}$: $\Delta g$, $\Delta u_{V}$,
+%            $\Delta d_{V}$, and the polarized sea. The large uncertainty band on
+%            $\Delta g$ reflects the limited constraints on the gluon spin.}
+%   \label{fig:nnpdfpol}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Beyond collinear PDFs: transverse-momentum-dependent distributions}
+\label{subsec:tmds}
+
+Everything so far---the momentum distributions $q(x)$, $\bar q(x)$, $g(x)$ and their
+helicity analogues $\Delta q(x)$, $\Delta\bar q(x)$, $\Delta g(x)$---describes only the
+\emph{longitudinal} motion of the partons, their share of the nucleon momentum along the
+direction of the fast-moving nucleon. This one-dimensional picture cannot address the
+orbital angular momentum $L_{q}$, $L_{g}$ left undetermined by the spin sum rule, because
+orbital motion is transverse motion, and it is invisible to a purely collinear
+description. A complete description must allow the parton a \emph{transverse} momentum,
+promoting the distribution from $f(x)$ to $f(x,\vec k_{T})$: a probability density to
+find a parton with longitudinal momentum fraction $x$ \emph{and} transverse momentum
+$\vec k_{T}$. This is a three-dimensional momentum-space picture, or momentum-space
+tomography, of the nucleon, and it generalizes the single collinear PDF into a family of
+\emph{transverse-momentum-dependent} distributions (TMDs).
+
+The experimental key is to detect one final-state hadron in addition to the scattered
+lepton, so that its transverse momentum records the transverse motion of the struck
+parton. This is semi-inclusive deep inelastic scattering (SIDIS),
+\begin{equation}
+    eN \;\rightarrow\; e' h X,
+\end{equation}
+in which $e$ and $e'$ define the hard scattering exactly as in inclusive DIS, while the
+observed hadron $h$ carries information about the struck parton and how it fragments into
+hadrons. At leading order the cross section factorizes into a hard partonic cross section,
+a TMD parton distribution and a fragmentation function,
+\begin{equation}
+    E'E_{h}\frac{\mathrm{d}\sigma_{ep\to e'hX}}{\mathrm{d}^{3}l'\,\mathrm{d}^{3}P_{h}}
+    \;\approx\; \hat\sigma_{eq\to e'q'}\otimes f_{1}(x,\vec k_{T})
+    \,\widetilde{\otimes}\, D_{h/q'}(z,\vec k_{T}'),
+    \label{eq:sidis-factorization}
+\end{equation}
+where the momentum fraction carried by the observed hadron is
+\begin{equation}
+    z \;=\; \frac{P\cdot P_{h}}{P\cdot q}.
+    \label{eq:z-def}
+\end{equation}
+The new non-perturbative object is the \emph{fragmentation function}
+$D_{h/q'}(z,\vec k_{T}')$, the probability density for a quark of flavor $q'$ to fragment
+into a hadron $h$ carrying a fraction $z$ of its momentum. Its necessity is a direct
+consequence of confinement: the struck quark can never be observed directly but must
+hadronize into a final-state hadron. SIDIS therefore depends on two kinds of
+non-perturbative information---the partonic structure of the target and the fragmentation
+of the struck parton---and is correspondingly more differential than inclusive DIS, at the
+price of introducing the fragmentation functions.
+
+Allowing transverse momentum and polarization multiplies the number of distributions. At
+leading twist there are eight TMD parton distributions, classified by the polarization of
+the nucleon (unpolarized $U$, longitudinal $L$, transverse $T$) and of the quark (again
+$U$, $L$, $T$). Three survive the collinear limit and are the familiar PDFs: the
+unpolarized $f_{1}$, the helicity $g_{1}$ and the transversity $h_{1}$. The remaining five
+are genuinely new and encode spin--momentum correlations that vanish once $\vec k_{T}$ is
+integrated out: the Sivers function $f_{1T}^{\perp}$ (an unpolarized quark in a
+transversely polarized nucleon), the Boer--Mulders function $h_{1}^{\perp}$ (a transversely
+polarized quark in an unpolarized nucleon), the two worm-gear functions $g_{1T}^{\perp}$
+and $h_{1L}^{\perp}$, and the pretzelosity $h_{1T}^{\perp}$. A parallel classification
+applies to the TMD fragmentation functions, of which the Collins function $H_{1}^{\perp}$
+is the most important. Together these functions map the correlation between the spin of
+the nucleon, the spin of the quark and the quark's transverse motion.
+
+% ---- PLACEHOLDER FIGURE (SIDIS factorization / handbag) -------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/sidis_factorization.pdf}
+%   \caption{Factorization of the SIDIS cross section,
+%            Eq.~\eqref{eq:sidis-factorization}, into a hard partonic scattering, a
+%            TMD parton distribution $f_{1}(x,\vec k_{T})$ and a TMD fragmentation
+%            function $D_{h/q'}(z,\vec k_{T}')$.}
+%   \label{fig:sidis}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (leading-twist TMD PDF and FF tables) -------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/tmd_tables.pdf}
+%   \caption{The eight leading-twist quark TMD parton distributions and the
+%            corresponding TMD fragmentation functions, organized by
+%            nucleon/hadron polarization (rows) and quark polarization (columns).
+%            The diagonal entries $f_{1}$, $g_{1}$, $h_{1}$ ($D_{1}$) survive the
+%            collinear limit; the off-diagonal entries (Sivers $f_{1T}^{\perp}$,
+%            Boer--Mulders $h_{1}^{\perp}$, worm-gear, pretzelosity; Collins
+%            $H_{1}^{\perp}$) are genuinely transverse.}
+%   \label{fig:tmd-tables}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Azimuthal asymmetries and the Collins effect}
+\label{subsec:collins}
+
+A defining feature of SIDIS is that, once a hadron is detected, the cross section depends
+on the azimuthal angles of that hadron and of the target spin around the virtual-photon
+direction. Two planes are defined---the lepton plane and the hadron plane---and the
+cross section is modulated by terms such as $\cos\phi_{h}$, $\cos 2\phi_{h}$,
+$\sin\phi_{h}$ and $\sin(\phi_{h}-\phi_{S})$, where $\phi_{h}$ is the azimuth of the
+produced hadron and $\phi_{S}$ that of the target spin. Each modulation isolates a
+different combination of a TMD and a fragmentation function, so measuring the azimuthal
+dependence at various beam and target polarizations decomposes the full structure into
+its individual TMDs \cite[Ch.~1]{Amsler2018}.
+
+The complete leading-twist SIDIS cross section is a sum of structure functions, each
+carrying a characteristic azimuthal modulation and a definite beam and target
+polarization dependence; a convenient reference is the TMD Handbook (JLAB-THY-23-3780).
+Its overall structure,
+\begin{equation}
+    \frac{\mathrm{d}^{6}\sigma}
+         {\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z_{h}\,\mathrm{d}\phi_{S}\,
+          \mathrm{d}\phi_{h}\,\mathrm{d}P_{hT}^{2}}
+    \;\propto\; \frac{\alpha_{\mathrm{em}}^{2}}{x y Q^{2}}
+      \left(1 - y + \tfrac{1}{2}y^{2}\right)
+      \Bigl[F_{UU,T} + \cos(2\phi_{h})\,p_{1}F_{UU}^{\cos 2\phi_{h}}
+      + \cdots\Bigr],
+    \label{eq:full-sidis}
+\end{equation}
+groups the structure functions into unpolarized ($F_{UU}$), polarized-target
+($F_{UL},F_{UT}$), and polarized-beam-and-target ($F_{LL},F_{LT}$) contributions, with
+the subscripts labeling the beam and target polarizations. Each structure function is a
+convolution, denoted $\mathcal{C}[\cdots]$, of a TMD distribution with a fragmentation
+function; for example $F_{UU,T}=\mathcal{C}[f_{1}D_{1}]$ and
+$F_{LL}=\mathcal{C}[g_{1}D_{1}]$.
+
+The best-known modulation is the Collins effect. The Collins fragmentation function
+$H_{1}^{\perp}$ measures the correlation between the transverse spin of the fragmenting
+quark and the transverse momentum of the produced hadron; because it multiplies the
+transversity distribution $h_{1}(x,\vec k_{T})$ in the cross section, it opens the only
+practical path to measuring $h_{1}$, which---being chiral-odd---cannot appear alone in
+inclusive DIS. The relevant single-spin asymmetry on a transversely polarized target is
+\begin{equation}
+    A_{UT}^{\sin(\phi_{h}+\phi_{S})}
+    = \frac{F_{UT}^{\sin(\phi_{h}+\phi_{S})}}{F_{UU,T}}
+    \;\propto\; \frac{h_{1}\,H_{1}^{\perp}}{f_{1}\,D_{1}},
+    \label{eq:collins-asymmetry}
+\end{equation}
+in which the chiral-odd transversity $h_{1}$ is paired with the chiral-odd Collins
+function $H_{1}^{\perp}$ so that the product is chiral-even and observable. Measurements at
+HERMES and COMPASS have established non-zero Collins asymmetries for charged pions of
+opposite sign for $\pi^{+}$ and $\pi^{-}$, and global analyses of these data now provide
+extractions of the up- and down-quark transversity and of the Collins and Sivers
+functions.
+
+% ---- PLACEHOLDER FIGURE (SIDIS lepton/hadron planes) ----------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{Figures/sidis_planes.pdf}
+%   \caption{Azimuthal geometry of SIDIS: the lepton plane and the hadron plane,
+%            the azimuth $\phi_{h}$ of the produced hadron $P_{h}$ and the azimuth
+%            $\phi_{S}$ of the transverse target spin $S_{\perp}$, measured around
+%            the virtual-photon direction.}
+%   \label{fig:sidis-planes}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (Collins asymmetry / transversity extractions) ----
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/collins_transversity.pdf}
+%   \caption{Left: measured Collins ($\sin(\phi_{h}+\phi_{S})$) and Sivers
+%            ($\sin(\phi_{h}-\phi_{S})$) asymmetries versus $x$, $z$ and $P_{hT}$
+%            for $\pi^{+}$ and $\pi^{-}$ from HERMES and COMPASS. Right: extracted
+%            transversity $x h_{1}(x)$, Sivers $x f_{1T}^{\perp(1)}(x)$ and Collins
+%            $z H_{1}^{\perp(1)}(z)$ from a global TMD analysis, together with the
+%            resulting transverse-momentum densities of up and down quarks.}
+%   \label{fig:collins-results}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The Drell--Yan process: sea-quark asymmetry and TMD universality}
+\label{subsec:drell-yan}
+
+SIDIS probes TMDs by scattering a lepton off a quark and detecting the fragmented hadron.
+The Drell--Yan process probes the same distributions from the opposite direction: instead
+of scattering a lepton beam off the nucleon, one lets a quark and an antiquark from two
+colliding hadrons annihilate into a virtual photon that materializes as a lepton pair,
+\begin{equation}
+    q\bar q \;\rightarrow\; \gamma^{*} \;\rightarrow\; l^{+}l^{-},
+    \qquad\text{or, at hadron level,}\qquad
+    h_{1}h_{2} \;\rightarrow\; l^{+}l^{-}\,X.
+    \label{eq:drell-yan}
+\end{equation}
+The final-state leptons do not interact strongly, so the measurement is theoretically
+clean; the price is that both particles in the initial state are hadrons, so the process
+probes a product of two parton distributions rather than a distribution convoluted with a
+fragmentation function. Drell--Yan gives access to antiquarks and the sea in a way
+complementary to SIDIS, and, as discussed below, it allows the \emph{process dependence}
+of the TMDs to be tested directly.
+
+A first application is the flavor asymmetry of the light-quark sea. Consider
+$p+p\to\mu\mu+X$ and $p+n\to\mu\mu+X$, using isospin symmetry to relate the neutron and
+proton distributions ($u_{p}=d_{n}$, $d_{p}=u_{n}$, and likewise for the antiquarks,
+which follows from the $I=\tfrac{1}{2}$ doublet structure of the nucleon). At leading
+order the cross section is a charge-weighted product of quark and antiquark densities,
+\begin{equation}
+    \frac{\mathrm{d}\sigma}{\mathrm{d}x_{1}\,\mathrm{d}x_{2}}
+    \;\propto\; \sum_{q} e_{q}^{2}\,
+    \bigl[q(x_{1})\bar q(x_{2}) + \bar q(x_{1})q(x_{2})\bigr].
+    \label{eq:dy-xsec}
+\end{equation}
+Choosing kinematics with $x_{1}\gg x_{2}$, so that a valence quark from the first proton
+annihilates a sea antiquark from the second, the cross sections simplify to
+\begin{align}
+    \sigma_{pp} &\propto 4u(x_{1})\bar u(x_{2}) + d(x_{1})\bar d(x_{2}),
+    \label{eq:sigma-pp}\\
+    \sigma_{pn} &\propto 4u(x_{1})\bar d(x_{2}) + d(x_{1})\bar u(x_{2}),
+    \label{eq:sigma-pn}
+\end{align}
+and their ratio is directly sensitive to the sea-quark flavor asymmetry,
+\begin{equation}
+    \frac{\sigma_{pn}}{\sigma_{pp}} \;\approx\; \frac{\bar d(x_{2})}{\bar u(x_{2})}.
+    \label{eq:dbar-ubar}
+\end{equation}
+The SeaQuest experiment at Fermilab measured exactly this ratio, finding $\bar d>\bar u$
+over a broad range of $x$. The same asymmetry shows up in inclusive DIS as a violation of
+the Gottfried sum rule, whose naive value presupposes a flavor-symmetric sea; the two
+observations are different views of one fact \cite[Ch.~4.4]{ThomasWeise2001}. A natural
+explanation is the pion cloud: the proton fluctuates
+into a neutron plus a $\pi^{+}$,
+\begin{equation}
+    p(uud) \;\rightarrow\; n(udd) + \pi^{+}(u\bar d),
+    \label{eq:pion-cloud-fluctuation}
+\end{equation}
+and the $\bar d$ in the $\pi^{+}$ enhances the down antiquark sea relative to the up
+\cite[Ch.~7]{ThomasWeise2001}. The
+same fluctuation appeared in the neutron-structure discussion of
+Chapter~\ref{sec:electron-scattering}, and it will return in
+Sect.~\ref{subsec:meson-structure} as the mechanism that makes the pion itself
+experimentally accessible.
+
+The Drell--Yan process accesses the same TMDs as SIDIS, but through annihilation rather
+than scattering, so the transverse momentum and angular distribution of the lepton pair
+reflect the transverse momenta of the annihilating partons. This makes possible one of
+the sharpest predictions of TMD factorization: the \emph{Sivers sign change}. The Sivers
+function $f_{1T}^{\perp}(x,\vec k_{T})$ describes an unpolarized quark inside a
+transversely polarized nucleon, and it arises from the color interaction of the struck
+quark with the remnant---a final-state interaction in SIDIS but an initial-state
+interaction in Drell--Yan. While the ordinary spin-averaged TMD is process independent,
+\begin{equation}
+    f_{1}^{\mathrm{SIDIS}}(x,\vec k_{T}) = f_{1}^{\mathrm{DY}}(x,\vec k_{T}),
+    \label{eq:f1-universal}
+\end{equation}
+the Sivers function is predicted to reverse sign between the two processes,
+\begin{equation}
+    f_{1T}^{\mathrm{SIDIS}}(x,\vec k_{T}) = -\,f_{1T}^{\mathrm{DY}}(x,\vec k_{T}),
+    \label{eq:sivers-sign-change}
+\end{equation}
+a direct consequence of the different gauge-link structure in the two cases. Verifying
+this sign change is a central goal of the current experimental program and a fundamental
+test of the gauge structure of QCD.
+
+The determination of TMDs is a worldwide effort combining three complementary processes:
+SIDIS (at HERMES, COMPASS, Jefferson Lab and the future Electron--Ion Collider),
+Drell--Yan (at Fermilab, RHIC, J-PARC and elsewhere), and $e^{+}e^{-}$ annihilation into
+hadron pairs (at Belle, BaBar and BESIII), the last providing the cleanest access to the
+fragmentation functions that enter the other two.
+
+% ---- PLACEHOLDER FIGURE (Drell-Yan diagram) -------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{Figures/drell_yan.pdf}
+%   \caption{The Drell--Yan process $h_{A}h_{B}\to l^{+}l^{-}X$: a quark from one
+%            hadron annihilates an antiquark from the other into a virtual photon
+%            that decays into a lepton pair. The remnants form the hadronic system
+%            $X$.}
+%   \label{fig:drell-yan}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (SeaQuest apparatus and dbar/ubar) ----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/seaquest.pdf}
+%   \caption{The SeaQuest spectrometer at Fermilab (focusing magnet and hadron
+%            absorber, momentum-measuring magnet, hodoscope, drift-chamber and
+%            proportional-tube tracking stations) and the extracted ratio
+%            $\bar d/\bar u$ and difference $\bar d-\bar u$ versus $x$, compared
+%            with global PDFs and meson-cloud models. Data: Phys.\ Rev.\ Lett.\
+%            136, 171901 (2026).}
+%   \label{fig:seaquest}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (TMD world-wide effort: SIDIS/DY/e+e-) -------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/tmd_worldwide.pdf}
+%   \caption{The three complementary processes constraining TMDs: SIDIS
+%            (distribution $\otimes$ fragmentation), Drell--Yan (two distributions),
+%            and $e^{+}e^{-}\to$ hadron pairs (two fragmentations), together with
+%            the experiments pursuing each.}
+%   \label{fig:tmd-worldwide}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Exclusive reactions and generalized parton distributions}
+\label{subsec:gpds}
+
+Even the TMDs do not complete the picture. The collinear PDFs give the longitudinal
+momentum structure $f(x)$, and the TMDs extend this to the transverse momentum
+$f(x,\vec k_{T})$, but both are distributions in \emph{momentum} space. Neither says
+where inside the nucleon a parton of given momentum fraction is actually located. The
+spatial distribution of partons is a separate question, and answering it requires a
+different class of measurement \cite[Ch.~1]{Amsler2018}, \cite[Ch.~4.8]{ThomasWeise2001}.
+
+The route to spatial information is already familiar from elastic scattering. There the
+form factor is the Fourier transform of a spatial charge distribution
+(Sect.~\ref{subsec:form-factors}), so that resolving position required measuring the
+dependence on the momentum transferred to the \emph{target as a whole}. Inclusive DIS
+destroys precisely this information, because the target is shattered and the momentum
+transfer to it is never reconstructed. What is needed is a reaction that resolves an
+individual parton, as DIS does, while still leaving the nucleon intact and measuring the
+momentum transferred to it, as elastic scattering does. These are the \emph{exclusive}
+reactions, in which every final-state particle is detected---experimentally demanding,
+but rewarded with a variable that is the Fourier conjugate of transverse position while
+the struck quark remains identified.
+
+The two workhorse channels are deeply virtual Compton scattering (DVCS),
+\begin{equation}
+    eN \;\rightarrow\; eN\gamma,
+    \label{eq:dvcs-reaction}
+\end{equation}
+in which the virtual photon is absorbed and a real photon emitted by the same quark, and
+deeply virtual meson production (DVMP),
+\begin{equation}
+    eN \;\rightarrow\; eN M,
+    \label{eq:dvmp-reaction}
+\end{equation}
+in which a meson $M=\pi,\rho,\omega,\dots$ is produced instead and the recoiling baryon
+may also be a hyperon. In both cases the amplitude factorizes into a hard part, governed
+by QED and perturbative QCD and therefore calculable, and a soft part that is
+non-perturbative and must be parametrized. The functions that parametrize the soft part
+are the \emph{generalized parton distributions} (GPDs), which appear in the older
+literature---and in Thomas and Weise---under the name \emph{off-forward parton
+distributions} \cite[Ch.~4.8]{ThomasWeise2001}.
+
+A GPD depends on three variables rather than one. The first, $x$, is the average
+longitudinal momentum fraction of the struck parton, which enters the amplitude with
+fraction $x+\xi$ and leaves it with $x-\xi$. The second is the \emph{skewness} $\xi$, the
+longitudinal momentum transfer, related to the Bjorken variable by
+\begin{equation}
+    \xi \;\approx\; \frac{x_{B}}{2 - x_{B}}.
+    \label{eq:skewness}
+\end{equation}
+The third is the invariant momentum transfer to the hadron,
+\begin{equation}
+    t \;=\; (P' - P)^{2},
+    \label{eq:mandelstam-t}
+\end{equation}
+which is the variable conjugate to transverse position. Counting the possible
+helicity structures at leading twist gives eight GPDs. Four of them, $H$, $E$,
+$\widetilde H$ and $\widetilde E$, describe processes in which the helicity of the struck
+quark is conserved, and four, $H_{T}$, $E_{T}$, $\widetilde H_{T}$ and $\widetilde
+E_{T}$, describe processes in which it is flipped; the helicity itself is defined as in
+Chapter~\ref{sec:electron-scattering}, as the projection of the spin onto the direction
+of motion.
+
+What makes the GPDs conceptually central is that they contain the form factors and the
+parton distributions as limiting cases, unifying the two structure descriptions that
+have run in parallel through these two chapters. In the forward limit, in which no
+momentum is transferred to the nucleon ($t\to 0$, $\xi\to 0$), the helicity-conserving
+GPDs reduce to the ordinary parton distributions,
+\begin{align}
+    H^{q}(x,0,0) &= q(x),
+    \label{eq:gpd-forward-H}\\
+    \widetilde H^{q}(x,0,0) &= \Delta q(x),
+    \label{eq:gpd-forward-Htilde}
+\end{align}
+recovering the unpolarized and helicity distributions of
+Sects.~\ref{subsec:parton-model} and~\ref{subsec:polarized-dis}. Integrating instead over
+the momentum fraction $x$ removes the parton-level information and leaves the elastic
+form factors of Chapter~\ref{sec:electron-scattering},
+\begin{equation}
+    \int_{-1}^{1} H^{q}(x,\xi,t)\,\mathrm{d}x = F_{1}^{q}(t),
+    \qquad
+    \int_{-1}^{1} E^{q}(x,\xi,t)\,\mathrm{d}x = F_{2}^{q}(t).
+    \label{eq:gpd-form-factors}
+\end{equation}
+A single family of functions therefore interpolates between the spatial picture of
+elastic scattering and the momentum picture of DIS, and contains correlations---between
+where a parton sits and what momentum fraction it carries---that neither limit retains
+\cite[Ch.~4.8]{ThomasWeise2001}.
+
+% ---- PLACEHOLDER FIGURE (DVCS and DVMP handbag diagrams) ------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/dvcs_dvmp_handbag.pdf}
+%   \caption{Handbag diagrams for the two exclusive channels. Left: DVCS,
+%            $eN\to eN\gamma$, in which the virtual photon $\gamma^{*}(Q^{2})$ is
+%            absorbed and a real photon emitted by a quark entering with momentum
+%            fraction $x+\xi$ and leaving with $x-\xi$, the nucleon receiving
+%            momentum transfer $t$. Right: DVMP, $eN\to eNM$, where an additional
+%            gluon exchange and a distribution amplitude produce the meson
+%            $\pi,\rho,\omega,\dots$ and the recoil baryon may be $N,\Lambda,\Sigma$.
+%            The soft blob is parametrized by the GPDs $\mathrm{GPD}(x,\xi,t)$.
+%            A TikZ diagram in the style of the earlier Feynman graphs is the
+%            natural choice here.}
+%   \label{fig:dvcs-dvmp}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Deeply virtual Compton scattering}
+\label{subsec:dvcs}
+
+DVCS is the deep inelastic limit of the virtual Compton scattering process already met at
+low energies in connection with the nucleon polarizabilities
+\cite[Ch.~2]{ThomasWeise2001}. It is the golden channel for extracting GPDs, because it
+is the exclusive reaction with the cleanest factorization: the hard subprocess is pure QED
+Compton scattering off a
+quark, with no additional non-perturbative object beyond the GPDs themselves. The price
+is that it is sensitive only to the four helicity-conserving GPDs $H$, $E$, $\widetilde H$
+and $\widetilde E$; the helicity-flip distributions require the meson channel of the next
+subsection.
+
+Factorization in DVCS holds at the level of the \emph{amplitude} rather than the cross
+section, which makes the connection between data and distributions a two-step process.
+The measured observables first determine a set of \emph{Compton form factors} (CFFs)
+$\mathcal{H}$, $\mathcal{E}$, $\widetilde{\mathcal{H}}$ and $\widetilde{\mathcal{E}}$,
+which are convolutions of the GPDs with the hard kernel and therefore access them only in
+integrated form; the CFFs must then be deconvoluted to recover the GPDs themselves. This
+second step is the harder one and remains a major source of model dependence.
+
+A further complication is experimental. The final state $eN\gamma$ can be reached not
+only through DVCS but also through the Bethe--Heitler process, in which the real photon is
+radiated by the electron rather than by the nucleon, with the nucleon structure entering
+only through the ordinary elastic form factors. The two are indistinguishable, so the
+amplitudes add coherently,
+\begin{equation}
+    \mathcal{A} \;=\; \mathcal{A}_{\mathrm{BH}} + \mathcal{A}_{\mathrm{DVCS}},
+    \label{eq:bh-dvcs-amplitude}
+\end{equation}
+and the cross section contains the squares of both together with their interference,
+\begin{equation}
+    \mathrm{d}\sigma \;\propto\; |\mathcal{A}|^{2}
+    = \sum\bigl|\mathcal{A}_{\mathrm{BH}} + \mathcal{A}_{\mathrm{DVCS}}\bigr|^{2}
+    = \sum \Bigl[\,|\mathcal{A}_{\mathrm{BH}}|^{2} + |\mathcal{A}_{\mathrm{DVCS}}|^{2}
+      + \mathcal{A}_{\mathrm{BH}}^{*}\mathcal{A}_{\mathrm{DVCS}}
+      + \mathcal{A}_{\mathrm{DVCS}}^{*}\mathcal{A}_{\mathrm{BH}}\,\Bigr].
+    \label{eq:bh-interference}
+\end{equation}
+At typical kinematics the Bethe--Heitler contribution dominates, which at first sight
+looks fatal. It is in fact an advantage: because $\mathcal{A}_{\mathrm{BH}}$ is large and
+exactly calculable from the known elastic form factors, the interference terms act as an
+amplifier, and the small DVCS amplitude can be extracted linearly from the interference
+rather than quadratically from its own square. This is the same strategy of using a large
+known reference amplitude to measure a small unknown one that underlies homodyne
+detection in optics, and the interference of Eq.~\eqref{eq:bh-interference} was
+recognized as the practical route to DVCS as soon as off-forward distributions were
+proposed \cite[Ch.~4.8]{ThomasWeise2001}.
+
+The observables of choice are again asymmetries, labeled by the beam and target
+polarizations. The beam-spin asymmetry, formed from the counts $N^{+}$ and $N^{-}$ with
+the two beam helicities,
+\begin{equation}
+    A_{LU} \;=\; \frac{N^{+} - N^{-}}{N^{+} + N^{-}},
+    \label{eq:beam-spin-asymmetry}
+\end{equation}
+is measured as a function of the angle $\phi$ between the leptonic and hadronic planes,
+and different polarization combinations project out different CFFs: schematically
+$A_{LU}\sim\mathrm{Im}\{\mathcal{H},\widetilde{\mathcal{H}},\mathcal{E}\}$,
+$A_{UL}\sim\mathrm{Im}\{\mathcal{H},\widetilde{\mathcal{H}}\}$,
+$A_{LL}\sim\mathrm{Re}\{\mathcal{H},\widetilde{\mathcal{H}}\}$ and
+$A_{UT}\sim\mathrm{Im}\{\mathcal{H},\mathcal{E}\}$, where the first subscript refers to
+the beam and the second to the target. Because the asymmetries constrain the real and
+imaginary parts of different combinations, a full separation requires many polarization
+configurations combined with differential cross-section measurements. Measurements of the
+DVCS beam-spin asymmetry over a range of $x_{B}$, $Q^{2}$ and $t$ show the characteristic
+$\sin\phi$ modulation predicted by the interference and are well described by the leading
+GPD models.
+
+% ---- PLACEHOLDER FIGURE (DVCS beam-spin asymmetry vs phi) ------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/dvcs_bsa.pdf}
+%   \caption{DVCS beam-spin asymmetry $A_{LU}$
+%            (Eq.~\eqref{eq:beam-spin-asymmetry}) versus the angle $\phi$ between
+%            the leptonic and hadronic planes, in three bins of $t$, $x_{B}$ and
+%            $Q^{2}$, compared with the VGG, GK and KM15 GPD models. The
+%            $\sin\phi$ shape is the signature of the Bethe--Heitler--DVCS
+%            interference of Eq.~\eqref{eq:bh-interference}. Data: Phys.\ Rev.\
+%            Lett.\ 130, 211902 (2023).}
+%   \label{fig:dvcs-bsa}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (Bethe-Heitler diagrams) --------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.7\linewidth]{Figures/bethe_heitler.pdf}
+%   \caption{The two Bethe--Heitler diagrams contributing to the same $eN\gamma$
+%            final state as DVCS, with the real photon radiated from the incoming
+%            or outgoing electron line and the nucleon entering only through its
+%            elastic form factors.}
+%   \label{fig:bethe-heitler}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Deeply virtual meson production}
+\label{subsec:dvmp}
+
+Producing a meson instead of a photon, $eN\to eNM$, provides an alternative and
+complementary route to the GPDs. Its principal advantage is variety: many different
+mesons can be produced, and because each has its own flavor content and quantum numbers,
+the set of measurements filters different flavor and helicity combinations. In
+particular, and unlike DVCS, meson production gives access to the helicity-flip GPDs
+$H_{T}$, $E_{T}$, $\widetilde H_{T}$ and $\widetilde E_{T}$.
+
+The disadvantages are equally clear. Factorization is not as firmly established as in
+DVCS, and the amplitude contains an additional non-perturbative object, the
+\emph{distribution amplitude} of the produced meson, which describes how the quark pair
+converts into the observed hadron and must itself be modeled or measured. The extraction
+is therefore again multi-step: measured asymmetries yield helicity amplitudes, which in
+turn are interpreted in terms of GPDs. The compensation is that the same data also carry
+information about the internal structure of the produced meson, a theme taken up in
+Sect.~\ref{subsec:meson-structure}.
+
+CLAS12 has begun a broad DVMP program based on beam-spin asymmetries of the form
+\begin{equation}
+    \mathrm{BSA}
+    = \frac{\sqrt{2\epsilon(1-\epsilon)}\;\dfrac{\sigma_{LT'}}{\sigma_{0}}\,\sin\phi}
+           {1 + \sqrt{2\epsilon(1+\epsilon)}\;\dfrac{\sigma_{LT}}{\sigma_{0}}\cos\phi
+            + \epsilon\,\dfrac{\sigma_{TT}}{\sigma_{0}}\cos 2\phi},
+    \label{eq:dvmp-bsa}
+\end{equation}
+where $\epsilon$ is the virtual-photon polarization parameter and the $\sigma_{ij}$ are
+the interference and polarization structure functions of the photoproduction cross
+section. The numerator carries the physics: the longitudinal--transverse interference
+term is sensitive to the helicity-flip distributions through
+\begin{equation}
+    \sigma_{LT'} \;\sim\;
+    \mathrm{Im}\Bigl[\,\langle\bar E_{T}\rangle^{*}\langle\widetilde H\rangle
+    + \langle H_{T}\rangle^{*}\langle\widetilde E\rangle\,\Bigr],
+    \qquad
+    \bar E_{T} = 2\widetilde H_{T} + E_{T},
+    \label{eq:sigma-ltprime}
+\end{equation}
+so that a measurement of the $\sin\phi$ modulation constrains combinations of GPDs that
+DVCS cannot reach at all.
+
+% ---- PLACEHOLDER FIGURE (CLAS12 DVMP BSA and sigma_LT'/sigma_0) -----------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/dvmp_clas12.pdf}
+%   \caption{Deeply virtual meson production at CLAS12. Top: beam-spin asymmetry
+%            (Eq.~\eqref{eq:dvmp-bsa}) versus $\phi$ in two kinematic bins.
+%            Bottom: the extracted ratio $\sigma_{LT'}/\sigma_{0}$ versus $-t$ in
+%            three bins of $Q^{2}$ and $x_{B}$, compared with GPD-based
+%            calculations. Data: Phys.\ Lett.\ B 849, 138459 (2024).}
+%   \label{fig:dvmp-clas12}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Nucleon tomography and the Ji sum rule}
+\label{subsec:tomography}
+
+The reward for the experimental difficulty of exclusive reactions is a genuine spatial
+image of the nucleon. At zero skewness the variable $t$ reduces to the square of a purely
+transverse momentum transfer, $t=-\Delta^{2}$, and the Fourier transform of the GPD $H$
+with respect to $\vec\Delta$ yields a density in the transverse plane,
+\begin{equation}
+    q(x,\vec b_{\perp}) \;=\; \int\frac{\mathrm{d}^{2}\Delta}{4\pi^{2}}\;
+    \mathrm{e}^{-\mathrm{i}\vec b_{\perp}\cdot\vec\Delta}\;
+    H^{q}(x,0,t=-\Delta^{2}),
+    \label{eq:impact-parameter}
+\end{equation}
+where $\vec b_{\perp}$ is the impact parameter, the transverse distance of the parton from
+the center of momentum of the nucleon. This is the probability density to find a quark
+carrying longitudinal momentum fraction $x$ at transverse position $\vec b_{\perp}$: a
+three-dimensional picture combining one momentum and two spatial coordinates, and the
+direct analogue in the parton regime of the charge distribution extracted from the elastic
+form factors in Chapter~\ref{sec:electron-scattering}. Mapping it out as a function of $x$
+is \emph{nucleon tomography}, and it reveals how the transverse size of the parton cloud
+shrinks as $x$ increases, the fast partons sitting near the center while the slow sea
+spreads out to the periphery.
+
+GPDs also offer a route to the missing piece of the spin sum rule. The Ji sum rule states
+that the total angular momentum---spin plus orbital---carried by quarks of flavor $q$ is
+the second moment of the sum of two GPDs in the forward limit,
+\begin{equation}
+    J^{q} \;=\; \frac{1}{2}\int x\,\bigl[H^{q}(x,\xi,0) + E^{q}(x,\xi,0)\bigr]\,\mathrm{d}x,
+    \label{eq:ji-sum-rule}
+\end{equation}
+the result being independent of $\xi$ \cite[Ch.~4.8]{ThomasWeise2001}. This is a striking
+statement: a quantity that
+cannot be measured directly, the orbital angular momentum, becomes accessible through an
+integral over a measurable distribution, since subtracting the separately known helicity
+contribution $\tfrac{1}{2}\Delta\Sigma$ from $J^{q}$ leaves $L_{q}$. It is, in principle,
+the way to close the accounting of Eq.~\eqref{eq:spin-sum-numbers} and settle the proton
+spin crisis. In practice the sum rule requires knowledge of $H$ and $E$ over the full
+range of $x$, including regions that no experiment constrains, and the GPD $E$ in
+particular is poorly known. The measurements so far are not sufficient to determine
+$J^{q}$ with useful precision, and doing so remains one of the principal goals of the
+field.
+
+% ---- PLACEHOLDER FIGURE (impact-parameter tomography maps) ----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{Figures/nucleon_tomography.pdf}
+%   \caption{Nucleon tomography: the impact-parameter density
+%            $q(x,\vec b_{\perp})$ of Eq.~\eqref{eq:impact-parameter} in the
+%            $(x,b_{\perp})$ plane for the unpolarized (top) and polarized
+%            (bottom) valence up-quark distribution, from the PARTONS 2018-1
+%            GPD fits. The transverse extent of the distribution shrinks as $x$
+%            grows.}
+%   \label{fig:tomography}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{Timelike form factors and timelike Compton scattering}
+\label{subsec:timelike}
+
+All the reactions discussed so far involve a spacelike virtual photon, $Q^{2}=-q^{2}>0$.
+The crossed kinematic region, in which the photon is timelike ($q^{2}>0$, that is
+$Q^{2}<0$), is reached by \emph{creating} a hadron--antihadron pair out of a virtual
+photon rather than scattering off an existing hadron, as in
+\begin{equation}
+    e^{+}e^{-} \;\rightarrow\; \gamma^{*} \;\rightarrow\;
+    p\bar p,\;\pi^{+}\pi^{-},\;K^{+}K^{-}.
+    \label{eq:timelike-annihilation}
+\end{equation}
+The form factors measured this way are the analytic continuations of the spacelike ones
+and are related to them by crossing symmetry, so timelike measurements constrain the same
+underlying structure from a region that elastic scattering cannot reach. They are
+particularly valuable for unstable hadrons, for which no target exists, and they were
+already encountered in Chapter~\ref{sec:electron-scattering} in the form of transition
+form factors measured in the radiative decays of hyperons and mesons. The analytic
+continuation between the two regions, and the role of the vector mesons in the spectral
+functions that connect them, are treated in detail by Thomas and Weise
+\cite[Ch.~2]{ThomasWeise2001}.
+
+The same crossing applies to the exclusive reactions of the previous subsections.
+Timelike Compton scattering, the process in which a real photon converts on the nucleon
+into a lepton pair, is the time-reversed analogue of DVCS and is described by the same
+GPDs. Measuring both and comparing them is a non-trivial test of the universality of the
+distributions and of the analytic structure of the amplitudes, in the same spirit as the
+Sivers sign-change test for TMDs.
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The structure of mesons}
+\label{subsec:meson-structure}
+
+Everything in this chapter has concerned the nucleon, for the practical reason that
+protons and neutrons are the only hadrons available as targets. But nothing in the
+formalism is specific to the nucleon: parton distributions, form factors, radii and
+generalized distributions are defined for every hadron, and the pion in particular is of
+special interest. As the Goldstone boson of spontaneously broken chiral symmetry it is
+anomalously light, and understanding how a nearly massless bound state distributes its
+momentum among quarks and gluons is a sharp test of QCD.
+
+The obstacle is that no stable meson target exists, so the structure of mesons must be
+reached indirectly. One route reverses the roles of beam and target and uses a meson beam
+on a nucleon target in the Drell--Yan process. At lowest order the dimuon cross section
+factorizes into a hard kernel and one distribution from each colliding hadron,
+\begin{equation}
+    \frac{\mathrm{d}^{2}\sigma}{\mathrm{d}M_{ll}^{2}\,\mathrm{d}y}
+    = \frac{4\pi\alpha_{\mathrm{em}}^{2}}{9M_{ll}^{2}s}\sum_{ij}
+      \int_{x_{\pi}}^{1}\frac{\mathrm{d}x_{\pi}}{x_{\pi}}
+      \int_{x_{N}}^{1}\frac{\mathrm{d}x_{N}}{x_{N}}\;
+      C_{ij}\!\left(x_{\pi},x_{N},M_{ll}/\mu\right)
+      f_{i}^{\pi}(x_{\pi},\mu)\,f_{j}^{N}(x_{N},\mu),
+    \label{eq:pion-dy}
+\end{equation}
+where $C_{ij}$ is the hard scattering kernel, $f_{i}^{\pi}$ the pion parton distribution
+for flavor $i$, $f_{j}^{N}$ the nucleon parton distribution and $\mu$ the renormalization
+scale. Since the nucleon distributions are known from the global fits of
+Sect.~\ref{subsec:dglap}, the pion distributions can be extracted. Separating valence from
+sea requires the usual symmetry arguments. The valence content of the charged pions is
+\begin{equation}
+    u_{\mathrm{val}}^{\pi^{+}} = u^{\pi^{+}} - \bar u^{\pi^{+}},
+    \qquad
+    d_{\mathrm{val}}^{\pi^{-}} = d^{\pi^{-}} - \bar d^{\pi^{-}},
+    \label{eq:pion-valence}
+\end{equation}
+isospin symmetry relates the two charge states through
+\begin{equation}
+    u_{\mathrm{val}}^{\pi^{+}} = \bar d_{\mathrm{val}}^{\pi^{+}}
+    = \bar u_{\mathrm{val}}^{\pi^{-}} = d_{\mathrm{val}}^{\pi^{-}},
+    \label{eq:pion-isospin}
+\end{equation}
+and assuming SU(3) symmetry makes the sea flavor blind,
+$\bar u_{\mathrm{sea}}^{\pi}=u_{\mathrm{sea}}^{\pi}=\bar d_{\mathrm{sea}}^{\pi}
+=d_{\mathrm{sea}}^{\pi}=\bar s_{\mathrm{sea}}^{\pi}=s_{\mathrm{sea}}^{\pi}$. With an
+isoscalar (deuteron) target the valence distribution is then isolated by suitable
+combinations of the $\pi^{+}$ and $\pi^{-}$ induced cross sections,
+\begin{equation}
+    \Sigma_{\mathrm{val}}^{\pi\mathrm{D}} = \sigma^{\pi^{-}D} - \sigma^{\pi^{+}D},
+    \qquad
+    \Sigma_{\mathrm{val}}^{\pi\mathrm{D}} = 4\sigma^{\pi^{+}D} - \sigma^{\pi^{-}D}.
+    \label{eq:pion-valence-combinations}
+\end{equation}
+
+A second and rather elegant route exploits the pion cloud that has already appeared twice
+in this chapter. The physical proton is a superposition of a bare three-quark state and
+virtual meson--baryon configurations,
+\begin{equation}
+    \ket{p} = a\ket{uud} + b\ket{n\pi^{+}} + c\ket{p\pi^{0}}
+    + d\ket{\Delta^{++}\pi^{-}} + e\ket{\Lambda K^{+}}
+    + f\ket{\Sigma^{0}K^{+}} + g\ket{\Sigma^{+}K^{0}} + \cdots,
+    \label{eq:pion-cloud-expansion}
+\end{equation}
+whose meson--baryon components are controlled, at least in their long-range part, by
+chiral symmetry \cite[Ch.~7]{ThomasWeise2001}. One may then ask whether the virtual meson
+in such a configuration can itself be used as a target. It can: in the \emph{Sullivan
+process} the electron scatters off the virtual pion
+or kaon while the recoiling baryon is detected at small momentum transfer, and the cross
+section factorizes into a flux of virtual mesons and the cross section on the meson,
+\begin{equation}
+    \frac{\mathrm{d}^{3}\sigma(ep\to e'nX)}{\mathrm{d}x\,\mathrm{d}Q^{2}\,\mathrm{d}x_{L}}
+    = f_{\pi/p}(x_{L},t)\times\sigma(e\pi\to e'X),
+    \label{eq:sullivan}
+\end{equation}
+where $x_{L}$ is the longitudinal momentum fraction carried by the recoiling baryon. This
+gives access to the pion structure functions and form factor, at the cost of the pion flux
+parametrization $f_{\pi/p}$, whose model dependence is the dominant uncertainty. Combining
+Drell--Yan data, leading-neutron (Sullivan) data and transverse-momentum spectra, global
+analyses now determine the pion valence, sea and gluon distributions, with the gluon
+carrying a substantial momentum fraction as in the nucleon.
+
+The electromagnetic radii of the mesons are measured by yet another inversion of the usual
+setup. Since no meson target exists, one uses a meson \emph{beam} on a stable lepton
+target, measuring $\pi/K + e^{-}\to\pi/K + e^{-}$ in inverse kinematics. Beyond
+necessity, this arrangement has a real advantage: with the electron initially at rest
+there is no incoming external bremsstrahlung, so an important class of radiative
+corrections is absent. The kinematics are, however, restrictive. With the electron mass
+$m_{e}$, beam energy $E_{b}$ and beam momentum $p_{b}$,
+\begin{equation}
+    Q^{2} \approx 2m_{e}E_{e},
+    \qquad
+    s = 2E_{b}m_{e} + m_{b}^{2} + m_{e}^{2},
+    \qquad
+    Q^{2}_{\max} = \frac{4m_{e}^{2}p_{b}^{2}}{s} = 4p_{\mathrm{cm}}^{2},
+    \label{eq:inverse-kinematics}
+\end{equation}
+and the small electron mass caps the accessible momentum transfer severely: a
+$190~\mathrm{GeV}$ beam reaches only $Q^{2}_{\max}\approx 0.176~\mathrm{GeV}^{2}$ for
+pions and $0.086~\mathrm{GeV}^{2}$ for kaons, so that high beam energies are essential.
+
+The classic measurements were made by the NA7 experiment at CERN. With a
+$300~\mathrm{GeV}$ pion beam and some $380{,}000$ events, the pion charge radius came out
+as
+\begin{equation}
+    \langle r^{2}\rangle_{\pi} = 0.439 \pm 0.008~\mathrm{fm}^{2},
+    \qquad
+    \sqrt{\langle r^{2}\rangle_{\pi}} = 0.663~\mathrm{fm},
+    \label{eq:pion-radius}
+\end{equation}
+extracted from the slope of the form factor at the origin exactly as for the proton in
+Chapter~\ref{sec:electron-scattering} (Sect.~\ref{subsec:proton-radius}), a definition
+whose subtleties are discussed by Thomas and Weise \cite[Ch.~2]{ThomasWeise2001}. The kaon
+measurement, with a $250~\mathrm{GeV}$ beam and only some $30{,}000$ events, gave
+\begin{equation}
+    \langle r^{2}\rangle_{K} = 0.34 \pm 0.05~\mathrm{fm}^{2},
+    \qquad
+    \sqrt{\langle r^{2}\rangle_{K}} = 0.58~\mathrm{fm}.
+    \label{eq:kaon-radius}
+\end{equation}
+Both quoted uncertainties are remarkably small, and both deserve scepticism of the kind
+that the proton radius puzzle taught: the errors are statistical and do not reflect the
+model dependence of the extrapolation to $Q^{2}=0$, even though the original publications
+asserted insensitivity to the assumed functional form of the form factor. Given how much
+the analogous extraction for the proton has moved since, remeasuring the pion and kaon
+radii with modern statistics and a transparent treatment of the model uncertainty is an
+obvious and overdue task.
+
+% ---- PLACEHOLDER FIGURE (Sullivan process diagrams) ----------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.75\linewidth]{Figures/sullivan_process.pdf}
+%   \caption{The Sullivan process. The electron scatters off a virtual pion or
+%            kaon from the meson cloud of the proton
+%            (Eq.~\eqref{eq:pion-cloud-expansion}), with the recoiling nucleon or
+%            hyperon $n/Y(k')$ detected at small momentum transfer $t$. Left:
+%            exclusive final state, giving the meson form factor. Right: inclusive
+%            final state $X$, giving the meson structure functions.}
+%   \label{fig:sullivan}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (pion PDFs) --------------------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{Figures/pion_pdfs.pdf}
+%   \caption{Pion parton distributions. Top: valence, sea and gluon distributions
+%            $xf(x)$ from several analyses (GRV, SMRS, JAM, NA3, and a
+%            Dyson--Schwinger calculation). Bottom: the JAM 2021 valence
+%            $q_{v}^{\pi}$, sea $q_{s}^{\pi}$ and gluon $g^{\pi}/10$
+%            distributions, showing the impact of adding leading-neutron
+%            (Sullivan) and Drell--Yan transverse-momentum data to Drell--Yan
+%            alone.}
+%   \label{fig:pion-pdfs}
+% \end{figure}
+%
+% ---- PLACEHOLDER FIGURE (pion and kaon form factors, NA7) ----------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/na7_meson_ff.pdf}
+%   \caption{The pion (left) and kaon (right) electromagnetic form factors
+%            $|F_{\pi}|^{2}$ and $|F_{K}|^{2}$ versus $q^{2}$, measured by NA7 in
+%            inverse kinematics, from which the radii of
+%            Eqs.~\eqref{eq:pion-radius} and~\eqref{eq:kaon-radius} are extracted.}
+%   \label{fig:na7}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
+
+% ============================================================================
+\subsection{The unified picture: generalized TMDs and outlook}
+\label{subsec:gtmds}
+
+The distributions introduced in this chapter and the last are not independent objects but
+projections of a single, more general one. The \emph{generalized transverse-momentum
+dependent distributions} (GTMDs), functions of the momentum fraction $x$, the parton
+transverse momentum $\vec k_{\perp}$ and the momentum transfer $\vec\Delta$, contain all
+of the information carried by the others. Setting $\Delta=0$ removes the momentum
+transfer and yields the TMDs; integrating over $\vec k_{\perp}$ yields the GPDs;
+integrating over $x$ yields transverse-momentum-dependent form factors; and successive
+projections lead down to the ordinary PDFs, the elastic form factors and, at the bottom of
+the hierarchy, the total charge. Figure~\ref{fig:gtmd-diamond} shows the resulting
+lattice of relations, sometimes called the structure-function diamond, with the GTMD as
+the mother distribution at its apex.
+
+\begin{figure}[t]
+    \centering
+    \begin{tikzpicture}[>=Stealth, scale=1.0,
+        every node/.style={font=\small},
+        red arrow/.style={->, red!70!black, thick},
+        blue arrow/.style={->, blue!60!black, thick, dashed},
+        dot arrow/.style={->, black, thick, dotted}]
+
+        % nodes
+        \node (gtmd)  at (0,4.2)      {$\mathrm{GTMD}(x,\vec k_{\perp},\Delta)$};
+        \node (tmd)   at (-3.4,2.1)   {$\mathrm{TMD}(x,\vec k_{\perp})$};
+        \node (tmff)  at (0,2.1)      {$\mathrm{TMFF}(\vec k_{\perp},\Delta)$};
+        \node (gpd)   at (3.4,2.1)    {$\mathrm{GPD}(x,\Delta)$};
+        \node (tmsd)  at (-3.4,0)     {$\mathrm{TMSD}(\vec k_{\perp})$};
+        \node (pdf)   at (0,0)        {$\mathrm{PDF}(x)$};
+        \node (ff)    at (3.4,0)      {$\mathrm{FF}(\Delta)$};
+        \node (charge)at (0,-2.1)     {Charge};
+
+        % from GTMD
+        \draw[red arrow]  (gtmd) -- (tmd);
+        \draw[blue arrow] (gtmd) -- (tmff);
+        \draw[dot arrow]  (gtmd) -- (gpd);
+        % middle layer
+        \draw[blue arrow] (tmd)  -- (tmsd);
+        \draw[dot arrow]  (tmd)  -- (pdf);
+        \draw[red arrow]  (tmff) -- (tmsd);
+        \draw[dot arrow]  (tmff) -- (ff);
+        \draw[red arrow]  (gpd)  -- (pdf);
+        \draw[blue arrow] (gpd)  -- (ff);
+        % to charge
+        \draw[dot arrow]  (tmsd) -- (charge);
+        \draw[blue arrow] (pdf)  -- (charge);
+        \draw[red arrow]  (ff)   -- (charge);
+
+        % legend
+        \draw[red arrow]  (4.6,-1.5) -- (5.4,-1.5) node[right,black] {$\Delta = 0$};
+        \draw[blue arrow] (4.6,-1.9) -- (5.4,-1.9) node[right,black] {$\int\mathrm{d}x$};
+        \draw[dot arrow]  (4.6,-2.3) -- (5.4,-2.3)
+            node[right,black] {$\int\mathrm{d}^{2}k_{\perp}$};
+    \end{tikzpicture}
+    \caption{The hierarchy of nucleon structure functions. The generalized
+             transverse-momentum dependent distribution
+             $\mathrm{GTMD}(x,\vec k_{\perp},\Delta)$ contains all of the
+             information; setting $\Delta=0$ (solid red), integrating over the
+             momentum fraction $x$ (dashed blue) or over the parton transverse
+             momentum $\vec k_{\perp}$ (dotted) projects it successively onto the
+             TMDs, GPDs, transverse-momentum-dependent form factors (TMFF),
+             transverse-momentum-dependent spatial densities (TMSD), the collinear
+             PDFs, the elastic form factors and finally the total charge. Adapted
+             from the lecture slide.}
+    \label{fig:gtmd-diamond}
+\end{figure}
+
+The GTMDs are, at present, largely a theoretical construct: it is not clear how to access
+them experimentally, though double DVCS and two-jet production have been proposed as
+possible channels. Their value in the meantime is organizational, since they make explicit
+that the many distributions introduced here are different projections of one underlying
+object and must satisfy relations among themselves.
+
+It is worth closing by collecting the pieces. Table~\ref{tab:structure-summary}
+summarizes the hierarchy: which reaction gives access to each class of distribution, on
+what variables it depends, and what it tells us. Elastic scattering
+($eN\to eN$) yields the Sachs form factors $G_{E}(Q^{2})$ and $G_{M}(Q^{2})$ and hence the
+electromagnetic shape of the nucleon at resolution $Q^{2}$, including the charge radius
+extracted from the slope $r_{p}^{2}=-6\,\mathrm{d}G_{E}/\mathrm{d}Q^{2}|_{Q^{2}=0}$.
+Resonance electroproduction ($eN\to eN^{*}\to e+\mathrm{hadrons}$) yields the transition
+form factors $G_{M}^{*}$, $G_{E}^{*}$ and $G_{C}^{*}$, measured through the helicity
+amplitudes $A_{1/2}$, $A_{3/2}$ and $S_{1/2}$, and tells us how the nucleon is excited.
+Inclusive DIS, polarized and unpolarized, yields the collinear distributions through
+$F_{2}$ and $g_{1}$, with the DGLAP equations governing their evolution and global
+analysis becoming indispensable from this point on. Semi-inclusive DIS and Drell--Yan
+yield the TMDs and, in the SIDIS case, the fragmentation functions. Exclusive reactions
+yield the GPDs and with them the transverse spatial distribution of partons. And all of
+these, finally, exist for every hadron, not only for the nucleon---which is why the
+pion and kaon of Sect.~\ref{subsec:meson-structure} belong in the same framework.
+
+\begin{table}[t]
+    \centering
+    \caption{Summary of the structure quantities introduced in
+             Chapters~\ref{sec:electron-scattering} and~\ref{sec:dis-nucleon-structure},
+             the reaction giving access to each, and the information it encodes.}
+    \label{tab:structure-summary}
+    \begin{tabular}{@{}L{2.6cm} L{3.5cm} L{4.6cm}@{}}
+        \toprule
+        Quantity & Reaction & Information \\
+        \midrule
+        Form factors $\mathrm{FF}(\Delta)$
+            & elastic, $eN\to eN$
+            & electromagnetic shape at resolution $Q^{2}$; radii \\[2pt]
+        Transition FF
+            & $eN\to eN^{*}\to e+h$
+            & how the nucleon is excited; resonance structure \\[2pt]
+        $\mathrm{PDF}(x)$
+            & inclusive DIS, $eN\to eX$, $\nu N\to\mu X$
+            & longitudinal momentum and helicity densities \\[2pt]
+        $\mathrm{TMD}(x,\vec k_{\perp})$
+            & SIDIS $eN\to e\,h\,X$; Drell--Yan $NN\to ll\,X$
+            & transverse momentum; spin--momentum correlations \\[2pt]
+        $\mathrm{GPD}(x,\Delta)$
+            & exclusive, $eN\to eN\gamma$ or $eN\to eNM$
+            & transverse spatial distribution at given $x$; $J^{q}$ \\[2pt]
+        $\mathrm{GTMD}(x,\vec k_{\perp},\Delta)$
+            & not yet accessible
+            & the mother distribution containing all of the above \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Many questions remain open, and answering them needs machines that do not yet exist. The
+requirements are clear from what has been said: polarized beams of electrons, protons and
+neutrons to form the spin asymmetries; a large-acceptance spectrometer to reconstruct the
+complete final states that exclusive reactions demand; and high luminosity, because
+exclusive cross sections are small and the interesting observables are differential in
+several variables at once. These are precisely the design goals of the Electron--Ion
+Collider under construction at Brookhaven, which is expected to map the gluon
+distributions, settle the orbital angular momentum contribution to the proton spin
+through the Ji sum rule, and extend nucleon tomography over a wide range in $x$ and
+$Q^{2}$. The structure of hadrons, mapped in one dimension by the experiments of the
+1970s, is only now becoming a genuinely multidimensional science. The pace is worth
+noting: the standard monograph of Thomas and Weise could still treat the off-forward
+distributions of Sect.~\ref{subsec:gpds} in a single closing section of its deep
+inelastic chapter \cite[Ch.~4.8]{ThomasWeise2001}, whereas those
+distributions, the TMDs and the GTMDs now between them define the program of a whole
+generation of experiments.
+
+% ---- PLACEHOLDER FIGURE (EIC layout and detector) -------------------------
+% \begin{figure}[t]
+%   \centering
+%   \includegraphics[width=0.9\linewidth]{Figures/eic_bnl.pdf}
+%   \caption{The Electron--Ion Collider at Brookhaven National Laboratory. Left:
+%            the accelerator complex with the electron storage ring, ion storage
+%            ring, electron cooling and injector chain. Right: a cut-away of the
+%            general-purpose detector, showing tracking, particle identification,
+%            electromagnetic and hadronic calorimetry inside the solenoid.}
+%   \label{fig:eic}
+% \end{figure}
+% ----------------------------------------------------------------------------
+
+\FloatBarrier
