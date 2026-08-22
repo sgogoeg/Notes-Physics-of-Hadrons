@@ -181,7 +181,7 @@ experiment discussed in this chapter and the next \cite[Ch.~1]{Amsler2018}.
     \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.62\linewidth]{Figures/resolving_power.pdf}
     \caption{Resolving power of a virtual photon,
@@ -224,21 +224,14 @@ which is positive because the exchanged photon is spacelike; $Q^{2}$ is the virt
 that already appeared in Eq.~\eqref{eq:resolving-power} and sets the resolution of the
 probe.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
     \centering
-    % ---- PLACEHOLDER FIGURE (one-photon-exchange kinematics) ----------------
-    % Reproduce the "Review: Reaction kinematics" slide: incident electron
-    % k^mu=(E,vec k) and scattered electron k'^mu=(E',vec k') meeting at a vertex,
-    % a wavy exchanged photon q^mu=(nu,vec q), and the nucleon target at rest
-    % P^mu=(M,0) with the hadronic final state X emerging. A TikZ diagram with
-    % \usetikzlibrary{decorations.pathmorphing} for the photon line is the natural
-    % choice, matching the inline Feynman graphs of Chapters 7-8.
-    % \includegraphics[width=0.7\linewidth]{Figures/ep_kinematics.pdf}
+\includegraphics[width=0.7\linewidth]{Figures/ep_kinematics.png}
     \caption{One-photon-exchange kinematics of electron--nucleon scattering,
              Eq.~\eqref{eq:generic-reaction}. The incident electron
              $k=(E,\vec k)$ scatters to $k'=(E',\vec k')$, transferring a virtual
              photon of four-momentum $q=(\nu,\vec q)$ to a nucleon at rest
-             $P=(M,\vec 0)$, which emerges as the hadronic system $X$.}
+             $P=(M,\vec 0)$, which emerges as the hadronic system $X$. Adapted from the lecture slides (week 26, "Review: Reaction kinematics").}
     \label{fig:kinematics}
 \end{figure}
 
@@ -378,19 +371,17 @@ nucleon matrix element of the electromagnetic current into the Dirac and Pauli t
 and the normalizations \eqref{eq:F1F2-norm}, follow Thomas and Weise
 \cite[Ch.~2.2]{ThomasWeise2001}.
 
-% ---- PLACEHOLDER FIGURE (rho(r) <-> F(q^2) correspondence) ------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/rho_formfactor_gallery.pdf}
-%   \caption{Correspondence between a static charge distribution $\rho(r)$ (left)
-%            and the modulus of its form factor $|F(q^2)|$ (right), from
-%            Eq.~\eqref{eq:form-factor-def}: pointlike $\to$ constant (electron),
-%            exponential $\to$ dipole (proton), Gaussian $\to$ Gaussian
-%            ($^{6}$Li), homogeneous or diffuse sphere $\to$ oscillating
-%            ($^{40}$Ca).}
-%   \label{fig:formfactor-gallery}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/rho_formfactor_gallery.png}
+  \caption{Correspondence between a static charge distribution $\rho(r)$ (left)
+           and the modulus of its form factor $|F(q^2)|$ (right), from
+           Eq.~\eqref{eq:form-factor-def}: pointlike $\to$ constant (electron),
+           exponential $\to$ dipole (proton), Gaussian $\to$ Gaussian
+           ($^{6}$Li), homogeneous or diffuse sphere $\to$ oscillating
+           ($^{40}$Ca). Adapted from the lecture slides (week 27, "Form factors").}
+  \label{fig:formfactor-gallery}
+\end{figure}
 
 \FloatBarrier
 
@@ -470,7 +461,7 @@ parametrization \eqref{eq:dipole}, its exponential-density interpretation and th
 empirical scaling relations among the four nucleon form factors are discussed by Thomas
 and Weise \cite[Ch.~2.2]{ThomasWeise2001}.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\linewidth]{Figures/dipole_sachs.pdf}
     \caption{The proton electric form factor $G_{E}^{p}$ and the normalized magnetic
@@ -481,30 +472,26 @@ and Weise \cite[Ch.~2.2]{ThomasWeise2001}.
     \label{fig:dipole-sachs}
 \end{figure}
 
-% ---- PLACEHOLDER FIGURE (Rosenbluth linear fit) ----------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.55\linewidth]{Figures/rosenbluth_linefit.pdf}
-%   \caption{Rosenbluth separation at fixed $Q^{2}$: the reduced cross section
-%            $(\mathrm{d}\sigma/\mathrm{d}\Omega)_{\exp}/
-%            (\mathrm{d}\sigma/\mathrm{d}\Omega)_{\mathrm{Mott}}$ plotted against
-%            $\tan^{2}(\theta/2)$ is a straight line whose slope gives
-%            $G_{M}^{2}$ and whose intercept gives
-%            $[G_{E}^{2}+\tau G_{M}^{2}]/(1+\tau)$.}
-%   \label{fig:rosenbluth-fit}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (A1 spectrometer at Mainz) -------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/a1_spectrometer_mainz.pdf}
-%   \caption{The A1 magnetic-spectrometer setup at the Mainz Microtron (MAMI),
-%            used for high-precision elastic form-factor measurements: height
-%            $15~\mathrm{m}$, weight $>200~\mathrm{t}$, momentum resolution
-%            $<10^{-4}$, angular acceptance $\Delta\Omega<28~\mathrm{msr}$.}
-%   \label{fig:a1-mainz}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{Figures/rosenbluth_linefit.png}
+  \caption{Rosenbluth separation at fixed $Q^{2}$: the reduced cross section
+           $(\mathrm{d}\sigma/\mathrm{d}\Omega)_{\exp}/
+           (\mathrm{d}\sigma/\mathrm{d}\Omega)_{\mathrm{Mott}}$ plotted against
+           $\tan^{2}(\theta/2)$ is a straight line whose slope gives
+           $G_{M}^{2}$ and whose intercept gives
+           $[G_{E}^{2}+\tau G_{M}^{2}]/(1+\tau)$. Adapted from the lecture slides (week 27, "Rosenbluth Separation").}
+  \label{fig:rosenbluth-fit}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/a1_spectrometer_mainz.png}
+  \caption{The A1 magnetic-spectrometer setup at the Mainz Microtron (MAMI),
+           used for high-precision elastic form-factor measurements: height
+           $15~\mathrm{m}$, weight $>200~\mathrm{t}$, momentum resolution
+           $<10^{-4}$, angular acceptance $\Delta\Omega<28~\mathrm{msr}$. Adapted from the lecture slides (week 27, "A1 experiment at Mainz").}
+  \label{fig:a1-mainz}
+\end{figure}
 
 \FloatBarrier
 
@@ -577,34 +564,30 @@ be noted that the discrepancy itself emerged from the Jefferson Lab measurements
 early 2000s and is therefore not yet reflected in Thomas and Weise
 \cite{ThomasWeise2001}, which predates it.
 
-% ---- PLACEHOLDER FIGURE (recoil polarimeter / FPP) -------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.85\linewidth]{Figures/recoil_polarimeter.pdf}
-%   \caption{Principle of recoil polarimetry. Left: the spin--orbit force in
-%            secondary scattering off an analyzer nucleus produces a left--right
-%            asymmetry sensitive to the transverse polarization
-%            ($\vec L\cdot\vec S$ changes sign across the analyzer). Right:
-%            precession of the longitudinal component $P_{l}$ in the spectrometer
-%            dipole rotates it into a measurable transverse component at the focal
-%            plane polarimeter (FPP).}
-%   \label{fig:recoil-polarimeter}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (mu_p G_E/G_M vs Q^2) -----------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/gegm_ratio_vs_q2.pdf}
-%   \caption{The ratio $\mu_{p}\,G_{E}^{p}/G_{M}^{p}$ versus $Q^{2}$. Rosenbluth
-%            separations suggest a ratio near unity (weak $Q^{2}$ dependence),
-%            whereas polarization-transfer data (Punjabi, Puckett, and others)
-%            fall approximately linearly below unity, revealing the
-%            $G_{E}/G_{M}$ discrepancy. Also indicated: the Born (single-photon)
-%            graph, standard radiative corrections, and the smaller hard
-%            two-photon-exchange graphs.}
-%   \label{fig:gegm-discrepancy}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{Figures/recoil_polarimeter.png}
+  \caption{Principle of recoil polarimetry. Left: the spin--orbit force in
+           secondary scattering off an analyzer nucleus produces a left--right
+           asymmetry sensitive to the transverse polarization
+           ($\vec L\cdot\vec S$ changes sign across the analyzer). Right:
+           precession of the longitudinal component $P_{l}$ in the spectrometer
+           dipole rotates it into a measurable transverse component at the focal
+           plane polarimeter (FPP). Adapted from the lecture slides (week 27, "How to measure recoil polarisation?").}
+  \label{fig:recoil-polarimeter}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/gegm_ratio_vs_q2.png}
+  \caption{The ratio $\mu_{p}\,G_{E}^{p}/G_{M}^{p}$ versus $Q^{2}$. Rosenbluth
+           separations suggest a ratio near unity (weak $Q^{2}$ dependence),
+           whereas polarization-transfer data (Punjabi, Puckett, and others)
+           fall approximately linearly below unity, revealing the
+           $G_{E}/G_{M}$ discrepancy. Also indicated: the Born (single-photon)
+           graph, standard radiative corrections, and the smaller hard
+           two-photon-exchange graphs. Adapted from the lecture slides (week 27, "$G_E/G_M$ at large $Q^2$").}
+  \label{fig:gegm-discrepancy}
+\end{figure}
 
 \FloatBarrier
 
@@ -655,29 +638,25 @@ $Q^{2}\lesssim 2.5~\mathrm{GeV}^{2}$, whereas the discrepancy is largest at high
 $Q^{2}$, and closing that gap---perhaps with future measurements at Jefferson Lab---is
 needed before the case can be considered settled \cite[Ch.~14]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURE (OLYMPUS setup at DESY) ----------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.8\linewidth]{Figures/olympus_desy.pdf}
-%   \caption{The OLYMPUS detector at the DORIS storage ring (DESY): drift
-%            chambers, toroidal magnet coils, time-of-flight scintillators,
-%            $12^{\circ}$ telescopes and symmetric M{\o}ller/Bhabha (SyMB)
-%            luminosity calorimeters, with alternating $e^{-}/e^{+}$ beams.}
-%   \label{fig:olympus}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (R_2gamma vs epsilon) ------------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/r2gamma_vs_epsilon.pdf}
-%   \caption{The two-photon-exchange ratio $R_{2\gamma}$ (Eq.~\eqref{eq:r2gamma})
-%            versus the virtual-photon polarization $\varepsilon$, from OLYMPUS,
-%            compared with the Blunden ($N$ and $N+\Delta$), Bernauer and Tomalak
-%            calculations. The effect is at the percent level and grows toward
-%            backward angles (small $\varepsilon$).}
-%   \label{fig:r2gamma}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{Figures/olympus_desy.png}
+  \caption{The OLYMPUS detector at the DORIS storage ring (DESY): drift
+           chambers, toroidal magnet coils, time-of-flight scintillators,
+           $12^{\circ}$ telescopes and symmetric M{\o}ller/Bhabha (SyMB)
+           luminosity calorimeters, with alternating $e^{-}/e^{+}$ beams. Adapted from the lecture slides (week 27, "Two photon exchange: Olympus at DESY").}
+  \label{fig:olympus}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/r2gamma_vs_epsilon.png}
+  \caption{The two-photon-exchange ratio $R_{2\gamma}$ (Eq.~\eqref{eq:r2gamma})
+           versus the virtual-photon polarization $\varepsilon$, from OLYMPUS,
+           compared with the Blunden ($N$ and $N+\Delta$), Bernauer and Tomalak
+           calculations. The effect is at the percent level and grows toward
+           backward angles (small $\varepsilon$). Adapted from the lecture slides (week 27, "Two photon exchange").}
+  \label{fig:r2gamma}
+\end{figure}
 
 \FloatBarrier
 
@@ -714,19 +693,17 @@ of an interior--exterior charge separation, and its natural explanation through 
 cloud, are discussed by Thomas and Weise
 \cite[Ch.~2.2, Ch.~7.4]{ThomasWeise2001}.
 
-% ---- PLACEHOLDER FIGURE (G_M^n, G_E^n data + neutron charge density) -------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/neutron_form_factors.pdf}
-%   \caption{Neutron form factors. Left: the magnetic form factor
-%            $G_{M}^{n}/(\mu_{n}G_{D})$ (top) and the electric form factor
-%            $G_{E}^{n}$ (bottom) versus $Q^{2}$, from measurements on deuterium
-%            and $^{3}\mathrm{He}$ targets. Right: the inferred neutron charge
-%            density $4\pi r^{2}\rho(r)$, positive in the interior and negative in
-%            the outer region, integrating to zero net charge.}
-%   \label{fig:neutron-ff}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/neutron_form_factors.png}
+  \caption{Neutron form factors. Left: the magnetic form factor
+           $G_{M}^{n}/(\mu_{n}G_{D})$ (top) and the electric form factor
+           $G_{E}^{n}$ (bottom) versus $Q^{2}$, from measurements on deuterium
+           and $^{3}\mathrm{He}$ targets. Right: the inferred neutron charge
+           density $4\pi r^{2}\rho(r)$, positive in the interior and negative in
+           the outer region, integrating to zero net charge. Adapted from the lecture slides (week 27, "Neutron Form Factor").}
+  \label{fig:neutron-ff}
+\end{figure}
 
 \FloatBarrier
 
@@ -793,7 +770,7 @@ determinations that define it: the muonic-hydrogen values cluster tightly around
 small radius, while the older electron-scattering and hydrogen-spectroscopy values
 scatter around the larger one \cite[Ch.~14]{Amsler2018}.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.72\linewidth]{Figures/proton_radius_puzzle.pdf}
     \caption{The proton radius puzzle: determinations of the proton charge radius
@@ -832,41 +809,35 @@ AMBER is designed to provide it \cite[Ch.~14]{Amsler2018}. The puzzle itself bro
 2010 and is therefore absent from Thomas and Weise \cite{ThomasWeise2001}, whose
 treatment supplies the underlying form-factor formalism but not this controversy.
 
-% ---- PLACEHOLDER FIGURE (G_E slope, Mainz 2010) ----------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/ge_slope_mainz.pdf}
-%   \caption{Low-$Q^{2}$ electric form factor $G_{E}(Q^{2})$ from the Mainz 2010
-%            data. The proton radius is extracted from the slope at the origin,
-%            Eq.~\eqref{eq:rp-slope}; the near-unity value and small slope make the
-%            extrapolation challenging.}
-%   \label{fig:ge-slope}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (hydrogen level scheme / muonic H spectroscopy) ----
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/hydrogen_levels_radius.pdf}
-%   \caption{Left: hydrogen level scheme showing the successive Bohr, Dirac, Lamb
-%            and hyperfine contributions, and the additional shift $r_{p}$ due to
-%            the finite proton size, which affects $S$ states but not $P$ states.
-%            Right: the muonic-hydrogen $2S$--$2P$ laser-spectroscopy resonance
-%            measured by CREMA.}
-%   \label{fig:hydrogen-radius}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (AMBER M2 beamline / PRM setup) --------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/amber_prm_setup.pdf}
-%   \caption{The AMBER proton-radius measurement at CERN's M2 beamline: a beam of
-%            positive and negative muons scatters on an active high-pressure
-%            hydrogen time-projection chamber, with silicon-pixel detectors and
-%            scintillating-fiber hodoscopes tracking the incident and scattered
-%            muons and the recoil proton.}
-%   \label{fig:amber-setup}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/ge_slope_mainz.png}
+  \caption{Low-$Q^{2}$ electric form factor $G_{E}(Q^{2})$ from the Mainz 2010
+           data. The proton radius is extracted from the slope at the origin,
+           Eq.~\eqref{eq:rp-slope}; the near-unity value and small slope make the
+           extrapolation challenging. Adapted from the lecture slides (week 27, "Proton Charge Radius").}
+  \label{fig:ge-slope}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/hydrogen_levels_radius.png}
+  \caption{Left: hydrogen level scheme showing the successive Bohr, Dirac, Lamb
+           and hyperfine contributions, and the additional shift $r_{p}$ due to
+           the finite proton size, which affects $S$ states but not $P$ states.
+           Right: the muonic-hydrogen $2S$--$2P$ laser-spectroscopy resonance
+           measured by CREMA. Adapted from the lecture slides (week 27, "Proton Charge Radius from Hydrogen / from muonic hydrogen").}
+  \label{fig:hydrogen-radius}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/amber_prm_setup.png}
+  \caption{The AMBER proton-radius measurement at CERN's M2 beamline: a beam of
+           positive and negative muons scatters on an active high-pressure
+           hydrogen time-projection chamber, with silicon-pixel detectors and
+           scintillating-fiber hodoscopes tracking the incident and scattered
+           muons and the recoil proton. Adapted from the lecture slides (week 27, "Proton radius at AMBER").}
+  \label{fig:amber-setup}
+\end{figure}
 
 \FloatBarrier
 
@@ -996,54 +967,46 @@ inelastic progression, is where Chapter~\ref{sec:dis-nucleon-structure} begins
 Chapter~2 on the electromagnetic structure of the nucleon gives way to the deep
 inelastic scattering of their Chapter~4 \cite[Ch.~2, Ch.~4]{ThomasWeise2001}.
 
-% ---- PLACEHOLDER FIGURE (inclusive e-spectrum with resonance bumps) --------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/resonance_electroproduction_spectrum.pdf}
-%   \caption{Inclusive electron spectrum
-%            $\mathrm{d}^{2}\sigma/\mathrm{d}\Omega\,\mathrm{d}E'$ for
-%            $ep\to eX$ at fixed beam energy, showing the elastic peak (scaled
-%            down) and the succession of resonance bumps
-%            ($\Delta(1232)$ and the second and third resonance regions) as
-%            functions of $E'$ and the invariant mass $W$.}
-%   \label{fig:resonance-spectrum}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (resonance region vs Q^2) --------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/resonance_region_vs_q2.pdf}
-%   \caption{The resonance region in the total cross section versus $W$ at
-%            $Q^{2}=0$, $0.1$, $1.0$ and $2.0~\mathrm{GeV}^{2}$. The
-%            $\Delta(1232)$ dominates at low $Q^{2}$ and falls faster than the
-%            higher resonances as $Q^{2}$ increases.}
-%   \label{fig:resonance-vs-q2}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (Delta multipole ratios R_EM, R_SM) ----------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/delta_multipole_ratios.pdf}
-%   \caption{The $N\to\Delta$ multipole ratios $R_{EM}=E_{1+}/M_{1+}$ (top) and
-%            $R_{SM}=S_{1+}/M_{1+}$ (bottom) versus $Q^{2}$
-%            (Eq.~\eqref{eq:multipole-ratios}). Both are small but non-zero,
-%            contradicting the pure-$M1$ quark-model expectation
-%            $R_{EM}=R_{SM}=0$ (Eq.~\eqref{eq:naive-quark-prediction}) and
-%            signalling a deformation of the transition.}
-%   \label{fig:delta-multipoles}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (Roper helicity amplitudes) ------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/roper_helicity_amplitudes.pdf}
-%   \caption{Helicity amplitudes $A_{1/2}$ and $S_{1/2}$ of the Roper resonance
-%            $N(1440)\tfrac{1}{2}^{+}$ versus $Q^{2}$, compared with quark-model
-%            curves. The sign change of $A_{1/2}$ at low $Q^{2}$ and the
-%            high-$Q^{2}$ trend support a three-quark core dressed by a meson
-%            cloud.}
-%   \label{fig:roper}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/resonance_electroproduction_spectrum.png}
+  \caption{Inclusive electron spectrum
+           $\mathrm{d}^{2}\sigma/\mathrm{d}\Omega\,\mathrm{d}E'$ for
+           $ep\to eX$ at fixed beam energy, showing the elastic peak (scaled
+           down) and the succession of resonance bumps
+           ($\Delta(1232)$ and the second and third resonance regions) as
+           functions of $E'$ and the invariant mass $W$. Adapted from the lecture slides (week 27, "Resonance Production").}
+  \label{fig:resonance-spectrum}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/resonance_region_vs_q2.png}
+  \caption{The resonance region in the total cross section versus $W$ at
+           $Q^{2}=0$, $0.1$, $1.0$ and $2.0~\mathrm{GeV}^{2}$. The
+           $\Delta(1232)$ dominates at low $Q^{2}$ and falls faster than the
+           higher resonances as $Q^{2}$ increases. Adapted from the lecture slides (week 27, "Resonance production - $Q^2$ dependence").}
+  \label{fig:resonance-vs-q2}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/delta_multipole_ratios.png}
+  \caption{The $N\to\Delta$ multipole ratios $R_{EM}=E_{1+}/M_{1+}$ (top) and
+           $R_{SM}=S_{1+}/M_{1+}$ (bottom) versus $Q^{2}$
+           (Eq.~\eqref{eq:multipole-ratios}). Both are small but non-zero,
+           contradicting the pure-$M1$ quark-model expectation
+           $R_{EM}=R_{SM}=0$ (Eq.~\eqref{eq:naive-quark-prediction}) and
+           signalling a deformation of the transition. Adapted from the lecture slides (week 27, "Delta(1232) - Multipole Ratios").}
+  \label{fig:delta-multipoles}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/roper_helicity_amplitudes.png}
+  \caption{Helicity amplitudes $A_{1/2}$ and $S_{1/2}$ of the Roper resonance
+           $N(1440)\tfrac{1}{2}^{+}$ versus $Q^{2}$, compared with quark-model
+           curves. The sign change of $A_{1/2}$ at low $Q^{2}$ and the
+           high-$Q^{2}$ trend support a three-quark core dressed by a meson
+           cloud. Adapted from the lecture slides (week 27, "The Roper Resonance - N(1440) 1/2+").}
+  \label{fig:roper}
+\end{figure}
 
 \FloatBarrier

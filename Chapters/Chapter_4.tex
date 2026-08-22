@@ -93,24 +93,16 @@ a later chapter \cite[Ch.~4]{Amsler2018}. The catalogue \eqref{eq:exotic_JPC}
 thereby turns the elementary counting of $q\bar q$ quantum numbers into an
 experimental search strategy for physics beyond the naive quark model.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% The L,S -> J^PC ladder: schematic spin-coupling pictures (two arrows for the
-% quark and antiquark spins) for L = 0, 1, 2 with the resulting allowed J^PC
-% values listed beside each row, ending with the accessible and forbidden
-% (exotic) J^PC lists. Reproduce from the week 19 VL1 "Possible quantum numbers
-% of qqbar states" slide (or week 19 VL2 summary slide).
-%
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.85\linewidth]{Figures/qqbar_JPC_ladder.pdf}
-%     \caption{Spin and orbital angular momentum of a $q\bar q$ pair and the
-%     resulting $J^{PC}$ quantum numbers. The combinations
-%     in the lower block (Eq.~\eqref{eq:exotic_JPC}) cannot be formed by a simple
-%     quark--antiquark pair and are termed exotic.}
-%     \label{fig:jpc_ladder}
-% \end{figure}
-% ------------------------------------------------------------
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figures/qqbar_JPC_ladder.png}
+    \caption{Spin and orbital angular momentum of a $q\bar q$ pair and the
+    resulting $J^{PC}$ quantum numbers. The combinations
+    in the lower block (Eq.~\eqref{eq:exotic_JPC}) cannot be formed by a simple
+    quark--antiquark pair and are termed exotic. Adapted from the lecture
+    slides (week 19, "Possible quantum numbers of $q\bar q$ states").}
+    \label{fig:jpc_ladder}
+\end{figure}
 
 % ============================================================
 \subsection{Mesons}
@@ -180,24 +172,16 @@ Eq.~\eqref{eq:pi0_state} is realised as the flavour-symmetric combination for th
 pseudoscalar and as the flavour-antisymmetric combination for the vector
 \cite[Ch.~7]{Amsler2018}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% The two weight diagrams (hexagons) of the pseudoscalar (J^PC = 0^-+) and vector
-% (J^PC = 1^--) nonets in the (I_3, Y) plane, with the open-flavour members on
-% the periphery (K, pi / K*, rho) and the three central states (pi^0, eta, eta'
-% / rho^0, omega, phi) at the origin. Reproduce from the week 19 VL1 "Meson
-% multiplets" slide, or adapt Amsler Fig. 5.1.
-%
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.9\linewidth]{Figures/meson_nonets.pdf}
-%     \caption{Weight diagrams of the pseudoscalar ($J^{PC} = 0^{-+}$) and vector
-%     ($J^{PC} = 1^{--}$) meson nonets in the $(I_3, Y)$ plane. The six
-%     open-flavour states lie on the periphery of the hexagon; the three neutral,
-%     flavourless states occupy the centre.}
-%     \label{fig:meson_nonets}
-% \end{figure}
-% ------------------------------------------------------------
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figures/meson_nonets.png}
+    \caption{Weight diagrams of the pseudoscalar ($J^{PC} = 0^{-+}$) and vector
+    ($J^{PC} = 1^{--}$) meson nonets in the $(I_3, Y)$ plane. The six
+    open-flavour states lie on the periphery of the hexagon; the three neutral,
+    flavourless states occupy the centre. Adapted from the lecture slides
+    (week 19, "Meson multiplets").}
+    \label{fig:meson_nonets}
+\end{figure}
 
 % ============================================================
 \subsection{Nonets and ideal mixing}
@@ -260,25 +244,45 @@ of the two ground-state nonets,
 (in MeV) are the inputs to the mass formulae of the next subsection
 \cite[Ch.~5]{Amsler2018}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% The wavefunction-mixing perturbation: oscillation between qqbar pairs mediated
-% by gluon exchange, contrasting the two-gluon process allowed for the 0^-+
-% isoscalars with the three-gluon process required for the 1^-- isoscalars
-% (Fermi-Yang theorem), and the angular-momentum suppression for L > 0.
-% Reproduce/adapt from Amsler Fig. 5.2.
-%
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{Figures/mixing_perturbation.pdf}
-%     \caption{Gluonic perturbation responsible for singlet--octet mixing. The
-%     two-gluon process is allowed for the pseudoscalar isoscalars but forbidden
-%     for the vectors, which require at least three gluons; this explains the
-%     near-ideal mixing of the vector nonet and the large deviation of the
-%     pseudoscalars.}
-%     \label{fig:mixing_perturbation}
-% \end{figure}
-% ------------------------------------------------------------
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[thick, scale=1.0]
+        % Left: 2-gluon process (pseudoscalar, allowed)
+        \begin{scope}
+            \draw (-1.4,0.6) -- (-0.5,0) node[midway, above] {$q$};
+            \draw (-1.4,-0.6) -- (-0.5,0) node[midway, below] {$\bar q$};
+            \draw[decorate,decoration={coil,aspect=0.4,segment length=3pt}]
+                (-0.5,0) -- (0.5,0.35);
+            \draw[decorate,decoration={coil,aspect=0.4,segment length=3pt}]
+                (-0.5,0) -- (0.5,-0.35);
+            \draw (0.5,0.35) -- (1.4,0.6) node[midway, above] {$q'$};
+            \draw (0.5,-0.35) -- (1.4,-0.6) node[midway, below] {$\bar q'$};
+            \node at (0,-1.3) {(a) $0^{-+}$: two gluons, allowed};
+        \end{scope}
+        % Right: 3-gluon process (vector, required)
+        \begin{scope}[xshift=5.2cm]
+            \draw (-1.4,0.6) -- (-0.5,0) node[midway, above] {$q$};
+            \draw (-1.4,-0.6) -- (-0.5,0) node[midway, below] {$\bar q$};
+            \draw[decorate,decoration={coil,aspect=0.4,segment length=3pt}]
+                (-0.5,0) -- (0.5,0.5);
+            \draw[decorate,decoration={coil,aspect=0.4,segment length=3pt}]
+                (-0.5,0) -- (0.5,0);
+            \draw[decorate,decoration={coil,aspect=0.4,segment length=3pt}]
+                (-0.5,0) -- (0.5,-0.5);
+            \draw (0.5,0.5) -- (1.4,0.7) node[midway, above] {$q'$};
+            \draw (0.5,-0.5) -- (1.4,-0.7) node[midway, below] {$\bar q'$};
+            \node at (0,-1.3) {(b) $1^{--}$: three gluons, required};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Gluonic perturbation responsible for singlet--octet mixing. (a)
+    The pseudoscalar ($0^{-+}$) isoscalars can mix via an intermediate
+    two-gluon state. (b) The Fermi--Yang theorem forbids a spin-$1$ state from
+    coupling to two spin-$1$ gluons, so the vector ($1^{--}$) isoscalars
+    require at least three gluons, strongly suppressing the perturbation;
+    this explains the near-ideal mixing of the vector nonet and the large
+    deviation of the pseudoscalars.}
+    \label{fig:mixing_perturbation}
+\end{figure}
 
 % ============================================================
 \subsection{The Gell-Mann--Okubo mass formula}
@@ -398,23 +402,16 @@ $BR(\phi\to K\bar K)\approx 84\%$ against $BR(\phi\to 3\pi)\approx 15\%$, and th
 narrow total width $\Gamma(\phi) = 4.4$~MeV contrasts sharply with the
 OZI-unsuppressed $\Gamma(\rho(770)) = 150$~MeV \cite[Ch.~5]{Amsler2018}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% The OZI quark-line diagrams for the phi meson: (top) the connected, OZI-allowed
-% graph phi(s sbar) -> K^- (s ubar) K^+ (u sbar), and (bottom) the disconnected,
-% OZI-suppressed graph phi(s sbar) -> pi^+ pi^0 pi^- in which the s sbar pair
-% annihilates and three light qqbar pairs are created. Reproduce from the week 19
-% VL1 "OZI rule" slide, or adapt Amsler Fig. 5.3.
-%
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.7\linewidth]{Figures/ozi_phi.pdf}
-%     \caption{Quark-line diagrams for $\phi$ decay. The connected $K\bar K$ graph
-%     (top) is OZI allowed and dominates, whereas the disconnected $3\pi$ graph
-%     (bottom), in which the $s\bar s$ pair annihilates, is OZI suppressed.}
-%     \label{fig:ozi_phi}
-% \end{figure}
-% ------------------------------------------------------------
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.55\linewidth]{Figures/ozi_phi.png}
+    \caption{Quark-line diagrams for $\phi(s\bar s)$ decay. The connected
+    $K\bar K$ graph (top) is OZI allowed and dominates, whereas the
+    disconnected $3\pi$ graph (bottom), in which the $s\bar s$ pair
+    annihilates, is OZI suppressed. Adapted from the lecture slides (week 19,
+    "OZI rule").}
+    \label{fig:ozi_phi}
+\end{figure}
 
 A complementary and more quantitative probe of the quark content is the leptonic
 width of the vector mesons, the decay $V \to e^+e^-$ proceeding through a single
@@ -505,13 +502,14 @@ excitation with $L = 2$, quantum numbers $J^{PC} = 3^{--}$ and isospin $i = 1$
     \end{tabular}
 \end{table}
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION (optional, extended table):
-% The continuation of the naming table for L = 2, 3, 4 (D, F, G waves), listing
-% the pi_2/eta_2, rho/omega/phi (D-wave), b_3/h_3, a_J/f_J families and the
-% corresponding strange K_J states. Reproduce from the week 19 VL2 "Conventional
-% mesons: Naming scheme" slide (second table), or adapt Amsler Table 4.1.
-% ------------------------------------------------------------
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Figures/meson_naming_extended.png}
+    \caption{Continuation of the naming scheme for $L=2,3,4$ ($D$-, $F$- and
+    $G$-wave mesons). Adapted from the lecture slides (week 19, "Conventional
+    mesons: Naming scheme").}
+    \label{fig:meson_naming_extended}
+\end{figure}
 
 % ============================================================
 \subsection{The \texorpdfstring{$\eta$}{eta} meson as a gateway to QCD and new physics}
@@ -554,23 +552,16 @@ $\eta \to \pi^0 S \to \pi^0\gamma\gamma$ would appear as a peak in the
 $\pi^0\gamma$ (or diphoton) invariant-mass spectrum on top of the Standard-Model
 continuum.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% (a) The triangle (quark-loop) diagram for eta -> pi gamma gamma, with the eta
-% coupling to a u,d,s loop emitting two photons (and the new-physics variant in
-% which one photon line is replaced by a hypothetical boson B). (b) A schematic
-% pi^0-gamma invariant-mass spectrum showing the smooth Standard-Model continuum
-% with a narrow "bump" from a hypothetical mediator. Reproduce from the week 19
-% VL1 "The eta meson as gate to new physics" slide.
-%
-% \begin{figure}[t]
-%     \centering
-%     \includegraphics[width=0.85\linewidth]{Figures/eta_rare_decay.pdf}
-%     \caption{(a) Quark-loop diagram for the rare decay
-%     $\eta\to\pi^0\gamma\gamma$ and its new-physics variant
-%     $\eta\to\pi^0 S\to\pi^0\gamma\gamma$. (b) Sketch of the expected
-%     $\pi^0\gamma$ invariant-mass spectrum: a hypothetical light mediator would
-%     appear as a narrow peak over the Standard-Model continuum.}
-%     \label{fig:eta_rare_decay}
-% \end{figure}
-% ------------------------------------------------------------
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figures/eta_rare_decay.png}
+    \caption{Quark-loop diagram for the rare decay
+    $\eta\to\pi^0\gamma\gamma$ (via a $u,d,s$ triangle loop) and its
+    new-physics variants $\eta\to B'\gamma\to\pi^0\gamma\gamma$ and
+    $\eta\to\pi^0 S\to\pi^0\gamma\gamma$, together with a sketch of the
+    expected $\pi^0\gamma$ invariant-mass spectrum: a hypothetical light
+    mediator would appear as a narrow ``bump'' over the Standard-Model
+    continuum. Adapted from the lecture slides (week 19, "The eta meson as
+    gate to new physics").}
+    \label{fig:eta_rare_decay}
+\end{figure}

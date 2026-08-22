@@ -283,7 +283,7 @@ Chapter~\ref{sec:electron-scattering} runs just below the elastic line; and the 
 region of large $\nu$ and large $Q^{2}$, where $W\gg M$, is the deep inelastic
 scattering region proper.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[>=Stealth, scale=1.0]
         % axes
@@ -392,19 +392,17 @@ the $q+\bar q$ combinations in $F_{2}$) \cite[Ch.~4.3]{ThomasWeise2001}. The fir
 moment of $F_{3}$ simply counts the valence quarks of the target, which is the content of
 the Gross--Llewellyn-Smith sum rule \cite[Ch.~4.4]{ThomasWeise2001}.
 
-% ---- PLACEHOLDER FIGURE (F_2 scaling, world data vs Q^2) -------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/f2_scaling_world_data.pdf}
-%   \caption{The proton structure function $F_{2}(x,Q^{2})$ (scaled by powers of
-%            two for legibility) versus $Q^{2}$ over many orders of magnitude, from
-%            H1, ZEUS, BCDMS, E665, NMC and SLAC. At moderate $x$ the data are
-%            nearly flat (Bjorken scaling); the rise at small $x$ and fall at large
-%            $x$ with increasing $Q^{2}$ are the scaling violations described by
-%            DGLAP evolution (Sect.~\ref{subsec:dglap}).}
-%   \label{fig:f2-scaling}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/f2_scaling_world_data.png}
+  \caption{The proton structure function $F_{2}(x,Q^{2})$ (scaled by powers of
+           two for legibility) versus $Q^{2}$ over many orders of magnitude, from
+           H1, ZEUS, BCDMS, E665, NMC and SLAC. At moderate $x$ the data are
+           nearly flat (Bjorken scaling); the rise at small $x$ and fall at large
+           $x$ with increasing $Q^{2}$ are the scaling violations described by
+           DGLAP evolution (Sect.~\ref{subsec:dglap}). Adapted from the lecture slides (week 28, "Summary").}
+  \label{fig:f2-scaling}
+\end{figure}
 
 \FloatBarrier
 
@@ -465,31 +463,27 @@ $x$. Accurate parton distributions are not only of intrinsic interest: they are 
 required input to essentially every cross-section prediction at the LHC, so that the
 precision of collider physics rests directly on the quality of these fits.
 
-% ---- PLACEHOLDER FIGURE (MSHT20 PDFs xf(x) at two scales) ------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/msht20_pdfs.pdf}
-%   \caption{Parton distributions $x f(x,\mu^{2})$ of the proton from the MSHT20
-%            NNLO global fit at $\mu^{2}=10~\mathrm{GeV}^{2}$ (left) and
-%            $\mu^{2}=10^{4}~\mathrm{GeV}^{2}$ (right), showing the valence $u_{V}$
-%            and $d_{V}$, the sea $\bar u,\bar d,s,c$, and the gluon $g$ (scaled by
-%            $1/10$). The growth of the gluon and sea at small $x$ with increasing
-%            $\mu^{2}$ is the DGLAP evolution of
-%            Eqs.~\eqref{eq:dglap-q}--\eqref{eq:dglap-g}.}
-%   \label{fig:msht20-pdfs}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (DGLAP splitting vertices) ------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/dglap_vertices.pdf}
-%   \caption{The elementary QCD splitting vertices underlying the DGLAP kernels:
-%            $q\to qg$, $g\to q\bar q$ and $g\to gg$. A TikZ diagram with
-%            \texttt{decorations.pathmorphing} for the gluon lines is the natural
-%            choice, matching the inline graphs of earlier chapters.}
-%   \label{fig:dglap-vertices}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/msht20_pdfs.png}
+  \caption{Parton distributions $x f(x,\mu^{2})$ of the proton from the MSHT20
+           NNLO global fit at $\mu^{2}=10~\mathrm{GeV}^{2}$ (left) and
+           $\mu^{2}=10^{4}~\mathrm{GeV}^{2}$ (right), showing the valence $u_{V}$
+           and $d_{V}$, the sea $\bar u,\bar d,s,c$, and the gluon $g$ (scaled by
+           $1/10$). The growth of the gluon and sea at small $x$ with increasing
+           $\mu^{2}$ is the DGLAP evolution of
+           Eqs.~\eqref{eq:dglap-q}--\eqref{eq:dglap-g}. Adapted from the lecture slides (week 28, "Summary: DGLAP equations describe evolution of PDFs").}
+  \label{fig:msht20-pdfs}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/dglap_vertices.png}
+  \caption{The elementary QCD splitting vertices underlying the DGLAP kernels:
+           $q\to qg$, $g\to q\bar q$ and $g\to gg$. A TikZ diagram with
+           \texttt{decorations.pathmorphing} for the gluon lines is the natural
+           choice, matching the inline graphs of earlier chapters. Adapted from the lecture slides (week 28, "Summary: DGLAP equations describe evolution of PDFs").}
+  \label{fig:dglap-vertices}
+\end{figure}
 
 \FloatBarrier
 
@@ -677,28 +671,25 @@ raised the value to
 still far below the naive expectation $\Delta\Sigma\sim 1$ that the proton spin is
 carried entirely by the valence quarks.
 
-% ---- PLACEHOLDER FIGURE (EMC apparatus) -----------------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/emc_apparatus.pdf}
-%   \caption{The EMC forward spectrometer at the CERN M2 muon beamline. The
-%            polarized target (two oppositely polarized cells), forward magnet,
-%            drift/proportional chambers, hodoscopes and the muon absorber select
-%            scattered muons over a wide kinematic range.}
-%   \label{fig:emc-apparatus}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (g_1^p and its integral, Ellis-Jaffe) --------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/g1p_ellis_jaffe.pdf}
-%   \caption{The proton spin structure function $x g_{1}^{p}(x)$ (solid) and its
-%            running integral $\int_{x}^{1}g_{1}^{p}\,\mathrm{d}x$ (dashed) versus
-%            $x$, compared with the Ellis--Jaffe sum-rule expectation. The integral
-%            falls short of the sum-rule value, quantifying the spin crisis.}
-%   \label{fig:g1p}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/emc_apparatus.png}
+  \caption{The EMC forward spectrometer at the CERN M2 muon beamline. The
+           polarized target (two oppositely polarized cells), forward magnet,
+           drift/proportional chambers, hodoscopes and the muon absorber select
+           scattered muons over a wide kinematic range. Adapted from the lecture slides (week 28, "The EMC experiment").}
+  \label{fig:emc-apparatus}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/g1p_ellis_jaffe.png}
+  \caption{The proton spin structure function $x g_{1}^{p}(x)$ (solid) and its
+           running integral $\int_{x}^{1}g_{1}^{p}\,\mathrm{d}x$ (dashed) versus
+           $x$, compared with the Ellis--Jaffe sum-rule expectation. The integral
+           falls short of the sum-rule value, quantifying the spin crisis. Adapted from the lecture slides (week 28, "The EMC Result and the Spin Crisis").}
+  \label{fig:g1p}
+\end{figure}
 
 \FloatBarrier
 
@@ -803,29 +794,26 @@ Lattice QCD offers an independent, first-principles route to the same decomposit
 the nucleon spin structure has been among its targets from early on
 \cite[Ch.~6]{ThomasWeise2001}.
 
-% ---- PLACEHOLDER FIGURE (STAR/PHENIX A_LL vs p_T) -------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/rhic_all_jets.pdf}
-%   \caption{Longitudinal double-spin asymmetry $A_{LL}$ for inclusive jet (and
-%            direct-photon) production in polarized $pp$ collisions at RHIC (STAR
-%            and PHENIX), compared with polarized-PDF predictions (DSSV, LSS,
-%            NNPDF, BB). A small positive asymmetry establishes a non-zero gluon
-%            polarization $\Delta G>0$ over the measured $x$ range.}
-%   \label{fig:rhic-all}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (NNPDFpol helicity PDFs) --------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/nnpdfpol.pdf}
-%   \caption{Polarized (helicity) parton distributions from the NNPDFpol2.0 NNLO
-%            analysis at $Q=1.0~\mathrm{GeV}$: $\Delta g$, $\Delta u_{V}$,
-%            $\Delta d_{V}$, and the polarized sea. The large uncertainty band on
-%            $\Delta g$ reflects the limited constraints on the gluon spin.}
-%   \label{fig:nnpdfpol}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/rhic_all_jets.png}
+  \caption{Longitudinal double-spin asymmetry $A_{LL}$ for inclusive jet (and
+           direct-photon) production in polarized $pp$ collisions at RHIC (STAR
+           and PHENIX), compared with polarized-PDF predictions (DSSV, LSS,
+           NNPDF, BB). A small positive asymmetry establishes a non-zero gluon
+           polarization $\Delta G>0$ over the measured $x$ range. Adapted from the lecture slides (week 28, "STAR and Phenix experiments at RHIC").}
+  \label{fig:rhic-all}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/nnpdfpol.png}
+  \caption{Polarized (helicity) parton distributions from the NNPDFpol2.0 NNLO
+           analysis at $Q=1.0~\mathrm{GeV}$: $\Delta g$, $\Delta u_{V}$,
+           $\Delta d_{V}$, and the polarized sea. The large uncertainty band on
+           $\Delta g$ reflects the limited constraints on the gluon spin. Adapted from the lecture slides (week 28, "Proton Spin Crisis -- Finally resolved?").}
+  \label{fig:nnpdfpol}
+\end{figure}
 
 \FloatBarrier
 
@@ -890,31 +878,28 @@ applies to the TMD fragmentation functions, of which the Collins function $H_{1}
 is the most important. Together these functions map the correlation between the spin of
 the nucleon, the spin of the quark and the quark's transverse motion.
 
-% ---- PLACEHOLDER FIGURE (SIDIS factorization / handbag) -------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/sidis_factorization.pdf}
-%   \caption{Factorization of the SIDIS cross section,
-%            Eq.~\eqref{eq:sidis-factorization}, into a hard partonic scattering, a
-%            TMD parton distribution $f_{1}(x,\vec k_{T})$ and a TMD fragmentation
-%            function $D_{h/q'}(z,\vec k_{T}')$.}
-%   \label{fig:sidis}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (leading-twist TMD PDF and FF tables) -------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/tmd_tables.pdf}
-%   \caption{The eight leading-twist quark TMD parton distributions and the
-%            corresponding TMD fragmentation functions, organized by
-%            nucleon/hadron polarization (rows) and quark polarization (columns).
-%            The diagonal entries $f_{1}$, $g_{1}$, $h_{1}$ ($D_{1}$) survive the
-%            collinear limit; the off-diagonal entries (Sivers $f_{1T}^{\perp}$,
-%            Boer--Mulders $h_{1}^{\perp}$, worm-gear, pretzelosity; Collins
-%            $H_{1}^{\perp}$) are genuinely transverse.}
-%   \label{fig:tmd-tables}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/sidis_factorization.png}
+  \caption{Factorization of the SIDIS cross section,
+           Eq.~\eqref{eq:sidis-factorization}, into a hard partonic scattering, a
+           TMD parton distribution $f_{1}(x,\vec k_{T})$ and a TMD fragmentation
+           function $D_{h/q'}(z,\vec k_{T}')$. Adapted from the lecture slides (week 29, "Semi-Inclusive Deep Inelastic Scattering").}
+  \label{fig:sidis}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/tmd_tables.png}
+  \caption{The eight leading-twist quark TMD parton distributions and the
+           corresponding TMD fragmentation functions, organized by
+           nucleon/hadron polarization (rows) and quark polarization (columns).
+           The diagonal entries $f_{1}$, $g_{1}$, $h_{1}$ ($D_{1}$) survive the
+           collinear limit; the off-diagonal entries (Sivers $f_{1T}^{\perp}$,
+           Boer--Mulders $h_{1}^{\perp}$, worm-gear, pretzelosity; Collins
+           $H_{1}^{\perp}$) are genuinely transverse. Adapted from the lecture slides (week 29, "Important TMDs" and "Important Fragmentation Functions").}
+  \label{fig:tmd-tables}
+\end{figure}
 
 \FloatBarrier
 
@@ -972,30 +957,27 @@ opposite sign for $\pi^{+}$ and $\pi^{-}$, and global analyses of these data now
 extractions of the up- and down-quark transversity and of the Collins and Sivers
 functions.
 
-% ---- PLACEHOLDER FIGURE (SIDIS lepton/hadron planes) ----------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/sidis_planes.pdf}
-%   \caption{Azimuthal geometry of SIDIS: the lepton plane and the hadron plane,
-%            the azimuth $\phi_{h}$ of the produced hadron $P_{h}$ and the azimuth
-%            $\phi_{S}$ of the transverse target spin $S_{\perp}$, measured around
-%            the virtual-photon direction.}
-%   \label{fig:sidis-planes}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (Collins asymmetry / transversity extractions) ----
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/collins_transversity.pdf}
-%   \caption{Left: measured Collins ($\sin(\phi_{h}+\phi_{S})$) and Sivers
-%            ($\sin(\phi_{h}-\phi_{S})$) asymmetries versus $x$, $z$ and $P_{hT}$
-%            for $\pi^{+}$ and $\pi^{-}$ from HERMES and COMPASS. Right: extracted
-%            transversity $x h_{1}(x)$, Sivers $x f_{1T}^{\perp(1)}(x)$ and Collins
-%            $z H_{1}^{\perp(1)}(z)$ from a global TMD analysis, together with the
-%            resulting transverse-momentum densities of up and down quarks.}
-%   \label{fig:collins-results}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/sidis_planes.png}
+  \caption{Azimuthal geometry of SIDIS: the lepton plane and the hadron plane,
+           the azimuth $\phi_{h}$ of the produced hadron $P_{h}$ and the azimuth
+           $\phi_{S}$ of the transverse target spin $S_{\perp}$, measured around
+           the virtual-photon direction. Adapted from the lecture slides (week 29, "Azimuthal Asymmetries").}
+  \label{fig:sidis-planes}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/collins_transversity.png}
+  \caption{Left: measured Collins ($\sin(\phi_{h}+\phi_{S})$) and Sivers
+           ($\sin(\phi_{h}-\phi_{S})$) asymmetries versus $x$, $z$ and $P_{hT}$
+           for $\pi^{+}$ and $\pi^{-}$ from HERMES and COMPASS. Right: extracted
+           transversity $x h_{1}(x)$, Sivers $x f_{1T}^{\perp(1)}(x)$ and Collins
+           $z H_{1}^{\perp(1)}(z)$ from a global TMD analysis, together with the
+           resulting transverse-momentum densities of up and down quarks. Adapted from the lecture slides (week 29, "Some selected results").}
+  \label{fig:collins-results}
+\end{figure}
 
 \FloatBarrier
 
@@ -1088,41 +1070,37 @@ Drell--Yan (at Fermilab, RHIC, J-PARC and elsewhere), and $e^{+}e^{-}$ annihilat
 hadron pairs (at Belle, BaBar and BESIII), the last providing the cleanest access to the
 fragmentation functions that enter the other two.
 
-% ---- PLACEHOLDER FIGURE (Drell-Yan diagram) -------------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/drell_yan.pdf}
-%   \caption{The Drell--Yan process $h_{A}h_{B}\to l^{+}l^{-}X$: a quark from one
-%            hadron annihilates an antiquark from the other into a virtual photon
-%            that decays into a lepton pair. The remnants form the hadronic system
-%            $X$.}
-%   \label{fig:drell-yan}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (SeaQuest apparatus and dbar/ubar) ----------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/seaquest.pdf}
-%   \caption{The SeaQuest spectrometer at Fermilab (focusing magnet and hadron
-%            absorber, momentum-measuring magnet, hodoscope, drift-chamber and
-%            proportional-tube tracking stations) and the extracted ratio
-%            $\bar d/\bar u$ and difference $\bar d-\bar u$ versus $x$, compared
-%            with global PDFs and meson-cloud models. Data: Phys.\ Rev.\ Lett.\
-%            136, 171901 (2026).}
-%   \label{fig:seaquest}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (TMD world-wide effort: SIDIS/DY/e+e-) -------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/tmd_worldwide.pdf}
-%   \caption{The three complementary processes constraining TMDs: SIDIS
-%            (distribution $\otimes$ fragmentation), Drell--Yan (two distributions),
-%            and $e^{+}e^{-}\to$ hadron pairs (two fragmentations), together with
-%            the experiments pursuing each.}
-%   \label{fig:tmd-worldwide}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/drell_yan.png}
+  \caption{The Drell--Yan process $h_{A}h_{B}\to l^{+}l^{-}X$: a quark from one
+           hadron annihilates an antiquark from the other into a virtual photon
+           that decays into a lepton pair. The remnants form the hadronic system
+           $X$. Adapted from the lecture slides (week 29, "Drell-Yan Process").}
+  \label{fig:drell-yan}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/seaquest.png}
+  \caption{The SeaQuest spectrometer at Fermilab (focusing magnet and hadron
+           absorber, momentum-measuring magnet, hodoscope, drift-chamber and
+           proportional-tube tracking stations) and the extracted ratio
+           $\bar d/\bar u$ and difference $\bar d-\bar u$ versus $x$, compared
+           with global PDFs and meson-cloud models. Data: Phys.\ Rev.\ Lett.\
+           136, 171901 (2026). Adapted from the lecture slides (week 29, "SeaQuest at Fermilab").}
+  \label{fig:seaquest}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/tmd_worldwide.png}
+  \caption{The three complementary processes constraining TMDs: SIDIS
+           (distribution $\otimes$ fragmentation), Drell--Yan (two distributions),
+           and $e^{+}e^{-}\to$ hadron pairs (two fragmentations), together with
+           the experiments pursuing each. Adapted from the lecture slides (week 29, "TMDs a world wide effort").}
+  \label{fig:tmd-worldwide}
+\end{figure}
 
 \FloatBarrier
 
@@ -1215,23 +1193,20 @@ elastic scattering and the momentum picture of DIS, and contains correlations---
 where a parton sits and what momentum fraction it carries---that neither limit retains
 \cite[Ch.~4.8]{ThomasWeise2001}.
 
-% ---- PLACEHOLDER FIGURE (DVCS and DVMP handbag diagrams) ------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/dvcs_dvmp_handbag.pdf}
-%   \caption{Handbag diagrams for the two exclusive channels. Left: DVCS,
-%            $eN\to eN\gamma$, in which the virtual photon $\gamma^{*}(Q^{2})$ is
-%            absorbed and a real photon emitted by a quark entering with momentum
-%            fraction $x+\xi$ and leaving with $x-\xi$, the nucleon receiving
-%            momentum transfer $t$. Right: DVMP, $eN\to eNM$, where an additional
-%            gluon exchange and a distribution amplitude produce the meson
-%            $\pi,\rho,\omega,\dots$ and the recoil baryon may be $N,\Lambda,\Sigma$.
-%            The soft blob is parametrized by the GPDs $\mathrm{GPD}(x,\xi,t)$.
-%            A TikZ diagram in the style of the earlier Feynman graphs is the
-%            natural choice here.}
-%   \label{fig:dvcs-dvmp}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/dvcs_dvmp_handbag.png}
+  \caption{The handbag diagrams for deeply virtual Compton scattering (left) and
+           deeply virtual meson production (right): the hard photon--quark (or
+           photon--quark--meson) subprocess is convolved with a GPD
+           $H(x,\xi,t)$ connecting a quark of momentum fraction $x+\xi$ in the
+           incoming nucleon to one of fraction $x-\xi$ in the outgoing nucleon
+           (or baryon $N,\Lambda,\Sigma,\ldots$), with the produced meson
+           $\pi,\rho,\omega,\ldots$ described by its distribution amplitude
+           (DA). Adapted from the lecture slides (week 30, "Generalized Parton
+           Distributions").}
+  \label{fig:dvcs-dvmp-handbag}
+\end{figure}
 
 \FloatBarrier
 
@@ -1305,31 +1280,28 @@ DVCS beam-spin asymmetry over a range of $x_{B}$, $Q^{2}$ and $t$ show the chara
 $\sin\phi$ modulation predicted by the interference and are well described by the leading
 GPD models.
 
-% ---- PLACEHOLDER FIGURE (DVCS beam-spin asymmetry vs phi) ------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/dvcs_bsa.pdf}
-%   \caption{DVCS beam-spin asymmetry $A_{LU}$
-%            (Eq.~\eqref{eq:beam-spin-asymmetry}) versus the angle $\phi$ between
-%            the leptonic and hadronic planes, in three bins of $t$, $x_{B}$ and
-%            $Q^{2}$, compared with the VGG, GK and KM15 GPD models. The
-%            $\sin\phi$ shape is the signature of the Bethe--Heitler--DVCS
-%            interference of Eq.~\eqref{eq:bh-interference}. Data: Phys.\ Rev.\
-%            Lett.\ 130, 211902 (2023).}
-%   \label{fig:dvcs-bsa}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (Bethe-Heitler diagrams) --------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/bethe_heitler.pdf}
-%   \caption{The two Bethe--Heitler diagrams contributing to the same $eN\gamma$
-%            final state as DVCS, with the real photon radiated from the incoming
-%            or outgoing electron line and the nucleon entering only through its
-%            elastic form factors.}
-%   \label{fig:bethe-heitler}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/dvcs_bsa_phi.png}
+  \caption{The DVCS beam-spin asymmetry $A_{LU}$ versus the angle $\phi$
+           between the leptonic and hadronic planes, shown for three bins in
+           $x_{B}$, $Q^{2}$ and $t$: the characteristic $\sin\phi$ modulation
+           predicted by the Bethe--Heitler--DVCS interference, compared with
+           the VGG, GK and KM15 GPD models. Adapted from the lecture slides
+           (week 30, "DVCS Observables").}
+  \label{fig:dvcs-bsa}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{Figures/bethe_heitler.png}
+  \caption{The two Bethe--Heitler diagrams contributing to the same $eN\gamma$
+           final state as DVCS, with the real photon radiated from the incoming
+           or outgoing electron line and the nucleon entering only through its
+           elastic form factors. Adapted from the lecture slides (week 30,
+           "Bethe-Heitler and Interference").}
+  \label{fig:bethe-heitler}
+\end{figure}
 
 \FloatBarrier
 
@@ -1376,18 +1348,16 @@ term is sensitive to the helicity-flip distributions through
 so that a measurement of the $\sin\phi$ modulation constrains combinations of GPDs that
 DVCS cannot reach at all.
 
-% ---- PLACEHOLDER FIGURE (CLAS12 DVMP BSA and sigma_LT'/sigma_0) -----------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/dvmp_clas12.pdf}
-%   \caption{Deeply virtual meson production at CLAS12. Top: beam-spin asymmetry
-%            (Eq.~\eqref{eq:dvmp-bsa}) versus $\phi$ in two kinematic bins.
-%            Bottom: the extracted ratio $\sigma_{LT'}/\sigma_{0}$ versus $-t$ in
-%            three bins of $Q^{2}$ and $x_{B}$, compared with GPD-based
-%            calculations. Data: Phys.\ Lett.\ B 849, 138459 (2024).}
-%   \label{fig:dvmp-clas12}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{Figures/clas12_dvmp_bsa_sigmalt.png}
+  \caption{CLAS12 measurements of the DVMP beam-spin asymmetry $\mathrm{BSA}$
+           versus $\phi$ (top) and of the ratio $\sigma_{LT'}/\sigma_{0}$
+           versus $-t$ (bottom), in bins of $Q^{2}$ and $x_{B}$, isolating the
+           interference structure function sensitive to the helicity-flip
+           GPDs. Adapted from the lecture slides (week 30, "DVMP results").}
+  \label{fig:clas12-dvmp}
+\end{figure}
 
 \FloatBarrier
 
@@ -1434,19 +1404,17 @@ particular is poorly known. The measurements so far are not sufficient to determ
 $J^{q}$ with useful precision, and doing so remains one of the principal goals of the
 field.
 
-% ---- PLACEHOLDER FIGURE (impact-parameter tomography maps) ----------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.8\linewidth]{Figures/nucleon_tomography.pdf}
-%   \caption{Nucleon tomography: the impact-parameter density
-%            $q(x,\vec b_{\perp})$ of Eq.~\eqref{eq:impact-parameter} in the
-%            $(x,b_{\perp})$ plane for the unpolarized (top) and polarized
-%            (bottom) valence up-quark distribution, from the PARTONS 2018-1
-%            GPD fits. The transverse extent of the distribution shrinks as $x$
-%            grows.}
-%   \label{fig:tomography}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{Figures/gpd_tomography.png}
+  \caption{Nucleon tomography from the PARTONS 2018-1 GPD fits: the $u$-quark
+           density $q(x,\vec b_{\perp})$ (top) and its helicity-difference
+           $\Delta u_{\mathrm{val}}(x,\vec b_{\perp})$ (bottom) in the
+           transverse plane, showing how the parton cloud shrinks toward the
+           center of the nucleon as $x$ increases. Adapted from the lecture
+           slides (week 30, "Impact Parameter Interpretation").}
+  \label{fig:gpd-tomography}
+\end{figure}
 
 \FloatBarrier
 
@@ -1609,44 +1577,42 @@ the analogous extraction for the proton has moved since, remeasuring the pion an
 radii with modern statistics and a transparent treatment of the model uncertainty is an
 obvious and overdue task.
 
-% ---- PLACEHOLDER FIGURE (Sullivan process diagrams) ----------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.75\linewidth]{Figures/sullivan_process.pdf}
-%   \caption{The Sullivan process. The electron scatters off a virtual pion or
-%            kaon from the meson cloud of the proton
-%            (Eq.~\eqref{eq:pion-cloud-expansion}), with the recoiling nucleon or
-%            hyperon $n/Y(k')$ detected at small momentum transfer $t$. Left:
-%            exclusive final state, giving the meson form factor. Right: inclusive
-%            final state $X$, giving the meson structure functions.}
-%   \label{fig:sullivan}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (pion PDFs) --------------------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/pion_pdfs.pdf}
-%   \caption{Pion parton distributions. Top: valence, sea and gluon distributions
-%            $xf(x)$ from several analyses (GRV, SMRS, JAM, NA3, and a
-%            Dyson--Schwinger calculation). Bottom: the JAM 2021 valence
-%            $q_{v}^{\pi}$, sea $q_{s}^{\pi}$ and gluon $g^{\pi}/10$
-%            distributions, showing the impact of adding leading-neutron
-%            (Sullivan) and Drell--Yan transverse-momentum data to Drell--Yan
-%            alone.}
-%   \label{fig:pion-pdfs}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (pion and kaon form factors, NA7) ----------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/na7_meson_ff.pdf}
-%   \caption{The pion (left) and kaon (right) electromagnetic form factors
-%            $|F_{\pi}|^{2}$ and $|F_{K}|^{2}$ versus $q^{2}$, measured by NA7 in
-%            inverse kinematics, from which the radii of
-%            Eqs.~\eqref{eq:pion-radius} and~\eqref{eq:kaon-radius} are extracted.}
-%   \label{fig:na7}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{Figures/sullivan_process.png}
+  \caption{The Sullivan process: an electron scatters off a virtual pion or
+           kaon in the nucleon's meson cloud, producing either the meson
+           itself, $\gamma^{*}\pi^{*}/K^{*}\to\pi/K$ (top), or an inclusive
+           hadronic system, $\gamma^{*}\pi^{*}/K^{*}\to X$ (bottom), while the
+           recoiling baryon $n/Y$ is detected at small momentum transfer $t$.
+           Adapted from the lecture slides (week 30, "Meson PDFs").}
+  \label{fig:sullivan}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/pion_pdfs.png}
+  \caption{Pion parton distributions. Top: valence, sea and gluon distributions
+           $xf(x)$ from several analyses (GRV, SMRS, JAM, NA3, and a
+           Dyson--Schwinger calculation). Bottom: the JAM 2021 valence
+           $q_{v}^{\pi}$, sea $q_{s}^{\pi}$ and gluon $g^{\pi}/10$
+           distributions, showing the impact of adding leading-neutron
+           (Sullivan) and Drell--Yan transverse-momentum data to Drell--Yan
+           alone. Adapted from the lecture slides (week 30, "Meson PDFs").}
+  \label{fig:pion-pdfs}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/na7_meson_ff.png}
+  \caption{The pion (left) and kaon (right) electromagnetic form factors
+           $|F_{\pi}|^{2}$ and $|F_{K}|^{2}$ versus $q^{2}$, measured by NA7 in
+           inverse kinematics, from which the radii of
+           Eqs.~\eqref{eq:pion-radius} and~\eqref{eq:kaon-radius} are extracted.
+           Adapted from the lecture slides (week 30, "Pion Form Factor and
+           radius" and "Kaon Form Factor and radius").}
+  \label{fig:na7}
+\end{figure}
 
 \FloatBarrier
 
@@ -1666,7 +1632,7 @@ the hierarchy, the total charge. Figure~\ref{fig:gtmd-diamond} shows the resulti
 lattice of relations, sometimes called the structure-function diamond, with the GTMD as
 the mother distribution at its apex.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[>=Stealth, scale=1.0,
         every node/.style={font=\small},
@@ -1791,17 +1757,17 @@ inelastic chapter \cite[Ch.~4.8]{ThomasWeise2001}, whereas those
 distributions, the TMDs and the GTMDs now between them define the program of a whole
 generation of experiments.
 
-% ---- PLACEHOLDER FIGURE (EIC layout and detector) -------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/eic_bnl.pdf}
-%   \caption{The Electron--Ion Collider at Brookhaven National Laboratory. Left:
-%            the accelerator complex with the electron storage ring, ion storage
-%            ring, electron cooling and injector chain. Right: a cut-away of the
-%            general-purpose detector, showing tracking, particle identification,
-%            electromagnetic and hadronic calorimetry inside the solenoid.}
-%   \label{fig:eic}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/eic_layout_detector.png}
+  \caption{Layout of the Electron--Ion Collider under construction at
+           Brookhaven National Laboratory (top), with its electron and ion
+           storage rings, ion pre-accelerator chain and the ePIC interaction
+           point, and a cutaway of the ePIC detector (bottom) showing the
+           tracking, particle-identification, calorimeter and solenoid-magnet
+           subsystems arranged around the interaction region. Adapted from
+           the lecture slides (week 30, "The Electron-Ion-Collider at BNL").}
+  \label{fig:eic}
+\end{figure}
 
 \FloatBarrier

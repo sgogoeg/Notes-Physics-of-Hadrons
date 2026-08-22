@@ -144,19 +144,14 @@ in the absence of electromagnetism. Isospin is a useful concept precisely becaus
 is conserved in strong interactions: the strong force depends on the total isospin
 $I$ but not on its projection $I_3$ \cite[Ch.~3]{Amsler2018}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% Energy-level diagram of the mirror nuclei 14C, 14N and 14O, showing the
-% near-degeneracy of corresponding levels that demonstrates the charge
-% independence of nuclear forces. Reproduce from the week 17 VL2
-% "Example: Isospin (SU(2))" slide.
-% ------------------------------------------------------------
-
 \begin{figure}
     \centering
-    \includegraphics[width=0.75\linewidth]{Figures/SpectraAtoms.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
+    \includegraphics[width=0.6\linewidth]{Figures/mirror_nuclei_isospin.png}
+    \caption{Energy levels of the mirror nuclei $^{14}$C, $^{14}$N and $^{14}$O.
+    Corresponding levels across the three nuclei are nearly degenerate,
+    demonstrating the charge independence of the nuclear force. Adapted from the
+    lecture slides (week 17, "Example: Isospin (SU(2))").}
+    \label{fig:mirror_nuclei}
 \end{figure}
 
 
@@ -217,13 +212,15 @@ spins are explicitly
 and the analogous decomposition of the two-nucleon isospin states replaces
 $\uparrow$ by $p$ and $\downarrow$ by $n$.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% Table of Clebsch-Gordan coefficients (the PDG table for the couplings
-% 1/2 x 1/2, 1 x 1/2, 3/2 x 1/2, etc.). Reproduce the PDG/Amsler
-% Clebsch-Gordan table shown on the week 17 VL2 "More on Clebsch Gordon
-% Coefficients" slide.
-% ------------------------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{Figures/clebsch_gordan_table.png}
+    \caption{Clebsch--Gordan coefficients for the couplings
+    $\tfrac12\otimes\tfrac12$, $1\otimes\tfrac12$, $\tfrac32\otimes\tfrac12$,
+    $1\otimes1$, $\tfrac32\otimes1$ and $2\otimes\tfrac12$. Adapted from the
+    lecture slides (week 17, "More on Clebsch Gordon Coefficients").}
+    \label{fig:cg_table}
+\end{figure}
 
 A classic application is the determination of the deuteron isospin. The total
 non-relativistic wavefunction of the two-nucleon system factorises into space, spin
@@ -263,12 +260,15 @@ maximal total cross sections to be roughly in the ratio
 consistent with the measured peak values of about $210$~mb and $70$~mb, respectively
 \cite[Ch.~3]{Amsler2018}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% Total and elastic pi^+ p and pi^- p cross sections versus laboratory beam
-% momentum, showing the dominant Delta(1232) peak. Reproduce the PDG cross-
-% section compilation shown on the week 17 VL2 slide (PDG Fig. 39.14).
-% ------------------------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figures/pip_pim_cross_sections.png}
+    \caption{Total and elastic $\pi^+p$ and $\pi^-p$ (and $\pi^\pm d$) cross
+    sections as a function of laboratory beam momentum and centre-of-mass
+    energy, dominated by the $\Delta(1232)$ peak. PDG compilation
+    (Fig.~39.14), reproduced from the lecture slides (week 17).}
+    \label{fig:pip_pim_xsec}
+\end{figure}
 
 The procedure extends to more than two constituents by iterating the decomposition.
 For three spin-$\tfrac{1}{2}$ systems one finds
@@ -440,13 +440,16 @@ in Table~\ref{tab:quarks} \cite[Ch.~7]{Amsler2018}.
     \end{tabular}
 \end{table}
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% Side-by-side weight diagrams in the (I_3, Y)-plane of the SU(3) fundamental
-% triplet (u, d, s) and its conjugate (anti-u, anti-d, anti-s), plus the
-% nine-member q-qbar hexagon. Reproduce from the week 18 VL1 "Summary: Quark
-% properties" slide, or adapt Amsler Fig. 7.1.
-% ------------------------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{Figures/su3_triplet_antitriplet_nonet.png}
+    \caption{Weight diagrams in the $(I_3,Y)$ plane of the $\mathrm{SU}(3)$
+    fundamental triplet $(u,d,s)$ and its conjugate antitriplet
+    $(\bar u,\bar d,\bar s)$, together with the resulting nine-member
+    $q\bar q$ hexagon. Adapted from the lecture slides (week 18, "Summary:
+    Quark properties").}
+    \label{fig:su3_triplet}
+\end{figure}
 
 Antiquarks transform under the conjugate representation $\mathbf{3}^*$, whose weight
 diagram is the inversion of the triplet through the origin. Unlike the
@@ -489,14 +492,19 @@ a path entering from the right and exiting at the bottom of that box---and multi
 the hooks together. The dimension is the product of values divided by the product of
 hooks \cite[Ch.~6]{Amsler2018}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% The four-panel definition of Young tableaux: (a) a valid versus an invalid
-% tableau, (b) the assignment of "values" N, N+1, ... and N-1, N-2, ...,
-% (c) the construction of the "hooks", and the worked 2 (x) 2 = 3 + 1 example.
-% Reproduce from the week 17 VL2 "SU(N) and Young tableaux" slides, or adapt
-% Amsler Figs. 6.4 and 6.5.
-% ------------------------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figures/young_tableaux_construction.png}
+    \caption{Construction of $\mathrm{SU}(N)$ Young tableaux: a single box denotes
+    the fundamental representation of dimension $N$ and a column of $N-1$ boxes
+    its conjugate; rows are totally symmetric and columns totally antisymmetric.
+    The dimension is the ratio of the box-value product (rows filled with
+    $N,N+1,N+2,\dots$ and columns with $N-1,N-2,\dots$) to the hook-length
+    product, worked out explicitly for $\mathbf{2}\otimes\mathbf{2} =
+    \mathbf{3}\oplus\mathbf{1}$. Adapted from the lecture slides (week 17,
+    "SU(N) and Young tableaux").}
+    \label{fig:young_tableaux}
+\end{figure}
 
 As a first illustration, the coupling of two fundamental doublets of $\mathrm{SU}(2)$
 is represented by the product of two single boxes, which decomposes into a
@@ -575,13 +583,16 @@ the $\pi^0$ carries $0^{-+}$. The complete treatment, including the $G$-parity a
 the catalogue of allowed and forbidden $J^{PC}$ combinations, is given in the
 following chapter on mesons.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% The pseudoscalar (J^PC = 0^-+) and vector (J^PC = 1^--) meson nonets together
-% with the baryon octet (J^P = 1/2^+) and decuplet (J^P = 3/2^+), drawn as weight
-% diagrams in the (I_3, Y)-plane. Reproduce from the week 18 VL1 "Meson
-% multiplets" and "Baryon multiplets" slides.
-% ------------------------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{Figures/meson_baryon_multiplets.png}
+    \caption{Weight diagrams in the $(I_3,Y)$ plane of the pseudoscalar
+    ($J^{PC}=0^{-+}$) and vector ($J^{PC}=1^{--}$) meson nonets, and of the
+    baryon octet ($J^P = \tfrac12^+$) and decuplet ($J^P = \tfrac32^+$).
+    Adapted from the lecture slides (week 18, "Meson multiplets" and "Baryon
+    multiplets").}
+    \label{fig:meson_baryon_multiplets}
+\end{figure}
 
 Within a multiplet the members would be mass-degenerate if $\mathrm{SU}(3)$ were an
 exact symmetry. They are not: the masses increase markedly with hypercharge, by
@@ -618,14 +629,17 @@ in striking agreement with the value $m(\Omega^-) = 1672$~MeV measured after its
 discovery at Brookhaven in 1964---a landmark confirmation of the $\mathrm{SU}(3)$
 classification scheme \cite[Ch.~13]{Amsler2018}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% The bubble-chamber photograph and reconstructed decay chain of the first
-% Omega^- event (K^- p -> Omega^- K^+ K^0, followed by Omega^- -> Xi^0 pi^-,
-% Xi^0 -> Lambda pi^0, Lambda -> p pi^-, pi^0 -> gamma gamma). Reproduce from
-% the week 18 VL1 "Discovery of the Omega^-" slide (Barnes et al., Phys. Rev.
-% Lett. 12, 204 (1964)).
-% ------------------------------------------------------------
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Figures/omega_discovery_bubble_chamber.png}
+    \caption{Bubble-chamber photograph of the discovery event of the
+    $\Omega^-$, produced via $K^-p \to \Omega^- K^+ K^0$ and reconstructed
+    through the decay chain $\Omega^-\to\pi^-\Xi^0$,
+    $\Xi^0\to\Lambda\pi^0$, $\Lambda\to p\pi^-$, $\pi^0\to\gamma\gamma$
+    \cite{Barnes1964}. Adapted from the lecture slides (week 18, "Discovery
+    of the Omega$^-$").}
+    \label{fig:omega_discovery}
+\end{figure}
 
 % ============================================================
 \subsection{Colour charge}
@@ -681,12 +695,24 @@ not appear as a physical field \cite[Ch.~10]{Amsler2018}. The exact colour symme
 $\mathrm{SU}(3)_c$ and its non-Abelian dynamics, including confinement and asymptotic
 freedom, are discussed in Sect.~\ref{sec:introduction}.
 
-% ------------------------------------------------------------
-% FIGURE SUGGESTION:
-% Cartoon of the colour flux between two quarks exchanging a coloured gluon,
-% illustrating colour conservation at the vertex. Reproduce from the week 18
-% lecture material, or adapt Amsler Fig. 10.1.
-% ------------------------------------------------------------
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[thick, scale=1.1]
+        \draw[red!70!black]      (-2, -1.5) -- (-2, 0) node[midway, left=2pt] {$q_r$};
+        \draw[green!50!black]    (-2, 0)    -- (-2, 1.5) node[midway, left=2pt] {$q_g$};
+        \draw[green!50!black]    ( 2, -1.5) -- ( 2, 0) node[midway, right=2pt] {$q_g$};
+        \draw[red!70!black]      ( 2, 0)    -- ( 2, 1.5) node[midway, right=2pt] {$q_r$};
+        \draw[decorate,decoration={coil,aspect=0.5,segment length=4pt},blue!70!black]
+            (-2,0) -- (2,0) node[midway, above=2pt] {$g_{r\bar g}$};
+        \filldraw (-2,0) circle (1.2pt);
+        \filldraw (2,0) circle (1.2pt);
+    \end{tikzpicture}
+    \caption{Colour flux between two quarks exchanging a coloured gluon. The
+    left quark emits a gluon carrying colour--anticolour charge $r\bar g$ and
+    changes from red to green; the right quark absorbs it and changes from
+    green to red. Colour is conserved at each vertex.}
+    \label{fig:colour_flux}
+\end{figure}
 
 That colour is a real, threefold degree of freedom is confirmed by several
 measurements that count colour states. The decay rate of the $\pi^0 \to 2\gamma$

@@ -81,15 +81,41 @@ On the second front, two isovector states with exotic quantum numbers $1^{-+}$, 
 $\pi_1(1400)$ and the $\pi_1(1600)$, are incompatible with $q\bar q$ assignments and
 could be hybrid mesons or multiquark states \cite[Ch.~11]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURE (schematic cartoon) --------------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.85\linewidth]{Figures/glueball_hybrid_cartoon.pdf}
-%   \caption{Schematic comparison of a conventional $q\bar q$ meson, a two-gluon
-%            glueball, and a $q\bar q g$ hybrid with an excited gluonic flux tube.}
-%   \label{fig:glueball_hybrid_cartoon}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[thick, scale=1.0]
+    % (a) conventional qqbar meson
+    \begin{scope}
+      \draw (-1,0) -- (1,0);
+      \filldraw[red!70!black] (-1,0) circle (3.5pt) node[below=4pt] {$q$};
+      \filldraw[blue!70!black] (1,0) circle (3.5pt) node[below=4pt] {$\bar q$};
+      \node at (0,-1.1) {(a) meson};
+    \end{scope}
+    % (b) glueball: closed gluon loop
+    \begin{scope}[xshift=4cm]
+      \draw[decorate,decoration={coil,aspect=0.5,segment length=4pt}]
+        (-0.6,0) arc (180:0:0.6);
+      \draw[decorate,decoration={coil,aspect=0.5,segment length=4pt}]
+        (0.6,0) arc (0:-180:0.6);
+      \node at (0,-1.1) {(b) glueball ($gg$)};
+    \end{scope}
+    % (c) hybrid: qqbar with excited flux tube (gluonic kink)
+    \begin{scope}[xshift=8.6cm]
+      \draw (-1,0) -- (-0.25,0);
+      \draw[decorate,decoration={coil,aspect=0.5,segment length=3pt}]
+        (-0.25,0) -- (0.25,0);
+      \draw (0.25,0) -- (1,0);
+      \filldraw[red!70!black] (-1,0) circle (3.5pt) node[below=4pt] {$q$};
+      \filldraw[blue!70!black] (1,0) circle (3.5pt) node[below=4pt] {$\bar q$};
+      \node at (0,-1.1) {(c) hybrid ($q\bar q g$)};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Schematic comparison of (a) a conventional $q\bar q$ meson bound by
+  a flux tube, (b) a two-gluon glueball, a colour-singlet bound state of
+  glue alone, and (c) a $q\bar q g$ hybrid, in which the flux tube carries an
+  additional gluonic excitation.}
+  \label{fig:glueball_hybrid_cartoon}
+\end{figure}
 
 \FloatBarrier
 
@@ -113,24 +139,24 @@ $\alpha_s$ and confirms that the gluon is a spin-$1$ boson belonging to a
 non-Abelian gauge theory. The reality of gluons as dynamical, self-interacting
 objects is the physical prerequisite for expecting them to form bound states.
 
-% ---- PLACEHOLDER FIGURES (event display + parton diagrams) -----------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/multijet_event_display.pdf}
-%   \caption{Reconstructed multi-jet events in $e^+e^-$ annihilation recorded by
-%            the ALEPH detector at LEP.}
-%   \label{fig:multijet_event}
-% \end{figure}
-%
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/jet_diagrams.pdf}
-%   \caption{Parton-level diagrams for two-jet ($q\bar q$), three-jet ($q\bar q g$)
-%            and four-jet ($q\bar q gg$ and $q\bar q q'\bar q'$) final states in
-%            $e^+e^-$ annihilation.}
-%   \label{fig:jet_diagrams}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/multijet_event_display.png}
+  \caption{Reconstructed multi-jet events in $e^+e^-$ annihilation recorded by
+           the ALEPH detector at LEP. Adapted from the lecture slides
+           (week 23, "Multi-Jet events").}
+  \label{fig:multijet_event}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Figures/jet_diagrams.png}
+  \caption{Parton-level diagrams for two-jet ($q\bar q$), three-jet ($q\bar q g$)
+           and four-jet ($q\bar q gg$ and $q\bar q q'\bar q'$) final states in
+           $e^+e^-$ annihilation. Adapted from the lecture slides (week 23,
+           "Multi-Jet events").}
+  \label{fig:jet_diagrams}
+\end{figure}
 
 \FloatBarrier
 
@@ -159,18 +185,16 @@ states, while the ground-state $1^3P_0$ $q\bar q$ nonet lies in the
 $1400~\mathrm{MeV}$ region. Identifying the scalar glueball therefore requires a
 good understanding of \emph{all} the scalar states \cite[Ch.~11]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURE (lattice spectrum) ---------------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/glueball_spectrum_lattice.pdf}
-%   \caption{Predicted glueball mass spectrum from quenched lattice QCD, ordered by
-%            $J^{PC}$. The scalar $0^{++}$ ground state lies near $1700~\mathrm{MeV}$
-%            and the tensor $2^{++}$ near $2400~\mathrm{MeV}$
-%            (after Morningstar and Peardon). The mass range accessible to
-%            $\bar p p$ annihilation at LEAR covered the scalar ground state.}
-%   \label{fig:glueball_spectrum}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/glueball_spectrum_lattice.png}
+  \caption{Predicted glueball mass spectrum from quenched lattice QCD, ordered by
+           $J^{PC}$. The scalar $0^{++}$ ground state lies near $1700~\mathrm{MeV}$
+           and the tensor $2^{++}$ near $2400~\mathrm{MeV}$
+           (C.\,J.\ Morningstar, M.\ Peardon). Adapted from the lecture
+           slides (week 23, "Glueball mass spectrum from lattice QCD").}
+  \label{fig:glueball_spectrum}
+\end{figure}
 
 \FloatBarrier
 
@@ -198,16 +222,16 @@ studied by ASTERIX, Crystal Barrel and OBELIX at LEAR. The future PANDA experime
 at FAIR will continue this program with antiproton beams
 \cite[Ch.~11]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURE (production diagrams) ------------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/glueball_production_channels.pdf}
-%   \caption{Gluon-rich glueball production: central production via double-Pomeron
-%            exchange (left), radiative $J/\psi$ decay (centre) and $\bar p p$
-%            annihilation (right).}
-%   \label{fig:production_channels}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{Figures/glueball_production_channels.png}
+  \caption{Gluon-rich glueball production: central production via double-Pomeron
+           exchange (top; WA91, WA102, LHCb), radiative $J/\psi$ decay
+           (middle; MARK~III, DM2, BES) and $\bar p p$ annihilation (bottom;
+           ASTERIX, Crystal Barrel, OBELIX, and in future PANDA). Adapted from
+           the lecture slides (week 23).}
+  \label{fig:production_channels}
+\end{figure}
 
 \FloatBarrier
 
@@ -249,25 +273,27 @@ initial states. Second, different initial atomic states do not interfere with on
 another. Together these properties greatly reduce the number of amplitudes that
 must be considered in a partial wave analysis \cite[Ch.~3]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURES (detector + Stark mixing) -------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{Figures/crystal_barrel_detector.pdf}
-%   \caption{Front and side view of the Crystal Barrel detector at LEAR, showing the
-%            CsI(Tl) calorimeter, the jet drift chamber and the proportional
-%            chambers around the liquid-hydrogen target.}
-%   \label{fig:crystal_barrel}
-% \end{figure}
-%
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/stark_mixing_cascade.pdf}
-%   \caption{Protonium cascade and annihilation: (a) liquid hydrogen, Stark mixing
-%            dominant; (b) gaseous hydrogen, circular cascades important;
-%            (c) vacuum, circular cascades dominant.}
-%   \label{fig:stark_mixing}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/crystal_barrel_detector.png}
+  \caption{Front and side view of the Crystal Barrel detector at LEAR, showing the
+           CsI(Tl) calorimeter, the jet drift chamber and the proportional
+           chambers around the liquid-hydrogen target. Adapted from the
+           lecture slides (week 23, "The Crystal Barrel detector at LEAR").}
+  \label{fig:crystal_barrel}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/stark_mixing_cascade.png}
+  \caption{Protonium cascade and annihilation (X-ray transitions,
+           Stark mixing of $\ell$-states, and annihilation from atomic
+           $S$-states or $P$-states): (a) liquid hydrogen, Stark mixing
+           dominant; (b) gaseous hydrogen, circular cascades important;
+           (c) vacuum, circular cascades dominant. Adapted from the lecture
+           slides (week 23, "$\bar pN$-annihilation at rest").}
+  \label{fig:stark_mixing}
+\end{figure}
 
 \FloatBarrier
 
@@ -300,7 +326,7 @@ to the same three particles. Figure~\ref{fig:dalitz_boundary} shows the boundary
 $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$ together with the three $\rho(770)$
 bands.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.62\linewidth]{Figures/dalitz_boundary.pdf}
   \caption{Kinematically allowed region (Dalitz plot) for
@@ -318,7 +344,7 @@ between a daughter momentum and the spectator (or beam) direction reflects the
 resonance spin and modulates the intensity along the band, as sketched in
 Fig.~\ref{fig:dalitz_geometry}.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \begin{tikzpicture}[>=stealth]
     \coordinate (R) at (0,0);
@@ -374,27 +400,28 @@ demand is one of the central reasons why the glueball search calls for gluon-ric
 high-luminosity experiments, a theme taken up in
 Sect.~\ref{subsec:outlook}.
 
-% ---- PLACEHOLDER FIGURE (Dalitz statistics series) ------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/dalitz_statistics_series.pdf}
-%   \caption{The same $(\bar p p)_{\text{rest}}\to\pi^0\pi^0\pi^0$ Dalitz plot
-%            simulated with $10^2$, $10^3$, $10^4$ and $10^5$ events. The bands and
-%            the central $f_0(980)$ interference hole emerge only at high
-%            statistics.}
-%   \label{fig:dalitz_statistics}
-% \end{figure}
-%
-% ---- PLACEHOLDER FIGURE (measured 3pi Dalitz data) -------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/dalitz_3pi_data.pdf}
-%   \caption{Measured Dalitz plot for $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$,
-%            showing the three $\rho(770)$ bands and the $f_2(1270)$, with strong
-%            interference at the band crossings.}
-%   \label{fig:dalitz_3pi_data}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{Figures/dalitz_statistics_series.png}
+  \caption{The same $(\bar p p)_{\text{rest}}\to\pi^0\pi^0\pi^0$ Dalitz plot
+           with $10^2$, $10^3$, $10^4$ and $7\times10^5$ events. The bands and
+           the central $f_0(980)$ interference hole emerge only at high
+           statistics, and the fully populated plot resolves the $f_2(1565)$,
+           $f_0(1500)$, $f_2(1270)$ and $f_0(980)$. Adapted from the lecture
+           slides (week 24, "Dalitzplot - Statistics").}
+  \label{fig:dalitz_statistics}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.55\linewidth]{Figures/dalitz_3pi_data.png}
+  \caption{Measured Dalitz plot for $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$,
+           showing the three $\rho(770)$ bands and the $f_2(1270)$, with strong
+           interference at the band crossings. Adapted from the lecture
+           slides (week 23, "Dalitz plot $(\bar p p)_{\text{at rest}}\to
+           \pi^+\pi^-\pi^0$").}
+  \label{fig:dalitz_3pi_data}
+\end{figure}
 
 \FloatBarrier
 
@@ -472,7 +499,7 @@ states the location of the pole on the different Riemann sheets of the
 multivalued amplitude becomes essential for a meaningful determination of the
 resonance parameters \cite[Ch.~12]{Amsler2018}.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.7\linewidth]{Figures/flatte_a0980.pdf}
   \caption{Flatt\'e line shape of the $a_0(980)$ in the $\eta\pi^0$ channel,
@@ -494,8 +521,7 @@ another. The lesson is general: a resonance is characterized by its complex pole
 position, while peak positions and apparent widths are channel-dependent
 artifacts of the analytic structure near thresholds \cite[Ch.~12]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURE (chi_c1(3872) line shapes) -------------------------
- \begin{figure}[t]
+\begin{figure}[htbp]
    \centering
    \includegraphics[width=0.75\linewidth]{Figures/chic1_3872_lineshape.png}
    \caption{Calculated line shapes of the $\chi_{c1}(3872)$ in the
@@ -551,7 +577,7 @@ initial state are summed coherently and interfere. States are then named
 according to $I^{G}(J^{PC}):X_J(\text{mass})$, with isospin-$1$ states written
 $a_J(\text{mass})$ and isospin-$0$ states $f_J(\text{mass})$.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.95\linewidth]{Figures/angular_distributions.pdf}
   \caption{Helicity-angle distributions for the decay of a resonance $X$ into two
@@ -604,7 +630,7 @@ $20$ free parameters. The exotic wave interferes with the $\ell=2$ amplitude of
 the $a_2(1320)$, and the corresponding state is the $\pi_1(1400)$, to which we
 return in Sect.~\ref{subsec:hybrids} \cite[Ch.~11]{Amsler2018}.
 
- \begin{figure}[t]
+ \begin{figure}[htbp]
    \centering
    \includegraphics[width=0.6\linewidth]{Figures/dalitz_etapimpi0_data.png}
    \caption{Dalitz plot of $(\bar p n)_{\text{rest}}\to\eta\pi^-\pi^0$ measured by
@@ -613,7 +639,7 @@ return in Sect.~\ref{subsec:hybrids} \cite[Ch.~11]{Amsler2018}.
    \label{fig:dalitz_etapimpi0}
  \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
    \centering
    \includegraphics[width=0.9\linewidth]{Figures/pwa_chi2_residuals.png}
    \caption{Difference between fit and data ($\pm\chi^2$ per cell) for
@@ -624,7 +650,7 @@ return in Sect.~\ref{subsec:hybrids} \cite[Ch.~11]{Amsler2018}.
    \label{fig:pwa_chi2_residuals}
 \end{figure}
 
- \begin{figure}[t]
+ \begin{figure}[htbp]
    \centering
    \includegraphics[width=0.6\linewidth]{Figures/rhohat_interference.png}
    \caption{Intensity of the exotic $\hat\rho$ ($1^{-+}$) amplitude and its
@@ -686,7 +712,7 @@ the $f_0(1710)$. Having so far considered only $q\bar q$ states, we are led to
 ask whether the supernumerary $f_0(1500)$ is the scalar glueball
 \cite[Ch.~11]{Amsler2018}.
 
- \begin{figure}[t]
+ \begin{figure}[htbp]
    \centering
    \includegraphics[width=0.8\linewidth]{Figures/scalar_nonet_assignment.png}
    \caption{Tentative assignment of the $1^3P_0$ ($0^{++}$) nonet in the
@@ -795,36 +821,30 @@ therefore stays controversial: alternative schemes promote the $f_0(1710)$ to
 ground-state glueball, and lattice calculations including dynamical quarks may
 ultimately settle the question \cite[Ch.~11]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURES (Crystal Barrel Dalitz plots + couplings) ---------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/crystalbarrel_dalitz_neutral.pdf}
-%   \caption{Crystal Barrel Dalitz plots from $\bar p p$ annihilation at rest into
-%            $6\gamma$: $\pi^0\pi^0\pi^0$, $\pi^0\pi^0\eta$ and $\pi^0\eta\eta$,
-%            revealing the scalar and tensor isoscalar and isovector mesons.}
-%   \label{fig:cb_dalitz_neutral}
-% \end{figure}
-%
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.6\linewidth]{Figures/scalar_couplings_R1R2.pdf}
-%   \caption{Ratios $R_2$ versus $R_1$ of squared couplings of the isoscalar
-%            scalars to $K\bar K$ and $\eta\eta$ relative to $\pi\pi$. The curve is
-%            the $q\bar q$ prediction as a function of mixing angle $\alpha$; the
-%            boxes are data from $\bar p p$ annihilation (Crystal Barrel) and
-%            central production (WA102).}
-%   \label{fig:scalar_couplings}
-% \end{figure}
-%
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/glue_distribution_f0.pdf}
-%   \caption{Distribution of the glue ($G_0$), $s\bar s$ ($S$) and $n\bar n$ ($N$)
-%            components in the $f_0(1370)$, $f_0(1500)$ and $f_0(1710)$
-%            wavefunctions, from central production and $J/\psi$ decay data.}
-%   \label{fig:glue_distribution}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/crystalbarrel_dalitz_neutral.png}
+  \caption{Crystal Barrel Dalitz plots from $\bar p p$ annihilation at rest into
+           $6\gamma$: $\pi^0\pi^0\pi^0$ (712\,000 events), $\pi^0\pi^0\eta$
+           (280\,000 events) and $\pi^0\eta\eta$ (198\,000 events),
+           revealing the scalar and tensor isoscalar and isovector mesons.
+           Adapted from the lecture slides (week 23).}
+  \label{fig:cb_dalitz_neutral}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Figures/glue_distribution_f0.png}
+  \caption{Two competing glueball--meson mixing schemes for the $f_0(1370)$,
+           $f_0(1500)$ and $f_0(1710)$: (a) Sexton, Vaccarino and Weingarten,
+           in which the bare glueball $G$ lies above the $n\bar n$ and
+           $s\bar s$ states and concentrates in the heaviest physical state;
+           (b) Close and Kirk, in which the bare glueball lies between
+           $n\bar n$ and $s\bar s$ and concentrates in the middle state.
+           Adapted from the lecture slides (week 24, "Interpretation:
+           Glueball-Meson-Mixing").}
+  \label{fig:glue_distribution}
+\end{figure}
 
 \FloatBarrier
 
@@ -884,26 +904,27 @@ including the tensor ground state expected near $2400~\mathrm{MeV}$ --- will
 require gluon-rich data of much higher statistics, the prospects for which are
 discussed in Sect.~\ref{subsec:outlook}.
 
-% ---- PLACEHOLDER FIGURES (combined analysis results) -----------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/jpsi_radiative_rate.pdf}
-%   \caption{Rate of radiative $J/\psi$ decays into scalar mesons as a function of
-%            the resonance mass, from the coupled-channel analysis. The broad peak
-%            around $1900~\mathrm{MeV}$ is interpreted as the scalar glueball
-%            distributed over the mixed $f_0$ states.}
-%   \label{fig:jpsi_radiative_rate}
-% \end{figure}
-%
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.95\linewidth]{Figures/scalar_two_families.pdf}
-%   \caption{Masses and widths of the ten isoscalar scalar resonances from the
-%            coupled-channel analysis, grouped into states with large SU(3) singlet
-%            components and states with large octet components.}
-%   \label{fig:scalar_two_families}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/jpsi_radiative_rate.png}
+  \caption{Rate of radiative $J/\psi$ decays into scalar mesons as a function of
+           the resonance mass, from the coupled-channel analysis. The broad peak
+           around $1900~\mathrm{MeV}$ is interpreted as the scalar glueball
+           distributed over the mixed $f_0$ states. Adapted from the lecture
+           slides (week 24, "A new combined analysis").}
+  \label{fig:jpsi_radiative_rate}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{Figures/scalar_two_families.png}
+  \caption{Masses and widths of the ten isoscalar scalar resonances from the
+           coupled-channel analysis, grouped into states with large SU(3) singlet
+           ("1", top) components and states with large octet ("8", bottom)
+           components. Adapted from the lecture slides (week 24, "A new
+           combined analysis").}
+  \label{fig:scalar_two_families}
+\end{figure}
 
 \FloatBarrier
 
@@ -931,16 +952,20 @@ nucleon--antinucleon bound state shaken out of protonium. Such baryonia have
 remained experimentally elusive, perhaps because the onset of annihilation at short
 distances broadens them substantially \cite[Ch.~11]{Amsler2018}.
 
-% ---- PLACEHOLDER FIGURE (isoscalar tensor spectrum) ------------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/isoscalar_tensor_spectrum.pdf}
-%   \caption{Reported isoscalar $2^{++}$ mesons between $1.5$ and $2.5~\mathrm{GeV}$.
-%            The states are broad and overlapping, complicating the identification
-%            of the predicted tensor glueball.}
-%   \label{fig:tensor_spectrum}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Figures/isoscalar_tensor_spectrum.png}
+  \caption{Weight diagrams of the ground-state $2^{++}$ tensor nonet: the
+           $K_2^*(1430)$ isodoublets and $a_2(1320)$ isotriplet forming the
+           octet together with the isoscalar $f_2(1270)$, and the largely
+           $s\bar s$ isoscalar $f_2'(1525)$. Between about $1525$ and
+           $2500~\mathrm{MeV}$ eight isoscalar tensor mesons have been
+           reported, more than the six expected from the $2^3P_2$,
+           $3^3P_2$ and $1^3F_2$ nonets combined, hinting at a tensor
+           glueball. Adapted from the lecture slides (week 24, "Always
+           that problematic? - tensor resonances").}
+  \label{fig:tensor_spectrum}
+\end{figure}
 
 \FloatBarrier
 
@@ -1035,33 +1060,26 @@ electromagnetic calorimeter, whose forward endcap comprises $3856$
 $\mathrm{PbWO_4}$ crystals, now being assembled and validated with cosmic-ray and
 test-beam data.
 
-% ---- PLACEHOLDER FIGURES (production/formation + PANDA) --------------------
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.7\linewidth]{Figures/production_vs_formation.pdf}
-%   \caption{Antiproton--proton reactions. Top: production,
-%            $\bar p p\to M_1 M_2 + \text{recoil meson}$, which reaches all
-%            $J^{PC}$. Bottom: formation, $\bar p p\to M_1 M_2$, restricted to the
-%            non-exotic $J^{PC}$ of a fermion--antifermion pair.}
-%   \label{fig:production_formation}
-% \end{figure}
-%
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.85\linewidth]{Figures/glueball_spectrum_reach.pdf}
-%   \caption{Predicted glueball spectrum (lattice QCD) with the mass reach of LEAR
-%            (scalar ground state) and of PANDA at the HESR (up to
-%            $m_G\sim4~\mathrm{GeV}$) indicated.}
-%   \label{fig:glueball_reach}
-% \end{figure}
-%
-% \begin{figure}[t]
-%   \centering
-%   \includegraphics[width=0.85\linewidth]{Figures/panda_hesr.pdf}
-%   \caption{The PANDA detector at the HESR storage ring of FAIR (overall length
-%            about $12~\mathrm{m}$).}
-%   \label{fig:panda}
-% \end{figure}
-% ----------------------------------------------------------------------------
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{Figures/production_vs_formation.png}
+  \caption{Antiproton--proton reactions. Top: production,
+           $\bar p p\to M_1 M_2 + \text{recoil meson}$, which reaches all
+           $J^{PC}$. Bottom: formation, $\bar p p\to M_1 M_2$, restricted to the
+           non-exotic $J^{PC}$ of a fermion--antifermion pair. Adapted from
+           the lecture slides (week 24, "Production and formation
+           experiments"). The predicted glueball spectrum accessible to PANDA,
+           up to $m_G\sim4~\mathrm{GeV}$ well beyond the scalar ground state
+           reached at LEAR, is shown in Fig.~\ref{fig:glueball_spectrum}.}
+  \label{fig:production_formation}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{Figures/panda_hesr.png}
+  \caption{The PANDA detector at the HESR storage ring of FAIR (overall length
+           about $12~\mathrm{m}$). Adapted from the lecture slides (week 24).}
+  \label{fig:panda}
+\end{figure}
 
 \FloatBarrier
