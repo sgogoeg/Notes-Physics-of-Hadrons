@@ -58,7 +58,7 @@ and pentaquarks) are deferred to the dedicated chapter on multiquark states.
 \label{subsec:gluonic_matter}
 
 The strong interaction is described by the non-Abelian gauge theory
-$\mathrm{SU}(3)_c$, whose force carriers are eight massless gluons. Unlike the
+$\mathrm{SU(3)}_{C}$, whose force carriers are eight massless gluons. Unlike the
 photon of quantum electrodynamics, which is electrically neutral, the gluons carry
 color charge and therefore couple to one another. This self-coupling is responsible
 for the running of the strong coupling constant $\alpha_s$ and for asymptotic
@@ -111,7 +111,7 @@ could be hybrid mesons or multiquark states \cite[Ch.~11]{Amsler2018}.
     \end{scope}
   \end{tikzpicture}
   \caption{Schematic comparison of (a) a conventional $q\bar q$ meson bound by
-  a flux tube, (b) a two-gluon glueball, a colour-singlet bound state of
+  a flux tube, (b) a two-gluon glueball, a color-singlet bound state of
   glue alone, and (c) a $q\bar q g$ hybrid, in which the flux tube carries an
   additional gluonic excitation.}
   \label{fig:glueball_hybrid_cartoon}
@@ -254,9 +254,9 @@ the fractions of $S$-wave and $P$-wave annihilation \cite[Ch.~3]{Amsler2018}.
 Annihilation from a given atomic state fixes the initial quantum numbers. For a
 fermion--antifermion system the parity, charge conjugation and $G$ parity are
 \begin{equation}
-  P = -(-1)^{L}, \qquad
-  C = (-1)^{L+S}, \qquad
-  G = (-1)^{L+S+I}.
+  P = (-1)^{L+1}, \qquad
+  C = (-1)^{L+s}, \qquad
+  G = (-1)^{L+s+I}.
   \label{eq:ppbar_PCG}
 \end{equation}
 Annihilation from the two $S$-wave states therefore gives
@@ -268,7 +268,7 @@ $\,^3P_1\to 1^{++}$ and $\,^3P_2\to 2^{++}$.
 Two features make this an exceptionally clean laboratory for spectroscopy. First,
 conservation of the quantum numbers in Eq.~\eqref{eq:ppbar_PCG} severely restricts
 which initial states can feed a given final state; for the $3\pi$ system, for
-instance, $G_{3\pi}=-1$ and $C_{3\pi^0}=+1$ select only a handful of $\,^{2S+1}L_J$
+instance, $G_{3\pi}=-1$ and $C_{3\pi^0}=+1$ select only a handful of $\,^{2s+1}L_J$
 initial states. Second, different initial atomic states do not interfere with one
 another. Together these properties greatly reduce the number of amplitudes that
 must be considered in a partial wave analysis \cite[Ch.~3]{Amsler2018}.
@@ -305,7 +305,7 @@ In a three-body final state $M_1 M_2 M_3$ a resonance reveals itself as an
 enhancement in the invariant mass of a pair of particles,
 \begin{equation}
   M^2 = \left(E_i + E_j\right)^2 - \left(\vec p_i + \vec p_j\right)^2 .
-  \label{eq:invariant_mass}
+  \label{eq:invariant-mass-pair}
 \end{equation}
 A single one-dimensional projection, however, superimposes the dynamics of the
 other two pairs, so one variable does not capture the full reaction. The number of
@@ -333,10 +333,91 @@ bands.
            $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$. The shaded strips indicate
            where the three charge states of the $\rho(770)$ appear:
            $\rho^+\!\to\pi^+\pi^0$ (vertical), $\rho^-\!\to\pi^-\pi^0$ (horizontal)
-           and $\rho^0\!\to\pi^+\pi^-$ (diagonal). The bands cross near the centre,
+           and $\rho^0\!\to\pi^+\pi^-$ (diagonal). The bands cross near the center,
            where interference is strong.}
   \label{fig:dalitz_boundary}
 \end{figure}
+
+\subsubsection{Kinematics of the Dalitz plot}
+\label{subsubsec:dalitz-kinematics}
+
+The qualitative statements above become quantitative with the two-body relations of
+Sect.~\ref{subsec:rel-kinematics}. Write the parent mass as $M$ and the three daughter
+masses as $m_1$, $m_2$, $m_3$.
+
+The three pairwise invariant masses are not independent. Summing
+Eq.~\eqref{eq:invariant-mass-pair} over the three pairs and using
+energy--momentum conservation gives
+\begin{equation}
+  m_{12}^2 + m_{13}^2 + m_{23}^2 \;=\; M^2 + m_1^2 + m_2^2 + m_3^2 .
+  \label{eq:dalitz-sum-rule}
+\end{equation}
+This is Amsler's Eq.~(B.3) \cite[App.~B]{Amsler2018}. Because the right-hand side is a
+constant, fixing any two of the invariants fixes the third---consistent with the counting
+of two independent variables above. It also means
+that lines of constant $m_{13}^2$ run \emph{diagonally} across a plot whose axes are
+$m_{12}^2$ and $m_{23}^2$, which is why a resonance in the third pair appears as a
+diagonal band (the $\rho^0$ strip of Fig.~\ref{fig:dalitz_boundary}) rather than a
+horizontal or vertical one.
+
+The extent of each axis follows from the requirement that the remaining particle be
+producible. The pair $(ij)$ has the largest invariant mass when the spectator $k$ is
+produced at rest in the parent frame, and the smallest when the pair itself is at rest:
+\begin{equation}
+  m_{ij}^2\big|_{\max} = \left(M - m_k\right)^2,
+  \qquad
+  m_{ij}^2\big|_{\min} = \left(m_i + m_j\right)^2 .
+  \label{eq:dalitz-limits}
+\end{equation}
+Equation~\eqref{eq:dalitz-limits} is what makes the plot a measurement of the parent
+mass: reading the largest invariant mass reached along an axis and adding back $m_k$
+returns $M$.
+
+Within those limits the boundary itself is fixed by the two-body kinematics. At a given
+$m_{12}$, treat the decay as the sequential process $M \to (12) + 3$ followed by
+$(12) \to 1 + 2$. The energies of particles $1$ and $3$ in the rest frame of the pair
+$(12)$ follow from Eq.~\eqref{eq:twobody_energy},
+\begin{equation}
+  E_1^* = \frac{m_{12}^2 + m_1^2 - m_2^2}{2 m_{12}},
+  \qquad
+  E_3^* = \frac{M^2 - m_{12}^2 - m_3^2}{2 m_{12}},
+  \label{eq:dalitz-star-energies}
+\end{equation}
+with the corresponding momenta from Eq.~\eqref{eq:kallen}. The extreme values of
+$m_{23}^2$ at that $m_{12}$ are then reached when $\vec p_2$ and $\vec p_3$ are
+\emph{collinear}---parallel at one edge, antiparallel at the other:
+\begin{equation}
+  m_{23}^2\big|_{\substack{\max\\\min}}
+  = \left(E_2^* + E_3^*\right)^2
+    - \left(\left|\vec p_2^{\,*}\right| \mp \left|\vec p_3^{\,*}\right|\right)^2 .
+  \label{eq:dalitz-boundary}
+\end{equation}
+The interior of the curve traced by Eq.~\eqref{eq:dalitz-boundary} is precisely the
+region where the three momenta can close into a triangle; the boundary is the degenerate
+case in which they become collinear and the final state is planar in a trivial sense. It
+follows that a point at the edge of the plot describes a configuration in which one
+particle carries the largest momentum it can, while the corner regions correspond to one
+particle being nearly at rest---so the minimum of $\left|\vec p_1\right|$ sits at the
+edge where $m_{23}^2$ is largest.
+
+\paragraph{Worked example: $(\bar p p)_{\text{rest}}\to\pi^+\pi^-\pi^0$.}
+For annihilation at rest the parent is the protonium atom, $M = 2 m_p =
+1876.5\;\mathrm{MeV}$, decaying to two charged pions and a $\pi^0$. With
+$m_{\pi^\pm} = 139.6\;\mathrm{MeV}$ and $m_{\pi^0} = 135.0\;\mathrm{MeV}$,
+Eq.~\eqref{eq:dalitz-limits} gives for the $\pi^+\pi^-$ pair
+\begin{equation*}
+  m_{+-}\big|_{\max} = M - m_{\pi^0} = 1741.5\;\mathrm{MeV},
+  \qquad
+  m_{+-}\big|_{\min} = 2 m_{\pi^\pm} = 279.1\;\mathrm{MeV},
+\end{equation*}
+so the axis spans $0.078$ to $3.03\;\mathrm{GeV}^2$. The $\rho(770)$ bands therefore fall
+comfortably inside the plot, at $m^2 \approx 0.60\;\mathrm{GeV}^2$, and
+Eq.~\eqref{eq:dalitz-sum-rule} fixes the sum of the three squared invariants at
+$M^2 + 2m_{\pi^\pm}^2 + m_{\pi^0}^2 = 3.58\;\mathrm{GeV}^2$, which is the constraint
+that places the $\rho^0$ band on the diagonal of Fig.~\ref{fig:dalitz_boundary}. Amsler
+derives the uniform population of the $m_{12}^2$ versus $m_{13}^2$ plane from the phase
+space $\mathrm{d}^2\rho = \pi^2\,\mathrm{d}T_1\,\mathrm{d}T_2$ in the same appendix
+\cite[App.~B]{Amsler2018}.
 
 The spin of a resonance is encoded in the geometry of its decay. In the resonance
 rest frame the two daughters emerge back-to-back, and the helicity angle $\theta$
@@ -475,7 +556,8 @@ For a single resonance coupled to two channels these requirements lead to the
 \end{equation}
 where $\gamma_i$ is the coupling of the resonance to channel $i$ and the
 mass-dependent total width obeys
-$\Gamma_0(m_0) = \sum_i\tilde\Gamma_i = \Gamma_0\sum_i\gamma_i^2\rho_i(m_0)$. The
+$\Gamma(m) = \sum_i\tilde\Gamma_i(m) = \Gamma_0\sum_i\gamma_i^2\rho_i(m)$, reducing to
+$\Gamma_0$ at $m = m_0$ when the phase-space factors are normalized there. The
 width in the denominator is shared among the channels: the resonance has a single
 lifetime, whichever final state is observed, regardless of whether a given channel
 accounts for $20\%$ or $60\%$ of the decays \cite[Ch.~12]{Amsler2018}.
@@ -488,12 +570,20 @@ $m_P = m_0 - i\Gamma/2$ and the distinction is immaterial, but for strongly coup
 channels the line shape observed on the real axis can differ drastically from a
 Breit--Wigner of width $\Gamma_0$. The $a_0(980)$ illustrates the effect: it sits
 almost exactly on the $K\bar K$ threshold ($m_0 = 998.2~\mathrm{MeV}$,
-$\Gamma_0 = 301.4~\mathrm{MeV}$). Below threshold the phase-space factor $\rho_2$
+$\Gamma_0 = 301.4~\mathrm{MeV}$).%
+\footnote{Amsler fits the same resonance in $p\bar p \to a_0\pi$ with
+$g_1 = 324~\mathrm{MeV}$, $g_2 = 329~\mathrm{MeV}$ and
+$\Gamma_0 = 462~\mathrm{MeV}$ \cite[Ch.~12]{Amsler2018}. Those values are not
+self-consistent: his Eq.~(12.30), $g_1^2 + g_2^2 = m_0\Gamma_0$, returns
+$\Gamma_0 \approx 218~\mathrm{MeV}$ rather than $462~\mathrm{MeV}$. The parameters
+used here are the lecture's.} Below threshold the phase-space factor $\rho_2$
 is imaginary, so the $K\bar K$ term in the denominator becomes real and shifts the
 peak rather than broadening it; for comparable couplings
 ($\gamma_2^2/\gamma_1^2\approx 1$) one decay channel ``eats into'' the other and
-the visible $\eta\pi$ peak narrows from roughly $300$ to about $50~\mathrm{MeV}$,
-as shown in Fig.~\ref{fig:flatte_a0980}. The resonance \emph{looks} very narrow,
+the visible $\eta\pi$ peak is compressed to about $56~\mathrm{MeV}$, roughly a
+quarter of the $199~\mathrm{MeV}$ it would span with the $K\bar K$ channel closed, as
+shown in Fig.~\ref{fig:flatte_a0980}. Note that neither number is the input
+$\Gamma_0 = 301.4~\mathrm{MeV}$: that is precisely the point. The resonance \emph{looks} very narrow,
 but the underlying situation is far more complicated, and for such at-threshold
 states the location of the pole on the different Riemann sheets of the
 multivalued amplitude becomes essential for a meaningful determination of the
@@ -504,11 +594,14 @@ resonance parameters \cite[Ch.~12]{Amsler2018}.
   \includegraphics[width=0.7\linewidth]{Figures/flatte_a0980.pdf}
   \caption{Flatt\'e line shape of the $a_0(980)$ in the $\eta\pi^0$ channel,
            Eq.~\eqref{eq:flatte}, with $m_0=998.2~\mathrm{MeV}$ and
-           $\Gamma_0=301.4~\mathrm{MeV}$. With the $K\bar K$ channel switched off
-           ($\gamma_2=0$, dashed) the resonance is some $300~\mathrm{MeV}$ broad;
-           with equal couplings (solid) the opening of the $K\bar K$ threshold
-           (dotted line) compresses the visible $\eta\pi$ peak to about
-           $50~\mathrm{MeV}$.}
+           $\Gamma_0=301.4~\mathrm{MeV}$. With the $K\bar K$ channel switched off at
+           the same total width ($\gamma_2=0$, dashed) the peak spans about
+           $199~\mathrm{MeV}$; with equal couplings
+           ($\gamma_2^2/\gamma_1^2 = 1$, solid) the opening of the $K\bar K$
+           threshold (dotted line) compresses the visible $\eta\pi$ peak to about
+           $56~\mathrm{MeV}$ and leaves a cusp at threshold. Plotted as phase space
+           $\times\,|T|^2$; parameters and the two coupling ratios follow the lecture
+           slides (week 24, ``Scattering -- a few more things'').}
   \label{fig:flatte_a0980}
 \end{figure}
 
@@ -741,7 +834,7 @@ $a_0(980)$ and the scalars $f_0(1370)$ and $f_0(1500)$ \cite[Ch.~11]{Amsler2018}
 
 To test whether the supernumerary $f_0(1500)$ of
 Sect.~\ref{subsec:scalar_nonet} is the glueball, one uses its
-$\mathrm{SU}(3)_f$ decay couplings. Recall the ideal nonet mixing introduced in
+$\mathrm{SU(3)}_{F}$ decay couplings. Recall the ideal nonet mixing introduced in
 Sect.~\ref{sec:mesons}: the mostly-strange isoscalar is
 \begin{equation}
   \ket{f'} = \sqrt{\tfrac{2}{3}}\,\ket{f_8} - \sqrt{\tfrac{1}{3}}\,\ket{f_1}
@@ -852,7 +945,7 @@ ultimately settle the question \cite[Ch.~11]{Amsler2018}.
 \subsection{A coupled-channel view of the scalar spectrum}
 \label{subsec:coupled_channel}
 
-The discussion so far rested on analyses of individual reactions. Since the
+The discussion so far rested on analyzes of individual reactions. Since the
 scalars are broad, overlapping and coupled to many final states, the modern
 approach is a simultaneous coupled-channel partial wave analysis of all available
 data, with amplitudes of the type discussed in Sect.~\ref{subsec:lineshapes}
@@ -876,7 +969,7 @@ $f_0(2020)$ and $f_0(2200)$. The other has large \emph{octet} components: the
 $f_0(980)$, $f_0(1500)$, $f_0(1770)$, $f_0(2100)$ and $f_0(2330)$. Notably, the
 analysis resolves the structure near $1.7~\mathrm{GeV}$ into two distinct states,
 the singlet-like $f_0(1710)$ at $1700\pm18~\mathrm{MeV}$ and an octet-like
-$f_0(1770)$ at $1765\pm15~\mathrm{MeV}$, which earlier single-channel analyses
+$f_0(1770)$ at $1765\pm15~\mathrm{MeV}$, which earlier single-channel analyzes
 could not separate.
 
 Radiative $J/\psi$ decay now acts as a flavor filter. The $c\bar c$ pair

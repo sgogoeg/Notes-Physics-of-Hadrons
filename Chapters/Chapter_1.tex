@@ -7,7 +7,7 @@ leptons. Together with the gauge bosons that mediate the three non-gravitational
 forces, these elementary constituents form the content of the Standard Model of
 particle physics. Leptons interact through the electromagnetic and
 weak forces but are oblivious to the strong interaction. Quarks, by contrast,
-carry colour charge and therefore participate in all three interactions; it is
+carry color charge and therefore participate in all three interactions; it is
 precisely the strong force that binds them into the composite, strongly interacting
 particles collectively known as \emph{hadrons} \cite[Ch.~1]{HalzenMartin1984}.
 
@@ -39,6 +39,7 @@ and charge conservation \cite[Ch.~1]{Amsler2018}.
 \FloatBarrier
 
 \subsection{Historical Background and the Quark Model}
+\label{subsec:history-quark-model}
 
 Prior to the 1960s, advances in accelerator technology unleashed an avalanche of
 newly discovered strongly interacting particles---protons, neutrons, pions, kaons,
@@ -46,7 +47,7 @@ hyperons, and their numerous excited states---that earned the era the descriptio
 ``the particle zoo''. Organizing this proliferation demanded a classification
 principle analogous to Mendeleev's periodic table. A pivotal step came with the
 recognition that hadrons cluster naturally into multiplets of the approximate
-flavour symmetry group $\mathrm{SU}(3)_f$, proposed independently around
+flavor symmetry group $\mathrm{SU(3)}_{F}$, proposed independently around
 1961--1964 by Gell-Mann and Ne'eman under the name \emph{the Eightfold Way}
 \cite[Ch.~2]{HalzenMartin1984}. This symmetry groups the lightest pseudoscalar and
 vector mesons into octets (and singlets that mix to form nonets), and arranges the
@@ -68,28 +69,29 @@ Feynman's 1969 description---which were eventually identified with the quarks of
 the model, together with electrically neutral gluons that carry a share of the
 proton's momentum. The observation of narrow two- and three-jet events at PETRA
 and PEP provided direct visual evidence for quark and gluon fragmentation into
-hadronic matter \cite[Ch.~14]{HalzenMartin1984}.
+hadronic matter \cite[Ch.~11]{HalzenMartin1984}.
 
 \FloatBarrier
 
 \subsection{QCD and the strong interaction}
+\label{subsec:qcd-strong-interaction}
  
 The theory of the strong interaction, \emph{Quantum Chromodynamics} (QCD), is a
 non-Abelian gauge theory based on the local color symmetry group
-$\mathrm{SU}(3)_c$, whose mathematical structure was established by Fritzsch,
+$\mathrm{SU(3)}_{C}$, whose mathematical structure was established by Fritzsch,
 Gell-Mann, and Leutwyler in 1973. The fundamental charge of QCD is color,
 introduced by Han and Nambu and by Greenberg in the mid-1960s: each quark
-flavour exists in three colour states conventionally labeled red ($r$), green ($g$),
+flavor exists in three color states conventionally labeled red ($r$), green ($g$),
 and blue ($b$), while antiquarks carry the corresponding anticolors
 \cite[Ch.~10]{Amsler2018}. The gauge bosons of the theory are eight massless
-gluons, each carrying one unit of colour and one of anticolour, corresponding to the
-eight generators of $\mathrm{SU}(3)_c$. A ninth combination,
+gluons, each carrying one unit of color and one of anticolor, corresponding to the
+eight generators of $\mathrm{SU(3)}_{C}$. A ninth combination,
 $\tfrac{1}{\sqrt{3}}\ket{r\bar{r} + g\bar{g} + b\bar{b}}$, would form a color
 singlet; since a free color-singlet gluon would mediate a long-range force of
 infinite range not observed in nature, only the eight-dimensional color octet of
 gluons appears as a physical field \cite[Ch.~10]{Amsler2018}.
  
-A direct consequence of $\mathrm{SU}(3)_c$ is color confinement: free quarks and
+A direct consequence of $\mathrm{SU(3)}_{C}$ is color confinement: free quarks and
 free gluons are never observed in isolation. All detectable hadrons are
 color-neutral, or \emph{white}, objects. Because gluons are electrically neutral
 and carry no intrinsic quantum numbers beyond color, the quantum numbers of a
@@ -103,23 +105,23 @@ color-neutral arrangements --- tetraquarks, pentaquarks, and glueballs --- are
 equally permitted by QCD, though their unambiguous experimental identification
 remains an open challenge \cite[Ch.~10]{Amsler2018}.
 
-The number of colour charges $N_c = 3$ is not a free parameter but is independently
+The number of color charges $N_{C} = 3$ is not a free parameter but is independently
 confirmed by three experimental observations \cite[Ch.~10]{Amsler2018}. First, the
 measured two-photon decay rate $\Gamma(\pi^0 \to \gamma\gamma) = 7.7 \pm 0.2$~eV
-is reproduced by the anomalous triangle diagram only when $N_c = 3$ color species
+is reproduced by the anomalous triangle diagram only when $N_{C} = 3$ color species
 run in the internal quark loop. Second, the ratio of hadronic to leptonic cross
 sections in $e^+e^-$ annihilation,
 \begin{equation}
     R \;=\; \frac{\sigma(e^+e^- \to \mathrm{hadrons})}{\sigma(e^+e^- \to \mu^+\mu^-)}
-      \;=\; N_c \sum_q Q_q^2,
-    \label{eq:R-ratio}
+      \;=\; N_{C} \sum_q Q_q^2,
+    \label{eq:R-ratio-nc}
 \end{equation}
 rises in a step-like pattern at each new quark threshold; above the
-$b\bar{b}$ threshold one finds $R = \tfrac{11}{9}N_c$, in agreement with data only
-for $N_c = 3$. Third, the branching ratio of the $W^+$ boson into hadronic final
+$b\bar{b}$ threshold one finds $R = \tfrac{11}{9}N_{C}$, in agreement with data only
+for $N_{C} = 3$. Third, the branching ratio of the $W^+$ boson into hadronic final
 states, $\Gamma(W^+ \to \mathrm{hadrons})/\Gamma_\mathrm{tot} \approx 2/3$,
-reflects the three colour states available to each quark-antiquark pair and is
-inconsistent with $N_c \neq 3$.
+reflects the three color states available to each quark-antiquark pair and is
+inconsistent with $N_{C} \neq 3$.
  
 The quark-antiquark interaction potential at intermediate distances is well described
 by the \emph{Cornell potential}
@@ -155,6 +157,7 @@ energy colliders.
 \FloatBarrier
  
 \subsection{Screening and anti-screening}
+\label{subsec:screening}
  
 The qualitatively different behavior of QED and QCD at short distances is
 understood from the renormalisation-group running of their respective coupling
@@ -164,13 +167,13 @@ the bare charge in a process called \emph{screening}. The effective fine-structu
 constant $\alpha(Q^2)$ therefore increases as the momentum transfer $Q^2$ grows
 and the test charge probes shorter distances, running from $\alpha(m_e) = 1/137.03599976(50)$ at
 atomic scales to $\alpha(m_Z^2) \approx 1/128$ at the $Z$-boson pole
-\cite[Ch.~14]{HalzenMartin1984}. The running coupling for QED is approximately:
+\cite[Ch.~7]{HalzenMartin1984}. The running coupling for QED is approximately:
 
 \begin{equation}
     \alpha(Q^2) = \frac{\alpha(m_e^2)}{1 - [\alpha(m_e^2)/3\pi] \ln(|Q^2|/m_e^2)}.
 \end{equation}
  
-In QCD the mechanism is reversed. The non-Abelian structure of $\mathrm{SU}(3)_c$
+In QCD the mechanism is reversed. The non-Abelian structure of $\mathrm{SU(3)}_{C}$
 permits three-gluon and four-gluon self-interaction vertices, which have no analogue
 in QED. These gluon loops contribute an \emph{anti-screening} effect that
 overwhelms the screening contribution from virtual quark loops whenever the number
@@ -184,7 +187,7 @@ QCD reads
 \end{equation}
 whose right-hand side is negative for all physically relevant cases ($N_f \leq 6$),
 so $\alpha_s$ decreases as the energy scale $\mu$ increases
-\cite[Ch.~14]{HalzenMartin1984}. This property, named \emph{asymptotic freedom},
+\cite[Ch.~7]{HalzenMartin1984}. This property, named \emph{asymptotic freedom},
 was derived in 1973 by Gross, Politzer, and Wilczek, work recognized with the
 Nobel Prize in Physics in 2004. Conversely, as $Q^2 \to 0$, $\alpha_s$ grows and
 perturbation theory breaks down, signaling the onset of confinement in the
@@ -204,7 +207,7 @@ where $n_c$ is the number of colors and $n_f$ is the number of quark flavors bel
     \caption{World data on the strong coupling constant $\alpha_s(Q)$ as a
          function of the energy scale $Q$, compiled from a range of
          processes (PDG). In contrast to the QED coupling, which grows with
-         $Q$ through vacuum-polarisation screening, $\alpha_s$ \emph{decreases}
+         $Q$ through vacuum-polarization screening, $\alpha_s$ \emph{decreases}
          with increasing $Q$ owing to gluon self-coupling (anti-screening),
          the hallmark of asymptotic freedom. The data converge on the
          reference value $\alpha_s(m_Z) \approx 0.118$ at the $Z$ pole. The
@@ -216,6 +219,7 @@ where $n_c$ is the number of colors and $n_f$ is the number of quark flavors bel
 \FloatBarrier
  
 \subsection{Reminder: scattering}
+\label{subsec:scattering-reminder}
 
 The observables measured in scattering and collider experiments are event rates and
 cross sections. These quantities provide the operational link between the theoretical
@@ -239,7 +243,7 @@ interactions occur is
 \begin{equation}
     \phi \cdot N_t \cdot \sigma = \dot{N}_{s} = \frac{\text{number of scattered particles}}{\text{second}}
 \end{equation}
-where $N_t$ is the number of scattering centres in the target and $\sigma$ is the
+where $N_t$ is the number of scattering centers in the target and $\sigma$ is the
 \emph{cross section}, which gives a measure of how likely a given incoming
 particle is to be scattered. The product of the flux and the number of target
 particles defines the \emph{luminosity} $L$,
@@ -305,6 +309,7 @@ basis for $J^{PC}$ assignments in hadron spectroscopy \cite[Ch.~2]{Amsler2018}.
 \FloatBarrier
 
 \subsection{Yukawa potential and massive carriers: the remanent nuclear forces}
+\label{subsec:yukawa}
  
 The range of the nuclear force --- of order 1~fm --- indicates that its carrier must
 be massive. In 1935, Hideki Yukawa argued that a force mediated by a particle of
@@ -338,9 +343,9 @@ has infinite range. This potential now solves the differential equation:
     \centering
     \includegraphics[width=0.65\linewidth]{Figures/Yukawa_vs_Coulomb.pdf}
     \caption{Comparison of the Yukawa potential $V(r) \propto e^{-m_\pi r}/r$
-         with the Coulomb potential $V(r) \propto 1/r$, normalised to
+         with the Coulomb potential $V(r) \propto 1/r$, normalized to
          coincide at $r = 0.3\;\mathrm{fm}$ so that only the long-range
-         behaviour differs. The finite pion mass introduces the exponential
+         behavior differs. The finite pion mass introduces the exponential
          factor that suppresses the Yukawa potential beyond the range
          $R = \hbar c / m_\pi c^2 \approx 1.4\;\mathrm{fm}$ (dotted line),
          whereas the massless photon yields the infinite-range Coulomb
@@ -359,8 +364,8 @@ to within a factor of two \cite[Ch.~2]{Amsler2018}.
  
 The nuclear force, however, is not a fundamental interaction in the same sense as
 QCD. At the quark level, the binding of two nucleons is a residual van der
-Waals--type effect of the underlying colour force: when the quark wavefunctions of
-two neighbouring nucleons overlap, they exchange coloured gluons that, at long
+Waals--type effect of the underlying color force: when the quark wavefunctions of
+two neighboring nucleons overlap, they exchange colored gluons that, at long
 range, rearrange into a pion, making one-pion exchange the dominant contribution
 to the nucleon-nucleon potential for $r \gtrsim 1\;\mathrm{fm}$. At shorter
 distances, exchanges of heavier mesons such as the $\rho$ and $\omega$ become
@@ -379,7 +384,7 @@ hadronic degrees of freedom replace partonic ones
          ($r \gtrsim 1\;\mathrm{fm}$) component of the nuclear force and gives
          rise to the Yukawa potential $V(r) \propto e^{-m_\pi r}/r$
          (Fig.~\ref{fig:yukawa_coulomb}). The exchange picture is residual:
-         the fundamental interaction is the gluon-mediated colour force
+         the fundamental interaction is the gluon-mediated color force
          between the quarks inside each nucleon, of which pion exchange is
          the effective low-energy manifestation.}
     \label{fig:pion_exchange}
@@ -388,6 +393,7 @@ hadronic degrees of freedom replace partonic ones
 \FloatBarrier
  
 \subsection{Parity}
+\label{subsec:parity}
  
 Parity ($P$) is the discrete symmetry corresponding to spatial inversion,
 $\mathbf{r} \to -\mathbf{r}$. Under this operation, polar vectors such as position
@@ -413,7 +419,7 @@ to give
     \label{eq:meson_parity}
 \end{equation}
 The lightest mesons occupy the $L = 0$ ground state and therefore have $P = -1$.
-Depending on whether the total quark spin $S$ is zero or one, these ground states
+Depending on whether the total quark spin $s$ is zero or one, these ground states
 carry $J^{PC} = 0^{-+}$ (pseudoscalar nonet: $\pi, K, \eta, \eta'$) or
 $J^{PC} = 1^{--}$ (vector nonet: $\rho, K^*, \omega, \phi$). Orbital excitations
 with $L = 1$ yield $P = +1$ states corresponding to the scalar ($0^{++}$),
@@ -423,20 +429,22 @@ axial-vector ($1^{++}$ and $1^{+-}$), and tensor ($2^{++}$) nonets
 For three-quark baryons the parity is
 \begin{equation}
     P(qqq)
-    \;=\; [P(q)]^3\cdot(-1)^{\rho+\lambda}
-    \;=\; (-1)^{\rho+\lambda},
+    \;=\; [P(q)]^3\cdot(-1)^{L_{\rho}+L_{\lambda}}
+    \;=\; (-1)^{L_{\rho}+L_{\lambda}},
     \label{eq:baryon_parity}
 \end{equation}
-where $\rho$ is the orbital angular momentum of the diquark pair and $\lambda$ is
-the angular momentum of the third quark relative to the diquark
-\cite[Ch.~13]{Amsler2018}. Ground-state baryons ($\rho = \lambda = 0$) therefore
+where $L_{\rho}$ is the orbital angular momentum of the diquark pair and
+$L_{\lambda}$ is the angular momentum of the third quark relative to the diquark;
+these are the angular momenta conjugate to the Jacobi coordinates $\vec\rho$ and
+$\vec\lambda$ introduced in Chapter~\ref{sec:baryons-color}
+\cite[Ch.~13]{Amsler2018}. Ground-state baryons ($L_{\rho} = L_{\lambda} = 0$) therefore
 have positive parity, giving the spin-$\tfrac{1}{2}$ octet and spin-$\tfrac{3}{2}$
 decuplet their $J^P = \tfrac{1}{2}^+$ and $\tfrac{3}{2}^+$ assignments
 respectively.
  
 Parity is conserved in strong and electromagnetic interactions but violated by the
 weak interaction, as established by Wu in 1957 through the asymmetric emission of
-electrons in polarised ${}^{60}$Co decay, following the theoretical prediction of Lee
+electrons in polarized ${}^{60}$Co decay, following the theoretical prediction of Lee
 and Yang. In hadron spectroscopy, parity together with charge conjugation $C$
 provides the $J^{PC}$ labels that serve as primary identifiers of meson states.
 Certain combinations of $J$, $P$, and $C$ are inaccessible to a $q\bar{q}$ system
@@ -454,18 +462,20 @@ of the decay system; the allowed values of $\lambda$ are constrained by $P$ and 
 conservation and therefore discriminate between different $J^{PC}$ hypotheses
 \cite[Ch.~18]{Amsler2018}. This is the experimental method by which the intrinsic
 parity of the charged pion was established as $P(\pi^-) = -1$ through the reaction
-$\pi^- d \to nn$, and it remains the standard technique applied in modern resonance
+$\pi^- d \to nn$ (the argument is carried out in
+Sect.~\ref{subsec:pion-parity}), and it remains the standard technique applied in modern resonance
 searches at facilities such as LHCb and BESIII.
 
 
 \FloatBarrier
 
 \subsection{Charge conjugation}
+\label{subsec:charge-conjugation}
 
 Charge conjugation ($C$) is the discrete symmetry operation that maps every
 particle onto its corresponding antiparticle, reversing the signs of all additive
 internal quantum numbers: the electric charge $Q$, the baryon number $B$, the
-isospin projection $I_3$, and the flavour quantum numbers strangeness, charm,
+isospin projection $I_3$, and the flavor quantum numbers strangeness, charm,
 bottomness, and topness. The magnetic moment changes sign as well, since it is
 proportional to the charge. Space--time coordinates and kinematic quantities such
 as momentum and orbital or spin angular momentum are left entirely unaffected by
@@ -475,9 +485,9 @@ Because applying $C$ twice returns the original state, $C^2 = \mathbf{1}$, the
 eigenvalues are $\pm 1$ and the corresponding quantum number is called the
 \emph{$C$ parity}. Only particles that are their own antiparticles can be
 eigenstates of $C$: this requires zero electric charge, $I_3 = 0$, and the absence
-of all flavour quantum numbers. Self-conjugated neutral bosons satisfying these
+of all flavor quantum numbers. Self-conjugated neutral bosons satisfying these
 conditions include the $\pi^0$, $\eta$, $\omega$, $\phi$, and $J/\psi$, as well as
-the photon $\gamma$. Gluons, which carry both a colour and an anticolour label,
+the photon $\gamma$. Gluons, which carry both a color and an anticolor label,
 are not eigenstates of $C$: a red-antigreen gluon is mapped onto an antired-green
 gluon and is therefore a physically distinct object \cite[Ch.~3]{Amsler2018}.
  
@@ -523,7 +533,7 @@ spin wavefunctions under interchange of the quark and antiquark labels. Using th
 symmetry properties of the relevant Clebsch--Gordan coefficients, one finds that
 particle--antiparticle pairs are eigenstates of charge conjugation with eigenvalue
 \begin{equation}
-    C(q\bar{q}) = (-1)^{L+S}.
+    C(q\bar{q}) = (-1)^{L+s}.
     \label{eq:qqbar_Cparity}
 \end{equation}
 The ground-state $L = 0$, $S = 0$ mesons have $C = +1$; combined with the
@@ -539,7 +549,7 @@ with the known $P$-wave structure of this decay \cite[Ch.~3]{Amsler2018}.
  
 Together, Eqs.~\eqref{eq:meson_parity} and \eqref{eq:qqbar_Cparity} imply the
 constraint $PC = (-1)^{2L + S + 1} = (-1)^{S+1}$, which is fixed by the
-total quark spin $S$ alone and is independent of $L$. For $S = 0$ one has
+total quark spin $s$ alone and is independent of $L$. For $S = 0$ one has
 $PC = -1$, so $P$ and $C$ always carry opposite signs; for $S = 1$ one has
 $PC = +1$, so they always agree. This restricts the accessible $J^{PC}$ combinations
 to a discrete set, and several combinations are altogether forbidden for any

@@ -1,0 +1,146 @@
+% ============================================================================
+%  notation-macros.tex
+%  Single source of truth for the notation of "Notes: Physics of Hadrons".
+%
+%  INSTALL:  put this file in the project root and add to main.tex, AFTER the
+%            \usepackage block and BEFORE \begin{document}:
+%                \input{notation-macros}
+%
+%  NOTE ON PACKAGES: main.tex loads `physics` only.  `braket` was removed
+%  because both define \ket and \bra and whichever loaded second silently won.
+%  `physics` also provides \dv and \dd, used in Chapters 9 and 10.  The \ket
+%  macro is the starred-free physics version; do not write raw |...\rangle.
+%
+%  CONVENTIONS FIXED HERE
+%    isospin                uppercase I, projection I_3
+%    total quark spin       lowercase s
+%    orbital ang. momentum  uppercase L; baryon Jacobi pair L_rho, L_lambda
+%    parity                 always a power of L+1
+%    wave function          psi = Phi_flavor chi_spin lambda_color R(r)
+%    conjugate reps         bars, never asterisks
+%    mixed symmetry         subscripts MS / MA (S and A for total sym/antisym)
+%    SU(3)                  always subscripted: SU(3)_F, SU(3)_C
+%    composite labels       PDG form  J^PC  and  I^G(J^PC)
+%    spelling               American throughout, including in subscripts
+% ============================================================================
+
+% ---------------------------------------------------------------------------
+%  1. Isospin
+% ---------------------------------------------------------------------------
+\newcommand{\Iso}{I}                             % total isospin
+\newcommand{\Ithree}{I_{3}}                      % isospin projection
+\newcommand{\Ivec}{\vec{I}}
+\newcommand{\Iplus}{I_{+}}
+\newcommand{\Iminus}{I_{-}}
+\newcommand{\isostate}[2]{\ket{#1,#2}}           % \isostate{\tfrac12}{+\tfrac12}
+\newcommand{\Gpar}{G}                            % G parity
+\newcommand{\hyperch}{Y}                         % hypercharge
+\newcommand{\baryonno}{B}                        % baryon number
+\newcommand{\strange}{S}                         % strangeness
+
+% ---------------------------------------------------------------------------
+%  2. Angular momenta and spin
+%     Total quark spin is LOWERCASE s.  Orbital angular momentum is UPPERCASE
+%     L.  For baryons the two Jacobi orbital angular momenta are written
+%     L_rho and L_lambda, with L = L_rho + L_lambda.
+% ---------------------------------------------------------------------------
+\newcommand{\Lorb}{L}                            % orbital angular momentum
+\newcommand{\Lrho}{L_{\rho}}                     % rho-mode orbital ang. mom.
+\newcommand{\Llam}{L_{\lambda}}                  % lambda-mode orbital ang. mom.
+\newcommand{\qspin}{s}                           % TOTAL QUARK SPIN (lowercase)
+\newcommand{\Jtot}{J}                            % total angular momentum
+\newcommand{\Jvec}{\vec{J}}
+\newcommand{\LSvec}{\vec{L}\cdot\vec{s}}         % spin-orbit term
+\newcommand{\jacrho}{\vec{\rho}}                 % Jacobi coordinate (vector)
+\newcommand{\jaclam}{\vec{\lambda}}              % Jacobi coordinate (vector)
+\newcommand{\bandno}{N}                          % harmonic-oscillator band
+% Spectroscopic term  n^{2s+1}L_J
+\newcommand{\spec}[4]{{#1}^{\,2#2+1}\!{#3}_{#4}} % \spec{n}{s}{L}{J}
+\newcommand{\specgen}{n^{\,2\qspin+1}\Lorb_{\Jtot}}
+
+% ---------------------------------------------------------------------------
+%  3. Parity, C parity, G parity  -- parity ALWAYS as a power of L+1
+% ---------------------------------------------------------------------------
+\newcommand{\Ppar}{P}
+\newcommand{\Cpar}{C}
+\newcommand{\Pmeson}{P=(-1)^{\Lorb+1}}                   % q qbar parity
+\newcommand{\Cmeson}{C=(-1)^{\Lorb+\qspin}}              % q qbar C parity
+\newcommand{\Gmeson}{G=(-1)^{\Lorb+\qspin+\Iso}}         % q qbar G parity
+\newcommand{\Pbaryon}{P=(-1)^{\Lrho+\Llam}}              % qqq parity
+% PDG composite quantum-number labels
+\newcommand{\JPC}{J^{PC}}
+\newcommand{\JP}{J^{P}}
+\newcommand{\jpc}[3]{{#1}^{#2#3}}                        % \jpc{1}{-}{+}
+\newcommand{\IGJPC}[4]{{#1}^{#2}\!\left({#3}^{#4}\right)}% \IGJPC{0}{+}{0}{++}
+\newcommand{\IGlabel}{I^{G}(J^{PC})}
+
+% ---------------------------------------------------------------------------
+%  4. Wave functions -- one form, descriptive subscripts, American spelling
+% ---------------------------------------------------------------------------
+\newcommand{\Phifl}{\Phi_{\text{flavor}}}
+\newcommand{\chisp}{\chi_{\text{spin}}}
+\newcommand{\lamcol}{\lambda_{\text{color}}}
+\newcommand{\Rrad}{R(\vec{r}\,)}
+\newcommand{\wavefn}{\psi = \Phifl\,\chisp\,\lamcol\,\Rrad}
+\newcommand{\wavefnnocol}{\psi = \Phifl\,\chisp\,\Rrad}  % pre-color form, Ch. 5
+% Permutation-symmetry labels on the factors
+\newcommand{\PhiS}{\Phi_{S}}   \newcommand{\PhiA}{\Phi_{A}}
+\newcommand{\PhiMS}{\Phi_{MS}} \newcommand{\PhiMA}{\Phi_{MA}}
+\newcommand{\chiS}{\chi_{S}}   \newcommand{\chiA}{\chi_{A}}
+\newcommand{\chiMS}{\chi_{MS}} \newcommand{\chiMA}{\chi_{MA}}
+
+% ---------------------------------------------------------------------------
+%  5. Group representations -- bold, bars for conjugates, MS/MA for mixed
+% ---------------------------------------------------------------------------
+\newcommand{\rep}[1]{\mathbf{#1}}                % \rep{3}, \rep{8}, \rep{56}
+\newcommand{\repbar}[1]{\overline{\mathbf{#1}}}  % \repbar{3}  (bar, not *)
+\newcommand{\repS}[1]{\rep{#1}_{S}}              % totally symmetric
+\newcommand{\repA}[1]{\rep{#1}_{A}}              % totally antisymmetric
+\newcommand{\repMS}[1]{\rep{#1}_{MS}}            % mixed symmetric
+\newcommand{\repMA}[1]{\rep{#1}_{MA}}            % mixed antisymmetric
+% Always \oplus for direct sums; never a bare +.
+
+% ---------------------------------------------------------------------------
+%  6. Groups -- SU(3) ALWAYS subscripted
+% ---------------------------------------------------------------------------
+\newcommand{\SUthreeF}{\mathrm{SU(3)}_{F}}       % flavor
+\newcommand{\SUthreeC}{\mathrm{SU(3)}_{C}}       % color
+\newcommand{\SUtwoI}{\mathrm{SU(2)}_{I}}         % isospin
+\newcommand{\SUtwos}{\mathrm{SU(2)}_{s}}         % spin
+\newcommand{\SUsix}{\mathrm{SU(6)}}
+\newcommand{\SUsixOthree}{\mathrm{SU(6)}\times O(3)}
+\newcommand{\SUN}{\mathrm{SU}(N)}
+\newcommand{\Ncol}{N_{C}}                        % number of colors
+
+% ---------------------------------------------------------------------------
+%  7. SU(3) algebra -- standard physics convention, minimal collision.
+%     Gell-Mann matrices carry an UPPER index a, so \gm{a} never collides
+%     with \lamcol or with the Jacobi \jaclam.  Generators T^a = lambda^a/2.
+% ---------------------------------------------------------------------------
+\newcommand{\gm}[1]{\lambda^{#1}}                % \gm{a}, \gm{3}, \gm{8}
+\newcommand{\gen}[1]{T^{#1}}                     % \gen{a} = \tfrac12\gm{a}
+\newcommand{\fabc}{f^{abc}}                      % SU(3) structure constants
+\newcommand{\epsabc}{\epsilon^{abc}}             % SU(2) structure constants
+\newcommand{\Uspin}{U\text{-spin}}
+\newcommand{\Vspin}{V\text{-spin}}
+
+% ---------------------------------------------------------------------------
+%  8. Color charges (lowercase r, g, b) and common shorthands
+% ---------------------------------------------------------------------------
+\newcommand{\cR}{r} \newcommand{\cG}{g} \newcommand{\cB}{b}
+\newcommand{\acR}{\bar{r}} \newcommand{\acG}{\bar{g}} \newcommand{\acB}{\bar{b}}
+\newcommand{\qqbar}{q\bar{q}}
+\newcommand{\qqq}{qqq}
+\newcommand{\qqbarg}{q\bar{q}g}
+\newcommand{\uubar}{u\bar{u}} \newcommand{\ddbar}{d\bar{d}}
+\newcommand{\ssbar}{s\bar{s}} \newcommand{\nnbar}{n\bar{n}}
+\newcommand{\ppbar}{\bar{p}p} \newcommand{\KKbar}{K\bar{K}}
+
+% ---------------------------------------------------------------------------
+%  9. Cross-reference wrappers -- fixes the reference style document-wide
+% ---------------------------------------------------------------------------
+\newcommand{\figref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\tabref}[1]{Table~\ref{tab:#1}}
+\newcommand{\eqnref}[1]{Eq.~\eqref{eq:#1}}
+\newcommand{\secref}[1]{Sect.~\ref{sec:#1}}
+\newcommand{\subsecref}[1]{Sect.~\ref{subsec:#1}}

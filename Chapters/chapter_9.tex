@@ -75,7 +75,7 @@
 %
 %  Generated figures (Matplotlib, vector PDF, in ./Figures/):
 %     Figures/resolving_power.pdf       — Delta x vs Q^2 with the slide table points
-%     Figures/dipole_sachs.pdf          — dipole G_D(Q^2) and normalised Sachs ratios
+%     Figures/dipole_sachs.pdf          — dipole G_D(Q^2) and normalized Sachs ratios
 %     Figures/proton_radius_puzzle.pdf  — r_p compilation (ep, H, muH, CODATA)
 %  All other figures (kinematics diagram, detector layouts, resonance spectra,
 %  transition-form-factor data) are indicated as commented placeholders, each
@@ -340,10 +340,56 @@ of the spatial distribution,
 A pointlike charge, $\rho(\vec r)=\delta^{3}(\vec r)$, gives a constant form factor and
 recovers the Mott result at all $Q^{2}$; any spatial spread makes $F$ fall with
 increasing $Q^{2}$, and the shape of that fall-off encodes the shape of the charge
-distribution. The correspondence is qualitative but instructive: an exponential charge
-distribution produces a dipole form factor (this is the case of the proton), a Gaussian
-distribution produces a Gaussian form factor, and a sharp-edged homogeneous sphere
-produces an oscillating form factor with diffraction minima. Reading the fall-off
+distribution.
+
+For a spherically symmetric density the angular integration in
+Eq.~\eqref{eq:form-factor-def} can be carried out at once. Aligning $\vec q$ with the
+polar axis and integrating over $\cos\theta$ and the azimuth (working from here on in
+natural units, $\hbar = 1$),
+\begin{equation}
+    F(q^{2}) = 2\pi\!\int_{0}^{\infty}\!\!\dd r\, r^{2}\rho(r)
+               \int_{-1}^{+1}\!\!\dd(\cos\theta)\,\mathrm{e}^{\,\mathrm{i}qr\cos\theta}
+             = 4\pi\!\int_{0}^{\infty}\!\dd r\; r^{2}\,\rho(r)\,\frac{\sin qr}{qr},
+    \label{eq:form-factor-radial}
+\end{equation}
+so the form factor is the radial density weighted by the kernel $\sin(qr)/qr$. Two limits
+follow immediately. For a point charge the kernel is evaluated at $r=0$, where it equals
+unity, and $F \equiv 1$ at all $q$. For small $q$, expanding
+$\sin(qr)/qr = 1 - (qr)^{2}/6 + \cdots$ and using the normalization
+$4\pi\int r^{2}\rho\,\dd r = 1$ gives
+\begin{equation}
+    F(q^{2}) = 1 - \frac{q^{2}}{6}\left\langle r^{2}\right\rangle + \cdots,
+    \qquad
+    \left\langle r^{2}\right\rangle = 4\pi\!\int_{0}^{\infty}\!\dd r\; r^{4}\rho(r),
+    \label{eq:form-factor-expansion}
+\end{equation}
+which is the origin of the factor $1/6$ in the charge-radius definition
+\eqref{eq:GE-expansion} below.
+
+The correspondence between shapes is then explicit rather than merely suggestive. An
+exponential density $\rho(r) = \rho_{0}\,\mathrm{e}^{-Mr}$ inserted into
+Eq.~\eqref{eq:form-factor-radial} gives, on doing the radial integral,
+\begin{equation}
+    F(q^{2}) = \left(1 + \frac{q^{2}}{M^{2}}\right)^{\!-2},
+    \label{eq:exponential-to-dipole}
+\end{equation}
+a \emph{dipole} form factor---which is why the proton, whose measured form factor is of
+dipole shape, is said to have an exponential charge distribution. Applying
+Eq.~\eqref{eq:form-factor-expansion} to \eqref{eq:exponential-to-dipole} relates the
+range parameter to the radius,
+\begin{equation}
+    \left\langle r^{2}\right\rangle = \frac{12}{M^{2}},
+    \label{eq:r2-from-M}
+\end{equation}
+so the dipole mass $\Lambda^{2} = 0.71\;\mathrm{GeV}^{2}$ quoted in
+Eq.~\eqref{eq:dipole} corresponds to $\sqrt{\langle r^{2}\rangle} \approx 0.81\;\mathrm{fm}$,
+in the right region for the proton. A Gaussian distribution produces a Gaussian form
+factor, and a sharp-edged homogeneous sphere produces an oscillating form factor with
+diffraction minima. Thomas and Weise set out the same Fourier-transform relation between
+the charge density and the form factor, and the caveat that it holds strictly only in the
+Breit frame \cite[Ch.~2.2]{ThomasWeise2001}. The explicit reduction to the
+$\sin(qr)/qr$ kernel and the resulting proton form factors are worked through by Halzen
+and Martin \cite[Ch.~8]{HalzenMartin1984}, and by Perkins \cite[Ch.~5]{Perkins2000}. Reading the fall-off
 backwards is, in principle, an inverse Fourier transform from the measured $F(Q^{2})$
 to the charge density $\rho(\vec r)$ \cite[Ch.~1]{Amsler2018}. The caveat to this
 intuitive reading---that the identification of a form factor with the Fourier transform
@@ -419,7 +465,7 @@ Eq.~\eqref{eq:F1F2-norm},
     \label{eq:GEGM-norm}
 \end{equation}
 with $\mu_{N}$ the total magnetic moment of the nucleon in nuclear magnetons
-\cite[Ch.~14]{Amsler2018}. Thomas and Weise \cite[Ch.~2.2]{ThomasWeise2001} derive
+\cite[Ch.~14]{Amsler2018}. Thomas and Weise \cite[Ch.~2.1]{ThomasWeise2001} derive
 Eq.~\eqref{eq:rosenbluth} and motivate the Sachs combinations
 \eqref{eq:GE}--\eqref{eq:GM} by their Breit-frame interpretation as the charge and
 magnetization distributions; the corresponding cross sections are collected in their
@@ -573,7 +619,7 @@ early 2000s and is therefore not yet reflected in Thomas and Weise
            ($\vec L\cdot\vec S$ changes sign across the analyzer). Right:
            precession of the longitudinal component $P_{l}$ in the spectrometer
            dipole rotates it into a measurable transverse component at the focal
-           plane polarimeter (FPP). Adapted from the lecture slides (week 27, "How to measure recoil polarisation?").}
+           plane polarimeter (FPP). Adapted from the lecture slides (week 27, "How to measure recoil polarization?").}
   \label{fig:recoil-polarimeter}
 \end{figure}
 \begin{figure}[htbp]
@@ -675,6 +721,27 @@ that must be disentangled from nuclear effects is the central challenge of neutr
 form-factor physics \cite[Ch.~14]{Amsler2018}. The extraction of the neutron form
 factors from deuterium and $^{3}\mathrm{He}$ targets, and the nuclear corrections it
 requires, are reviewed by Thomas and Weise \cite[Ch.~2.2]{ThomasWeise2001}.
+
+These two difficulties together rule out the Rosenbluth method for $G_{E}^{n}$. The
+separation of Sect.~\ref{subsec:rosenbluth} weights the electric term by $1/(1+\tau)$
+against $\tau G_{M}^{2}$, so its sensitivity to $G_{E}$ degrades rapidly with $Q^{2}$
+even for the proton; for the neutron, where $G_{E}^{n}$ is small to begin with and sits
+on top of a nuclear background, the electric contribution is buried entirely.
+
+The way out is the same polarization technique developed for the proton in
+Sect.~\ref{subsec:polarization-transfer}. Because the polarization observables depend on
+the \emph{ratio} $G_{E}/G_{M}$ through an interference term rather than on
+$G_{E}^{2}$, they retain sensitivity to a small electric form factor. Two variants are
+used. In \emph{recoil polarization}, a longitudinally polarized electron beam scatters
+from an unpolarized deuteron and the transverse and longitudinal polarization components
+of the knocked-out neutron are measured, giving $G_{E}^{n}/G_{M}^{n}$ directly. In the
+\emph{polarized-target} method, the beam scatters from polarized $^{3}\mathrm{He}$---a
+nucleus whose two protons pair off to spin zero, so that its spin is carried almost
+entirely by the single neutron---and the beam--target asymmetry is measured. Both
+approaches share the advantage that many normalization and acceptance uncertainties
+cancel in the asymmetry, and it is these measurements, rather than any Rosenbluth
+separation, that established the shape of $G_{E}^{n}$ at moderate $Q^{2}$
+\cite[Ch.~2.2]{ThomasWeise2001}.
 
 Despite its smallness, $G_{E}^{n}$ is not zero, and its non-vanishing is itself
 structural information: it shows that the neutron has an internal charge separation even
@@ -947,7 +1014,7 @@ structure lets one read off which degrees of freedom are excited, how large the
 meson-cloud contributions are, and how the description changes from the low-$Q^{2}$
 hadronic regime to the high-$Q^{2}$
 quark regime \cite[Ch.~14]{Amsler2018}. The meson-cloud contributions that dominate the
-low-$Q^{2}$ behaviour of these amplitudes are treated in the chiral framework of Thomas
+low-$Q^{2}$ behavior of these amplitudes are treated in the chiral framework of Thomas
 and Weise \cite[Ch.~7.4]{ThomasWeise2001}.
 
 Transition form factors are also accessible in the \emph{timelike} region, $q^{2}>0$,
@@ -1008,5 +1075,64 @@ inelastic scattering of their Chapter~4 \cite[Ch.~2, Ch.~4]{ThomasWeise2001}.
            cloud. Adapted from the lecture slides (week 27, "The Roper Resonance - N(1440) 1/2+").}
   \label{fig:roper}
 \end{figure}
+
+\FloatBarrier
+% ============================================================================
+\subsection{Vector meson dominance}
+\label{subsec:vmd}
+
+Everything above treats the photon as a structureless probe coupling to quark charges.
+At low $Q^{2}$, and especially for \emph{real} photons, that picture is incomplete: a
+photon can fluctuate into a $q\bar q$ pair, and because the fluctuation must carry the
+photon's quantum numbers $J^{PC}=1^{--}$, the pair materializes preferentially as a light
+vector meson. This is the \emph{vector meson dominance} (VMD) model, which treats
+photon--hadron interactions as vector-meson--hadron interactions,
+\begin{equation}
+    \ket{\gamma} \;\simeq\; \ket{\gamma}_{\text{bare}}
+    \;+\; \sum_{V=\rho,\omega,\phi,\dots} \frac{e}{f_{V}}\,\ket{V},
+    \label{eq:vmd-expansion}
+\end{equation}
+with couplings $f_{V}$ fixed by the leptonic widths $V\to e^{+}e^{-}$. The hypothesis is
+due to Sakurai and to Feynman, and is developed by Thomas and Weise, who quote
+$g_\rho = 5.04$, $g_\omega = 17.05$ and $g_\phi = 12.88$ from the measured widths and note
+that exact $\mathrm{SU}(3)$ would give
+$g_\rho : g_\omega : g_\phi = 1 : 3 : 3/\sqrt{2}$ \cite[Ch.~2.2]{ThomasWeise2001}.
+
+The relative weights follow from the quark charges alone. The amplitude for a photon to
+couple to a $q\bar q$ state is proportional to the charge-weighted overlap
+$\langle Q \rangle$ of its flavor wavefunction, and the rate goes as
+$\langle Q\rangle^{2}$. Using the ideally mixed vector wavefunctions of
+Sect.~\ref{subsec:nonets}, this reproduces the ratio already met in the leptonic widths,
+\begin{equation}
+    \rho^{0} : \omega : \phi \;=\; 9 : 1 : 2 ,
+    \label{eq:vmd-ratios}
+\end{equation}
+equivalently the inverse-square of the coupling ratios just quoted, so photoproduction is
+dominated overwhelmingly by the $\rho^{0}$. Because the $\rho$ has
+$I=1$ while the $\omega$ and $\phi$ have $I=0$, the photon behaves in this model as a
+superposition of an isovector and an isoscalar piece,
+\begin{equation}
+    \ket{\gamma} \sim \ket{I=1} \oplus \ket{I=0},
+    \label{eq:photon-isospin}
+\end{equation}
+which is why photoproduction can excite both $N^{*}$ ($I=\tfrac12$) and $\Delta^{*}$
+($I=\tfrac32$) resonances, in contrast to a pure isoscalar probe.
+
+VMD has a direct and unwelcome experimental consequence for baryon spectroscopy. Since
+the photon already \emph{is} a vector meson a fair fraction of the time, and since the
+outgoing vector meson carries the same quantum numbers as the incoming photon, the
+reaction $\gamma p \to V p$ can proceed with nothing exchanged but a colorless,
+vacuum-quantum-number object---the \emph{pomeron}, $J^{PC}=0^{++}$, which transfers
+four-momentum but no quantum numbers. This diffractive mechanism is a $t$-channel process
+in the sense of Sect.~\ref{subsubsec:mandelstam}: it produces no resonance peaks, varies
+smoothly with energy, and rises slowly with $\sqrt{s}$. In a channel such as
+$\gamma p \to p\pi^{0}\pi^{0}$, studied for its $N^{*}$ content, the non-resonant
+$\gamma p \to \rho p$ contribution with $\rho\to\pi\pi$ therefore sits underneath the
+resonance signal as an irreducible background that a partial-wave analysis must model
+rather than subtract. Note, however, that the $\rho^{0}$ decays to $\pi^{+}\pi^{-}$ and
+\emph{not} to $\pi^{0}\pi^{0}$, which is forbidden by the Bose-symmetry argument of
+Sect.~\ref{subsubsec:bose-symmetry}; the $\pi^{0}\pi^{0}$ channel is for that reason
+comparatively free of diffractive $\rho$ background, and is correspondingly favored for
+resonance searches.
 
 \FloatBarrier

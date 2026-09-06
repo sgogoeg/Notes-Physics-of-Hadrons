@@ -1,4 +1,5 @@
 \section{The particle zoo and experiments}
+\label{sec:particle-zoo}
 
 The quark model and the symmetry classification of hadrons did not arise from
 abstract reasoning alone; they were forced upon physicists by an accumulating body
@@ -10,6 +11,7 @@ earliest cosmic-ray detectors to the accelerator experiments that populated the
 ``particle zoo''.
 
 \subsection{Early detectors and cosmic ray experiments}
+\label{subsec:early-detectors}
 
 At the beginning of the twentieth century the constituents of matter appeared to be
 few and well understood. The electron had been identified in 1897, the proton was
@@ -85,7 +87,7 @@ heavier ones \cite[Ch.~2]{Amsler2018}.
     \caption{Energy loss of heavy charged particles. Left: the mass stopping power
     $\langle -dE/dx\rangle$ for $\mu^+$ in copper as a function of $\beta\gamma$,
     evaluated from the Bethe--Bloch formula~\eqref{eq:bethe_bloch}, showing the
-    minimum-ionising region. Right: $dE/dx$ versus momentum for $\mu$, $\pi$, $K$,
+    minimum-ionizing region. Right: $dE/dx$ versus momentum for $\mu$, $\pi$, $K$,
     $p$ and $d$ in an argon-based gas, illustrating how a simultaneous measurement
     of $dE/dx$ and momentum separates particle species.}
     \label{fig:dedx}
@@ -113,6 +115,7 @@ and the faint track of the fast positron together with the Coulomb scattering of
 muon completes the identification \cite[Ch.~2]{Amsler2018}.
 
 \subsection{The bubble chamber}
+\label{subsec:bubble-chamber}
 
 Emulsions provided exquisite spatial resolution but recorded events
 indiscriminately and were laborious to scan. The bubble chamber, introduced in the
@@ -123,7 +126,14 @@ nucleation centers; a rapid decompression of the liquid then triggers boiling
 precisely along the trajectory, so that a string of bubbles marks the track and can be
 photographed. When the chamber sits in a magnetic field the trajectories curve, and
 the sign and momentum of each particle follow from the sense and radius of
-curvature. As in the emulsion, the bubble density along a track measures the
+curvature. Quantitatively, a particle of charge $e$ moving perpendicular to a uniform
+field $B$ follows a circle of radius $R = p/eB$, which in practical units reads
+\begin{equation}
+    p\,[\mathrm{GeV}] \;=\; 0.3\; B\,[\mathrm{T}] \; R\,[\mathrm{m}],
+    \label{eq:curvature_momentum}
+\end{equation}
+so that measuring $R$ on the photograph and knowing $B$ delivers the momentum directly
+\cite[Ch.~11]{Perkins2000}. As in the emulsion, the bubble density along a track measures the
 ionization and so contributes to particle identification through the combination of
 curvature and ionization density. The principal limitation of the technique is its
 speed: the compression cycle limits the repetition rate to about one expansion per
@@ -138,11 +148,12 @@ second or less \cite[Ch.~2]{Amsler2018}.
 
 Such chambers were eventually built on a large scale. The Big European Bubble
 Chamber (BEBC) at CERN, operated from the early 1970s, is a representative example;
-analyses of its photographs continued into the 1990s. The hydrogen bubble chamber
+analyzes of its photographs continued into the 1990s. The hydrogen bubble chamber
 became the workhorse instrument with which the strange baryons and the
 $\Omega^-$ were established, as discussed in the next subsection.
 
 \subsection{Hadron discovery at accelerators}
+\label{subsec:accelerator-discovery}
 
 In the early 1950s particle accelerators became energetic enough to manufacture in
 the laboratory the particles that had previously been glimpsed only in cosmic rays.
@@ -173,7 +184,7 @@ themselves through their characteristic decay chains,
 \end{equation}
 The cascade signature of the $\Xi^-$, decaying first to a $\Lambda$ and a pion and
 then to a proton and a further pion, was particularly compelling evidence for a
-hyperon carrying two units of strangeness. Later, neutrino beams---again analysed
+hyperon carrying two units of strangeness. Later, neutrino beams---again analyzed
 in BEBC---extended this programme to weak production processes and to the charmed
 hadrons \cite[Ch.~13]{Amsler2018}.
 
@@ -198,6 +209,7 @@ hadrons \cite[Ch.~13]{Amsler2018}.
 \FloatBarrier
 
 \subsection{Determining particle properties}
+\label{subsec:particle-properties}
 
 Identifying a new hadron means measuring the set of characteristic quantum numbers
 that distinguish it: its mass, its spin $J$, its parity $P$, its isospin $I$, its
@@ -224,6 +236,7 @@ assignments follow from the associated-production rule of the previous subsectio
 \FloatBarrier
 
 \subsection{Reconstructing masses: invariant mass and missing mass}
+\label{subsec:invariant-mass}
 
 In practice two complementary strategies are used to evaluate
 expression~\eqref{eq:invariant_mass}, depending on which particles a given detector
@@ -270,12 +283,186 @@ recoiling system \cite[Ch.~2]{Amsler2018}.
 
 \FloatBarrier
 
+% ============================================================
+\subsection{Relativistic kinematics: invariants, thresholds and decay lengths}
+\label{subsec:rel-kinematics}
+
+The invariant mass of Eq.~\eqref{eq:invariant_mass} is the first of a small set of
+Lorentz invariants that recur throughout hadron physics. It is worth collecting them
+once, because nearly every quantitative statement in the following chapters---the
+energy needed to produce a new state, the size of a Dalitz plot, the momentum of a
+decay product---reduces to one of them. This is standard relativistic kinematics; it is
+collected here, and again in Appendix~\ref{app:useful-tables}, for reference. The
+invariant variables follow Halzen and Martin \cite[Ch.~4]{HalzenMartin1984}, the
+experimental relations Perkins \cite[Ch.~2]{Perkins2000}, \cite[Ch.~11]{Perkins2000}.
+
+\subsubsection{Mandelstam variables and virtuality}
+\label{subsubsec:mandelstam}
+
+For a two-body reaction $1 + 2 \to 3 + 4$ the three \emph{Mandelstam variables}
+\begin{equation}
+    s = (P_1 + P_2)^2, \qquad
+    t = (P_1 - P_3)^2, \qquad
+    u = (P_1 - P_4)^2
+    \label{eq:mandelstam}
+\end{equation}
+are Lorentz invariant and satisfy $s + t + u = \sum_i m_i^2$. The variable $s$ is the
+squared total energy in the center-of-mass frame, so $\sqrt{s}$ is the energy available
+for producing new particles. Halzen and Martin develop these invariant variables, the
+physical regions they define, and the associated Mandelstam plot
+\cite[Ch.~4]{HalzenMartin1984}.
+
+The same squared four-momentum, applied to an internal line of a Feynman graph, measures
+how far the exchanged particle is from its mass shell. If the reaction proceeds by
+annihilation into an intermediate state which then decays---an \emph{$s$-channel}
+process---the exchanged four-momentum is $q = P_1 + P_2$ and
+\begin{equation}
+    q^2 = s > 0 ,
+    \label{eq:schannel}
+\end{equation}
+which is \emph{timelike}: the intermediate object carries the quantum numbers of the
+combined initial state and can be a physical resonance when $\sqrt{s}$ matches its mass.
+If instead a quantum is exchanged between the two particles---a \emph{$t$-channel}
+process---then $q = P_1 - P_3$ and
+\begin{equation}
+    q^2 = t < 0 ,
+    \label{eq:tchannel}
+\end{equation}
+which is \emph{spacelike}. A spacelike exchange can never go on shell, which is why
+$t$-channel exchange produces smooth angular distributions rather than resonance peaks
+\cite[Ch.~4]{HalzenMartin1984}.
+The distinction is the basic tool for reading a Feynman diagram: an $s$-channel graph
+must conserve all quantum numbers at the single vertex joining the initial state to the
+intermediate particle, whereas a $t$-channel graph need only conserve them at each of
+the two vertices separately.
+
+\subsubsection{Fixed-target energies and thresholds}
+\label{subsubsec:thresholds}
+
+Almost all of the early experiments, and all of the photoproduction experiments discussed
+in Chapters~\ref{sec:baryon-spectroscopy} and~\ref{sec:electron-scattering}, use a beam
+incident on a target at rest. Writing the beam four-momentum as $P_1 = (E_1, \vec p_1)$
+and the target as $P_2 = (m_2, \vec 0)$, Eq.~\eqref{eq:mandelstam} gives
+\begin{equation}
+    s = m_1^2 + m_2^2 + 2 m_2 E_1 .
+    \label{eq:s_fixed_target}
+\end{equation}
+For a real photon beam on a proton, $m_1 = 0$ and $m_2 = M_p$, so this reduces to the
+relation used throughout the photoproduction chapters,
+\begin{equation}
+    s = M_p^2 + 2 M_p E_\gamma ,
+    \qquad\text{i.e.}\qquad
+    W \equiv \sqrt{s} = \sqrt{M_p^2 + 2 M_p E_\gamma}.
+    \label{eq:s_photon}
+\end{equation}
+
+A reaction can proceed only if the available energy suffices to create the final-state
+masses. The minimum occurs when all final-state particles are produced at rest
+\emph{in the center-of-mass frame}---not in the laboratory, where the total momentum is
+nonzero and momentum conservation forbids it. The threshold condition is therefore
+$\sqrt{s} = \sum_f m_f$, which combined with Eq.~\eqref{eq:s_fixed_target} gives the
+threshold beam energy
+\begin{equation}
+    E_1^{\mathrm{thr}}
+    = \frac{\left(\sum_f m_f\right)^{2} - m_1^2 - m_2^2}{2 m_2}.
+    \label{eq:threshold}
+\end{equation}
+When the reaction creates strange quarks, the conservation of strangeness in the strong
+interaction forces \emph{associated production}
+(Sect.~\ref{subsec:accelerator-discovery}), so the sum $\sum_f m_f$ must include the
+partner hadron---which is why strangeness thresholds lie so much higher than naive
+counting suggests.
+
+\subsubsection{Two-body decay kinematics}
+\label{subsubsec:twobody}
+
+For a particle of mass $M$ decaying to two bodies of masses $m_1$ and $m_2$, energy and
+momentum conservation in the rest frame fix the daughter energies completely,
+\begin{equation}
+    E_1 = \frac{M^2 + m_1^2 - m_2^2}{2M},
+    \qquad
+    E_2 = \frac{M^2 + m_2^2 - m_1^2}{2M},
+    \label{eq:twobody_energy}
+\end{equation}
+and the common breakup momentum follows as
+\begin{equation}
+    |\vec q\,| = \frac{\sqrt{\left[M^2 - (m_1+m_2)^2\right]\left[M^2 - (m_1-m_2)^2\right]}}{2M},
+    \label{eq:kallen}
+\end{equation}
+the square root being the \emph{K\"all\'en function} $\lambda(M^2, m_1^2, m_2^2)$;
+the invariant-mass relations underlying these expressions are collected by Amsler
+\cite[App.~B]{Amsler2018}. It
+vanishes at $M = m_1 + m_2$, as it must: at threshold the daughters are produced at rest
+relative to one another. Equation~\eqref{eq:kallen} is used repeatedly---for the
+phase-space factors $\rho_i$ of the Flatt\'e amplitude
+(Sect.~\ref{subsec:lineshapes}), and for the boundary of a Dalitz plot
+(Sect.~\ref{subsec:dalitz}).
+
+For a radiative transition $i \to f + \gamma$ between two states of a quarkonium
+multiplet, the same algebra with $m_\gamma = 0$ gives the photon energy in the rest
+frame of the parent,
+\begin{equation}
+    E_\gamma = \frac{m_i^2 - m_f^2}{2 m_i},
+    \label{eq:radiative_photon}
+\end{equation}
+which is what converts the measured $\gamma$ lines of Chapter~\ref{sec:hadron-spectrometry}
+into level spacings.
+
+\subsubsection{Decay lengths and the impossibility of neutral-pion beams}
+\label{subsubsec:decay-length}
+
+A particle of proper lifetime $\tau$ and laboratory momentum $p = \beta\gamma m$ travels
+a mean distance
+\begin{equation}
+    d = \beta\gamma\, c\tau = \frac{p}{m}\,c\tau
+    \label{eq:decay_length}
+\end{equation}
+before decaying, and the surviving fraction after a flight path $\ell$ is
+\begin{equation}
+    N(\ell) = N_0\, e^{-\ell / \beta\gamma c\tau}.
+    \label{eq:survival}
+\end{equation}
+This single formula decides which particles can be made into secondary beams. Charged
+pions, with $c\tau = 7.8\;\mathrm{m}$, travel tens of meters once boosted and are
+routinely transported to a target, which is what makes the pion beams of
+Sect.~\ref{subsec:accelerator-discovery} possible. The neutral pion, decaying
+electromagnetically with $\tau \approx 8.5 \times 10^{-17}\;\mathrm{s}$ and hence
+$c\tau \approx 25\;\mathrm{nm}$, decays essentially at its production point no matter
+how hard it is boosted: a $\pi^0$ beam cannot be built, and $\pi^0$ physics must be done
+by reconstructing the $\gamma\gamma$ pair as in Eq.~\eqref{eq:direct_mass}.
+
+\paragraph{Worked example: matching two reactions at the same $\sqrt{s}$.}
+The detailed-balance comparison of $pp \to \pi^+ d$ and $\pi^+ d \to pp$ discussed in
+Sect.~\ref{subsec:pion-spin} requires both reactions to be studied at the \emph{same}
+invariant energy, even though one uses a proton beam on a proton target and the other a
+pion beam on a deuteron target. With a proton kinetic energy $T_p = 340\;\mathrm{MeV}$,
+so that $E_p = M_p + T_p$, Eq.~\eqref{eq:s_fixed_target} gives
+\begin{equation*}
+    s = 2M_p^2 + 2 M_p (M_p + T_p).
+\end{equation*}
+Setting this equal to the invariant energy of the second reaction,
+$s = m_\pi^2 + m_d^2 + 2 m_d E_\pi$, and solving for the pion energy,
+\begin{equation}
+    E_\pi = \frac{2M_p^2 + 2M_p(M_p + T_p) - m_\pi^2 - m_d^2}{2 m_d},
+    \label{eq:detailed_balance_kinematics}
+\end{equation}
+Numerically $\sqrt{s} = 2039\;\mathrm{MeV}$, giving $E_\pi = 166\;\mathrm{MeV}$ and hence a
+pion kinetic energy of only $T_\pi \approx 26\;\mathrm{MeV}$---far smaller than $T_p$,
+because the deuteron target is twice as heavy as the proton and absorbs correspondingly
+less recoil. For orientation, Eq.~\eqref{eq:threshold} places the threshold for
+$pp \to \pi^+ d$ at $T_p = 288\;\mathrm{MeV}$, so the measurement sits just above it. The
+two experiments then probe the same physical system, and their cross sections may
+legitimately be compared through detailed balance.
+
+\FloatBarrier
+
 \subsection{Determination of the pion spin}
+\label{subsec:pion-spin}
 
 The spin of the charged pion provides a clean illustration of how a quantum number
 can be extracted from cross-section measurements alone, without any knowledge of
 the underlying dynamics. The argument compares a reaction with its time reverse at
-the same centre-of-mass energy,
+the same center-of-mass energy,
 \begin{equation}
     A: \quad pp \to \pi^+ d ,
     \qquad\qquad
@@ -336,13 +523,68 @@ ground-state $q\bar{q}$ meson \cite[Ch.~2]{Amsler2018}.
     \includegraphics[width=0.72\linewidth]{Figures/fig_pion_spin_ratio.pdf}
     \caption{Detailed-balance prediction for the ratio
     $\sigma(pp\to\pi^+d)/\sigma(\pi^+d\to pp)$ of Eq.~\eqref{eq:pi_spin_ratio} as a
-    function of centre-of-mass energy, for the spin hypotheses $s_\pi = 0, 1, 2$.
+    function of center-of-mass energy, for the spin hypotheses $s_\pi = 0, 1, 2$.
     The measured ratio follows the $s_\pi = 0$ curve. The energy of the Berkeley
     measurement ($T_p = 340$~MeV) is indicated.}
     \label{fig:pion-spin}
 \end{figure}
 
+\FloatBarrier
+
+% ============================================================
+\subsection{Determination of the pion parity}
+\label{subsec:pion-parity}
+
+The intrinsic parity of the charged pion is fixed by an equally economical argument,
+using the capture of a stopped negative pion on a deuteron,
+\begin{equation}
+    \pi^- + d \;\to\; n + n .
+    \label{eq:pi_capture}
+\end{equation}
+A $\pi^-$ brought to rest in deuterium is captured from an atomic orbit of the pionic
+deuterium atom. Capture proceeds overwhelmingly from the $S$ state, so the relative
+orbital angular momentum in the initial state is $\ell_i = 0$. Since the pion is
+spinless (Sect.~\ref{subsec:pion-spin}) and the deuteron has spin $1$, the total angular
+momentum of the initial state is therefore
+\begin{equation}
+    J = 1 .
+    \label{eq:pi_capture_J}
+\end{equation}
+
+The final state consists of two identical fermions and its total wavefunction must be
+antisymmetric under their exchange. For two spin-$\tfrac12$ nucleons the spin function is
+symmetric for the triplet ($s = 1$) and antisymmetric for the singlet ($s = 0$), while the
+spatial function carries the factor $(-1)^{L_f}$; antisymmetry therefore requires
+$L_f + s$ to be odd. Combining this with $J = 1$ leaves the possibilities
+\begin{equation*}
+    {}^1S_0,\;\; {}^3P_1,\;\; {}^1D_2,\;\; {}^3F_3,\;\dots
+    \quad\text{of which only}\quad {}^3P_1 \;\text{has } J = 1 .
+\end{equation*}
+The $nn$ system is thus forced into ${}^3P_1$, with $L_f = 1$.
+
+Parity conservation in the strong capture then closes the argument. Equating the parity
+of the initial and final states,
+\begin{equation}
+    P(\pi^-)\,P(d)\,(-1)^{\ell_i} \;=\; \left[P(n)\right]^2 (-1)^{L_f},
+    \label{eq:pi_parity_balance}
+\end{equation}
+and inserting $P(d) = +1$, $\left[P(n)\right]^2 = +1$, $\ell_i = 0$ and $L_f = 1$ gives
+\begin{equation}
+    P(\pi^-) = (-1)^{L_f} = -1 .
+    \label{eq:pi_parity_result}
+\end{equation}
+The charged pion is therefore a pseudoscalar, $J^P = 0^-$, as anticipated by its
+interpretation as the $L = 0$, $s = 0$ ground state of a $q\bar q$ pair, for which
+$P = (-1)^{L+1} = -1$. The same argument is given by Perkins
+\cite[Ch.~3]{Perkins2000}. It follows Amsler \cite[Ch.~2]{Amsler2018}, who also
+describes the atomic cascade: the stopped pion is captured at $n = 16$ in pionic
+deuterium and Stark mixing induced by neighboring molecules brings it into an $s$ level,
+from which nuclear absorption is prompt---which is what guarantees $\ell_i = 0$.
+
+\FloatBarrier
+
 \subsection{Ordering the particle zoo: towards the quark model}
+\label{subsec:towards-quark-model}
 
 By the late 1950s the experimental programs described above had produced an
 embarrassment of riches. So many strongly interacting particles had been found that
@@ -350,14 +592,14 @@ they could no longer all be regarded as elementary, a situation captured in Ferm
 quip that had he been able to remember the names of all the particles he would have
 become a botanist, and in Lamb's wry suggestion that the discovery of a new particle
 ought to be punished rather than rewarded. The proliferation---the so-called
-``particle zoo''---demanded an organising principle analogous to the periodic table
+``particle zoo''---demanded an organizing principle analogous to the periodic table
 of the chemical elements, and the very existence of such a regularity would point,
 as it had for atoms, to an underlying substructure \cite[Ch.~1]{Amsler2018}.
 
 The resolution came from the use of symmetry and group theory. Gell-Mann and, in a
 related development, Ne'eman recognised around 1961--1964 that the known hadrons
-fall naturally into multiplets of the approximate flavour symmetry group
-$\mathrm{SU}(3)_f$, a scheme that Gell-Mann named the Eightfold Way
+fall naturally into multiplets of the approximate flavor symmetry group
+$\mathrm{SU(3)}_{F}$, a scheme that Gell-Mann named the Eightfold Way
 \cite[Ch.~2]{HalzenMartin1984}. The fundamental representation of $\mathrm{SU}(3)$
 is three-dimensional, and Gell-Mann and, independently, Zweig proposed in 1964 that
 these three basis states correspond to physical (at the time hypothetical)
@@ -370,7 +612,7 @@ combinations $qqq$ \cite[Ch.~1]{Amsler2018}.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{Figures/fig_su3_weight_diagrams.pdf}
-    \caption{$\mathrm{SU}(3)_f$ weight diagrams in the $(I_3, S)$ plane. Left: the
+    \caption{$\mathrm{SU(3)}_{F}$ weight diagrams in the $(I_3, S)$ plane. Left: the
     pseudoscalar meson nonet ($q\bar{q}$), with $\pi^0$, $\eta$ and $\eta'$ at the
     center. Right: the spin-$\tfrac{1}{2}$ baryon octet ($qqq$), with $\Sigma^0$ and
     $\Lambda$ at the center.}

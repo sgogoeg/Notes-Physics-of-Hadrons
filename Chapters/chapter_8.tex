@@ -38,7 +38,7 @@
 %  Generated figure (Matplotlib, vector PDF, in ./Figures/):
 %     Figures/broad_overlapping_resonances.pdf
 %  Inline TikZ diagrams (compiled with the document): Isgur-Karl level scheme,
-%  photoproduction cascade, centre-of-mass reaction geometry, and the
+%  photoproduction cascade, center-of-mass reaction geometry, and the
 %  double-polarization spin configurations.  All other figures are indicated as
 %  commented placeholders with a suggested caption, label and placeholder
 %  filename.
@@ -140,33 +140,118 @@ of this chapter \cite[Ch.~15]{Amsler2018}.
 \FloatBarrier
 
 % ============================================================================
+\subsection{Nomenclature of the baryons}
+\label{subsec:baryon-naming}
+
+Before the spectrum itself, a word on names. Unlike the mesons, whose naming scheme
+(Sect.~\ref{subsec:nomenclature}) encodes $J^{PC}$, baryons are named by their
+\emph{isospin and strangeness}, with the mass and $J^{P}$ appended. The rule for the
+light baryons is given in Table~\ref{tab:baryon-naming}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Naming of the light baryons by isospin and strangeness. The symbol is fixed
+    by $I$ and $S$; the mass and $J^{P}$ are appended, as in
+    $N(1535)\tfrac12^{-}$ or $\Delta(1232)\tfrac32^{+}$.}
+    \label{tab:baryon-naming}
+    \begin{tabular}{llll}
+        \hline
+        Symbol & $I$ & $S$ & Typical quark content \\
+        \hline
+        $N$      & $\tfrac12$ & $0$  & $uud$, $udd$ \\
+        $\Delta$ & $\tfrac32$ & $0$  & $uuu$, $uud$, $udd$, $ddd$ \\
+        $\Lambda$& $0$        & $-1$ & $uds$ \\
+        $\Sigma$ & $1$        & $-1$ & $uus$, $uds$, $dds$ \\
+        $\Xi$    & $\tfrac12$ & $-2$ & $uss$, $dss$ \\
+        $\Omega$ & $0$        & $-3$ & $sss$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Two features deserve comment. First, $N$ and $\Delta$ share the same quark content but
+differ in isospin, so the distinction is genuinely one of the symmetry of the
+wavefunction rather than of composition. Second, $\Lambda$ and $\Sigma$ likewise share
+$uds$ but differ in the isospin to which the $ud$ pair is coupled ($I=0$ versus $I=1$),
+which is exactly the difference exploited in the magnetic-moment calculation of
+Sect.~\ref{subsec:magnetic-moments}.
+
+The naming also tracks a physical distinction in how the states decay. Members of the
+decuplet lie above the threshold for emitting a pion while conserving strangeness---the
+$\Delta(1232)$ decays to $N\pi$, the $\Sigma^{*}(1385)$ to $\Lambda\pi$, the
+$\Xi^{*}(1530)$ to $\Xi\pi$---and so decay \emph{strongly}, with widths of tens to
+hundreds of MeV. The octet ground states have no such channel open: the $\Lambda$, for
+instance, is the lightest strange baryon, and there is no strangeness-conserving strong
+decay available to it. These states must therefore decay \emph{weakly}, changing
+strangeness by one unit, with lifetimes of order $10^{-10}\;\mathrm{s}$---long enough to
+leave visible tracks, which is how they were discovered in the first place
+(Sect.~\ref{subsec:accelerator-discovery}). The $\Omega^{-}$ is the exception that proves
+the rule: as the bottom of the decuplet it has no strong channel either, and so it too
+decays weakly \cite[Ch.~4]{Amsler2018}, \cite[Ch.~13]{Amsler2018}.
+
+% ============================================================================
 \subsection{Quark-model predictions and the residual interaction}
 \label{subsec:qm-predictions}
 
 The starting point is the classification established in
 Chapter~\ref{sec:baryons-color}. The totally antisymmetric color singlet factors out,
 \begin{equation}
-    \psi = \Phi_{\text{flavour}}\,\chi_{\text{spin}}\,\lambda_{\text{color}}\,R(\vec{r}),
+    \psi = \Phi_{\text{flavor}}\,\chi_{\text{spin}}\,\lambda_{\text{color}}\,R(\vec{r}),
 \end{equation}
 so that the remaining space--spin--flavor part must be symmetric. Coupling three
 $\mathrm{SU}(6)$ fundamental representations gives
 $\mathbf{6}\otimes\mathbf{6}\otimes\mathbf{6}
-= \mathbf{56}_S\oplus\mathbf{70}_M\oplus\mathbf{70}_M\oplus\mathbf{20}_A$, and the orbital
+= \mathbf{56}_S\oplus\mathbf{70}_{MS}\oplus\mathbf{70}_{MA}\oplus\mathbf{20}_A$, and the orbital
 motion, described by the two Jacobi coordinates $\vec\rho$ and $\vec\lambda$, is organized
 by the harmonic-oscillator band number
 \begin{equation}
-    N = 2(n_\rho + n_\lambda) + \ell_\rho + \ell_\lambda,
+    N = 2(n_\rho + n_\lambda) + L_{\rho} + L_{\lambda},
     \qquad
-    P = (-1)^{\ell_\rho + \ell_\lambda},
+    P = (-1)^{L_{\rho} + L_{\lambda}},
 \end{equation}
-with total orbital angular momentum $L = \ell_\rho + \ell_\lambda$. A supermultiplet is
+with total orbital angular momentum $L = L_{\rho} + L_{\lambda}$. A supermultiplet is
 labeled $(D, L^{P}_{N})$, where $D$ is the dimension of the $\mathrm{SU}(6)$ representation.
 The ground state occupies the $(\mathbf{56},0^{+})$ at $N=0$, containing the
 spin-$\tfrac{1}{2}$ octet and the spin-$\tfrac{3}{2}$ decuplet, and the lowest orbital
 excitations form the $(\mathbf{70},1^{-})$ at $N=1$ \cite[Ch.~15]{Amsler2018}. Individual
 states carry the modern name $N(\text{mass})J^{P}$; the older $L_{2I\,2J}(\text{mass})$
-notation from $\pi N$ scattering, in which $L$ is the orbital angular momentum in the $\pi
-N$ system, survives in labels such as $S_{11}(1535)$, now written $N(1535)\tfrac{1}{2}^-$.
+notation from $\pi N$ scattering survives in labels such as $S_{11}(1535)$, now written
+$N(1535)\tfrac{1}{2}^-$.
+
+The older scheme is worth stating as a rule, since the two are used interchangeably in the
+literature. The leading symbol is the orbital angular momentum $L$ of the $\pi N$ system in
+spectroscopic letters, $S, P, D, F, G,\dots$ for $L = 0,1,2,3,4,\dots$; the two subscripts
+are \emph{twice} the isospin and \emph{twice} the total angular momentum,
+\begin{equation}
+    L_{2I\,2J}(\text{mass}).
+    \label{eq:l2i2j}
+\end{equation}
+Thus the first subscript is $1$ for a nucleon resonance ($I=\tfrac12$) and $3$ for a
+$\Delta$ ($I=\tfrac32$), which fixes the modern letter $N$ or $\Delta$, while the second
+gives $J$. The parity follows from $L$ through $P = (-1)^{L+1}$ for the $\pi N$ system, so
+$S$ and $D$ waves give negative parity and $P$ and $F$ waves positive. The nucleon itself,
+being the $I=\tfrac12$, $J^{P}=\tfrac12^{+}$ ground state, is $P_{11}$ in this notation.
+Applying the rule to the states of Table~\ref{tab:l2i2j}:
+
+\begin{table}[htbp]
+    \centering
+    \caption{Conversion between the $\pi N$ scattering notation $L_{2I\,2J}$ and the
+    modern $N/\Delta(\text{mass})J^{P}$ names.}
+    \label{tab:l2i2j}
+    \begin{tabular}{llll}
+        \hline
+        $L_{2I\,2J}$ & $L$ & $I$, $J$ & Modern name \\
+        \hline
+        $P_{11}(1440)$ & $1$ & $\tfrac12$, $\tfrac12$ & $N(1440)\tfrac12^{+}$ \\
+        $D_{13}(1520)$ & $2$ & $\tfrac12$, $\tfrac32$ & $N(1520)\tfrac32^{-}$ \\
+        $S_{11}(1535)$ & $0$ & $\tfrac12$, $\tfrac12$ & $N(1535)\tfrac12^{-}$ \\
+        $S_{11}(1650)$ & $0$ & $\tfrac12$, $\tfrac12$ & $N(1650)\tfrac12^{-}$ \\
+        $F_{15}(1680)$ & $3$ & $\tfrac12$, $\tfrac52$ & $N(1680)\tfrac52^{+}$ \\
+        $P_{33}(1232)$ & $1$ & $\tfrac32$, $\tfrac32$ & $\Delta(1232)\tfrac32^{+}$ \\
+        $D_{33}(1700)$ & $2$ & $\tfrac32$, $\tfrac32$ & $\Delta(1700)\tfrac32^{-}$ \\
+        $F_{37}(1950)$ & $3$ & $\tfrac32$, $\tfrac72$ & $\Delta(1950)\tfrac72^{+}$ \\
+        \hline
+    \end{tabular}
+\end{table}
 
 The harmonic oscillator alone leaves each band degenerate and cannot reproduce the
 observed masses; a residual interaction is needed to split the levels. Concrete quark
@@ -383,7 +468,7 @@ inner detector, a forward detector, the TAPS calorimeter and a gas Cherenkov cou
 a photon-intensity monitor downstream. This arrangement is well suited to reactions such as
 $\gamma p \to N^{*} \to p\eta \to p\gamma\gamma$, in which the recoiling proton is tracked
 while the decay photons are measured in the calorimeters, following the invariant-mass and
-missing-mass techniques of Chapter~\ref{sec:invariant-mass} \cite[Ch.~2]{Amsler2018}.
+missing-mass techniques of Section~\ref{subsec:invariant-mass} \cite[Ch.~2]{Amsler2018}.
 
 The quality of the resulting data is high. In $\gamma p \to p4\gamma$ the experiment
 resolves the $\pi^0\pi^0$, $\pi^0\eta$ and $\eta\eta$ combinations of the four photons with
@@ -581,6 +666,35 @@ contributions of definite helicity and is conveniently expressed through the asy
     \label{eq:E-observable}
 \end{equation}
 
+Spelling out the bookkeeping: a circularly polarized photon carries spin projection
+$s_{\gamma z} = \pm 1$ along the beam and a longitudinally polarized proton
+$s_{z}^{p} = \pm\tfrac12$, so the sum takes four values,
+\begin{equation}
+    s_{\gamma z} + s_{z}^{p} \;=\; +\tfrac32,\; +\tfrac12,\; -\tfrac12,\; -\tfrac32 .
+    \label{eq:helicity-sum}
+\end{equation}
+The two outer configurations are the $\sigma_{3/2}$ case and the two inner ones the
+$\sigma_{1/2}$ case. Since the total angular momentum projection is conserved and a
+resonance of spin $J$ can only be formed if its projection is available, a resonance
+contributes only when
+\begin{equation}
+    J \;\ge\; \left| s_{\gamma z} + s_{z}^{p} \right| .
+    \label{eq:helicity-filter}
+\end{equation}
+A $J=\tfrac12$ resonance can therefore be excited only from the $\pm\tfrac12$
+combinations, and is invisible in $\sigma_{3/2}$; resonances with $J\ge\tfrac32$ can be
+reached from all four. Aligning beam and target spins---that is, selecting
+$|s_{\gamma z}+s_{z}^{p}| = \tfrac32$---thus \emph{switches off} every spin-$\tfrac12$
+resonance, which is what makes the double-polarization observable such a sharp filter.
+Applied to $\gamma p \to p\eta$ below $E_{\gamma} \approx 800\;\mathrm{MeV}$, where the
+$N(1535)\tfrac12^{-}$ is the only resonance with a significant $N\eta$ branching ratio,
+the prediction is that the aligned configuration should yield essentially no events; in a
+real experiment a residual yield survives from incomplete beam and target polarization,
+from the unpolarized nucleons of the target material, and from non-resonant background.
+Note that this filter is purely a statement about angular momentum: it is unchanged if the
+resonances are $\Delta^{*}$ with $I=\tfrac32$ instead of $N^{*}$ with $I=\tfrac12$, since
+isospin does not enter Eq.~\eqref{eq:helicity-filter}.
+
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[>=Latex, line width=0.9pt,
@@ -619,7 +733,7 @@ $N(1710)\tfrac{1}{2}^+$ and $N(1720)\tfrac{3}{2}^+$ that the unpolarized data co
 fix (Müller \textit{et al.}, CBELSA/TAPS). For $\gamma p \to p\pi^0$ the separately measured
 $\sigma_{1/2}$ and $\sigma_{3/2}$, together with the asymmetry $E$ of
 Eq.~\eqref{eq:E-observable}, proved even more revealing: the established partial wave
-analyses (SAID, MAID and Bonn--Gatchina), which all describe the previously existing
+analyzes (SAID, MAID and Bonn--Gatchina), which all describe the previously existing
 unpolarized photoproduction data, show large deviations from one another and from the new
 data, even at low energies where everything was thought to be well understood. This
 demonstrates the sensitivity of the double-polarization data to high-mass resonances
@@ -690,7 +804,7 @@ Phys.\ Lett.\ B 803 (2020) 135323) \cite[Ch.~15]{Amsler2018}.
     \centering
     \begin{tabular}{lccc}
         \hline
-        State & RPP 2010 & Our analyses & RPP 2022 \\
+        State & RPP 2010 & Our analyzes & RPP 2022 \\
         \hline
         $N(1710)\tfrac{1}{2}^+$   & $\ast\ast\ast$ & $\ast\ast\ast\ast$ & $\ast\ast\ast\ast$ \\
         $N(1860)\tfrac{5}{2}^+$   &                & $\ast$             & $\ast\ast$ \\
@@ -710,7 +824,7 @@ Phys.\ Lett.\ B 803 (2020) 135323) \cite[Ch.~15]{Amsler2018}.
     \caption{Selected $N^{*}$ and $\Delta^{*}$ resonances whose existence or status was
     established or improved by the multichannel Bonn--Gatchina analysis of photoproduction
     data, with their star ratings in the Review of Particle Physics in 2010, in these
-    analyses, and in 2022. Only examples are shown.}
+    analyzes, and in 2022. Only examples are shown.}
     \label{tab:bnga-states}
 \end{table}
 
@@ -728,7 +842,7 @@ resolved the theoretical problem \cite[Ch.~15]{Amsler2018}.
   \centering
   \includegraphics[width=0.65\linewidth]{Figures/mami_eta_cusp.png}
   \caption{Total cross section for $\gamma p\to\eta p$ from MAMI versus the
-           centre-of-mass energy $W$, showing a cusp at the $\eta' p$ threshold
+           center-of-mass energy $W$, showing a cusp at the $\eta' p$ threshold
            near $W = 1.90~\mathrm{GeV}$ (Kashevarov et al.); earlier
            CBELSA/TAPS points are shown as open circles. A joint MAID analysis of
            $\gamma p\to\eta p$ and $\gamma p\to\eta' p$ confirms
@@ -886,8 +1000,8 @@ resonances, and the properties of those resonances directly affect the extractio
 pentaquark parameters. Whether the $P_c$ states are genuine compact pentaquarks or
 meson--baryon molecules is still open, and polarization experiments that pin down the
 strange-baryon background are needed to avoid ambiguities; a common analysis of ELSA and
-LHCb data would be a considerable advantage. The pentaquark states themselves are treated in
-detail in Chapter~\ref{sec:multiquark} \cite[Ch.~16]{Amsler2018}. With INSIGHT the light
+LHCb data would be a considerable advantage. The pentaquark states themselves lie outside the
+scope of these notes \cite[Ch.~16]{Amsler2018}. With INSIGHT the light
 strange-baryon spectrum is finally within reach, and the next chapter turns from the
 spectrum of hadrons to their internal structure as probed by electron scattering
 (Chapter~\ref{sec:electron-scattering}).
@@ -910,7 +1024,7 @@ spectrum of hadrons to their internal structure as probed by electron scattering
   \caption{Simulation of
            $\gamma p\to K^{+}\Lambda^{*}\to K^{+}\Sigma^0\pi^0
            \to K^{+}\Lambda\gamma\pi^0 \to K^{+}(p\pi^-)\gamma\pi^0$. Left: the
-           decay-photon energy in the $\Sigma^0$ centre-of-mass frame after the
+           decay-photon energy in the $\Sigma^0$ center-of-mass frame after the
            energy--momentum conservation fit. Right: the $\Sigma\pi$ invariant
            mass after the $\gamma$-energy and $\Lambda$ cuts, in which
            $\Lambda(1405)$ and $\Lambda(1520)$ are cleanly separated against the

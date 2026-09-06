@@ -335,9 +335,49 @@ $Q^{2}$-dependent form factor, whereas a point charge does not. The constituents
 Feynman's \emph{partons}, identified with the quarks (and, as it emerged, the gluons) of
 the quark model \cite[Ch.~1]{Amsler2018}, \cite[Ch.~4.1]{ThomasWeise2001}. A second
 consequence of scattering off pointlike spin-$\tfrac{1}{2}$ constituents is the
-Callan--Gross relation $F_{2}(x)=2xF_{1}(x)$, which ties the two structure functions
-together and is well satisfied by the data; had the partons been spinless, $F_{1}$ would
-have vanished instead \cite[Ch.~4.1]{ThomasWeise2001}.
+Callan--Gross relation, which ties the two structure functions together and is well
+satisfied by the data.
+
+The relation follows from comparing two expressions for the same cross section. Written
+in terms of the inelastic structure functions, the inclusive cross section is
+\begin{equation}
+    \frac{\mathrm{d}^{2}\sigma}{\mathrm{d}\Omega\,\mathrm{d}E'}
+    = \left(\dv{\sigma}{\Omega}\right)_{\!\mathrm{Mott}}
+      \left[\,W_{2}(\nu,Q^{2}) + 2\,W_{1}(\nu,Q^{2})\tan^{2}\frac{\theta}{2}\right].
+    \label{eq:inelastic-W1W2}
+\end{equation}
+If the scattering is instead elastic off a free, pointlike spin-$\tfrac{1}{2}$ target of
+mass $m$, the Dirac cross section reads
+\begin{equation}
+    \dv{\sigma}{\Omega}
+    = \left(\dv{\sigma}{\Omega}\right)_{\!\mathrm{Mott}}
+      \left[\,1 + \frac{Q^{2}}{2m^{2}}\tan^{2}\frac{\theta}{2}\right],
+    \label{eq:pointlike-dirac}
+\end{equation}
+the second term being the magnetic scattering off the target's Dirac moment. In the
+parton model the deep-inelastic process \emph{is} elastic scattering off one quark, of
+mass $m = xM$, so matching the coefficients of $\tan^{2}(\theta/2)$ and of the leading
+term between Eqs.~\eqref{eq:inelastic-W1W2} and \eqref{eq:pointlike-dirac} gives
+\begin{equation}
+    2W_{1} = \frac{Q^{2}}{2x^{2}M^{2}}\,W_{2}.
+    \label{eq:W1W2-matching}
+\end{equation}
+Substituting the definitions $F_{1}=MW_{1}$ and $F_{2}=\nu W_{2}$ from
+Eqs.~\eqref{eq:F1-def}--\eqref{eq:F2-def} and using $Q^{2}=2M\nu x$ reduces this to
+\begin{equation}
+    F_{2}(x) = 2x\,F_{1}(x),
+    \label{eq:callan-gross}
+\end{equation}
+the \emph{Callan--Gross relation} \cite[Ch.~4.1]{ThomasWeise2001}. Its content is that
+the magnetic and electric responses of a spin-$\tfrac12$ parton are locked together by
+$g=2$. Had the partons been spinless there would be no magnetic scattering at all,
+$W_{1}=0$, and hence $F_{1}$ would vanish identically---so the experimental confirmation
+of Eq.~\eqref{eq:callan-gross} is direct evidence that the charged partons carry spin
+$\tfrac12$. Thomas and Weise obtain the same relation from helicity conservation in the
+electromagnetic coupling of a high-energy spin-$\tfrac12$ fermion, which forces the
+longitudinal cross section to vanish \cite[Ch.~4.1]{ThomasWeise2001}; the comparison of
+the two cross sections used above follows Halzen and Martin
+\cite[Ch.~9]{HalzenMartin1984}.
 
 In the parton model the structure function $F_{2}$ is a charge-weighted sum over the
 quark momentum distributions,
@@ -364,10 +404,53 @@ the accumulated data span many orders of magnitude in $Q^{2}$ and confirm scalin
 good approximation across most of the $x$ range \cite[Ch.~1]{Amsler2018},
 \cite[Ch.~4.5]{ThomasWeise2001}.
 
-Neutrino scattering provides a complementary and charge-selective probe. The
-charged-current reaction is mediated by the $W$ boson rather than the photon, so it
-couples to a definite quark chirality and introduces a third, parity-violating structure
-function $F_{3}$,
+Neutrino scattering provides a complementary and charge-selective probe.
+
+Making a neutrino beam is an exercise in exploiting the decay lengths of
+Sect.~\ref{subsubsec:decay-length}. A high-energy proton beam strikes a thick target,
+producing large numbers of secondary pions and kaons; these are momentum-selected and
+focused by a magnetic horn into a long evacuated decay tunnel, where they decay in flight
+via
+\begin{equation}
+    \pi^{+} \to \mu^{+}\nu_{\mu},
+    \qquad
+    K^{+} \to \mu^{+}\nu_{\mu},
+    \label{eq:nu-beam-production}
+\end{equation}
+together with the charge-conjugate modes for a $\bar\nu$ beam. At the end of the tunnel a
+thick absorber---tens of meters of iron and earth---stops the surviving hadrons and the
+muons, leaving a beam of neutrinos alone. Selecting $\pi^{+}$ rather than $\pi^{-}$ in the
+horn therefore chooses between a $\nu_{\mu}$ and a $\bar\nu_{\mu}$ beam, which is what
+makes the $\pm F_{3}$ comparison below experimentally possible.
+
+The helicity structure of the weak current then fixes the angular distribution. Neutrinos
+are left-handed and antineutrinos right-handed, and the charged current couples only to
+left-handed quarks (right-handed antiquarks). For $\nu q$ scattering both partners have
+opposite helicities, so the initial state has total angular momentum $J=0$ along the beam:
+the distribution is isotropic and the cross section is flat in $y$. For $\nu\bar q$
+scattering the helicities align, $J=1$, and angular-momentum conservation suppresses
+backward scattering by the familiar factor
+\begin{equation}
+    \frac{\mathrm{d}\sigma}{\mathrm{d}\cos\theta^{*}} \propto
+    \left(\frac{1+\cos\theta^{*}}{2}\right)^{\!2} = (1-y)^{2},
+    \label{eq:helicity-suppression}
+\end{equation}
+where $\theta^{*}$ is the scattering angle in the parton rest frame and the inelasticity
+\begin{equation}
+    y = \frac{\nu}{E}
+    \label{eq:y-lab}
+\end{equation}
+in the laboratory measures the fraction of the beam energy transferred to the hadronic
+system. It is this $(1-y)^{2}$ versus flat behavior---and nothing else---that lets the
+quark and antiquark content be separated, and it is the origin of the $F_{3}$ term in
+Eq.~\eqref{eq:neutrino-xsec} below: the parity-violating structure function arises from
+the vector--axial-vector interference and carries opposite signs for left-handed quarks
+and right-handed antiquarks \cite[Ch.~4.3]{ThomasWeise2001}. Halzen and Martin derive the
+$(1-y)^{2}$ suppression explicitly from neutrino--quark helicity counting
+\cite[Ch.~12]{HalzenMartin1984}; the production of neutrino beams from $\pi$ and $K$ decay
+is described by Perkins \cite[Ch.~11]{Perkins2000}. The charged-current reaction is mediated by the $W$
+boson rather than the photon, so it couples to a definite quark chirality and introduces
+a third, parity-violating structure function $F_{3}$,
 \begin{equation}
     \frac{\mathrm{d}^{2}\sigma^{\nu,\bar\nu}}{\mathrm{d}x\,\mathrm{d}y}
     = \frac{G_{F}^{2}\,s}{2\pi}
@@ -411,7 +494,22 @@ the Gross--Llewellyn-Smith sum rule \cite[Ch.~4.4]{ThomasWeise2001}.
 \label{subsec:dglap}
 
 Bjorken scaling is only approximate. Inspected closely, the structure functions drift
-with $Q^{2}$: at small $x$ they rise and at large $x$ they fall as $Q^{2}$ increases.
+with $Q^{2}$: as $Q^{2}$ increases, $F_{2}$ rises at small $x$ and falls at large $x$,
+the two behaviors separated by a crossover near $x \approx 0.25$ where $F_{2}$ is
+essentially scale independent. The direction of the drift has a simple physical reading.
+Raising $Q^{2}$ sharpens the resolution, so a parton that appeared at large $x$ is
+resolved into a parton of smaller $x$ plus the radiation it emitted; momentum therefore
+\emph{migrates} from large to small $x$, depleting the valence region and populating the
+sea. The crossover is simply the value of $x$ at which loss and gain balance.
+
+This also makes clear which partons the measurement cannot see. A virtual photon couples
+to electric charge, so lepton--nucleon scattering is blind to the gluons: they carry no
+charge and appear in $F_{2}$ only indirectly, through their effect on the evolution. That
+the quarks account for only about half of the nucleon momentum---the rest being carried
+by these invisible gluons---is inferred from the momentum sum rule rather than observed
+directly, and is one of the principal reasons the scaling violations are worth measuring
+so precisely \cite[Ch.~4.2]{ThomasWeise2001}, \cite[Ch.~10]{HalzenMartin1984}.
+
 These \emph{scaling violations} are not a failure of the parton picture but a prediction
 of quantum chromodynamics. As the resolution $Q^{2}$ is raised, the photon resolves ever
 finer structure---a quark is seen to be accompanied by the gluons it radiates and the
@@ -652,18 +750,29 @@ nucleon spin. The Ellis--Jaffe sum rule, which assumes a spin-symmetric sea and 
 octet axial
 charges from hyperon beta decay, predicted
 $\int_{0}^{1}g_{1}^{p}(x)\,\mathrm{d}x = 0.185$, corresponding to quarks carrying most of
-the spin \cite[Ch.~4.6]{ThomasWeise2001}. It is worth being clear about which assumption
+the spin.%
+\footnote{Thomas and Weise \cite[Eq.~4.106]{ThomasWeise2001} quote
+$0.167 \pm 0.008$ at $Q^{2} = 10\;\mathrm{GeV}^{2}$ for the same sum rule; the
+prediction depends on $Q^{2}$ and on the treatment of the QCD corrections, so the two
+values are not in conflict.} It is worth being clear about which assumption
 failed: the closely related Bjorken sum rule, formed from the \emph{difference} of the
 proton and neutron moments, rests only on isospin symmetry and the measured axial charge
 $g_{A}/g_{V}$, and it is well confirmed---so the discrepancy lies in the flavor-singlet
-part, not in the framework \cite[Ch.~4.6]{ThomasWeise2001}. The EMC found instead
+part, not in the framework \cite[Ch.~4.6]{ThomasWeise2001}. In 1988 the EMC found
+instead
 \begin{equation}
     \Delta\Sigma = (14 \pm 3 \pm 10)\,\%,
     \label{eq:EMC-result}
 \end{equation}
 consistent with the quarks carrying almost \emph{none} of the nucleon spin---the
-\emph{proton spin crisis}. Later, higher-statistics data, most notably from COMPASS,
-raised the value to
+\emph{proton spin crisis}.%
+\footnote{The EMC paper reports the measured moment
+$\int_{0}^{1}g_{1}^{p}\,\mathrm{d}x = 0.114 \pm 0.012 \pm 0.026$, from which
+Thomas and Weise \cite[Ch.~4.6]{ThomasWeise2001} infer that the quark helicity
+contribution is very near zero; the percentage quoted here is the corresponding
+$\Delta\Sigma$.} Given how well the quark model accounts for the baryon magnetic
+moments, this was very hard to accept. Later, higher-statistics data, most notably
+from COMPASS, raised the value to
 \begin{equation}
     \Delta\Sigma = (33 \pm 3 \pm 5)\,\%,
     \label{eq:COMPASS-result}
@@ -953,7 +1062,7 @@ inclusive DIS. The relevant single-spin asymmetry on a transversely polarized ta
 in which the chiral-odd transversity $h_{1}$ is paired with the chiral-odd Collins
 function $H_{1}^{\perp}$ so that the product is chiral-even and observable. Measurements at
 HERMES and COMPASS have established non-zero Collins asymmetries for charged pions of
-opposite sign for $\pi^{+}$ and $\pi^{-}$, and global analyses of these data now provide
+opposite sign for $\pi^{+}$ and $\pi^{-}$, and global analyzes of these data now provide
 extractions of the up- and down-quark transversity and of the Collins and Sivers
 functions.
 
@@ -1001,6 +1110,62 @@ probes a product of two parton distributions rather than a distribution convolut
 fragmentation function. Drell--Yan gives access to antiquarks and the sea in a way
 complementary to SIDIS, and, as discussed below, it allows the \emph{process dependence}
 of the TMDs to be tested directly.
+
+The kinematics of the annihilation are fixed by the momentum fractions of the two
+partons. If the colliding hadrons have center-of-mass energy squared $s$ and the quark and
+antiquark carry fractions $x_{1}$ and $x_{2}$ of their parent momenta, then the invariant
+mass of the produced lepton pair satisfies
+\begin{equation}
+    M^{2} = x_{1}x_{2}\,s .
+    \label{eq:dy-mass}
+\end{equation}
+Since $x_{1},x_{2} \le 1$, the parton-level energy is always a fraction of the hadronic
+one, and a collider must therefore run at a $\sqrt{s}$ considerably above the mass of any
+state it hopes to produce---typically by an order of magnitude, because the parton
+distributions fall steeply with $x$ \cite[Ch.~11]{HalzenMartin1984}.
+
+\subsubsection{Discovery of the \texorpdfstring{$W$}{W} and \texorpdfstring{$Z$}{Z} bosons}
+\label{subsubsec:wz-discovery}
+
+Equation~\eqref{eq:dy-mass} is precisely the reasoning that drove the design of the
+CERN $\mathrm{Sp\bar pS}$ collider. To produce the weak gauge bosons, predicted near
+$80$ and $90\;\mathrm{GeV}$, the annihilating quark and antiquark must muster that much
+invariant mass between them; with typical $x \sim 0.15$ this demands a hadronic
+$\sqrt{s}$ of several hundred GeV. Converting the SPS into a proton--antiproton collider
+at $\sqrt{s} = 540\;\mathrm{GeV}$---the scheme for which Rubbia and van der Meer shared
+the 1984 Nobel Prize, the latter for the stochastic cooling that made an intense
+antiproton beam possible---met that requirement. Using antiprotons rather than protons
+was essential: the antiproton supplies a \emph{valence} antiquark, so the annihilation
+proceeds through the large valence distributions rather than the small sea.
+
+The bosons were found by the UA1 and UA2 experiments in 1983 through the leptonic
+channels
+\begin{equation}
+    W^{\pm} \to e^{\pm}\nu\;(\mu^{\pm}\nu),
+    \qquad
+    Z^{0} \to e^{+}e^{-}\;(\mu^{+}\mu^{-}),
+    \label{eq:wz-channels}
+\end{equation}
+whose branching ratios are small but whose signature---an isolated high-transverse-momentum
+lepton, accompanied for the $W$ by large missing transverse momentum from the escaping
+neutrino---is essentially background-free against the overwhelming hadronic cross section.
+The $Z$, with both leptons measured, gives a clean invariant-mass peak; the $W$, with the
+neutrino unmeasured, is reconstructed from the transverse-mass distribution. The measured
+masses, $M_{W} \simeq 80.4\;\mathrm{GeV}$ and $M_{Z} \simeq 91.2\;\mathrm{GeV}$,
+confirmed the electroweak theory quantitatively. The discovery and its analysis are
+described in detail by Perkins \cite[Ch.~7]{Perkins2000}.
+
+The leptonic branching fractions themselves follow from counting the available decay
+channels with color. The $W$ can decay into three lepton generations and, kinematically,
+two quark doublets, each of the latter carrying a factor $3$ for color:
+\begin{equation}
+    \mathrm{BR}(W\to l\nu) \simeq \frac{1}{3 + 2\times 3} = \frac{1}{9}
+    \quad\text{per generation},
+    \label{eq:w-branching}
+\end{equation}
+so roughly $1/3$ of all $W$ decays are leptonic and $2/3$ hadronic---a counting argument
+that is itself indirect evidence for the three colors of
+Sect.~\ref{subsec:color-experiment}.
 
 A first application is the flavor asymmetry of the light-quark sea. Consider
 $p+p\to\mu\mu+X$ and $p+n\to\mu\mu+X$, using isospin symmetry to relate the neutron and
@@ -1528,7 +1693,7 @@ where $x_{L}$ is the longitudinal momentum fraction carried by the recoiling bar
 gives access to the pion structure functions and form factor, at the cost of the pion flux
 parametrization $f_{\pi/p}$, whose model dependence is the dominant uncertainty. Combining
 Drell--Yan data, leading-neutron (Sullivan) data and transverse-momentum spectra, global
-analyses now determine the pion valence, sea and gluon distributions, with the gluon
+analyzes now determine the pion valence, sea and gluon distributions, with the gluon
 carrying a substantial momentum fraction as in the nucleon.
 
 The electromagnetic radii of the mesons are measured by yet another inversion of the usual
@@ -1593,7 +1758,7 @@ obvious and overdue task.
   \centering
   \includegraphics[width=0.95\linewidth]{Figures/pion_pdfs.png}
   \caption{Pion parton distributions. Top: valence, sea and gluon distributions
-           $xf(x)$ from several analyses (GRV, SMRS, JAM, NA3, and a
+           $xf(x)$ from several analyzes (GRV, SMRS, JAM, NA3, and a
            Dyson--Schwinger calculation). Bottom: the JAM 2021 valence
            $q_{v}^{\pi}$, sea $q_{s}^{\pi}$ and gluon $g^{\pi}/10$
            distributions, showing the impact of adding leading-neutron
